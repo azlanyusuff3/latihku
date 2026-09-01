@@ -1,4 +1,4 @@
-/* LatihKu v14 Smart Practice component
+/* LatihKu v15 Smart Practice component
    Offline, rule-based question generation. No API key / internet required.
    Generated items are LatihKu originals and are never labelled as official KPM questions. */
 window.LATIH_SMART = (() => {

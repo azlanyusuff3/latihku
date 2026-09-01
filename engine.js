@@ -1,4 +1,4 @@
-/* LatihKu v14 bundle engine: v10 QA baseline + v11 clock + v13 smart rotation/generator. */
+/* LatihKu v15 bundle engine: v10 QA baseline + v11 clock + v13 smart rotation/generator. */
 window.LATIH_ENGINE = (() => {
   const C=window.LATIH_CONFIG;
   const memory=new Map();

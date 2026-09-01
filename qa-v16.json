@@ -1,0 +1,33 @@
+{
+  "version": "16.0.0",
+  "build": "Real Learning / No Hint",
+  "learning_engine": {
+    "combinations_tested": 306,
+    "invalid": 0,
+    "math_year2_addition_example": "28 + 17 = 45 with place-value regrouping",
+    "bm_simpulan_bahasa": "definition + meaning examples + guided practice",
+    "hint_controls": "REMOVED"
+  },
+  "static_bank": {
+    "items": 1557,
+    "invalid": 0,
+    "duplicate_ids": 0
+  },
+  "syntax": {
+    "app.js": "PASS",
+    "learning-engine.js": "PASS",
+    "engine.js": "PASS",
+    "smart-engine.js": "PASS",
+    "pra-engine.js": "PASS",
+    "config.js": "PASS",
+    "sw.js": "PASS"
+  },
+  "reference_policy": {
+    "approach": "Original concise explanations informed by KPM curriculum/textbook structure; no textbook pages/images copied.",
+    "official_references": [
+      "KPM E-Katalog Buku Teks",
+      "KPM MOBIM BM/BI/Matematik/Sains Tahun 1",
+      "Kurikulum Prasekolah 2026"
+    ]
+  }
+}

@@ -1,141 +1,211 @@
-/* LatihKu v14 Learning Engine — offline micro-lessons, guided activities and sentence writing scaffolds. */
+/* LatihKu v16 Real Learning Engine
+   Original micro-teaching summaries aligned to KPM textbook/DSKP/MOBIM themes.
+   No textbook text/images are copied. Content is rewritten for short interactive learning. */
 window.LATIH_LEARNING = (() => {
   const C=window.LATIH_CONFIG;
   const shuffle=a=>{const b=[...a];for(let i=b.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[b[i],b[j]]=[b[j],b[i]]}return b};
   const pick=a=>a[Math.floor(Math.random()*a.length)];
-  const SUBJECT_INTRO={
-    math:{icon:'🔢',tone:'Nombor jadi mudah bila kita faham langkahnya.',tip:'Lihat pola, buat satu langkah pada satu masa.'},
-    bm:{icon:'📖',tone:'Bahasa jadi seronok bila perkataan boleh dibina menjadi ayat.',tip:'Baca ayat perlahan-lahan dan cari siapa, buat apa, di mana.'},
-    en:{icon:'🔤',tone:'English grows from useful words into clear sentences.',tip:'Start with who + action + object/place.'},
-    sci:{icon:'🔬',tone:'Sains bermula dengan memerhati, bertanya dan menerangkan sebab.',tip:'Tanya: apa yang berlaku, bagaimana dan mengapa?'},
-    hist:{icon:'🏛️',tone:'Sejarah ialah cerita tentang orang, tempat dan peristiwa.',tip:'Susun siapa, bila, di mana dan mengapa.'},
-    islam:{icon:'🕌',tone:'Belajar dengan faham maksud, amalan dan contoh dalam kehidupan.',tip:'Faham dahulu, kemudian kaitkan dengan amalan harian.'},
-    moral:{icon:'🤝',tone:'Nilai lebih mudah difahami melalui situasi sebenar.',tip:'Fikir tindakan yang baik dan kesannya kepada orang lain.'},
-    pjpk:{icon:'🏃',tone:'Belajar cara menjaga badan, keselamatan dan pergerakan.',tip:'Kaitkan konsep dengan aktiviti harian.'},
-    pra:{icon:'🧒',tone:'Belajar melalui lihat, dengar, sentuh dan cuba.',tip:'Buat aktiviti pendek dan ulang dengan cara berbeza.'}
-  };
-  const TOPIC_NOTES={
-    math:{
-      'Nombor':['Kenal nilai digit dan susunan nombor.','Bandingkan nombor dari kecil ke besar.','Gunakan nilai tempat untuk membaca nombor dengan betul.'],
-      'Tambah & Tolak':['Tambah bermaksud menggabungkan kuantiti.','Tolak bermaksud mencari beza atau baki.','Semak jawapan dengan operasi songsang.'],
-      'Darab & Bahagi':['Darab ialah penambahan berulang.','Bahagi ialah membahagi kepada kumpulan sama banyak.','Fakta asas membantu kira dengan lebih cepat.'],
-      'Pecahan':['Pecahan menunjukkan bahagian daripada satu keseluruhan.','Penyebut memberitahu jumlah bahagian sama besar.','Pembilang memberitahu berapa bahagian yang diambil.'],
-      'Wang':['Kenal nilai ringgit dan sen.','Jumlahkan harga untuk mencari jumlah bayaran.','Baki = wang dibayar − harga.'],
-      'Masa':['Jarum pendek menunjukkan jam.','Jarum panjang menunjukkan minit.','60 minit bersamaan 1 jam.'],
-      'Ukuran':['Pilih unit yang sesuai sebelum mengira.','100 cm = 1 m dan 1000 g = 1 kg.','Banding ukuran menggunakan unit yang sama.'],
-      'Bentuk & Ruang':['Bentuk mempunyai ciri seperti sisi, bucu dan permukaan.','Bentuk 2D rata; bentuk 3D mempunyai ruang.','Perhatikan ciri sebelum menamakan bentuk.'],
-      'Data':['Data boleh disusun dalam jadual atau graf.','Cari maklumat tertinggi, terendah atau jumlah.','Baca label sebelum membuat kesimpulan.']
-    },
-    bm:{
-      'Kosa Kata':['Kosa kata ialah perkataan yang kita faham dan gunakan.','Lihat konteks ayat untuk meneka maksud.','Gunakan perkataan baharu dalam ayat sendiri.'],
-      'Tatabahasa':['Ayat biasanya mempunyai subjek dan cerita tentang subjek itu.','Kata nama menamakan orang, benda atau tempat.','Kata kerja menunjukkan perbuatan.'],
-      'Ejaan':['Dengar bunyi perkataan mengikut suku kata.','Semak huruf yang hampir sama bunyi.','Baca semula perkataan selepas mengeja.'],
-      'Penjodoh Bilangan':['Penjodoh bilangan digunakan bersama kata bilangan dan kata nama.','Contoh: seorang murid, seekor kucing, sebatang pensel.','Pilih berdasarkan jenis benda atau makhluk.'],
-      'Simpulan Bahasa':['Simpulan bahasa mempunyai maksud khas, bukan maksud perkataan satu-satu.','Fahami melalui situasi dan contoh ayat.','Gunakan hanya apabila maksudnya sesuai.'],
-      'Pemahaman':['Baca soalan dahulu supaya tahu maklumat yang dicari.','Cari bukti dalam petikan.','Jawab menggunakan maklumat, bukan tekaan semata-mata.']
-    },
-    en:{
-      'Vocabulary':['Learn a small group of useful words at a time.','Connect a word with a picture, action or situation.','Use the new word in your own sentence.'],
-      'Grammar':['A basic sentence needs a subject and a verb.','Word order changes meaning.','Read the whole sentence before choosing a form.'],
-      'Tenses':['Tense tells us when an action happens.','Present: happens now/often. Past: already happened.','Time words can help you choose the tense.'],
-      'Prepositions':['Prepositions show position or relationship.','Examples: in, on, under, beside, behind.','Use the picture or situation as a clue.'],
-      'Sentence':['Start with who/what, then an action, then more detail.','Use a capital letter at the start.','Finish with suitable punctuation.'],
-      'Comprehension':['Read the question first.','Find evidence in the text.','Answer with information from the passage.']
-    },
-    sci:{
-      'Kemahiran Sains':['Perhatikan dengan teliti menggunakan deria atau alat.','Bandingkan, ukur dan rekod apa yang berubah.','Buat kesimpulan berdasarkan bukti.'],
-      'Manusia':['Kenal bahagian badan dan fungsinya.','Sistem badan bekerja bersama.','Tabiat sihat membantu badan berfungsi dengan baik.'],
-      'Haiwan':['Haiwan mempunyai ciri dan keperluan berbeza.','Banding habitat, makanan dan cara pembiakan.','Klasifikasikan berdasarkan ciri yang boleh diperhatikan.'],
-      'Tumbuhan':['Tumbuhan memerlukan air, cahaya dan keadaan sesuai.','Bahagian tumbuhan mempunyai fungsi tertentu.','Perhatikan perubahan semasa tumbuhan membesar.'],
-      'Bahan':['Bahan mempunyai sifat berbeza.','Pilih bahan berdasarkan kegunaan dan sifat.','Bandingkan keras/lembut, menyerap/tidak dan sebagainya.'],
-      'Tenaga':['Tenaga membolehkan perubahan dan aktiviti berlaku.','Kenal sumber dan bentuk tenaga.','Perhatikan perubahan tenaga dalam situasi harian.'],
-      'Bumi & Angkasa':['Perhatikan pola siang, malam dan objek di langit.','Bumi ialah sebahagian daripada sistem yang lebih besar.','Gunakan pemerhatian untuk menerangkan perubahan.'],
-      'Teknologi':['Teknologi membantu menyelesaikan masalah.','Reka bentuk yang baik memenuhi fungsi dan keselamatan.','Nilai kelebihan dan kekurangan sesuatu alat.']
-    },
-    hist:{
-      'Diri & Keluarga':['Sejarah diri boleh dilihat melalui kronologi peristiwa.','Sumber seperti gambar dan dokumen membantu mengingati masa lalu.','Susun peristiwa mengikut urutan masa.'],
-      'Sekolah & Tempat Tinggal':['Tempat mempunyai sejarah dan identiti.','Cari perubahan dahulu dan sekarang.','Kenal tokoh, bangunan atau peristiwa penting setempat.'],
-      'Zaman Prasejarah':['Zaman prasejarah berlaku sebelum rekod tulisan.','Cara hidup berubah mengikut pengetahuan dan alat.','Banding tempat tinggal, kegiatan dan teknologi.'],
-      'Kerajaan Melayu':['Kerajaan berkembang melalui pemerintahan, perdagangan dan hubungan.','Kenal lokasi, tokoh dan sumbangan.','Hubungkan sebab dengan perkembangan kerajaan.'],
-      'Tokoh & Kemerdekaan':['Tokoh menyumbang melalui tindakan dan kepimpinan.','Kemerdekaan melibatkan usaha dan rundingan.','Susun peristiwa penting secara kronologi.'],
-      'Malaysia':['Malaysia mempunyai identiti, simbol dan sistem tersendiri.','Kenal negeri, lambang dan institusi penting.','Hormati kepelbagaian sebagai sebahagian identiti negara.']
-    },
-    islam:{
-      'Akidah':['Akidah berkaitan kepercayaan asas seorang Muslim.','Fahami maksud sebelum menghafal istilah.','Kaitkan kepercayaan dengan sikap dan amalan.'],
-      'Ibadah':['Ibadah mempunyai tujuan, tertib dan syarat tertentu.','Belajar langkah mengikut urutan.','Latih melalui situasi harian.'],
-      'Sirah':['Sirah mengajar peristiwa dan teladan daripada kehidupan Rasulullah SAW.','Kenal tokoh, tempat dan urutan peristiwa.','Cari pengajaran daripada setiap kisah.'],
-      'Akhlak':['Akhlak baik ditunjukkan melalui tindakan.','Fikir kesan tindakan kepada diri dan orang lain.','Pilih contoh yang boleh diamalkan setiap hari.'],
-      'Jawi':['Jawi menulis Bahasa Melayu menggunakan huruf berasaskan Arab.','Kenal bentuk huruf dan cara huruf bersambung.','Baca dan bina perkataan sedikit demi sedikit.']
-    },
-    moral:{
-      'Kepercayaan':['Nilai membantu kita membuat pilihan yang baik.','Pertimbangkan prinsip dan akibat tindakan.','Hormati pegangan yang baik dalam kehidupan.'],
-      'Hormat':['Hormat ditunjukkan melalui kata dan tindakan.','Dengar, bercakap sopan dan jaga batas.','Pilih tindakan yang menjaga maruah orang lain.'],
-      'Tanggungjawab':['Tanggungjawab ialah melaksanakan tugas dengan baik.','Fikir apa yang perlu dibuat tanpa disuruh berulang kali.','Terima akibat pilihan sendiri.'],
-      'Kejujuran':['Jujur bermaksud bercakap dan bertindak benar.','Kejujuran membina kepercayaan.','Pilih tindakan benar walaupun sukar.'],
-      'Kerjasama':['Kerjasama memerlukan peranan dan komunikasi.','Bantu kumpulan mencapai tujuan bersama.','Hargai sumbangan setiap orang.'],
-      'Kasih Sayang':['Kasih sayang ditunjukkan melalui perhatian dan bantuan.','Fikir keperluan orang lain.','Gunakan tindakan yang selamat dan sesuai.']
-    },
-    pjpk:{
-      'Kecergasan':['Badan menjadi lebih cergas melalui aktiviti konsisten.','Pemanasan dan penyejukan membantu keselamatan.','Seimbangkan aktiviti dengan rehat.'],
-      'Pemakanan':['Pilih makanan pelbagai dan seimbang.','Air penting untuk badan.','Kenal pilihan yang lebih baik untuk kesihatan.'],
-      'Keselamatan':['Kenal bahaya sebelum bertindak.','Ikut peraturan dan gunakan peralatan dengan betul.','Minta bantuan orang dewasa apabila perlu.'],
-      'Kebersihan':['Kebersihan membantu mengurangkan risiko penyakit.','Basuh tangan pada masa yang sesuai.','Jaga badan, pakaian dan persekitaran.'],
-      'Pergerakan':['Pergerakan asas termasuk berjalan, melompat dan membaling.','Kawal imbangan dan ruang.','Gunakan teknik selamat.'],
-      'Kesihatan':['Kesihatan melibatkan fizikal, emosi dan tabiat harian.','Tidur, air dan aktiviti memberi kesan.','Buat pilihan yang menyokong kesejahteraan.']
-    },
-    pra:{
-      'Kenali Huruf':['Lihat bentuk huruf.','Sebut bunyi atau nama huruf.','Cari huruf yang sama dalam perkataan mudah.'],
-      'Kenali Nombor':['Kenal simbol nombor.','Padankan nombor dengan kuantiti.','Susun nombor mengikut urutan.'],
-      'Lukis':['Pegang dan gerakkan jari dengan terkawal.','Ikut garisan sebelum melukis sendiri.','Cuba bentuk mudah dahulu.'],
-      'Mewarna':['Pilih warna dan isi kawasan.','Cuba kekal dalam bentuk.','Sebut nama warna semasa mewarna.'],
-      'Ejaan':['Dengar bunyi perkataan.','Pecahkan kepada bahagian mudah.','Padankan huruf dengan bunyi.'],
-      'Memory':['Lihat kedudukan gambar.','Ingat pasangan yang sama.','Cuba strategi satu baris demi satu baris.'],
-      'Deria & Alam':['Gunakan deria untuk memerhati.','Bandingkan apa yang dilihat, didengar atau disentuh.','Sebut ciri mudah objek di sekeliling.'],
-      'Pendengaran':['Dengar sampai habis.','Bezakan bunyi atau perkataan.','Ulang sebut selepas mendengar.'],
-      'Susun Nombor':['Cari nombor paling kecil dahulu.','Susun satu demi satu.','Semak urutan selepas siap.'],
-      'Kira-kira':['Sentuh atau tunjuk objek satu demi satu.','Sebut nombor semasa mengira.','Nombor terakhir ialah jumlah objek.'],
-      'Jam & Masa':['Kenal nombor pada muka jam.','Jarum pendek menunjukkan jam.','Mulakan dengan pukul tepat dahulu.'],
-      'Campur-campur':['Cuba aktiviti pendek yang berbeza.','Gunakan lihat, dengar dan sentuh.','Ulang aktiviti yang masih sukar.']
+  const y=n=>Math.max(1,Math.min(6,Number(n)||1));
+  const mc=(question,correct,wrong,explanation)=>({question,correct,options:shuffle([correct,...wrong.slice(0,3)]),explanation});
+  const activity=(prompt,good,bad)=>({prompt,cards:shuffle(good.map(text=>({text,ok:true})).concat(bad.map(text=>({text,ok:false}))))});
+  const base=(o)=>({
+    goal:o.goal||'Faham konsep dan boleh gunakannya dalam contoh mudah.',
+    definition:o.definition||'',
+    bullets:o.bullets||[],
+    steps:o.steps||[],
+    example:o.example||null,
+    tip:o.tip||'Baca satu langkah pada satu masa dan cuba terangkan semula dengan ayat sendiri.',
+    guided:o.guided,
+    concept:o.concept,
+    sentence:o.sentence||null,
+    sourceNote:'Ringkasan original LatihKu berasaskan struktur topik KPM/DSKP/buku teks; bukan salinan buku teks.'
+  });
+
+  function mathLesson(level,topic){
+    const n=y(level);
+    if(topic==='Nombor'){
+      const max=[0,100,1000,10000,100000,1000000,10000000][n];
+      const num=[0,47,326,4825,37426,506218,2406315][n];
+      const place=n<=1?'puluh dan sa':n===2?'ratus, puluh dan sa':n===3?'ribu, ratus, puluh dan sa':'nilai tempat dari sa hingga nilai terbesar';
+      return base({goal:`Baca, bina dan faham nombor hingga ${max.toLocaleString('ms-MY')}.`,definition:`Setiap digit mempunyai nilai mengikut kedudukannya. Kita baca nombor dengan melihat ${place}.`,bullets:[`Digit yang sama boleh bernilai berbeza mengikut tempatnya.`,`Nilai digit = digit × nilai tempat.`,`Banding nombor dari digit paling kiri dahulu.`],steps:[{title:'1. Lihat digit',text:`Contoh nombor ${num.toLocaleString('ms-MY')}.`},{title:'2. Kenal tempat',text:n===1?'4 ialah 4 puluh, 7 ialah 7 sa.':`Pecahkan nombor kepada nilai tempatnya.`},{title:'3. Gabung semula',text:`Jumlah semua nilai tempat membentuk ${num.toLocaleString('ms-MY')}.`}],example:{title:'Contoh nilai tempat',work:n===1?'47 = 40 + 7':n===2?'326 = 300 + 20 + 6':n===3?'4,825 = 4,000 + 800 + 20 + 5':`${num.toLocaleString('ms-MY')} boleh dipecahkan mengikut nilai tempat.`,explain:'Pecahan nilai tempat membantu membaca, membanding dan mengira dengan lebih tepat.'},guided:mc(`Dalam nombor ${n===1?'63':n===2?'542':'7,304'}, apakah nilai digit ${n===1?'6':n===2?'5':'7'}?`,n===1?'60':n===2?'500':'7,000',n===1?['6','600','30']:n===2?['50','700','5,000']:['700','70','7'],'Lihat kedudukan digit dahulu, kemudian tentukan nilai tempatnya.'),concept:activity('Pilih dua kenyataan yang betul tentang nilai tempat.', ['Digit di sebelah kiri biasanya mempunyai nilai tempat lebih besar.','Nombor boleh dipecahkan kepada jumlah nilai tempat.'],['Semua digit sentiasa bernilai sama walaupun kedudukan berubah.','Kita hanya perlu melihat digit paling kanan untuk membaca nombor.'])});
     }
-  };
+    if(topic==='Tambah & Tolak'){
+      const add=n===1?['8 + 5','8 + 5 = 13','Gabungkan 8 objek dengan 5 objek. Kira semuanya.']:n===2?['28 + 17','28 + 17 = 45','8 + 7 = 15. Tulis 5 sa dan kumpulkan 10 sa menjadi 1 puluh. Kemudian 2 puluh + 1 puluh + 1 puluh = 4 puluh.']:n===3?['368 + 257','368 + 257 = 625','Tambah dari sa ke puluh ke ratus. Kumpul semula apabila jumlah satu lajur 10 atau lebih.']:['2,745 + 1,689','2,745 + 1,689 = 4,434','Susun nombor mengikut nilai tempat. Tambah dari kanan dan kumpul semula apabila perlu.'];
+      const sub=n===1?'13 − 5 = 8':n===2?'45 − 17 = 28':n===3?'625 − 257 = 368':'4,434 − 1,689 = 2,745';
+      return base({goal:'Faham maksud tambah dan tolak, kemudian kira dengan langkah yang betul.',definition:'Tambah menggabungkan kuantiti. Tolak mencari baki, beza atau berapa yang tinggal.',bullets:['Untuk kira bertulis, susun digit mengikut nilai tempat.','Tambah/tolak bermula dari sa (kanan).','Kumpul semula atau pinjam apabila nilai dalam satu tempat tidak mencukupi.'],steps:[{title:'1. Susun nilai tempat',text:`Tulis ${add[0]} dengan sa di bawah sa, puluh di bawah puluh.`},{title:'2. Kira dari kanan',text:add[2]},{title:'3. Semak',text:`Jawapan tambah boleh disemak dengan tolak: ${sub}.`}],example:{title:'Contoh tambah',work:add[1],explain:add[2]},guided:mc(n===1?'Mira ada 7 pensel. Dia dapat 4 lagi. Berapa semuanya?':n===2?'Kira 36 + 27. Apakah jawapannya?':'Kira 245 + 178. Apakah jawapannya?',n===1?'11':n===2?'63':'423',n===1?['3','10','12']:n===2?['53','62','73']:['413','4230','333'],'Tambah bermaksud gabungkan. Susun nilai tempat dan kira dari kanan.'),concept:activity('Pilih dua langkah yang membantu membuat tambah/tolak dengan betul.',['Susun digit mengikut nilai tempat.','Semak jawapan menggunakan operasi songsang apabila sesuai.'],['Campurkan kedudukan sa dan puluh.','Mulakan kira secara rawak dari mana-mana digit.'])});
+    }
+    if(topic==='Darab & Bahagi'){
+      const ex=n===1?'3 kumpulan × 2 objek = 6':n===2?'4 × 5 = 20':n===3?'24 ÷ 6 = 4':'36 × 24 boleh dipecahkan kepada 36 × 20 + 36 × 4';
+      return base({goal:'Faham darab sebagai kumpulan sama banyak dan bahagi sebagai pengagihan sama rata.',definition:'Darab ialah penambahan berulang atau kumpulan sama banyak. Bahagi ialah mengagihkan jumlah kepada kumpulan sama banyak atau mencari bilangan kumpulan.',bullets:['Darab dan bahagi ialah operasi songsang.','Fakta asas sifir membantu kira lebih cepat.','Dalam masalah ayat, tentukan sama ada kita mencari jumlah atau saiz/bilangan kumpulan.'],steps:[{title:'1. Bina kumpulan',text:n<=2?'Lukis atau bayangkan kumpulan yang sama banyak.':'Kenal pasti faktor atau pembahagi.'},{title:'2. Kira',text:ex},{title:'3. Semak songsang',text:n<=2?'20 ÷ 5 = 4, jadi 4 × 5 = 20.':'Jika 24 ÷ 6 = 4, maka 4 × 6 = 24.'}],example:{title:'Hubungan darab dan bahagi',work:ex,explain:'Satu fakta darab boleh membantu menghasilkan fakta bahagi yang berkaitan.'},guided:mc(n<=2?'Ada 5 bakul. Setiap bakul ada 3 epal. Berapa epal semuanya?':'48 gula-gula dibahagi sama rata kepada 6 murid. Setiap murid dapat berapa?',n<=2?'15':'8',n<=2?['8','10','20']:['6','7','9'],'Kumpulan sama banyak menggunakan darab; pembahagian sama rata menggunakan bahagi.'),concept:activity('Pilih dua kenyataan yang betul.',['3 + 3 + 3 + 3 boleh ditulis sebagai 4 × 3.','20 ÷ 5 = 4 berkaitan dengan 4 × 5 = 20.'],['Darab bermaksud sentiasa menolak nombor.','Bahagi bermaksud semua kumpulan boleh mempunyai bilangan berbeza.'])});
+    }
+    if(topic==='Pecahan'){
+      const ex=n===1?'½ bermaksud 1 daripada 2 bahagian sama besar.':n===2?'¼ bermaksud 1 daripada 4 bahagian sama besar.':n===3?'2/4 dan 1/2 menunjukkan nilai yang sama.':n===4?'2/7 + 3/7 = 5/7':n===5?'1 1/2 = 3/2':'3/4 daripada 20 = 15';
+      return base({goal:'Faham pecahan sebagai bahagian sama besar daripada satu keseluruhan.',definition:'Penyebut menunjukkan jumlah bahagian sama besar. Pembilang menunjukkan berapa bahagian yang diambil atau ditunjukkan.',bullets:['Bahagian mesti sama besar untuk mewakili pecahan dengan adil.','Penyebut berada di bawah; pembilang di atas.','Untuk operasi pecahan, lihat penyebut dan jenis soalan dahulu.'],steps:[{title:'1. Bayangkan keseluruhan',text:'Contohnya satu pizza atau satu jalur kertas.'},{title:'2. Bahagi sama besar',text:n<=2?'Bahagi kepada 2 atau 4 bahagian sama besar.':'Kenal pasti penyebut sebagai jumlah bahagian.'},{title:'3. Ambil bahagian',text:ex}],example:{title:'Contoh pecahan',work:ex,explain:'Gambar, jalur pecahan atau objek sebenar membantu melihat nilai pecahan.'},guided:mc(n<=2?'Satu kek dibahagi kepada 4 bahagian sama besar. Amir makan 1 bahagian. Pecahan yang dimakan?':n<=4?'Apakah 1/2 yang setara dengan penyebut 4?':'Apakah 3/4 daripada 12?',n<=2?'1/4':n<=4?'2/4':'9',n<=2?['1/2','3/4','4/1']:n<=4?['1/4','3/4','4/2']:['3','6','12'],'Gunakan maksud pembilang dan penyebut; untuk pecahan daripada kuantiti, bahagikan kemudian darab.'),concept:activity('Pilih dua idea yang betul tentang pecahan.',['Penyebut memberitahu jumlah bahagian sama besar.','Pembilang memberitahu bahagian yang diambil/ditunjukkan.'],['Pecahan boleh menggunakan bahagian yang tidak sama besar.','Penyebut sentiasa lebih kecil daripada pembilang.'])});
+    }
+    if(topic==='Wang'){
+      const ex=n===1?'RM2 + RM3 = RM5':n===2?'RM12.50 + RM6.20 = RM18.70':n<=4?'RM20.00 − RM13.40 = RM6.60 baki':'Jumlah harga beberapa barang dahulu, kemudian banding dengan wang dibayar.';
+      return base({goal:'Kenal nilai wang dan gunakan operasi untuk jumlah, beza dan baki.',definition:'Ringgit dan sen ialah unit wang Malaysia. 100 sen = RM1.',bullets:['Pastikan titik perpuluhan ringgit dan sen sejajar semasa kira bertulis.','Jumlah = campurkan harga.','Baki = wang dibayar − jumlah harga.'],steps:[{title:'1. Kenal maklumat',text:'Cari harga, jumlah wang dan apa yang soalan minta.'},{title:'2. Pilih operasi',text:'Jumlah gunakan tambah; baki biasanya gunakan tolak.'},{title:'3. Kira dan tulis unit',text:ex}],example:{title:'Contoh wang',work:ex,explain:'Tulis RM atau sen dengan betul pada jawapan.'},guided:mc('Aina membeli buku RM8 dan pensel RM3. Berapa jumlah bayaran?','RM11',['RM5','RM8','RM24'],'Jumlah harga ialah 8 + 3 = 11.'),concept:activity('Pilih dua kenyataan yang betul.',['100 sen bersamaan RM1.','Baki dikira dengan wang dibayar tolak jumlah harga.'],['RM1 bersamaan 10 sen.','Baki dikira dengan menambah harga kepada wang dibayar.'])});
+    }
+    if(topic==='Masa'){
+      const ex=n===1?'Jarum minit di 12 dan jarum jam di 4 = pukul 4:00.':n===2?'Jarum minit di 6 = 30 minit = setengah jam.':n===3?'Dari 2:15 hingga 3:00 ialah 45 minit.':n===4?'18:30 ialah 6:30 petang.':'Tempoh = masa tamat − masa mula, dengan pertukaran jam/minit jika perlu.';
+      return base({goal:'Baca masa dan faham hubungan jam, minit serta tempoh.',definition:'Satu jam mempunyai 60 minit. Jarum pendek menunjukkan jam dan jarum panjang menunjukkan minit.',bullets:['Setiap nombor pada jam mewakili 5 minit untuk jarum minit.','30 minit = setengah jam; 15 minit = suku jam.','Tempoh mengukur berapa lama sesuatu aktiviti berlaku.'],steps:[{title:'1. Baca jarum jam',text:'Lihat jarum pendek dahulu.'},{title:'2. Baca minit',text:'Darab nombor yang ditunjuk jarum minit dengan 5.'},{title:'3. Gabung atau cari tempoh',text:ex}],example:{title:'Contoh masa',work:ex,explain:'Gunakan muka jam atau garis masa untuk melihat perubahan masa.'},guided:mc(n<=2?'Jarum minit menunjuk 6. Berapa minit?':'Sebuah kelas bermula 8:00 dan tamat 8:45. Berapa lama?',n<=2?'30 minit':'45 minit',n<=2?['6 minit','15 minit','60 minit']:['30 minit','60 minit','1 jam 45 minit'],'Setiap nombor pada muka jam bersamaan 5 minit untuk jarum minit.'),concept:activity('Pilih dua kenyataan yang betul.',['60 minit = 1 jam.','Jarum panjang digunakan untuk membaca minit.'],['30 minit = 2 jam.','Jarum pendek sentiasa menunjukkan minit.'])});
+    }
+    if(topic==='Ukuran'){
+      return base({goal:'Ukur dan banding panjang, jisim dan isipadu menggunakan unit sesuai.',definition:'Ukuran memberitahu berapa panjang, berat/jisim atau banyak sesuatu. Unit perlu sesuai dengan benda yang diukur.',bullets:['Panjang: mm, cm, m, km.','Jisim: g, kg. Isipadu cecair: mL, L.','Sebelum tambah/tolak ukuran, tukar kepada unit yang sama jika perlu.'],steps:[{title:'1. Pilih jenis ukuran',text:'Adakah kita mengukur panjang, jisim atau cecair?'},{title:'2. Pilih unit sesuai',text:'Pensel sesuai cm; jarak bandar sesuai km; air botol sesuai mL/L.'},{title:'3. Kira atau banding',text:n<=2?'Baca skala dengan tepat dari tanda sifar.':'Tukar unit jika perlu sebelum operasi.'}],example:{title:'Contoh unit',work:n<=2?'Panjang buku = 24 cm':'2 m 35 cm = 235 cm',explain:'Unit yang sama memudahkan perbandingan dan operasi.'},guided:mc('Unit manakah paling sesuai untuk mengukur panjang sebuah pensel?','cm',['km','kg','L'],'Pensel ialah objek kecil; sentimeter sesuai untuk panjangnya.'),concept:activity('Pilih dua pasangan ukuran yang sesuai.',['Panjang meja — cm atau m.','Jisim beg sekolah — kg.'],['Air dalam botol — km.','Jarak rumah ke sekolah — gram.'])});
+    }
+    if(topic==='Bentuk & Ruang'){
+      return base({goal:'Kenal bentuk melalui ciri, bukan hanya rupa.',definition:'Bentuk 2D ialah bentuk rata. Bentuk 3D mempunyai ruang/isipadu. Kita menamakan bentuk berdasarkan cirinya.',bullets:['2D: sisi dan bucu.','3D: permukaan, bucu dan tepi bergantung pada bentuk.','Simetri, sudut dan kedudukan membantu menerangkan bentuk dengan lebih tepat.'],steps:[{title:'1. Perhatikan',text:'Kira sisi, bucu atau permukaan.'},{title:'2. Banding ciri',text:'Cari bentuk lain yang mempunyai ciri sama atau berbeza.'},{title:'3. Namakan',text:n<=2?'Contoh: segi tiga ada 3 sisi.':'Gunakan istilah bentuk dan ciri yang tepat.'}],example:{title:'Contoh ciri',work:'Segi empat sama mempunyai 4 sisi sama panjang dan 4 bucu.',explain:'Nama bentuk datang daripada ciri yang boleh diperhatikan.'},guided:mc('Bentuk manakah mempunyai 3 sisi?','Segi tiga',['Bulatan','Segi empat sama','Kubus'],'Segi tiga mempunyai tiga sisi dan tiga bucu.'),concept:activity('Pilih dua kenyataan yang betul.',['Bulatan ialah bentuk 2D.','Kubus ialah bentuk 3D.'],['Segi tiga mempunyai 4 sisi.','Semua bentuk 3D ialah rata.'])});
+    }
+    if(topic==='Data'){
+      return base({goal:'Baca, susun dan terangkan maklumat daripada jadual atau graf.',definition:'Data ialah maklumat yang dikumpulkan. Jadual, piktograf dan graf membantu kita melihat pola dengan lebih mudah.',bullets:['Baca tajuk dan label dahulu.','Banding nilai tertinggi, terendah dan jumlah.','Kesimpulan mesti berdasarkan data yang ditunjukkan.'],steps:[{title:'1. Baca tajuk',text:'Tahu apa yang diukur.'},{title:'2. Baca label/skala',text:'Pastikan satu simbol atau satu petak mewakili berapa.'},{title:'3. Jawab daripada bukti',text:'Cari nilai yang diminta sebelum membuat kesimpulan.'}],example:{title:'Contoh mudah',work:'Epal 5, Oren 3, Pisang 7 → Pisang paling banyak.',explain:'Kita membandingkan bilangan dalam data, bukan meneka.'},guided:mc('Data menunjukkan merah 8, biru 5, hijau 6. Warna paling banyak?','Merah',['Biru','Hijau','Semuanya sama'],'8 ialah nilai tertinggi.'),concept:activity('Pilih dua langkah yang betul semasa membaca graf.',['Baca tajuk dan label paksi/skala.','Gunakan nilai pada graf sebagai bukti.'],['Abaikan skala graf.','Teka jawapan berdasarkan warna kegemaran.'])});
+    }
+    return mathLesson(level,'Nombor');
+  }
+
+  function bmLesson(level,topic){
+    const n=y(level);
+    const common={icon:'📖'};
+    if(topic==='Simpulan Bahasa') return base({goal:'Faham bahawa simpulan bahasa membawa maksud khas dan boleh digunakan dalam ayat yang sesuai.',definition:'Simpulan bahasa ialah gabungan perkataan yang mempunyai maksud khas. Maksudnya tidak semestinya sama dengan maksud setiap perkataan secara langsung.',bullets:['Baca seluruh simpulan bahasa sebagai satu ungkapan.','Fahami maksud melalui situasi atau ayat.','Pilih simpulan bahasa yang sesuai dengan perangai atau keadaan.'],steps:[{title:'1. Kenal ungkapan',text:'Contoh: “ringan tulang”.'},{title:'2. Faham maksud khas',text:'“Ringan tulang” bermaksud rajin membantu, bukan tulang yang ringan.'},{title:'3. Guna dalam ayat',text:'Aisyah ringan tulang kerana selalu membantu ibunya mengemas rumah.'}],example:{title:'Tiga contoh mudah',work:'ringan tulang = rajin membantu · buah tangan = hadiah yang dibawa · kaki ayam = tidak memakai kasut',explain:'Cari maksud berdasarkan penggunaan dalam situasi sebenar.'},guided:mc('Hakim selalu membantu guru mengangkat buku dan menyusun kerusi. Simpulan bahasa yang sesuai?','ringan tulang',['kaki ayam','buah tangan','besar kepala'],'“Ringan tulang” digunakan untuk orang yang rajin membantu.'),concept:activity('Pilih dua padanan simpulan bahasa yang betul.',['buah tangan — hadiah yang dibawa ketika berkunjung','kaki ayam — tidak memakai kasut'],['ringan tulang — mudah patah tulang','buah tangan — buah yang dipegang di tangan']),sentence:sentenceActivity(level,'bm','simpulan')});
+    if(topic==='Penjodoh Bilangan') return base({goal:'Pilih penjodoh bilangan mengikut jenis manusia, haiwan atau benda.',definition:'Penjodoh bilangan ialah perkataan yang digunakan bersama kata bilangan untuk menyatakan bilangan sesuatu.',bullets:['orang untuk manusia: seorang murid.','ekor untuk kebanyakan haiwan: seekor kucing.','batang/helai/buah digunakan mengikut bentuk atau jenis benda.'],steps:[{title:'1. Lihat kata nama',text:'Adakah orang, haiwan atau benda?'},{title:'2. Fikir ciri',text:'Benda panjang → sebatang; benda nipis/lembaran → sehelai.'},{title:'3. Bina frasa',text:'dua batang pensel, tiga helai kertas, sebuah kereta.'}],example:{title:'Contoh',work:'seorang guru · seekor arnab · sebatang pensel · sehelai baju/kertas · sebuah rumah',explain:'Pilihan bergantung pada jenis dan ciri kata nama.'},guided:mc('Pilih penjodoh bilangan yang sesuai: ___ kucing','seekor',['sebatang','sehelai','seorang'],'Kucing ialah haiwan; “ekor” digunakan sebagai penjodoh bilangan.'),concept:activity('Pilih dua frasa yang betul.',['seorang doktor','sebatang pensel'],['seekor meja','sehelai kereta']),sentence:sentenceActivity(level,'bm','general')});
+    if(topic==='Tatabahasa'){
+      const focus=n===1?'kata nama dan kata kerja':n===2?'kata nama, kata kerja dan kata adjektif':n===3?'kata hubung dan imbuhan asas':n<=4?'jenis kata dan binaan ayat':n===5?'imbuhan, kata majmuk dan struktur ayat':'struktur ayat, imbuhan dan penggunaan kata yang tepat';
+      return base({goal:`Kenal fungsi perkataan dalam ayat, dengan fokus ${focus}.`,definition:'Tatabahasa ialah aturan yang membantu kita memilih dan menyusun perkataan supaya ayat jelas dan betul.',bullets:['Kata nama menamakan orang, tempat atau benda.','Kata kerja menunjukkan perbuatan.','Kata adjektif menerangkan sifat; kata hubung menghubungkan idea.'],steps:[{title:'1. Cari siapa/apa',text:'Itu biasanya kata nama atau subjek.'},{title:'2. Cari perbuatan',text:'Perkataan yang menunjukkan tindakan ialah kata kerja.'},{title:'3. Tambah keterangan',text:'Gunakan kata adjektif/tempat/masa atau kata hubung untuk menjadikan ayat lebih lengkap.'}],example:{title:'Bedah ayat',work:'“Aiman membaca buku tebal.” → Aiman (kata nama), membaca (kata kerja), tebal (kata adjektif).',explain:'Lihat fungsi perkataan dalam ayat, bukan hafal nama sahaja.'},guided:mc('Dalam ayat “Siti menyiram bunga”, perkataan manakah kata kerja?','menyiram',['Siti','bunga','Siti bunga'],'“Menyiram” menunjukkan perbuatan.'),concept:activity('Pilih dua kenyataan yang betul.',['Kata kerja menunjukkan perbuatan.','Kata adjektif menerangkan sifat atau keadaan.'],['Kata nama sentiasa menunjukkan perbuatan.','Semua ayat mesti hanya mempunyai satu perkataan.']),sentence:sentenceActivity(level,'bm','general')});
+    }
+    if(topic==='Ejaan') return base({goal:'Eja perkataan dengan memadankan bunyi, suku kata dan huruf.',definition:'Ejaan yang betul membantu pembaca mengenal perkataan dengan tepat. Untuk perkataan sukar, pecahkan kepada suku kata atau bahagian bunyi.',bullets:['Sebut perkataan perlahan-lahan.','Pecahkan kepada suku kata: se-ko-lah.','Gabung semula dan baca seluruh perkataan.'],steps:[{title:'1. Dengar/sebut',text:'Contoh: “sekolah”.'},{title:'2. Pecah',text:'se + ko + lah.'},{title:'3. Tulis dan semak',text:'sekolah — baca semula untuk pastikan semua bunyi ada.'}],example:{title:'Contoh ejaan',work:n<=2?'bu-ku · ke-ru-si · se-ko-lah':'per-pus-ta-ka-an · ke-si-ha-tan',explain:'Suku kata ialah alat bantu; sesetengah perkataan mempunyai pola ejaan yang perlu dibiasakan melalui bacaan.'},guided:mc('Ejaan manakah betul?','sekolah',['sekola','sekoloh','skolah'],'Perkataan “sekolah” mengandungi suku kata se-ko-lah.'),concept:activity('Pilih dua cara yang membantu mengeja.',['Pecahkan perkataan kepada suku kata.','Baca semula selepas menulis.'],['Buang huruf yang tidak pasti tanpa menyemak.','Teka ejaan tanpa mendengar bunyi perkataan.']),sentence:sentenceActivity(level,'bm','general')});
+    if(topic==='Kosa Kata') return base({goal:'Tambah perkataan baharu dan faham maksudnya melalui konteks.',definition:'Kosa kata ialah kumpulan perkataan yang kita faham dan boleh gunakan ketika bercakap, membaca dan menulis.',bullets:['Lihat perkataan di sekeliling untuk meneka maksud.','Cari sinonim, lawan kata atau contoh situasi.','Gunakan perkataan baharu dalam ayat sendiri.'],steps:[{title:'1. Baca ayat penuh',text:'Jangan lihat satu perkataan sahaja.'},{title:'2. Cari petunjuk',text:'Perkataan lain dalam ayat boleh memberi maksud.'},{title:'3. Cuba guna',text:'Bina satu ayat baharu dengan perkataan itu.'}],example:{title:'Contoh konteks',work:'“Jalan itu licin selepas hujan.” → licin = mudah tergelincir/tidak kesat.',explain:'Makna dapat difahami melalui situasi selepas hujan.'},guided:mc('Dalam ayat “Adik gembira menerima hadiah”, maksud “gembira” paling hampir dengan…','seronok',['marah','letih','takut'],'Konteks menerima hadiah menunjukkan perasaan yang positif.'),concept:activity('Pilih dua strategi kosa kata yang baik.',['Gunakan konteks ayat untuk meneka maksud.','Gunakan perkataan baharu dalam ayat sendiri.'],['Hafal tanpa tahu maksud.','Abaikan perkataan di sekeliling.']),sentence:sentenceActivity(level,'bm','general')});
+    if(topic==='Pemahaman') return base({goal:'Baca petikan dengan tujuan dan jawab menggunakan bukti dalam teks.',definition:'Pemahaman ialah kebolehan menangkap maklumat, idea utama dan maksud yang dinyatakan atau tersirat dalam bahan bacaan.',bullets:['Baca soalan supaya tahu apa yang perlu dicari.','Cari kata kunci atau ayat yang menjadi bukti.','Untuk soalan inferens, gabungkan bukti dengan logik yang munasabah.'],steps:[{title:'1. Baca soalan',text:'Gariskan siapa, apa, bila, di mana, mengapa atau bagaimana.'},{title:'2. Cari bukti',text:'Kembali kepada petikan dan cari bahagian berkaitan.'},{title:'3. Jawab lengkap',text:'Gunakan maklumat daripada petikan; elakkan jawapan yang tiada bukti.'}],example:{title:'Contoh',work:'Petikan: “Hujan turun lebat. Amir membuka payung.” Soalan: Mengapa Amir membuka payung? → Kerana hujan turun lebat.',explain:'Jawapan datang terus daripada hubungan maklumat dalam petikan.'},guided:mc('Petikan: “Lina membawa botol air kerana cuaca panas.” Mengapa Lina membawa botol air?','Kerana cuaca panas',['Kerana hari malam','Kerana dia mahu tidur','Kerana botol itu berat'],'Cari perkataan “kerana” yang menunjukkan sebab.'),concept:activity('Pilih dua strategi pemahaman yang betul.',['Cari bukti dalam petikan.','Baca soalan dan kenal kata kunci.'],['Jawab ikut tekaan walaupun tiada bukti.','Abaikan petikan selepas membaca tajuk.']),sentence:sentenceActivity(level,'bm','general')});
+    return bmLesson(level,'Kosa Kata');
+  }
+
+  function enLesson(level,topic){
+    const n=y(level);
+    const defs={Vocabulary:'Vocabulary means the words we understand and use.',Grammar:'Grammar is the set of patterns that helps words form clear sentences.',Tenses:'Tense tells us when an action happens.',Prepositions:'Prepositions show position, direction or relationship.',Sentence:'A sentence expresses a complete idea.',Comprehension:'Comprehension means understanding what we read and using evidence from the text.'};
+    const examples={Vocabulary:'The puppy is tiny. “Tiny” means very small.',Grammar:'Aiman plays football. → subject + verb + object.',Tenses:'Today I play. Yesterday I played.',Prepositions:'The book is on the table.',Sentence:'Siti reads a book in the library.',Comprehension:'Text: “It is raining. Ali opens an umbrella.” Why? Because it is raining.'};
+    const guided={Vocabulary:mc('Which word is closest in meaning to “happy”?','glad',['angry','tall','slow'],'“Glad” has a similar positive meaning to “happy”.'),Grammar:mc('Choose the verb: “Sara reads a book.”','reads',['Sara','book','a'],'A verb shows an action.'),Tenses:mc('Yesterday, Amir ___ to school.','walked',['walk','walks','walking'],'“Yesterday” signals past tense.'),Prepositions:mc('The cat is ___ the table. (It is below the table.)','under',['on','in','beside'],'“Under” means below something.'),Sentence:mc('Which is a complete sentence?','Aiman plays football.',['Plays football','Aiman football','At the field'],'A complete basic sentence needs a subject and a verb.'),Comprehension:mc('Text: “Nina wears a jacket because it is cold.” Why does Nina wear a jacket?','Because it is cold.',['Because it is hot.','Because she is swimming.','Because it is midnight.'],'The reason is stated directly in the text.')};
+    const key={Vocabulary:['Use pictures and context to understand new words.','Link new words with synonyms, opposites or actions.','Use a new word in your own sentence.'],Grammar:['Find the subject: who/what.','Find the verb: the action/state.','Check word order and agreement.'],Tenses:['Look for time words.','Choose the correct verb form.','Read the whole sentence again.'],Prepositions:['Look at position or direction.','Choose words such as in, on, under, beside, behind.','Use the picture/situation to check.'],Sentence:['Start with who/what.','Add an action or state.','Add useful detail and punctuation.'],Comprehension:['Read the question first.','Find evidence in the text.','Answer using the text, not a guess.']}[topic]||[];
+    return base({goal:`Understand and use ${topic.toLowerCase()} in short examples.`,definition:defs[topic]||defs.Vocabulary,bullets:key,steps:key.map((x,i)=>({title:`${i+1}. ${['Notice','Build','Check'][i]||'Check'}`,text:x})),example:{title:'Example',work:examples[topic]||examples.Vocabulary,explain:'Read the example aloud and notice the pattern.'},guided:guided[topic]||guided.Vocabulary,concept:activity(`Choose two good learning rules for ${topic}.`,key.slice(0,2),['Guess without reading the sentence.','Ignore word order and punctuation.']),sentence:sentenceActivity(level,'en',topic)});
+  }
+
+  function scienceLesson(level,topic){
+    const bank={
+      'Kemahiran Sains':{def:'Kemahiran sains membantu kita menyiasat dengan sistematik: memerhati, mengelas, mengukur, meramal, merekod dan membuat kesimpulan.',ex:'Dua daun dibandingkan dari segi warna, bentuk dan saiz.',steps:['Perhatikan dengan deria atau alat yang sesuai.','Catat apa yang benar-benar berlaku.','Buat kesimpulan daripada bukti, bukan tekaan.']},
+      'Manusia':{def:'Badan manusia mempunyai bahagian dan sistem yang menjalankan fungsi tertentu serta saling bekerjasama.',ex:'Paru-paru membantu pertukaran gas; jantung mengepam darah.',steps:['Kenal bahagian atau sistem.','Fahami fungsi setiap bahagian.','Kaitkan dengan tabiat yang menjaga kesihatan.']},
+      'Haiwan':{def:'Haiwan boleh dibandingkan melalui ciri, habitat, makanan, perlindungan diri dan cara pembiakan.',ex:'Ikan hidup di air dan mempunyai ciri yang membantunya bergerak serta bernafas di habitatnya.',steps:['Perhatikan ciri.','Kelaskan berdasarkan persamaan/perbezaan.','Hubungkan ciri dengan keperluan hidup.']},
+      'Tumbuhan':{def:'Tumbuhan ialah benda hidup yang mempunyai bahagian dengan fungsi tertentu dan memerlukan keadaan sesuai untuk tumbuh.',ex:'Akar menyerap air; daun membantu tumbuhan menghasilkan makanan.',steps:['Kenal bahagian tumbuhan.','Perhatikan fungsi dan keperluan.','Banding perubahan semasa tumbuhan membesar.']},
+      'Bahan':{def:'Bahan mempunyai sifat berbeza seperti keras, lembut, menyerap air, lut sinar atau konduktor. Sifat menentukan kegunaan.',ex:'Payung menggunakan bahan yang tidak mudah menyerap air.',steps:['Kenal sifat bahan.','Banding dua bahan.','Pilih bahan yang sesuai untuk sesuatu kegunaan.']},
+      'Tenaga':{def:'Tenaga membolehkan benda bergerak, berubah atau menjalankan fungsi. Tenaga boleh datang daripada pelbagai sumber dan berubah bentuk.',ex:'Lampu menukar tenaga elektrik kepada cahaya dan haba.',steps:['Kenal sumber tenaga.','Kenal perubahan atau kesan tenaga.','Gunakan tenaga dengan selamat dan berhemah.']},
+      'Bumi & Angkasa':{def:'Bumi, cuaca, siang malam serta objek di angkasa menunjukkan pola yang boleh diperhatikan dan diterangkan.',ex:'Siang dan malam berlaku secara berulang apabila Bumi berputar.',steps:['Perhatikan pola.','Catat perubahan mengikut masa.','Terangkan hubungan antara pemerhatian.']},
+      'Teknologi':{def:'Teknologi menggunakan pengetahuan, alat dan reka bentuk untuk menyelesaikan masalah manusia.',ex:'Jambatan model perlu stabil dan mampu menanggung beban.',steps:['Kenal masalah.','Rancang dan bina penyelesaian.','Uji, nilai dan baiki reka bentuk.']}
+    };
+    const b=bank[topic]||bank['Kemahiran Sains'];
+    const g={
+      'Kemahiran Sains':mc('Apakah langkah terbaik sebelum membuat kesimpulan sains?','Kumpul dan rekod pemerhatian',['Teka jawapan','Salin jawapan rakan','Abaikan data'],'Kesimpulan perlu berdasarkan bukti yang dikumpulkan.'),
+      'Manusia':mc('Organ manakah mengepam darah ke seluruh badan?','Jantung',['Paru-paru','Perut','Kulit'],'Jantung berfungsi mengepam darah.'),
+      'Haiwan':mc('Mengapa kita mengelaskan haiwan?','Untuk melihat persamaan dan perbezaan ciri',['Supaya semua haiwan dianggap sama','Untuk menukar habitat haiwan','Supaya haiwan tidak perlu makan'],'Pengelasan membantu menyusun maklumat berdasarkan ciri.'),
+      'Tumbuhan':mc('Apakah fungsi utama akar?','Menyerap air dan membantu memegang tumbuhan',['Menghasilkan bunyi','Mengepam darah','Menghasilkan cahaya'],'Akar berkaitan penyerapan air dan sokongan tumbuhan.'),
+      'Bahan':mc('Bahan payung patut mempunyai sifat…','tidak mudah menyerap air',['mudah larut','sangat menyerap air','sentiasa rapuh'],'Sifat bahan dipilih mengikut kegunaan.'),
+      'Tenaga':mc('Lampu menggunakan tenaga elektrik dan menghasilkan…','cahaya',['tanah','air sahaja','jisim'],'Lampu menukar tenaga kepada cahaya dan sedikit haba.'),
+      'Bumi & Angkasa':mc('Siang dan malam berlaku secara berulang kerana…','Bumi berputar',['Bumi berhenti bergerak','bulan menjadi matahari','awan menutup seluruh Bumi'],'Putaran Bumi menghasilkan kitaran siang dan malam.'),
+      'Teknologi':mc('Selepas membina model, apakah langkah yang baik?','Uji dan baiki jika perlu',['Jangan uji langsung','Buang tanpa melihat','Anggap sentiasa sempurna'],'Proses reka bentuk melibatkan ujian dan penambahbaikan.')
+    }[topic];
+    return base({goal:`Faham idea utama ${topic} melalui pemerhatian dan sebab-akibat.`,definition:b.def,bullets:b.steps,steps:b.steps.map((x,i)=>({title:`${i+1}. ${['Perhati','Faham','Terangkan'][i]}`,text:x})),example:{title:'Contoh dalam kehidupan',work:b.ex,explain:'Sains menjadi lebih mudah apabila konsep dikaitkan dengan benda yang boleh diperhatikan.'},guided:g,concept:activity('Pilih dua cara belajar Sains yang betul.', ['Gunakan pemerhatian atau bukti.','Terangkan sebab berdasarkan konsep yang dipelajari.'],['Teka tanpa melihat maklumat.','Abaikan hasil eksperimen yang tidak sama dengan jangkaan.'])});
+  }
+
+  function historyLesson(level,topic){
+    const bank={
+      'Diri & Keluarga':['Sejarah diri dan keluarga boleh disusun mengikut masa menggunakan sumber seperti gambar, sijil, cerita lisan dan dokumen.','Contoh: lahir → masuk prasekolah → masuk Tahun 1.'],
+      'Sekolah & Tempat Tinggal':['Sekolah dan tempat tinggal mempunyai asal usul, perubahan, tokoh dan identiti yang boleh dikaji melalui sumber.','Banding gambar kawasan dahulu dan sekarang untuk melihat perubahan.'],
+      'Zaman Prasejarah':['Zaman prasejarah ialah tempoh sebelum manusia meninggalkan rekod tulisan. Cara hidup berubah apabila alat, tempat tinggal dan pengetahuan berkembang.','Banding kegiatan memburu, bercucuk tanam dan penggunaan alat pada zaman berbeza.'],
+      'Kerajaan Melayu':['Kerajaan Melayu berkembang melalui pemerintahan, perdagangan, lokasi strategik, hubungan luar dan kebijaksanaan pemimpin.','Kesultanan Melayu Melaka berkembang sebagai pusat perdagangan dan pemerintahan penting.'],
+      'Tokoh & Kemerdekaan':['Kemerdekaan dicapai melalui usaha ramai tokoh, rundingan, kerjasama dan semangat mempertahankan kedaulatan.','Susun peristiwa penting sebelum dan selepas 31 Ogos 1957.'],
+      'Malaysia':['Malaysia mempunyai identiti melalui negeri, simbol negara, institusi, bahasa kebangsaan dan kepelbagaian rakyat.','Jalur Gemilang, Jata Negara dan lagu Negaraku ialah antara simbol negara.']
+    };
+    const [def,ex]=bank[topic]||bank.Malaysia;
+    return base({goal:`Faham ${topic} dengan melihat kronologi, sebab, perubahan dan bukti.`,definition:def,bullets:['Kenal siapa, bila, di mana dan apa yang berlaku.','Susun peristiwa mengikut urutan masa apabila sesuai.','Bezakan fakta dengan pendapat dan gunakan sumber sebagai bukti.'],steps:[{title:'1. Kenal konteks',text:'Siapa, bila dan di mana?'},{title:'2. Cari hubungan',text:'Apakah sebab, perubahan atau sumbangannya?'},{title:'3. Susun dan terangkan',text:'Gunakan kronologi dan bukti untuk menjelaskan.'}],example:{title:'Contoh',work:ex,explain:'Sejarah lebih mudah difahami apabila peristiwa dihubungkan dengan sebab dan kesan.'},guided:mc('Apakah cara terbaik memahami urutan peristiwa sejarah?','Susun peristiwa mengikut kronologi',['Campur semua tarikh secara rawak','Abaikan sumber','Teka sahaja'],'Kronologi menunjukkan susunan peristiwa dari awal hingga kemudian.'),concept:activity('Pilih dua amalan yang betul semasa belajar Sejarah.',['Gunakan sumber atau bukti.','Susun peristiwa mengikut masa jika berkaitan.'],['Anggap semua cerita sebagai fakta tanpa semakan.','Abaikan sebab dan kesan peristiwa.'])});
+  }
+
+  function islamLesson(level,topic){
+    const bank={
+      'Akidah':['Akidah ialah asas kepercayaan seorang Muslim kepada Allah dan perkara yang wajib dipercayai.','Fahami maksud rukun iman dan kaitannya dengan keyakinan serta tindakan harian.'],
+      'Ibadah':['Ibadah dilakukan mengikut syarat, rukun dan tertib yang betul.','Contoh pembelajaran: kenal tujuan, urutan langkah dan perkara yang membatalkan sesuatu ibadah.'],
+      'Sirah':['Sirah ialah kisah kehidupan Rasulullah SAW dan peristiwa penting yang memberi teladan.','Belajar siapa, tempat, urutan peristiwa dan pengajaran daripada kisah.'],
+      'Akhlak':['Akhlak ialah tingkah laku dan adab yang baik terhadap Allah, diri, keluarga, masyarakat dan alam.','Contoh: bercakap sopan, amanah, membantu dan menghormati orang lain.'],
+      'Jawi':['Jawi ialah tulisan Bahasa Melayu menggunakan huruf berasaskan Arab dengan beberapa huruf tambahan untuk bunyi Melayu.','Belajar bentuk huruf, cara sambung, padanan bunyi dan ejaan perkataan sedikit demi sedikit.']
+    };
+    const [def,ex]=bank[topic]||bank.Akhlak;
+    return base({goal:`Faham asas ${topic} dan kaitkan dengan contoh kehidupan.`,definition:def,bullets:['Faham maksud sebelum menghafal istilah.','Belajar melalui contoh dan urutan yang jelas.','Kaitkan ilmu dengan amalan atau situasi harian.'],steps:[{title:'1. Faham maksud',text:def},{title:'2. Lihat contoh',text:ex},{title:'3. Cuba terangkan',text:'Sebut semula idea utama dengan ayat sendiri.'}],example:{title:'Contoh pembelajaran',work:ex,explain:'Tujuan lesson ialah memahami konsep, bukan sekadar memilih jawapan.'},guided:mc(topic==='Jawi'?'Jawi digunakan terutama untuk menulis bahasa…':'Apakah cara belajar yang lebih baik? ',topic==='Jawi'?'Melayu':'Faham maksud dan kaitkan dengan amalan',topic==='Jawi'?['Inggeris sahaja','angka sahaja','bunyi haiwan sahaja']:['Hafal tanpa tahu maksud','Teka sahaja','Abaikan contoh'],topic==='Jawi'?'Jawi ialah sistem tulisan untuk Bahasa Melayu berasaskan huruf Arab.':'Memahami maksud membantu ilmu diamalkan dengan betul.'),concept:activity('Pilih dua pendekatan belajar yang baik.',['Fahami maksud konsep.','Kaitkan dengan contoh atau amalan yang betul.'],['Hafal jawapan tanpa faham.','Pilih tindakan tanpa mengetahui sebab.'])});
+  }
+
+  function moralLesson(level,topic){
+    const meanings={Kepercayaan:'berpegang pada prinsip dan keyakinan yang baik dengan menghormati orang lain',Hormat:'menghargai maruah, hak dan perasaan orang lain melalui kata serta tindakan',Tanggungjawab:'melaksanakan tugas dan menerima akibat pilihan sendiri',Kejujuran:'bercakap dan bertindak benar serta boleh dipercayai',Kerjasama:'bekerja bersama dengan pembahagian peranan dan saling membantu','Kasih Sayang':'menunjukkan perhatian, empati dan bantuan kepada makhluk lain'};
+    const m=meanings[topic]||meanings.Hormat;
+    return base({goal:`Faham nilai ${topic} melalui situasi sebenar, bukan hafalan definisi sahaja.`,definition:`${topic} bermaksud ${m}.`,bullets:['Kenal situasi dan orang yang terlibat.','Fikir pilihan tindakan yang ada.','Pilih tindakan yang menjaga diri dan orang lain serta jelaskan sebabnya.'],steps:[{title:'1. Apa berlaku?',text:'Kenal masalah atau situasi.'},{title:'2. Siapa terkesan?',text:'Fikir perasaan, hak dan tanggungjawab.'},{title:'3. Pilih tindakan',text:`Gunakan nilai ${topic} untuk membuat keputusan.`}],example:{title:'Contoh situasi',work:topic==='Kejujuran'?'Kamu terjumpa wang di kelas. Serahkan kepada guru supaya pemilik boleh dikenal pasti.':topic==='Tanggungjawab'?'Siapkan tugasan yang diberikan dan kemas semula peralatan selepas digunakan.':'Dengar apabila orang lain bercakap dan bantu apabila sesuai.',explain:'Nilai menjadi jelas apabila kita melihat tindakan dan kesannya.'},guided:mc(`Tindakan manakah paling menunjukkan ${topic}?`,topic==='Kejujuran'?'Mengaku kesilapan dan bercakap benar':topic==='Kerjasama'?'Membahagi tugas dan membantu kumpulan':topic==='Tanggungjawab'?'Menyiapkan tugas yang diamanahkan':'Bercakap dan bertindak dengan baik kepada orang lain',['Menyalahkan orang lain','Mengabaikan tugas','Sengaja menyakiti orang'],'Nilai moral ditunjukkan melalui pilihan tindakan yang sesuai.'),concept:activity('Pilih dua cara membuat keputusan bermoral.',['Fikir kesan tindakan kepada orang lain.','Pilih tindakan yang selaras dengan nilai baik.'],['Buat sesuatu hanya kerana kawan suruh.','Abaikan akibat kepada orang lain.'])});
+  }
+
+  function pjpkLesson(level,topic){
+    const bank={Kecergasan:['Kecergasan ialah keupayaan badan melakukan aktiviti dengan baik dan tidak cepat letih.','Pemanasan → aktiviti utama → penyejukan membantu badan bergerak dengan lebih selamat.'],Pemakanan:['Pemakanan seimbang memberi badan tenaga dan nutrien untuk membesar serta berfungsi.','Pilih pelbagai makanan, air yang cukup dan saiz hidangan yang sesuai.'],Keselamatan:['Keselamatan bermula dengan mengenal bahaya dan memilih tindakan yang mengurangkan risiko kecederaan.','Gunakan peralatan ikut arahan dan minta bantuan orang dewasa apabila keadaan berbahaya.'],Kebersihan:['Kebersihan diri dan persekitaran membantu mengurangkan kuman serta penyakit.','Basuh tangan dengan betul, jaga gigi, badan, pakaian dan tempat tinggal.'],Pergerakan:['Kemahiran pergerakan melibatkan kawalan badan, imbangan, ruang dan koordinasi.','Berjalan, berlari, melompat, membaling dan menangkap perlu teknik serta ruang yang selamat.'],Kesihatan:['Kesihatan merangkumi fizikal, emosi, rehat, hubungan sosial dan tabiat harian.','Tidur cukup, bergerak aktif, minum air dan bercakap dengan orang dipercayai apabila perlukan bantuan.']};
+    const [def,ex]=bank[topic]||bank.Kesihatan;
+    return base({goal:`Faham asas ${topic} dan bagaimana mengamalkannya dengan selamat.`,definition:def,bullets:['Kenal tindakan yang baik dan selamat.','Fahami sebab tindakan itu membantu kesihatan.','Amalkan secara konsisten dalam kehidupan harian.'],steps:[{title:'1. Kenal situasi',text:'Apa yang badan atau keadaan perlukan?'},{title:'2. Pilih tindakan',text:ex},{title:'3. Semak keselamatan',text:'Pastikan tindakan sesuai dengan umur, tempat dan arahan guru/orang dewasa.'}],example:{title:'Contoh harian',work:ex,explain:'PJPK bukan hafalan sahaja; konsep perlu digunakan dalam rutin sebenar.'},guided:mc(`Pilihan manakah paling baik untuk ${topic}?`,topic==='Pemakanan'?'Makan pelbagai makanan dan minum air secukupnya':topic==='Keselamatan'?'Ikut arahan keselamatan dan kenal bahaya':topic==='Kebersihan'?'Basuh tangan pada masa yang sesuai':'Lakukan aktiviti dengan teknik dan keadaan yang selamat',['Abaikan arahan','Pilih tindakan berisiko','Tidak perlu fikir kesan kepada badan'],'Kesihatan dan keselamatan bergantung pada pilihan tindakan yang sesuai.'),concept:activity('Pilih dua prinsip PJPK yang betul.',['Utamakan keselamatan.','Fahami sebab di sebalik amalan sihat.'],['Ikut aktiviti berbahaya kerana nampak menarik.','Abaikan isyarat badan dan peraturan.'])});
+  }
+
+  function praLesson(topic){
+    const bank={
+      'Kenali Huruf':{goal:'Kenal bentuk dan bunyi huruf melalui lihat, sebut dan cari.',def:'Huruf ialah simbol yang kita gunakan untuk membina perkataan.',steps:['Lihat bentuk huruf besar dan kecil.','Sebut nama/bunyi huruf.','Cari huruf itu dalam perkataan mudah.'],ex:'B / b → bola, buku, baju.'},
+      'Kenali Nombor':{goal:'Padankan simbol nombor dengan bilangan objek.',def:'Nombor memberitahu berapa banyak atau kedudukan dalam urutan.',steps:['Lihat simbol nombor.','Kira objek satu demi satu.','Padankan nombor dengan jumlah objek.'],ex:'5 ↔ 🍎🍎🍎🍎🍎'},
+      'Lukis':{goal:'Kawal gerakan tangan melalui garisan dan bentuk mudah.',def:'Melukis membantu koordinasi mata dan tangan serta persediaan menulis.',steps:['Ikut garisan perlahan-lahan.','Cuba bentuk mudah seperti bulatan atau garis.','Kemudian lukis sendiri.'],ex:'○ → matahari, △ → bumbung.'},
+      'Mewarna':{goal:'Kenal warna sambil melatih kawalan tangan.',def:'Mewarna ialah aktiviti mengisi kawasan gambar dengan warna pilihan.',steps:['Pilih warna.','Tap/isi satu kawasan.','Sebut nama warna dan objek.'],ex:'Daun boleh diwarnakan hijau; bunga boleh dipilih pelbagai warna.'},
+      'Ejaan':{goal:'Dengar bunyi dan padankan dengan huruf mudah.',def:'Perkataan dibina daripada bunyi dan huruf.',steps:['Dengar perkataan.','Sebut perlahan-lahan.','Cari huruf/bahagian bunyi yang sepadan.'],ex:'bo-la → bola.'},
+      'Memory':{goal:'Latih perhatian dan ingatan visual.',def:'Permainan pasangan membantu kita mengingat kedudukan dan gambar.',steps:['Buka dua kad.','Ingat gambar dan tempatnya.','Cari pasangan yang sama.'],ex:'🐱 ↔ 🐱'},
+      'Deria & Alam':{goal:'Kenal dunia sekeliling melalui pemerhatian.',def:'Kita menggunakan deria untuk melihat, mendengar, menghidu, merasa dan menyentuh dengan selamat.',steps:['Perhatikan objek.','Sebut satu ciri.','Banding dengan objek lain.'],ex:'Ais terasa sejuk; bunga boleh mempunyai bau.'},
+      'Pendengaran':{goal:'Dengar bunyi/perkataan hingga habis dan bezakan dengan tepat.',def:'Pendengaran yang fokus membantu memahami arahan dan bunyi bahasa.',steps:['Diam dan dengar.','Ulang sebut jika boleh.','Pilih bunyi/perkataan yang sama.'],ex:'Dengar “bola” → pilih gambar/teks bola.'},
+      'Susun Nombor':{goal:'Faham urutan nombor kecil ke besar.',def:'Nombor mempunyai susunan. Selepas 1 datang 2, kemudian 3 dan seterusnya.',steps:['Cari nombor paling kecil.','Pilih nombor seterusnya.','Semak urutan dari awal.'],ex:'2, 4, 1, 3 → 1, 2, 3, 4.'},
+      'Kira-kira':{goal:'Kira objek dengan satu objek satu sebutan nombor.',def:'Mengira bermaksud memadankan setiap objek dengan satu nombor mengikut urutan.',steps:['Sentuh/tunjuk satu objek.','Sebut satu nombor.','Nombor terakhir ialah jumlah.'],ex:'⭐ ⭐ ⭐ → satu, dua, tiga → ada 3 bintang.'},
+      'Jam & Masa':{goal:'Kenal jam dan waktu asas seperti pagi, tengah hari, petang dan malam.',def:'Jam membantu kita tahu waktu. Jarum pendek menunjukkan jam dan jarum panjang membantu membaca minit.',steps:['Kenal nombor 1–12.','Mulakan dengan pukul tepat.','Kaitkan masa dengan rutin harian.'],ex:'7:00 pagi → masa bersiap/sekolah.'},
+      'Campur-campur':{goal:'Cuba beberapa kemahiran awal melalui aktiviti pendek.',def:'Belajar Pra lebih berkesan melalui lihat, dengar, gerak dan ulang dalam aktiviti bermakna.',steps:['Pilih satu aktiviti pendek.','Cuba sendiri.','Ulang dengan contoh berbeza.'],ex:'Huruf → nombor → warna → kira objek.'}
+    };
+    const b=bank[topic]||bank['Campur-campur'];
+    return base({goal:b.goal,definition:b.def,bullets:b.steps,steps:b.steps.map((x,i)=>({title:`${i+1}. ${['Lihat','Cuba','Ulang'][i]}`,text:x})),example:{title:'Contoh',work:b.ex,explain:'Aktiviti Pra perlu ringkas, visual dan melibatkan tindakan.'},guided:mc(topic==='Kenali Nombor'?'Yang mana menunjukkan bilangan 3?':topic==='Kenali Huruf'?'Perkataan manakah bermula dengan huruf B?':'Apa yang patut kita buat semasa belajar aktiviti ini?',topic==='Kenali Nombor'?'🍎🍎🍎':topic==='Kenali Huruf'?'bola':'Lihat arahan dan cuba satu langkah dahulu',topic==='Kenali Nombor'?['🍎','🍎🍎','🍎🍎🍎🍎']:topic==='Kenali Huruf'?['ayam','ikan','ular']:['Teka tanpa melihat','Tekan semua secara rawak','Terus berhenti tanpa cuba'],'Belajar Pra dibuat melalui pemerhatian dan tindakan mudah.'),concept:activity('Pilih dua cara belajar yang baik.',['Lihat atau dengar arahan dahulu.','Cuba sendiri satu langkah pada satu masa.'],['Tekan secara rawak tanpa melihat.','Abaikan contoh sepenuhnya.'])});
+  }
+
   const SENTENCES={
     bm:[
-      {min:1,max:2,prompt:'Bina ayat tentang gambar budak bermain bola.',sentence:'Aiman bermain bola di padang.',keywords:['bermain','bola'],hint:'Mulakan dengan siapa, kemudian perbuatan dan tempat.'},
-      {min:1,max:3,prompt:'Bina ayat mudah tentang membaca.',sentence:'Siti membaca buku di perpustakaan.',keywords:['membaca','buku'],hint:'Siapa + buat apa + apa/di mana.'},
-      {min:3,max:6,prompt:'Bina ayat yang lebih lengkap tentang kucing.',sentence:'Kucing putih itu tidur di atas sofa.',keywords:['kucing','tidur'],hint:'Tambah satu perkataan yang menerangkan kucing dan satu tempat.'},
-      {min:4,max:6,prompt:'Bina ayat menggunakan kata hubung.',sentence:'Aina membawa payung kerana hari hujan.',keywords:['kerana'],hint:'Gabungkan sebab dengan kata hubung “kerana”.'}
+      {min:1,max:2,tag:'general',prompt:'Bina ayat tentang budak bermain bola.',sentence:'Aiman bermain bola di padang.',keywords:['bermain','bola']},
+      {min:1,max:3,tag:'general',prompt:'Bina ayat tentang membaca.',sentence:'Siti membaca buku di perpustakaan.',keywords:['membaca','buku']},
+      {min:2,max:6,tag:'simpulan',prompt:'Bina ayat menggunakan simpulan bahasa “ringan tulang”.',sentence:'Aina ringan tulang kerana suka membantu ibunya.',keywords:['ringan tulang']},
+      {min:3,max:6,tag:'general',prompt:'Bina ayat yang lebih lengkap tentang kucing.',sentence:'Kucing putih itu tidur di atas sofa.',keywords:['kucing','tidur']},
+      {min:4,max:6,tag:'general',prompt:'Bina ayat menggunakan kata hubung.',sentence:'Aina membawa payung kerana hari hujan.',keywords:['kerana']}
     ],
     en:[
-      {min:1,max:2,prompt:'Build a sentence about a boy playing football.',sentence:'Aiman plays football at the field.',keywords:['plays','football'],hint:'Who + action + object/place.'},
-      {min:1,max:3,prompt:'Build a simple sentence about reading.',sentence:'Siti reads a book in the library.',keywords:['reads','book'],hint:'Start with the person, then the action.'},
-      {min:3,max:6,prompt:'Make the sentence more descriptive.',sentence:'The white cat sleeps on the sofa.',keywords:['cat','sleeps'],hint:'Add a describing word and a place.'},
-      {min:4,max:6,prompt:'Join an action with a reason.',sentence:'Aina carries an umbrella because it is raining.',keywords:['because'],hint:'Use “because” to explain the reason.'}
+      {min:1,max:2,tag:'general',prompt:'Build a sentence about a boy playing football.',sentence:'Aiman plays football at the field.',keywords:['plays','football']},
+      {min:1,max:3,tag:'general',prompt:'Build a simple sentence about reading.',sentence:'Siti reads a book in the library.',keywords:['reads','book']},
+      {min:3,max:6,tag:'general',prompt:'Make the sentence more descriptive.',sentence:'The white cat sleeps on the sofa.',keywords:['cat','sleeps']},
+      {min:4,max:6,tag:'general',prompt:'Join an action with a reason.',sentence:'Aina carries an umbrella because it is raining.',keywords:['because']}
     ]
   };
-  function notes(subject,topic){const map=TOPIC_NOTES[subject]||{};return map[topic]||[`${topic} boleh dipelajari melalui contoh mudah.`,`Cari idea utama dalam setiap contoh.`,`Cuba terangkan semula dengan perkataan sendiri.`]}
-  function makeGuided(subject,topic){
-    const n=notes(subject,topic),correct=n[0],alts=[n[1],n[2],`Topik ${topic} hanya perlu dihafal tanpa memahami contoh.`];
-    return {question:`Idea manakah paling sesuai untuk mula memahami “${topic}”?`,correct,options:shuffle([correct,...alts.slice(0,3)]),hint:`Cari pilihan yang menerangkan konsep asas, bukan sekadar menghafal.`,explanation:`Betul — ${correct}`};
-  }
-  function makeConceptCheck(subject,topic){
-    const n=notes(subject,topic);return {prompt:`Pilih dua kad yang membantu kamu belajar ${topic}.`,cards:shuffle([{text:n[0],ok:true},{text:n[1],ok:true},{text:'Terus teka tanpa membaca arahan.',ok:false},{text:'Abaikan contoh dan hanya hafal jawapan.',ok:false}])};
-  }
-  function sentenceActivity(level,subject){
-    const y=Math.max(1,+level||1),pool=(SENTENCES[subject]||[]).filter(x=>y>=x.min&&y<=x.max);const task=pick(pool.length?pool:SENTENCES[subject]||SENTENCES.bm);const words=task.sentence.replace(/[.!?]$/,'').split(/\s+/);return {...task,words,shuffled:shuffle(words)};
+  function sentenceActivity(level,subject,tag='general'){
+    const yy=y(level),all=SENTENCES[subject]||[],filtered=all.filter(x=>yy>=x.min&&yy<=x.max&&(tag==='general'||x.tag===tag));
+    const task=pick(filtered.length?filtered:all.filter(x=>yy>=x.min&&yy<=x.max).length?all.filter(x=>yy>=x.min&&yy<=x.max):all);
+    if(!task)return null;const words=task.sentence.replace(/[.!?]$/,'').split(/\s+/);return {...task,words,shuffled:shuffle(words)};
   }
   function checkWriting(text,subject,level,task){
-    const raw=String(text||'').trim(),words=raw.split(/\s+/).filter(Boolean),minWords=Math.min(8,Math.max(3,(+level||1)+2));const first=raw.charAt(0),last=raw.slice(-1);const lower=raw.toLowerCase();const checks=[
+    const raw=String(text||'').trim(),words=raw.split(/\s+/).filter(Boolean),minWords=Math.min(8,Math.max(3,y(level)+2)),first=raw.charAt(0),last=raw.slice(-1),lower=raw.toLowerCase();
+    const checks=[
       {label:subject==='en'?'Starts with a capital letter':'Bermula dengan huruf besar',ok:/[A-ZÀ-ÖØ-Þ]/.test(first)},
       {label:subject==='en'?'Has ending punctuation':'Ada tanda baca di hujung',ok:/[.!?]/.test(last)},
       {label:subject==='en'?`At least ${minWords} words`:`Sekurang-kurangnya ${minWords} perkataan`,ok:words.length>=minWords},
-      {label:subject==='en'?'Uses an important idea from the prompt':'Guna idea penting daripada arahan',ok:(task?.keywords||[]).some(k=>lower.includes(String(k).toLowerCase()))}
+      {label:subject==='en'?'Uses an important idea from the task':'Guna idea penting daripada tugasan',ok:(task?.keywords||[]).some(k=>lower.includes(String(k).toLowerCase()))}
     ];
     const score=checks.filter(x=>x.ok).length;
-    const feedback=score===4?(subject==='en'?'Great! Your sentence has the key features. Try adding one more useful detail.':'Bagus! Ayat kamu ada ciri asas yang lengkap. Cuba tambah satu maklumat lagi supaya lebih menarik.'):(subject==='en'?'Good attempt. Improve the unchecked items, then read your sentence aloud.':'Cubaan yang baik. Baiki perkara yang belum bertanda, kemudian baca ayat kamu semula.');
-    return {checks,score,feedback,wordCount:words.length};
+    return {checks,score,feedback:score===4?(subject==='en'?'Good sentence. Read it aloud and add one useful detail if you can.':'Bagus. Ayat kamu ada ciri asas yang lengkap. Cuba tambah satu maklumat lagi jika sesuai.'):(subject==='en'?'Improve the unchecked parts, then read the sentence again.':'Baiki perkara yang belum bertanda, kemudian baca semula ayat kamu.'),wordCount:words.length};
+  }
+
+  function attachMeta(level,subject,topic,x){
+    const icon={math:'🔢',bm:'📖',en:'🔤',sci:'🔬',hist:'🏛️',islam:'🕌',moral:'🤝',pjpk:'🏃',pra:'🧒'}[subject]||'📚';
+    return {...x,level,subject,topic,icon,title:topic==='Campur-campur'?'Asas Pra':topic,tone:x.definition,tip:x.tip||'Fahami contoh dahulu, kemudian cuba sendiri.',sentence:x.sentence||(['bm','en'].includes(subject)?sentenceActivity(level,subject,'general'):null)};
   }
   function getLesson(level,subject,topic){
-    const meta=SUBJECT_INTRO[subject]||SUBJECT_INTRO.bm,n=notes(subject,topic);return {level,subject,topic,icon:meta.icon,title:topic==='Campur Semua'?'Asas penting':topic,tone:meta.tone,tip:meta.tip,bullets:n,example:n[0],guided:makeGuided(subject,topic),concept:makeConceptCheck(subject,topic),sentence:['bm','en'].includes(subject)?sentenceActivity(level,subject):null};
+    let x;if(subject==='math')x=mathLesson(level,topic);else if(subject==='bm')x=bmLesson(level,topic);else if(subject==='en')x=enLesson(level,topic);else if(subject==='sci')x=scienceLesson(level,topic);else if(subject==='hist')x=historyLesson(level,topic);else if(subject==='islam')x=islamLesson(level,topic);else if(subject==='moral')x=moralLesson(level,topic);else if(subject==='pjpk')x=pjpkLesson(level,topic);else x=praLesson(topic);
+    return attachMeta(level,subject,topic,x);
   }
   function topics(subject){return C.subjects[subject]?.topics||[]}
   return {getLesson,checkWriting,sentenceActivity,topics};
