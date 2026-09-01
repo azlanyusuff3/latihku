@@ -1,16 +1,16 @@
-const CORE='latihku-v3-core-1';
-const DATA='latihku-v3-data-1';
-const CORE_FILES=['./','index.html','styles.css','config.js','engine.js','app.js','manifest.json','icons/icon-192.png','icons/icon-512.png'];
-self.addEventListener('install',e=>e.waitUntil(caches.open(CORE).then(c=>c.addAll(CORE_FILES)).then(()=>self.skipWaiting())));
-self.addEventListener('activate',e=>e.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(k=>!([CORE,DATA].includes(k))).map(k=>caches.delete(k)))).then(()=>self.clients.claim())));
+const SHELL='latihku-v4-shell-1';
+const DATA='latihku-v4-data-1';
+const SHELL_FILES=['./','index.html','styles.css','config.js','engine.js','app.js','manifest.json','icons/icon-192.png','icons/icon-512.png','assets/world-map.webp','assets/onboarding.webp','assets/world-scene.webp'];
+self.addEventListener('install',e=>e.waitUntil(caches.open(SHELL).then(c=>c.addAll(SHELL_FILES)).then(()=>self.skipWaiting())));
+self.addEventListener('activate',e=>e.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(k=>k!==SHELL&&k!==DATA).map(k=>caches.delete(k)))).then(()=>self.clients.claim())));
 self.addEventListener('fetch',e=>{
-  const u=new URL(e.request.url); if(e.request.method!=='GET'||u.origin!==location.origin)return;
-  if(u.pathname.includes('/data/')){
-    e.respondWith(caches.open(DATA).then(async c=>{const hit=await c.match(e.request);if(hit)return hit;try{const r=await fetch(e.request);if(r.ok)c.put(e.request,r.clone());return r}catch(err){return hit||new Response(JSON.stringify({questions:[]}),{headers:{'Content-Type':'application/json'},status:503})}})); return;
+  if(e.request.method!=='GET')return;
+  const url=new URL(e.request.url);
+  if(url.origin!==location.origin)return;
+  if(url.pathname.includes('/data/')){
+    e.respondWith(caches.open(DATA).then(async c=>{const hit=await c.match(e.request);if(hit)return hit;try{const r=await fetch(e.request);if(r.ok)c.put(e.request,r.clone());return r}catch{return new Response(JSON.stringify({questions:[]}),{status:503,headers:{'Content-Type':'application/json'}})}}));
+    return;
   }
-  e.respondWith(caches.match(e.request).then(hit=>hit||fetch(e.request).then(r=>{if(r.ok){const clone=r.clone();caches.open(CORE).then(c=>c.put(e.request,clone))}return r})));
+  e.respondWith(caches.match(e.request).then(hit=>hit||fetch(e.request).then(r=>{const copy=r.clone();caches.open(SHELL).then(c=>c.put(e.request,copy));return r}).catch(()=>caches.match('index.html'))));
 });
-self.addEventListener('message',e=>{
-  if(e.data?.type==='CLEAR_DATA_CACHE')e.waitUntil(caches.delete(DATA));
-  if(e.data?.type==='SKIP_WAITING')self.skipWaiting();
-});
+self.addEventListener('message',e=>{if(e.data?.type==='CLEAR_DATA_CACHE')e.waitUntil(caches.delete(DATA))});
