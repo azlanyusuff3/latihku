@@ -1,4 +1,4 @@
-/* LatihKu v9 engine: QA-cleaned modular packs + procedural Mathematics. */
+/* LatihKu v10 engine: QA-gated bank + KPM-aligned practice patterns. */
 window.LATIH_ENGINE = (() => {
   const C=window.LATIH_CONFIG;
   const memory=new Map();
@@ -6,13 +6,14 @@ window.LATIH_ENGINE = (() => {
   const pick=a=>a[Math.floor(Math.random()*a.length)];
   const shuffle=a=>{const b=[...a];for(let i=b.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[b[i],b[j]]=[b[j],b[i]]}return b};
   const uniq=(correct,cands,n=3)=>{const out=[];for(const x of shuffle(cands)){const s=String(x);if(s!==String(correct)&&!out.includes(s))out.push(s);if(out.length===n)break}return out};
-  const q=(topic,question,correct,wrong,explanation,difficulty='sederhana',concept='math')=>{
+  const q=(topic,question,correct,wrong,explanation,difficulty='sederhana',concept='math',meta={})=>{
     const c=String(correct),dist=uniq(c,wrong,3);
     const num=Number(String(correct).replace(/,/g,''));
     if(Number.isFinite(num)){for(const x of [num+2,Math.max(0,num-2),num+5,Math.max(0,num-5)]){if(dist.length>=3)break;const s=String(x);if(s!==c&&!dist.includes(s))dist.push(s)}}
     for(const x of ['Tidak berkaitan','Pilihan lain','Tiada perubahan']){if(dist.length>=3)break;if(x!==c&&!dist.includes(x))dist.push(x)}
-    return {id:`MATH-${Date.now()}-${Math.random().toString(36).slice(2,8)}`,topic,question,correct:c,answers:shuffle([c,...dist.slice(0,3)]),explanation,difficulty,concept,qa:'v9-procedural'}
+    return {id:`MATH-${Date.now()}-${Math.random().toString(36).slice(2,8)}`,topic,question,correct:c,answers:shuffle([c,...dist.slice(0,3)]),explanation,difficulty,concept,qa:'v10-procedural',source:'LatihKu Original',alignment:'KPM-aligned',itemType:'mcq',...meta}
   };
+  const qs=(topic,question,correct,explanation,difficulty='sederhana',concept='math-short',meta={})=>({id:`MATH-${Date.now()}-${Math.random().toString(36).slice(2,8)}`,topic,question,correct:String(correct),answers:[],explanation,difficulty,concept,qa:'v10-procedural',source:'LatihKu Original',alignment:'KPM UASA pattern',itemType:'short',...meta});
   const fmt=n=>Number(n).toLocaleString('ms-MY',{maximumFractionDigits:2});
 
   function subjectMeta(id){return C.subjects[id]}
@@ -43,7 +44,7 @@ window.LATIH_ENGINE = (() => {
     if(difficulty==='uasa'){
       const plan=[]; const easy=Math.round(count*.5),mid=Math.round(count*.3),hard=Math.max(0,count-easy-mid);
       for(const [d,n] of [['mudah',easy],['sederhana',mid],['sukar',hard]]){const p=pool.filter(x=>x.difficulty===d);plan.push(...sampleDistinct(p.length?p:pool,n))}
-      return shuffle(plan).slice(0,count);
+      return shuffle(plan).slice(0,count).map((x,i)=>({...x,alignment:'KPM UASA pattern',source:x.source||'LatihKu Original',itemType:(['sci','hist'].includes(subject)&&i>=Math.ceil(count*.65)&&String(x.correct).length<=35)?'short':'mcq'}));
     }
     if(difficulty!=='auto'){const exact=pool.filter(x=>x.difficulty===difficulty);if(exact.length>=Math.min(5,count))pool=exact}
     return sampleDistinct(pool,count);
@@ -55,8 +56,15 @@ window.LATIH_ENGINE = (() => {
     const mode=ri(1,y>=3?5:4);
     if(mode===1){const n=ri(1,max-1);return q('Nombor',`Apakah nombor selepas ${fmt(n)}?`,n+1,[n-1,n+10,n+2],`Nombor selepas ${fmt(n)} ialah ${fmt(n+1)}.`,diff,`next-${n}`)}
     if(mode===2){let a=ri(1,max),b=ri(1,max);while(b===a)b=ri(1,max);const c=Math.max(a,b);return q('Nombor',`Antara ${fmt(a)} dan ${fmt(b)}, nombor manakah lebih besar?`,c,[Math.min(a,b),Math.max(0,c-1),c+1],`${fmt(c)} lebih besar daripada ${fmt(Math.min(a,b))}.`,diff,`compare-${a}-${b}`)}
-    if(mode===3&&y>=2){const places=[10,100,1000,10000,100000].filter(p=>p<=max);const place=pick(places);let n=ri(place,max);let digit=Math.floor(n/place)%10;if(digit===0){n+=place;digit=Math.floor(n/place)%10}const ans=digit*place;return q('Nombor',`Apakah nilai digit ${digit} dalam nombor ${fmt(n)}?`,fmt(ans),[digit,digit*10,digit*100,digit*1000].map(fmt),`Digit ${digit} berada pada nilai tempat ${fmt(place)}, jadi nilainya ${fmt(ans)}.`,diff,`place-${n}-${place}`)}
-    if(mode===5&&y>=3){const vals=[];while(vals.length<4){const n=ri(1,max);if(!vals.includes(n))vals.push(n)}const asc=Math.random()>.5,target=[...vals].sort((a,b)=>asc?a-b:b-a),correct=target.map(fmt).join(' → ');const wrong=[shuffle(vals).map(fmt).join(' → '),[...vals].sort((a,b)=>asc?b-a:a-b).map(fmt).join(' → '),shuffle(vals).map(fmt).join(' → ')];return q('Nombor',`Pilih susunan nombor mengikut tertib ${asc?'menaik':'menurun'}.`,correct,wrong,`Tertib ${asc?'menaik bermula daripada nombor paling kecil':'menurun bermula daripada nombor paling besar'}.`,diff,`order-${asc?'asc':'desc'}-${vals.join('-')}`)}
+    if(mode===3&&y>=2){
+      const places=[10,100,1000,10000,100000].filter(p=>p<=max),place=pick(places),placeName=place===10?'puluh':place===100?'ratus':place===1000?'ribu':place===10000?'puluh ribu':'ratus ribu';
+      let n,digit,tries=0;
+      do{n=ri(Math.max(place,1),max);digit=Math.floor(n/place)%10;tries++}while((digit===0||String(n).split('').filter(x=>x===String(digit)).length!==1)&&tries<500);
+      if(digit===0||String(n).split('').filter(x=>x===String(digit)).length!==1){n=place*ri(1,9)+Math.max(1,Math.floor(place/10));digit=Math.floor(n/place)%10}
+      const ans=digit*place;
+      return q('Nombor',`Digit ${digit} yang berada di tempat ${placeName} dalam nombor ${fmt(n)} mempunyai nilai berapa?`,fmt(ans),[digit,digit*10,digit*100,digit*1000,digit*10000].map(fmt),`Digit ${digit} berada di tempat ${placeName}, jadi nilainya ${fmt(ans)}.`,diff,`place-${n}-${place}`,{alignment:'KPM PBD pattern'});
+    }
+    if(mode===5&&y>=3){const kpmSamples=[[2143,2043,2343,2243],[8009,8015,8011,8013],[5403,5443,5423,5433]];const official=y===3&&Math.random()<.18;const vals=official?[...pick(kpmSamples)]:[];while(vals.length<4){const n=ri(1,max);if(!vals.includes(n))vals.push(n)}const asc=Math.random()>.5,target=[...vals].sort((a,b)=>asc?a-b:b-a),correct=target.map(fmt).join(' → ');const wrong=[shuffle(vals).map(fmt).join(' → '),[...vals].sort((a,b)=>asc?b-a:a-b).map(fmt).join(' → '),shuffle(vals).map(fmt).join(' → ')];return q('Nombor',`Pilih susunan nombor mengikut tertib ${asc?'menaik':'menurun'}.`,correct,wrong,`Tertib ${asc?'menaik bermula daripada nombor paling kecil':'menurun bermula daripada nombor paling besar'}.`,diff,`order-${asc?'asc':'desc'}-${vals.join('-')}`,official?{source:'KPM PBD published example',alignment:'KPM PBD example'}:{alignment:'KPM PBD pattern'})}
     const n=ri(1,max);const nearest=y<=2?10:y<=4?100:1000;const ans=Math.round(n/nearest)*nearest;return q('Nombor',`Bundarkan ${fmt(n)} kepada ${nearest===10?'puluh':nearest===100?'ratus':'ribu'} terdekat.`,fmt(ans),[ans-nearest,ans+nearest,n].map(fmt),`Lihat digit di sebelah kanan nilai tempat yang hendak dibundarkan. Jawapan: ${fmt(ans)}.`,diff,`round-${n}-${nearest}`)
   }
   function mathAddSub(level,diff){const y=+level;let max=y===1?100:y===2?1000:y===3?10000:y===4?100000:1000000;if(diff==='mudah')max=Math.floor(max/10);const add=Math.random()>.48;let a=ri(1,max),b=ri(1,max);if(!add&&b>a)[a,b]=[b,a];const ans=add?a+b:a-b;const op=add?'+':'−';return q('Tambah & Tolak',`${fmt(a)} ${op} ${fmt(b)} = ?`,fmt(ans),[ans+1,Math.max(0,ans-1),ans+10,a+b,a-b].map(fmt),`${fmt(a)} ${op} ${fmt(b)} = ${fmt(ans)}.`,diff,`${add?'add':'sub'}-${a}-${b}`)}
@@ -67,14 +75,26 @@ window.LATIH_ENGINE = (() => {
   function mathMeasure(level,diff){if(Math.random()<.5){const m=ri(1,diff==='sukar'?50:10);const cm=m*100;return q('Ukuran',`${cm} cm bersamaan berapa meter?`,`${m} m`,[`${cm/10} m`,`${cm} m`,`${m/10} m`],`100 cm = 1 m, jadi ${cm} cm = ${m} m.`,diff,`cm-${cm}`)}const kg=ri(1,diff==='sukar'?25:10);const g=kg*1000;return q('Ukuran',`${kg} kg bersamaan berapa gram?`,`${g} g`,[`${kg*100} g`,`${kg} g`,`${g+100} g`],`1 kg = 1000 g, jadi ${kg} kg = ${g} g.`,diff,`kg-${kg}`)}
   function mathShape(level,diff){const facts=[['Bentuk 2D yang mempunyai 3 sisi ialah…','Segi tiga',['Segi empat sama','Bulatan','Segi lima'],'Segi tiga mempunyai tiga sisi.'],['Bentuk 3D yang mempunyai 6 permukaan segi empat sama ialah…','Kubus',['Kon','Sfera','Silinder'],'Kubus mempunyai enam permukaan segi empat sama.'],['Bentuk yang tiada sisi lurus ialah…','Bulatan',['Segi tiga','Segi empat tepat','Segi lima'],'Bulatan mempunyai garisan melengkung tanpa sisi lurus.']];if(+level>=4&&Math.random()>.45){const l=ri(2,15),w=ri(2,12),ans=l*w;return q('Bentuk & Ruang',`Sebuah segi empat tepat mempunyai panjang ${l} cm dan lebar ${w} cm. Berapakah luasnya?`,`${ans} cm²`,[`${2*(l+w)} cm²`,`${l+w} cm²`,`${ans+2} cm²`],`Luas segi empat tepat = panjang × lebar = ${l} × ${w} = ${ans} cm².`,diff,`area-${l}-${w}`)}const f=pick(facts);return q('Bentuk & Ruang',f[0],f[1],f[2],f[3],diff,`shape-${f[1]}`)}
   function mathData(level,diff){const vals=Array.from({length:diff==='sukar'?6:4},()=>ri(2,20));if(+level>=5&&diff!=='mudah'){const sum=vals.reduce((a,b)=>a+b,0);const adjusted=[...vals];const rem=sum%vals.length;if(rem)adjusted[adjusted.length-1]+=vals.length-rem;const s=adjusted.reduce((a,b)=>a+b,0),mean=s/adjusted.length;return q('Data',`Data: ${adjusted.join(', ')}. Apakah min (purata) data tersebut?`,mean,[mean+1,Math.max(0,mean-1),Math.max(...adjusted)],`Jumlah ${s} dibahagi ${adjusted.length} = ${mean}.`,diff,`mean-${adjusted.join('-')}`)}const max=Math.max(...vals);return q('Data',`Data: ${vals.join(', ')}. Nilai tertinggi ialah…`,max,[Math.min(...vals),max+1,Math.max(0,max-1)],`Cari nombor paling besar dalam set data.`,diff,`max-${vals.join('-')}`)}
+  function normalizeAnswer(v){return String(v??'').toLowerCase().trim().replace(/\s+/g,' ').replace(/,/g,'').replace(/^rm\s*/,'rm')}
+  function toShort(item){return qs(item.topic,item.question,item.correct,item.explanation,item.difficulty,item.concept+'-short',{source:item.source||'LatihKu Original',alignment:'KPM UASA pattern'});}
+  function validateItem(item){
+    if(!item||!item.question||item.correct===undefined)return false;
+    if(item.itemType==='short')return true;
+    if(!Array.isArray(item.answers)||item.answers.length!==4)return false;
+    const a=item.answers.map(x=>String(x).trim()),c=String(item.correct).trim();
+    return new Set(a).size===4&&a.filter(x=>x===c).length===1;
+  }
+  function safeGenerate(gen,level,diff){for(let i=0;i<50;i++){const item=gen(level,diff);if(validateItem(item))return item}throw new Error('Generator gagal menghasilkan item yang sah.')}
   const MATH_GEN={'Nombor':mathNumber,'Tambah & Tolak':mathAddSub,'Darab & Bahagi':mathMulDiv,'Pecahan':mathFraction,'Wang':mathMoney,'Masa':mathTime,'Ukuran':mathMeasure,'Bentuk & Ruang':mathShape,'Data':mathData};
   function mathSet(level,topic,count,difficulty){
-    const topics=topic==='Campur Semua'?C.subjects.math.topics:[topic],out=[],seen=new Set();
-    const plan=difficulty==='uasa'?[...Array(Math.round(count*.5)).fill('mudah'),...Array(Math.round(count*.3)).fill('sederhana'),...Array(Math.max(0,count-Math.round(count*.5)-Math.round(count*.3))).fill('sukar')]:Array(count).fill(null);
-    let tries=0;while(out.length<count&&tries<count*30){tries++;const t=pick(topics),d=difficulty==='uasa'?(plan[out.length]||'sederhana'):difficultyFor(level,difficulty),item=MATH_GEN[t](level,d);if(!seen.has(item.concept)){out.push(item);seen.add(item.concept)}}
-    while(out.length<count){const t=pick(topics),d=difficulty==='uasa'?(plan[out.length]||'sederhana'):difficultyFor(level,difficulty);out.push(MATH_GEN[t](level,d))}
-    return difficulty==='uasa'?shuffle(out):out
+    const topics=topic==='Campur Semua'?C.subjects.math.topics:[topic],out=[],seen=new Set(),uasa=difficulty==='uasa'&&+level>=4;
+    const plan=uasa?[...Array(Math.round(count*.5)).fill('mudah'),...Array(Math.round(count*.3)).fill('sederhana'),...Array(Math.max(0,count-Math.round(count*.5)-Math.round(count*.3))).fill('sukar')]:Array(count).fill(null);
+    let tries=0;
+    while(out.length<count&&tries<count*60){tries++;const tpc=pick(topics),d=uasa?(plan[out.length]||'sederhana'):difficultyFor(level,difficulty),item=safeGenerate(MATH_GEN[tpc],level,d);if(!seen.has(item.concept)){out.push(uasa?toShort(item):item);seen.add(item.concept)}}
+    while(out.length<count){const tpc=pick(topics),d=uasa?(plan[out.length]||'sederhana'):difficultyFor(level,difficulty),item=safeGenerate(MATH_GEN[tpc],level,d);out.push(uasa?toShort(item):item)}
+    return uasa?shuffle(out):out
   }
+
 
   async function makeSet(level,subject,topic,count,difficulty='auto'){
     if(subject==='math')return mathSet(level,topic,count,difficulty);
@@ -88,5 +108,5 @@ window.LATIH_ENGINE = (() => {
   function clearMemory(){memory.clear()}
   function totalStatic(){return Object.values(C.packs).reduce((a,p)=>a+p.count,0)}
   function totalBytes(){return Object.values(C.packs).reduce((a,p)=>a+(p.bytes||0),0)}
-  return {availableSubjects,subjectMeta,packInfo,makeSet,downloadAll,clearMemory,totalStatic,totalBytes};
+  return {availableSubjects,subjectMeta,packInfo,makeSet,downloadAll,clearMemory,totalStatic,totalBytes,normalizeAnswer,validateItem};
 })();
