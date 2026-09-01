@@ -1,0 +1,32 @@
+{
+  "version": "13.0.0",
+  "baseline": "v12 + v10 static QA baseline",
+  "smart_practice": {
+    "no_repeat_static_rotation": "PASS",
+    "year_2_bm_example": "51 curated -> with 50 seen, a 10-question session returns 1 remaining curated + 9 Smart Generated",
+    "weak_topic_weighting": "PASS",
+    "generated_recent_signature_window": 300,
+    "uasa_policy": "curated-first"
+  },
+  "qa": {
+    "static_items_tested": 1557,
+    "static_invalid": 0,
+    "static_duplicate_question_correct_pairs_within_pack": 0,
+    "smart_generated_structural_test_items": 4300,
+    "smart_generated_invalid": 0,
+    "topic_specific_30_question_sets": "PASS for every supported Smart Generator topic",
+    "long_run_year_2_bm_generated": 500,
+    "long_run_unique_signatures": 413,
+    "repeat_inside_last_300_signature_window": 0
+  },
+  "smart_supported_subjects": [
+    "Bahasa Melayu",
+    "Bahasa Inggeris",
+    "Sains",
+    "Pendidikan Islam",
+    "Pendidikan Moral",
+    "PJPK",
+    "Sejarah"
+  ],
+  "note": "Smart Generator is an offline rule-based generator, not an online LLM/API. Generated questions are labelled LatihKu Smart Generator and are not claimed to be official KPM questions."
+}

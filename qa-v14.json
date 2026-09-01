@@ -1,0 +1,30 @@
+{
+  "version": "14.0.0",
+  "base": "v13 Smart Practice Engine",
+  "learning_engine": {
+    "flow": [
+      "Belajar",
+      "Cuba Bersama",
+      "Aktiviti Interaktif",
+      "Sentence Lab / Ingat Semula",
+      "Kuiz Masteri"
+    ],
+    "lesson_combinations_tested": 306,
+    "lesson_generation_errors": 0,
+    "sentence_lab_subjects": [
+      "Bahasa Melayu",
+      "Bahasa Inggeris"
+    ],
+    "writing_check": "supportive heuristic; not exact-answer grammar grading",
+    "pra_learning_journey": true
+  },
+  "preserved": [
+    "Smart Practice",
+    "Pra Activities",
+    "Analog Clock",
+    "PWA offline",
+    "progress migration"
+  ],
+  "js_syntax": "PASS",
+  "pwa_shell_references": "PASS"
+}

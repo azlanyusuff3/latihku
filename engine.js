@@ -1,4 +1,4 @@
-/* LatihKu v12 engine: v10 QA baseline + v11 analog-clock generator retained. */
+/* LatihKu v15 bundle engine: v10 QA baseline + v11 clock + v13 smart rotation/generator. */
 window.LATIH_ENGINE = (() => {
   const C=window.LATIH_CONFIG;
   const memory=new Map();
@@ -37,17 +37,30 @@ window.LATIH_ENGINE = (() => {
     return out.map(x=>({...x,answers:shuffle(x.answers)}));
   }
 
-  async function staticSet(level,subject,topic,count,difficulty){
+  function cloneQuestion(x){return {...x,answers:Array.isArray(x.answers)?shuffle(x.answers):[]}}
+
+  async function staticSet(level,subject,topic,count,difficulty,ctx={}){
     const all=await loadPack(level,subject);
     let pool=topic==='Campur Semua'?all:all.filter(x=>x.topic===topic);
     if(!pool.length)pool=all;
+    // UASA remains curated-first because it is the formal assessment mode.
     if(difficulty==='uasa'){
       const plan=[]; const easy=Math.round(count*.5),mid=Math.round(count*.3),hard=Math.max(0,count-easy-mid);
       for(const [d,n] of [['mudah',easy],['sederhana',mid],['sukar',hard]]){const p=pool.filter(x=>x.difficulty===d);plan.push(...sampleDistinct(p.length?p:pool,n))}
       return shuffle(plan).slice(0,count).map((x,i)=>({...x,alignment:'KPM UASA pattern',source:x.source||'LatihKu Original',itemType:(['sci','hist'].includes(subject)&&i>=Math.ceil(count*.65)&&String(x.correct).length<=35)?'short':'mcq'}));
     }
     if(difficulty!=='auto'){const exact=pool.filter(x=>x.difficulty===difficulty);if(exact.length>=Math.min(5,count))pool=exact}
-    return sampleDistinct(pool,count);
+    const seen=new Set(ctx.seenIds||[]);
+    const unseen=shuffle(pool.filter(x=>!seen.has(String(x.id))));
+    const staticItems=unseen.slice(0,count).map(cloneQuestion);
+    const remaining=count-staticItems.length;
+    if(remaining<=0)return staticItems;
+    const smart=window.LATIH_SMART?.makeSet(level,subject,topic,remaining,difficulty,{weakTopics:ctx.weakTopics||{},recentGenerated:ctx.recentGenerated||[]})||[];
+    if(smart.length<remaining){
+      const fallback=sampleDistinct(pool,remaining-smart.length).map(x=>({...x,rotationFallback:true}));
+      smart.push(...fallback);
+    }
+    return [...staticItems,...smart].slice(0,count);
   }
 
   function mathNumber(level,diff){
@@ -112,9 +125,9 @@ window.LATIH_ENGINE = (() => {
   }
 
 
-  async function makeSet(level,subject,topic,count,difficulty='auto'){
+  async function makeSet(level,subject,topic,count,difficulty='auto',ctx={}){
     if(subject==='math')return mathSet(level,topic,count,difficulty);
-    return staticSet(level,subject,topic,count,difficulty);
+    return staticSet(level,subject,topic,count,difficulty,ctx);
   }
   async function downloadAll(onProgress=()=>{}){
     const packs=Object.values(C.packs),total=packs.length;let done=0,bytes=0;

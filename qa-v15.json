@@ -1,0 +1,46 @@
+{
+  "version": "15.0.0",
+  "focus": "Hint Point Economy + v14 Learning Journey UI",
+  "checks": {
+    "schema_version_15": true,
+    "starter_hint_points_20": true,
+    "hint_costs_2_3_5": true,
+    "correct_without_hint_plus_3": true,
+    "guided_without_hint_plus_3": true,
+    "lesson_first_completion_plus_5": true,
+    "mastery_first_pass_plus_10": true,
+    "pra_mastery_plus_10": true,
+    "daily_learning_bonus_plus_5": true,
+    "free_level1_fallback": true,
+    "xp_not_spent_by_hints": true,
+    "mode_belajar_quiz_hints_only": true,
+    "mastery_remains_no_hint": true,
+    "anti_repeat_lesson_reward": true,
+    "anti_repeat_mastery_reward": true
+  },
+  "learning_engine_combinations_tested": 306,
+  "learning_engine_failures": 0,
+  "math_generated_items_tested": 4050,
+  "math_generated_invalid": 0,
+  "clock_generated_invalid": 0,
+  "static_bank_items_unchanged": 1557,
+  "static_answer_structure_invalid": 0,
+  "economy": {
+    "starter_points": 20,
+    "hint_1_cost": 2,
+    "hint_2_cost": 3,
+    "hint_3_cost": 5,
+    "correct_without_hint_reward": 3,
+    "guided_correct_without_hint_reward": 3,
+    "first_lesson_completion_reward": 5,
+    "first_mastery_reward": 10,
+    "daily_learning_bonus": 5,
+    "level_1_free_fallback_when_balance_low": true,
+    "xp_is_never_spent": true
+  },
+  "notes": [
+    "Quiz hints appear in Mode Belajar. Mode Ujian/UASA and Kuiz Masteri remain no-hint by design.",
+    "Lesson and mastery rewards use per-topic reward flags to prevent repeated farming.",
+    "Existing v14 progress is preserved via the same storage key; v15 migration adds the Hint Point wallet."
+  ]
+}
