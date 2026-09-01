@@ -1,0 +1,27 @@
+{
+  "version": "17.0.0",
+  "name": "Adaptive Visual Tutor",
+  "learning_combinations_tested": 306,
+  "adaptive_visual_challenges_tested": 3672,
+  "adaptive_challenge_validation": "PASS - exactly one correct option, no duplicate options, reteach scene available",
+  "static_items_preserved": 1557,
+  "static_structure_validation": "PASS",
+  "no_hint_function": "PASS - no hint button / hint point economy",
+  "adaptive_rule": "Cuba Sendiri requires 2 consecutive correct answers; wrong answer triggers visual reteach and then a new challenge",
+  "offline": "Adaptive engine is local rule-based; no cloud API required",
+  "visual_coverage": [
+    "Pra",
+    "Matematik",
+    "Bahasa Melayu",
+    "Bahasa Inggeris",
+    "Sains",
+    "Sejarah",
+    "Pendidikan Islam/Jawi",
+    "Pendidikan Moral",
+    "PJPK"
+  ],
+  "notes": [
+    "Speech synthesis is optional and depends on the device/browser voice availability.",
+    "Existing v13 Smart Practice and v16 learning content/data are preserved."
+  ]
+}

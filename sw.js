@@ -1,6 +1,6 @@
-const SHELL_CACHE='latihku-shell-v16.0.0';
-const DATA_CACHE='latihku-data-v16.0.0';
-const SHELL=['./','index.html','styles.css','config.js','smart-engine.js','engine.js','pra-engine.js','learning-engine.js','app.js','manifest.json','icons/icon-192.png','icons/icon-512.png'];
+const SHELL_CACHE='latihku-shell-v17.0.0';
+const DATA_CACHE='latihku-data-v17.0.0';
+const SHELL=['./','index.html','styles.css','config.js','smart-engine.js','engine.js','pra-engine.js','learning-engine.js','adaptive-engine.js','app.js','manifest.json','icons/icon-192.png','icons/icon-512.png'];
 self.addEventListener('install',e=>{e.waitUntil(caches.open(SHELL_CACHE).then(c=>c.addAll(SHELL)));self.skipWaiting()});
 self.addEventListener('activate',e=>{e.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(k=>![SHELL_CACHE,DATA_CACHE].includes(k)).map(k=>caches.delete(k)))));self.clients.claim()});
 self.addEventListener('fetch',e=>{

@@ -1,4 +1,4 @@
-/* LatihKu v16 Real Learning Engine
+/* LatihKu v17 Real Learning Engine
    Original micro-teaching summaries aligned to KPM textbook/DSKP/MOBIM themes.
    No textbook text/images are copied. Content is rewritten for short interactive learning. */
 window.LATIH_LEARNING = (() => {
