@@ -1,13 +1,15 @@
 {
-  "name": "LatihKu Adventure v5",
+  "name": "LatihKu KSSR",
   "short_name": "LatihKu",
-  "description": "PWA latihan KSSR bergaya adventure game untuk Pra Sekolah hingga Tahun 6.",
+  "description": "Latihan interaktif Pra Sekolah hingga Tahun 6. Tanpa login, progress local dan offline PWA.",
+  "id": "./",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",
-  "background_color": "#dff6ff",
-  "theme_color": "#087ce9",
-  "orientation": "any",
+  "background_color": "#f7f8ff",
+  "theme_color": "#5b5bd6",
+  "orientation": "portrait-primary",
+  "categories": ["education", "kids"],
   "icons": [
     {"src":"icons/icon-192.png","sizes":"192x192","type":"image/png","purpose":"any maskable"},
     {"src":"icons/icon-512.png","sizes":"512x512","type":"image/png","purpose":"any maskable"}
