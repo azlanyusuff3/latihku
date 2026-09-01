@@ -1,5 +1,5 @@
 {
-  "version": "10.0.0",
+  "version": "11.0.0",
   "scope": "All static packs + procedural Mathematics",
   "static_unique_items": 1557,
   "checks": {
@@ -18,5 +18,13 @@
     "years_4_to_6": "UASA-aligned practice mode for Bahasa Melayu, Bahasa Inggeris, Matematik, Sains and Sejarah",
     "official_examples": "A small set of published KPM PBD example patterns is included and labelled accordingly",
     "original_items": "Other items are LatihKu original and labelled KPM-aligned; they are not claimed to be official KPM exam questions"
+  },
+  "baseline": "v10.0.0 QA results preserved",
+  "v11_changes": {
+    "large_analog_clock_visual": "PASS",
+    "clock_numbers_1_to_12": "PASS",
+    "preschool_clock_emoji_replaced_with_visual": "PASS",
+    "procedural_math_time_clock_metadata": "PASS",
+    "uasa_time_visual_metadata_preserved": "PASS"
   }
 }

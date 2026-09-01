@@ -1,4 +1,4 @@
-/* LatihKu v10 engine: QA-gated bank + KPM-aligned practice patterns. */
+/* LatihKu v11 engine: v10 QA baseline + large analog-clock question generator. */
 window.LATIH_ENGINE = (() => {
   const C=window.LATIH_CONFIG;
   const memory=new Map();
@@ -11,9 +11,9 @@ window.LATIH_ENGINE = (() => {
     const num=Number(String(correct).replace(/,/g,''));
     if(Number.isFinite(num)){for(const x of [num+2,Math.max(0,num-2),num+5,Math.max(0,num-5)]){if(dist.length>=3)break;const s=String(x);if(s!==c&&!dist.includes(s))dist.push(s)}}
     for(const x of ['Tidak berkaitan','Pilihan lain','Tiada perubahan']){if(dist.length>=3)break;if(x!==c&&!dist.includes(x))dist.push(x)}
-    return {id:`MATH-${Date.now()}-${Math.random().toString(36).slice(2,8)}`,topic,question,correct:c,answers:shuffle([c,...dist.slice(0,3)]),explanation,difficulty,concept,qa:'v10-procedural',source:'LatihKu Original',alignment:'KPM-aligned',itemType:'mcq',...meta}
+    return {id:`MATH-${Date.now()}-${Math.random().toString(36).slice(2,8)}`,topic,question,correct:c,answers:shuffle([c,...dist.slice(0,3)]),explanation,difficulty,concept,qa:'v11-procedural',source:'LatihKu Original',alignment:'KPM-aligned',itemType:'mcq',...meta}
   };
-  const qs=(topic,question,correct,explanation,difficulty='sederhana',concept='math-short',meta={})=>({id:`MATH-${Date.now()}-${Math.random().toString(36).slice(2,8)}`,topic,question,correct:String(correct),answers:[],explanation,difficulty,concept,qa:'v10-procedural',source:'LatihKu Original',alignment:'KPM UASA pattern',itemType:'short',...meta});
+  const qs=(topic,question,correct,explanation,difficulty='sederhana',concept='math-short',meta={})=>({id:`MATH-${Date.now()}-${Math.random().toString(36).slice(2,8)}`,topic,question,correct:String(correct),answers:[],explanation,difficulty,concept,qa:'v11-procedural',source:'LatihKu Original',alignment:'KPM UASA pattern',itemType:'short',...meta});
   const fmt=n=>Number(n).toLocaleString('ms-MY',{maximumFractionDigits:2});
 
   function subjectMeta(id){return C.subjects[id]}
@@ -71,12 +71,28 @@ window.LATIH_ENGINE = (() => {
   function mathMulDiv(level,diff){const y=+level;const m=diff==='mudah'?5:y<=2?6:y===3?10:12;if(Math.random()>.5){const a=ri(2,m),b=ri(2,m);const ans=a*b;return q('Darab & Bahagi',`${a} × ${b} = ?`,ans,[ans+a,Math.max(0,ans-a),a+b,ans+1],`${a} didarab ${b} bersamaan ${ans}.`,diff,`mul-${a}-${b}`)}const b=ri(2,m),ans=ri(2,m),a=b*ans;return q('Darab & Bahagi',`${a} ÷ ${b} = ?`,ans,[ans+1,Math.max(1,ans-1),b,a],`${a} dibahagi ${b} bersamaan ${ans}.`,diff,`div-${a}-${b}`)}
   function mathFraction(level,diff){const y=+level;if(y<=2){return pick([q('Pecahan','Yang manakah mewakili satu perdua?','1/2',['1/3','2/3','2/2'],'Satu perdua ditulis sebagai 1/2.',diff,'half'),q('Pecahan','Jika satu objek dibahagi kepada 4 bahagian sama, satu bahagiannya ialah…','1/4',['1/2','2/4','4/1'],'Satu daripada empat bahagian sama ditulis 1/4.',diff,'quarter')])}const d=pick(diff==='sukar'?[4,5,8,10,12]:[2,3,4,5,8,10]);let a=ri(1,d-1),b=ri(1,d-1);if(Math.random()<.55&&a+b<d){const ans=`${a+b}/${d}`;return q('Pecahan',`${a}/${d} + ${b}/${d} = ?`,ans,[`${Math.abs(a-b)}/${d}`,`${a+b}/${d*2}`,`${a+b}/${d+1}`],`Penyebut sama, jadi tambah pembilang: ${a} + ${b} = ${a+b}.`,diff,`fracadd-${a}-${b}-${d}`)}const nums=shuffle([ri(1,d-1),ri(1,d-1),ri(1,d-1),d-1]);const mx=Math.max(...nums);return q('Pecahan',`Antara pecahan berikut, yang manakah paling besar?`,`${mx}/${d}`,nums.filter(n=>n!==mx).slice(0,3).map(n=>`${n}/${d}`),`Apabila penyebut sama, pembilang yang lebih besar menghasilkan pecahan lebih besar.`,diff,`fraccompare-${nums.join('-')}-${d}`)}
   function mathMoney(level,diff){const y=+level;const max=diff==='mudah'?50:y<=3?200:1000;const a=ri(2,max),b=ri(1,Math.max(2,Math.floor(max/2)));if(Math.random()<.55){const total=a+b;return q('Wang',`Aina mempunyai RM${a}. Dia menerima lagi RM${b}. Berapakah jumlah wangnya?`,`RM${total}`,[`RM${a-b}`,`RM${total+1}`,`RM${a}`],`RM${a} + RM${b} = RM${total}.`,diff,`moneyadd-${a}-${b}`)}const paid=a+b;return q('Wang',`Harga sebuah barang ialah RM${a}. Jika dibayar RM${paid}, berapakah baki?`,`RM${b}`,[`RM${a}`,`RM${paid}`,`RM${Math.max(0,b-1)}`],`RM${paid} − RM${a} = RM${b}.`,diff,`change-${a}-${paid}`)}
-  function mathTime(level,diff){const h=ri(1,11),mins=pick(diff==='mudah'?[0,30]:[0,15,30,45]),add=pick(diff==='sukar'?[2,3,4]:[1,2,3]);const total=h*60+mins+add*60;const ah=Math.floor(total/60)%12||12;const am=total%60;const cur=`${h}:${String(mins).padStart(2,'0')}`;const ans=`${ah}:${String(am).padStart(2,'0')}`;return q('Masa',`Sekarang pukul ${cur}. ${add} jam kemudian ialah pukul berapa?`,ans,[`${h}:${String((mins+30)%60).padStart(2,'0')}`,`${(ah%12)+1}:${String(am).padStart(2,'0')}`,`${Math.max(1,h-add)}:${String(mins).padStart(2,'0')}`],`Tambah ${add} jam kepada ${cur}. Jawapan ialah ${ans}.`,diff,`time-${h}-${mins}-${add}`)}
+  function mathTime(level,diff){
+    const y=+level||1;
+    let minutePool;
+    if(y<=2)minutePool=diff==='mudah'?[0]:[0,30];
+    else if(y===3)minutePool=diff==='mudah'?[0,30]:[0,15,30,45];
+    else minutePool=diff==='sukar'?[0,5,10,15,20,25,30,35,40,45,50,55]:[0,15,30,45];
+    const h=ri(1,12),mins=pick(minutePool),cur=`${h}:${String(mins).padStart(2,'0')}`;
+    const visual={type:'clock',hour:h,minute:mins};
+    if(Math.random()<.58){
+      const wrong=[];
+      const push=(hh,mm)=>{const v=`${((hh-1+12)%12)+1}:${String((mm+60)%60).padStart(2,'0')}`;if(v!==cur&&!wrong.includes(v))wrong.push(v)};
+      push(h+1,mins);push(h-1,mins);push(h,(mins+30)%60);push(h,(mins+15)%60);push(h+2,mins);
+      return q('Masa','Jam di bawah menunjukkan pukul berapa?',cur,wrong,`Jarum pendek menunjukkan jam dan jarum panjang menunjukkan minit. Waktunya ialah ${cur}.`,diff,`clock-read-${h}-${mins}`,{visual,alignment:'KPM PBD pattern'});
+    }
+    const add=pick(diff==='sukar'?[2,3,4]:[1,2,3]),total=(h%12)*60+mins+add*60,ah=Math.floor(total/60)%12||12,am=total%60,ans=`${ah}:${String(am).padStart(2,'0')}`;
+    return q('Masa',`Jam di bawah menunjukkan waktu sekarang. ${add} jam kemudian ialah pukul berapa?`,ans,[`${((ah)%12)+1}:${String(am).padStart(2,'0')}`,`${((h-1+12)%12)+1}:${String(mins).padStart(2,'0')}`,`${h}:${String((mins+30)%60).padStart(2,'0')}`],`Tambah ${add} jam kepada ${cur}. Jawapan ialah ${ans}.`,diff,`clock-add-${h}-${mins}-${add}`,{visual,alignment:'KPM PBD pattern'});
+  }
   function mathMeasure(level,diff){if(Math.random()<.5){const m=ri(1,diff==='sukar'?50:10);const cm=m*100;return q('Ukuran',`${cm} cm bersamaan berapa meter?`,`${m} m`,[`${cm/10} m`,`${cm} m`,`${m/10} m`],`100 cm = 1 m, jadi ${cm} cm = ${m} m.`,diff,`cm-${cm}`)}const kg=ri(1,diff==='sukar'?25:10);const g=kg*1000;return q('Ukuran',`${kg} kg bersamaan berapa gram?`,`${g} g`,[`${kg*100} g`,`${kg} g`,`${g+100} g`],`1 kg = 1000 g, jadi ${kg} kg = ${g} g.`,diff,`kg-${kg}`)}
   function mathShape(level,diff){const facts=[['Bentuk 2D yang mempunyai 3 sisi ialah…','Segi tiga',['Segi empat sama','Bulatan','Segi lima'],'Segi tiga mempunyai tiga sisi.'],['Bentuk 3D yang mempunyai 6 permukaan segi empat sama ialah…','Kubus',['Kon','Sfera','Silinder'],'Kubus mempunyai enam permukaan segi empat sama.'],['Bentuk yang tiada sisi lurus ialah…','Bulatan',['Segi tiga','Segi empat tepat','Segi lima'],'Bulatan mempunyai garisan melengkung tanpa sisi lurus.']];if(+level>=4&&Math.random()>.45){const l=ri(2,15),w=ri(2,12),ans=l*w;return q('Bentuk & Ruang',`Sebuah segi empat tepat mempunyai panjang ${l} cm dan lebar ${w} cm. Berapakah luasnya?`,`${ans} cm²`,[`${2*(l+w)} cm²`,`${l+w} cm²`,`${ans+2} cm²`],`Luas segi empat tepat = panjang × lebar = ${l} × ${w} = ${ans} cm².`,diff,`area-${l}-${w}`)}const f=pick(facts);return q('Bentuk & Ruang',f[0],f[1],f[2],f[3],diff,`shape-${f[1]}`)}
   function mathData(level,diff){const vals=Array.from({length:diff==='sukar'?6:4},()=>ri(2,20));if(+level>=5&&diff!=='mudah'){const sum=vals.reduce((a,b)=>a+b,0);const adjusted=[...vals];const rem=sum%vals.length;if(rem)adjusted[adjusted.length-1]+=vals.length-rem;const s=adjusted.reduce((a,b)=>a+b,0),mean=s/adjusted.length;return q('Data',`Data: ${adjusted.join(', ')}. Apakah min (purata) data tersebut?`,mean,[mean+1,Math.max(0,mean-1),Math.max(...adjusted)],`Jumlah ${s} dibahagi ${adjusted.length} = ${mean}.`,diff,`mean-${adjusted.join('-')}`)}const max=Math.max(...vals);return q('Data',`Data: ${vals.join(', ')}. Nilai tertinggi ialah…`,max,[Math.min(...vals),max+1,Math.max(0,max-1)],`Cari nombor paling besar dalam set data.`,diff,`max-${vals.join('-')}`)}
   function normalizeAnswer(v){return String(v??'').toLowerCase().trim().replace(/\s+/g,' ').replace(/,/g,'').replace(/^rm\s*/,'rm')}
-  function toShort(item){return qs(item.topic,item.question,item.correct,item.explanation,item.difficulty,item.concept+'-short',{source:item.source||'LatihKu Original',alignment:'KPM UASA pattern'});}
+  function toShort(item){return qs(item.topic,item.question,item.correct,item.explanation,item.difficulty,item.concept+'-short',{source:item.source||'LatihKu Original',alignment:'KPM UASA pattern',visual:item.visual||undefined});}
   function validateItem(item){
     if(!item||!item.question||item.correct===undefined)return false;
     if(item.itemType==='short')return true;
