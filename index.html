@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="ms">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <meta name="theme-color" content="#5b5bd6" />
+  <meta name="description" content="LatihKu Adventure KSSR v3 — latihan gamified Pra Sekolah hingga Tahun 6, tanpa login, progress kekal pada peranti dan boleh digunakan offline." />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+  <meta name="apple-mobile-web-app-title" content="LatihKu" />
+  <link rel="manifest" href="manifest.json" />
+  <link rel="apple-touch-icon" href="icons/icon-192.png" />
+  <link rel="icon" href="icons/icon-192.png" />
+  <link rel="stylesheet" href="styles.css" />
+  <title>LatihKu Adventure v3</title>
+</head>
+<body>
+  <div id="app"></div>
+  <div id="toast" class="toast" aria-live="polite"></div>
+  <div id="loading" class="loading-overlay hidden" role="status" aria-live="polite">
+    <div class="loading-card"><div class="spinner"></div><strong id="loadingTitle">Memuatkan…</strong><div id="loadingText" class="muted small"></div></div>
+  </div>
+  <input id="restoreFile" type="file" accept="application/json,.json" hidden />
+  <script src="config.js"></script>
+  <script src="engine.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
