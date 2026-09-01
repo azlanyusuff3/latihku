@@ -1,17 +1,25 @@
 {
-  "name": "LatihKu KSSR",
+  "name": "LatihKu Adventure v7",
   "short_name": "LatihKu",
-  "description": "Latihan interaktif Pra Sekolah hingga Tahun 6. Tanpa login, progress local dan offline PWA.",
-  "id": "./",
+  "description": "PWA latihan KSSR bergaya game dan Sahabatku ala tamagotchi untuk Pra Sekolah hingga Tahun 6.",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",
-  "background_color": "#f7f8ff",
-  "theme_color": "#5b5bd6",
-  "orientation": "portrait-primary",
-  "categories": ["education", "kids"],
+  "background_color": "#dff6ff",
+  "theme_color": "#087ce9",
+  "orientation": "any",
   "icons": [
-    {"src":"icons/icon-192.png","sizes":"192x192","type":"image/png","purpose":"any maskable"},
-    {"src":"icons/icon-512.png","sizes":"512x512","type":"image/png","purpose":"any maskable"}
+    {
+      "src": "icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
   ]
 }
