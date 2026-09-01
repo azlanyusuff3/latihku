@@ -1,15 +1,7 @@
 {
-  "total_static_questions": 10127,
-  "packs": 40,
-  "bytes": 3410759,
-  "by_subject": {
-    "pra": 421,
-    "bm": 2210,
-    "en": 1740,
-    "sci": 2240,
-    "islam": 954,
-    "moral": 864,
-    "pjpk": 1014,
-    "hist": 684
-  }
+  "version": "9.0.0",
+  "total_static": 10080,
+  "qa_errors": 0,
+  "qa_warnings": 0,
+  "preschool_questions": 374
 }
