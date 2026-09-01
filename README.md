@@ -1,4 +1,4 @@
-# LatihKu Study v11 — Large Clock Edition
+# LatihKu Study v12 — Pra Activities Upgrade
 
 v11 dibina terus daripada **v10 KPM-Aligned QA Edition**. Semua ciri v10 dikekalkan, termasuk onboarding Nama → Sticker, progress/offline, bank soalan yang telah di-QA dan Format UASA.
 
@@ -22,3 +22,10 @@ v11 dibina terus daripada **v10 KPM-Aligned QA Edition**. Semua ciri v10 dikekal
 Extract ZIP dan upload **semua isi folder ini** ke root repository. Pastikan `index.html` berada di root. Kemudian GitHub → Settings → Pages → Deploy from a branch → `main` → `/(root)`.
 
 > Nota: v11 belum memasukkan set soalan tambahan yang akan diberi kemudian; package ini fokus pada upgrade Jam & Masa dahulu seperti dipersetujui.
+
+
+## v12 — Pra Activities Upgrade
+- Mewarna: pilih sample line-art original (buah, haiwan, rumah, bunga, kenderaan, bentuk), palette, tap/fill, reset dan tukar gambar.
+- Melukis: pilih sample/tiru atau canvas kosong, warna, 4 saiz brush, eraser, undo dan clear.
+- Baki emoji jam dalam teks soalan Pra dibuang; visual Jam & Masa v11 dikekalkan.
+- Semua progress, offline/PWA, onboarding dan QA baseline v10/v11 dikekalkan.

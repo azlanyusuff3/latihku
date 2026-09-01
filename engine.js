@@ -1,4 +1,4 @@
-/* LatihKu v11 engine: v10 QA baseline + large analog-clock question generator. */
+/* LatihKu v12 engine: v10 QA baseline + v11 analog-clock generator retained. */
 window.LATIH_ENGINE = (() => {
   const C=window.LATIH_CONFIG;
   const memory=new Map();
