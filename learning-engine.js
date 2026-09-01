@@ -1,4 +1,4 @@
-/* LatihKu v15 Learning Engine — offline micro-lessons, guided activities and sentence writing scaffolds. */
+/* LatihKu v14 Learning Engine — offline micro-lessons, guided activities and sentence writing scaffolds. */
 window.LATIH_LEARNING = (() => {
   const C=window.LATIH_CONFIG;
   const shuffle=a=>{const b=[...a];for(let i=b.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[b[i],b[j]]=[b[j],b[i]]}return b};

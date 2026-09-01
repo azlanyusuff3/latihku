@@ -1,6 +1,6 @@
-# LatihKu Study v15 — Learning Journey Prototype
+# LatihKu Study v14 — Learning Journey Prototype
 
-v15 dibina terus daripada **v13 Smart Practice Engine**. Semua fungsi v13 dikekalkan, tetapi LatihKu kini mempunyai lapisan **belajar sebelum latihan**.
+v14 dibina terus daripada **v13 Smart Practice Engine**. Semua fungsi v13 dikekalkan, tetapi LatihKu kini mempunyai lapisan **belajar sebelum latihan**.
 
 ## Aliran baru
 
@@ -24,7 +24,7 @@ Sentence Lab ialah scaffold offline, bukan AI cloud:
 - semakan asas: huruf besar, tanda baca, panjang minimum dan idea penting daripada arahan;
 - feedback berbentuk cadangan, bukan exact-answer marking.
 
-Content v15 ini ialah **prototype UI/learning engine**. Bank/ayat contoh boleh diganti atau diperhalus kemudian menggunakan set soalan/contoh yang diberi tanpa mengubah struktur UI.
+Content v14 ini ialah **prototype UI/learning engine**. Bank/ayat contoh boleh diganti atau diperhalus kemudian menggunakan set soalan/contoh yang diberi tanpa mengubah struktur UI.
 
 ## UI
 
@@ -43,16 +43,4 @@ UI dibuat lebih hidup dan kid-friendly dengan kad besar, learning path, subject 
 
 ## Upload GitHub Pages
 
-Extract ZIP dan upload **semua isi di dalam folder `LatihKu-KSSR-v15`** ke root repository. Pastikan fail baru **`learning-engine.js`** turut berada di root bersama `index.html`, `app.js`, `engine.js`, `smart-engine.js`, `pra-engine.js`, `styles.css`, `sw.js`, `manifest.json`, `icons/` dan `data/`.
-
-
-## v15 — Hint Point Economy
-- XP kekal lifetime progress dan tidak ditolak apabila menggunakan hint.
-- Starter wallet: 20 Hint Points untuk user baharu / migrasi dari v14.
-- Hint semasa Learning Journey: Level 1 = 2 points, Level 2 = 3 points, Level 3 = 5 points.
-- Mode Belajar pada soalan turut mempunyai tiga tahap hint.
-- Betul tanpa hint: +3 Hint Points.
-- Selesai lesson kali pertama: +5 Hint Points.
-- Mastery >=80% kali pertama bagi topik: +10 Hint Points.
-- Aktiviti belajar pertama pada hari baharu: +5 Hint Points.
-- Jika balance tidak cukup, Hint Level 1 masih boleh diberi percuma supaya pembelajaran tidak dikunci.
+Extract ZIP dan upload **semua isi di dalam folder `LatihKu-KSSR-v14`** ke root repository. Pastikan fail baru **`learning-engine.js`** turut berada di root bersama `index.html`, `app.js`, `engine.js`, `smart-engine.js`, `pra-engine.js`, `styles.css`, `sw.js`, `manifest.json`, `icons/` dan `data/`.
