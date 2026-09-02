@@ -1,9 +1,9 @@
-# LatihKu KSSR v17 — Adaptive Visual Tutor
+# LatihKu KSSR v18 — Visual Explain
 
 Versi ini meneruskan v16 tetapi menukar Learning Journey kepada visual-first learning.
 
 ## Perubahan utama
-- **Adaptive Visual Tutor** offline: tiada API, tiada kos, tiada internet diperlukan.
+- **Visual Explain** offline: tiada API, tiada kos, tiada internet diperlukan.
 - Tiada Hint / Hint Points.
 - Flow belajar: **Tengok → Gerak → Cuba Bersama → Cuba Sendiri → Masteri**.
 - Cuba Sendiri perlu 2 jawapan visual betul berturut-turut.
@@ -15,4 +15,4 @@ Versi ini meneruskan v16 tetapi menukar Learning Journey kepada visual-first lea
 - Smart Practice v13, Mastery, PWA/offline, Jam, Mewarna, Melukis, XP/streak dikekalkan.
 
 ## Nota
-Adaptive Tutor v17 menggunakan rule-based local adaptation, bukan cloud LLM. Ini disengajakan supaya selamat untuk PWA kanak-kanak, boleh offline dan tidak menghantar jawapan murid ke server.
+Adaptive Tutor v18 menggunakan rule-based local adaptation, bukan cloud LLM. Ini disengajakan supaya selamat untuk PWA kanak-kanak, boleh offline dan tidak menghantar jawapan murid ke server.
