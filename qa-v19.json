@@ -1,0 +1,22 @@
+{
+  "mathRendered": 1944,
+  "staticRendered": 1203,
+  "failures": [],
+  "failureCount": 0,
+  "criticalChecks": {
+    "add": true,
+    "sub": true,
+    "mul": true,
+    "div": true
+  },
+  "version": "19.0.0",
+  "focus": "Exact Visual Explanation based on actual item concept",
+  "storageMigration": "latihkuStudyV10 retained",
+  "hintFunction": false,
+  "learningTabPrimary": false,
+  "notes": [
+    "Math explanation uses actual generated item concept/numbers",
+    "Static subject items render concept-specific or subject-specific visual feedback",
+    "No long explanation paragraph in immediate feedback"
+  ]
+}

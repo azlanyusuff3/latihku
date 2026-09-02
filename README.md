@@ -1,18 +1,19 @@
-# LatihKu KSSR v18 — Visual Explain
+# LatihKu KSSR v19 — Exact Visual Explanation
 
-Versi ini meneruskan v16 tetapi menukar Learning Journey kepada visual-first learning.
+v19 kembali kepada pengalaman utama LatihKu: pilih tahap/subjek/topik dan terus jawab soalan. Tiada flow Belajar panjang dan tiada Hint.
 
 ## Perubahan utama
-- **Visual Explain** offline: tiada API, tiada kos, tiada internet diperlukan.
-- Tiada Hint / Hint Points.
-- Flow belajar: **Tengok → Gerak → Cuba Bersama → Cuba Sendiri → Masteri**.
-- Cuba Sendiri perlu 2 jawapan visual betul berturut-turut.
-- Jika salah, tutor automatik masuk mode reteach: visual konkrit → pecah langkah → buat contoh bersama.
-- Selepas reteach, murid menerima **soalan baru**, bukan soalan yang sama.
-- Visual khusus untuk Matematik (objek, base-10, pecahan, jam, wang, ukuran, bentuk, carta), BM (simpulan bahasa, tatabahasa, ejaan, kosa kata), BI, Sains, Sejarah, Pendidikan Islam/Jawi, Moral, PJPK dan Pra.
-- Butang audio ringkas menggunakan speech synthesis peranti apabila tersedia.
-- Progress adaptive disimpan bersama progress sedia ada.
-- Smart Practice v13, Mastery, PWA/offline, Jam, Mewarna, Melukis, XP/streak dikekalkan.
+- Mode Belajar: jawapan betul → feedback ringkas dan teruskan.
+- Jawapan salah → **Exact Visual Explanation** berdasarkan soalan sebenar, bukan contoh random.
+- Matematik membaca `concept` item sebenar dan mengajar operasi dengan visual nilai tempat / objek / kumpulan / unit yang berkaitan.
+- Tambah: kira dari Sa ke nilai tempat seterusnya; regroup/carry ditunjukkan bergerak ke column berikut.
+- Tolak: borrowing ditunjukkan sebagai pertukaran nilai tempat, contoh `1 puluh → 10 sa`.
+- Darab: kumpulan sama banyak. Bahagi: agihan sama rata.
+- Pecahan, wang, masa, ukuran, bentuk, nombor dan data mempunyai visual logic masing-masing.
+- BM menggunakan visual ikut konsep seperti antonim, penjodoh bilangan, simpulan bahasa, ejaan dan pemahaman.
+- Sains/Sejarah/BI/Pendidikan Islam/Moral/PJPK menggunakan visual mapping atau cause/effect ringkas mengikut item sebenar.
+- Smart Practice v13, Pra activities, XP/streak, progress dan offline PWA dikekalkan.
+- Storage key lama dikekalkan untuk migrasi tanpa reset progress.
 
-## Nota
-Adaptive Tutor v18 menggunakan rule-based local adaptation, bukan cloud LLM. Ini disengajakan supaya selamat untuk PWA kanak-kanak, boleh offline dan tidak menghantar jawapan murid ke server.
+## Prinsip reka bentuk
+Visual dahulu, teks minimum. Explanation hanya muncul selepas murid mencuba dan salah; ia bukan Hint/Cheat sebelum menjawab.
