@@ -1,6 +1,6 @@
-const SHELL_CACHE='latihku-shell-v22.0.0';
-const DATA_CACHE='latihku-data-v22.0.0';
-const COLOR_CACHE='latihku-coloring-v22.0.0';
+const SHELL_CACHE='latihku-shell-v23.0.0';
+const DATA_CACHE='latihku-data-v23.0.0';
+const COLOR_CACHE='latihku-coloring-v23.0.0';
 const SHELL=['./','index.html','styles.css','config.js','smart-engine.js','pdf-pattern-engine.js','engine.js','pra-engine.js','learning-engine.js','adaptive-engine.js','visual-explain.js','coloring-data.js','app.js','manifest.json','icons/icon-192.png','icons/icon-512.png'];
 self.addEventListener('install',e=>{e.waitUntil(caches.open(SHELL_CACHE).then(c=>c.addAll(SHELL)));self.skipWaiting()});
 self.addEventListener('activate',e=>{e.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(k=>![SHELL_CACHE,DATA_CACHE,COLOR_CACHE].includes(k)).map(k=>caches.delete(k)))));self.clients.claim()});
