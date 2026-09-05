@@ -1,4 +1,4 @@
-/* LatihKu v20 engine: curated-first rotation + AI/PDF-pattern generator + procedural Math. */
+/* LatihKu v22 engine: curated-first rotation + AI/PDF-pattern generator + procedural Math. */
 window.LATIH_ENGINE = (() => {
   const C=window.LATIH_CONFIG;
   const memory=new Map();
@@ -11,9 +11,9 @@ window.LATIH_ENGINE = (() => {
     const num=Number(String(correct).replace(/,/g,''));
     if(Number.isFinite(num)){for(const x of [num+2,Math.max(0,num-2),num+5,Math.max(0,num-5)]){if(dist.length>=3)break;const s=String(x);if(s!==c&&!dist.includes(s))dist.push(s)}}
     for(const x of ['Tidak berkaitan','Pilihan lain','Tiada perubahan']){if(dist.length>=3)break;if(x!==c&&!dist.includes(x))dist.push(x)}
-    return {id:`MATH-${Date.now()}-${Math.random().toString(36).slice(2,8)}`,topic,question,correct:c,answers:shuffle([c,...dist.slice(0,3)]),explanation,difficulty,concept,qa:'v20-procedural',source:'LatihKu AI Math Generator',alignment:'KPM/PDF-pattern aligned practice',itemType:'mcq',smart:true,smartSignature:`math|${topic}|${concept}`,...meta}
+    return {id:`MATH-${Date.now()}-${Math.random().toString(36).slice(2,8)}`,topic,question,correct:c,answers:shuffle([c,...dist.slice(0,3)]),explanation,difficulty,concept,qa:'v22-procedural',source:'LatihKu AI Math Generator',alignment:'KPM/PDF-pattern aligned practice',itemType:'mcq',smart:true,smartSignature:`math|${topic}|${concept}`,...meta}
   };
-  const qs=(topic,question,correct,explanation,difficulty='sederhana',concept='math-short',meta={})=>({id:`MATH-${Date.now()}-${Math.random().toString(36).slice(2,8)}`,topic,question,correct:String(correct),answers:[],explanation,difficulty,concept,qa:'v20-procedural',source:'LatihKu AI Math Generator',alignment:'KPM UASA pattern',itemType:'short',smart:true,smartSignature:`math|${topic}|${concept}`,...meta});
+  const qs=(topic,question,correct,explanation,difficulty='sederhana',concept='math-short',meta={})=>({id:`MATH-${Date.now()}-${Math.random().toString(36).slice(2,8)}`,topic,question,correct:String(correct),answers:[],explanation,difficulty,concept,qa:'v22-procedural',source:'LatihKu AI Math Generator',alignment:'KPM UASA pattern',itemType:'short',smart:true,smartSignature:`math|${topic}|${concept}`,...meta});
   const fmt=n=>Number(n).toLocaleString('ms-MY',{maximumFractionDigits:2});
 
   function subjectMeta(id){return C.subjects[id]}

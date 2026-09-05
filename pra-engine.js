@@ -4,7 +4,7 @@ window.LATIH_PRA = (() => {
     {id:'letters',icon:'🔤',name:'Kenali huruf',desc:'Huruf besar, kecil & bunyi awal',kind:'quiz',topic:'Kenali Huruf',accent:'blue'},
     {id:'numbers',icon:'🔢',name:'Kenali nombor',desc:'Nombor, kira & banding',kind:'quiz',topic:'Kenali Nombor',accent:'green'},
     {id:'draw',icon:'✍️',name:'Lukis',desc:'Sample atau canvas kosong · brush, eraser & undo',kind:'draw',accent:'orange'},
-    {id:'color',icon:'🎨',name:'Mewarna',desc:'Pilih sample line-art dan tap untuk warnakan',kind:'color',accent:'pink'},
+    {id:'color',icon:'🎨',name:'Mewarna',desc:'20 tema · 236 helaian · brush, eraser & simpan progress',kind:'color',accent:'pink'},
     {id:'spelling',icon:'✏️',name:'Ejaan',desc:'Kenal ejaan mudah',kind:'quiz',topic:'Ejaan',accent:'yellow'},
     {id:'memory',icon:'🧠',name:'Memory',desc:'Cari pasangan gambar yang sama',kind:'memory',accent:'violet'},
     {id:'senses',icon:'🌿',name:'Deria & Alam',desc:'Tubuh, haiwan & alam sekitar',kind:'quiz',topic:'Deria & Alam',accent:'green'},

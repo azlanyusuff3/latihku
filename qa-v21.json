@@ -1,0 +1,128 @@
+{
+  "version": "21.0.0",
+  "generatedAt": "2026-09-05",
+  "summary": {
+    "passed": 21,
+    "total": 21,
+    "failed": 0
+  },
+  "coloring": {
+    "themes": 20,
+    "pages": 236,
+    "bytes": 13761781
+  },
+  "checks": [
+    {
+      "check": "Version 21.0.0",
+      "passed": true,
+      "detail": "config.js"
+    },
+    {
+      "check": "SK school type levels",
+      "passed": true,
+      "detail": "Pra + Tahun 1-6"
+    },
+    {
+      "check": "SRA school type levels",
+      "passed": true,
+      "detail": "Tahun 1-2 only"
+    },
+    {
+      "check": "SK excludes SRA subject",
+      "passed": true,
+      "detail": "function availableSubjectsForSchool(level=state.prefs.level,school=state.prefs.schoolType){const all=E.availableSubjects(level);return school==='sra'?all.filter(s=>s.id==='sra'):all.filter(s=>s.id!=='sra')}"
+    },
+    {
+      "check": "SRA fixed to SRA subject",
+      "passed": true,
+      "detail": "function availableSubjectsForSchool(level=state.prefs.level,school=state.prefs.schoolType){const all=E.availableSubjects(level);return school==='sra'?all.filter(s=>s.id==='sra'):all.filter(s=>s.id!=='sra')}"
+    },
+    {
+      "check": "Pra coloring integrated",
+      "passed": true,
+      "detail": "Pra Special > Mewarna"
+    },
+    {
+      "check": "Color progress IndexedDB",
+      "passed": true,
+      "detail": "Per-page paint layer saved locally"
+    },
+    {
+      "check": "Color controls",
+      "passed": true,
+      "detail": "Brush, size, eraser, undo, clear"
+    },
+    {
+      "check": "Color offline download",
+      "passed": true,
+      "detail": "Optional full download"
+    },
+    {
+      "check": "20 coloring themes",
+      "passed": true,
+      "detail": "20 themes"
+    },
+    {
+      "check": "236 coloring worksheets",
+      "passed": true,
+      "detail": "236 pages"
+    },
+    {
+      "check": "All coloring assets exist",
+      "passed": true,
+      "detail": "missing=0"
+    },
+    {
+      "check": "Coloring JPEG integrity",
+      "passed": true,
+      "detail": "236/236 valid; dimensions=[(745, 1053)]"
+    },
+    {
+      "check": "Source PDFs excluded from PWA",
+      "passed": true,
+      "detail": "Only optimized worksheet images included"
+    },
+    {
+      "check": "Service worker v21 caches",
+      "passed": true,
+      "detail": "Separate shell/data/color caches"
+    },
+    {
+      "check": "Service worker shell files exist",
+      "passed": true,
+      "detail": "missing=[]"
+    },
+    {
+      "check": "Coloring data loads before app",
+      "passed": true,
+      "detail": "index.html script order"
+    },
+    {
+      "check": "Manifest valid",
+      "passed": true,
+      "detail": "LatihKu Study v21"
+    },
+    {
+      "check": "JavaScript syntax",
+      "passed": true,
+      "detail": "11/11 top-level JS passed node --check"
+    },
+    {
+      "check": "SRA full engine QA",
+      "passed": true,
+      "detail": {
+        "total": 240,
+        "failureCount": 0
+      }
+    },
+    {
+      "check": "v20 progress storage preserved",
+      "passed": true,
+      "detail": "Existing user progress retained during v21 update"
+    }
+  ],
+  "browserQA": {
+    "status": "not_run",
+    "reason": "Container Chromium policy blocks localhost/file navigation; static validation plus Node runtime engine QA completed."
+  }
+}

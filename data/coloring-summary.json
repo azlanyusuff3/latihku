@@ -1,0 +1,145 @@
+{
+  "themes": [
+    {
+      "id": "shapes",
+      "name": "Bentuk",
+      "icon": "🔷",
+      "source": "1 Shapes Coloring Book.pdf",
+      "pageCount": 11
+    },
+    {
+      "id": "sea-animals",
+      "name": "Haiwan Laut",
+      "icon": "🐠",
+      "source": "2 Sea Animals Coloring Book.pdf",
+      "pageCount": 11
+    },
+    {
+      "id": "jungle-animals",
+      "name": "Haiwan Hutan",
+      "icon": "🦁",
+      "source": "3 Jungle Animals Coloring Book.pdf",
+      "pageCount": 11
+    },
+    {
+      "id": "farm-animals",
+      "name": "Haiwan Ladang",
+      "icon": "🐄",
+      "source": "4 Farm Animals Coloring Book.pdf",
+      "pageCount": 11
+    },
+    {
+      "id": "sea-animals-2",
+      "name": "Haiwan Laut 2",
+      "icon": "🐬",
+      "source": "5 English Sea Animals 2 Coloring Book.pdf",
+      "pageCount": 11
+    },
+    {
+      "id": "body-senses",
+      "name": "Anggota Badan & Deria",
+      "icon": "👀",
+      "source": "6 Body Parts _ Senses Coloring Book.pdf",
+      "pageCount": 11
+    },
+    {
+      "id": "abc",
+      "name": "ABC",
+      "icon": "🔤",
+      "source": "7 Coloring ABC.pdf",
+      "pageCount": 27
+    },
+    {
+      "id": "colors",
+      "name": "Warna",
+      "icon": "🌈",
+      "source": "8 Colors Coloring Book.pdf",
+      "pageCount": 11
+    },
+    {
+      "id": "dinosaurs",
+      "name": "Dinosaur",
+      "icon": "🦖",
+      "source": "9 Dinosaurs Coloring Book.pdf",
+      "pageCount": 11
+    },
+    {
+      "id": "pets",
+      "name": "Haiwan Peliharaan",
+      "icon": "🐱",
+      "source": "10 English Pet Animals Coloring Book.pdf",
+      "pageCount": 11
+    },
+    {
+      "id": "fruits",
+      "name": "Buah-buahan",
+      "icon": "🍎",
+      "source": "11 Fruits Coloring Book.pdf",
+      "pageCount": 11
+    },
+    {
+      "id": "numbers-1-10",
+      "name": "Nombor 1–10",
+      "icon": "🔢",
+      "source": "12 Numbers1-10.pdf",
+      "pageCount": 11
+    },
+    {
+      "id": "numbers-11-20",
+      "name": "Nombor 11–20",
+      "icon": "2️⃣",
+      "source": "13 Numbers11-20.pdf",
+      "pageCount": 11
+    },
+    {
+      "id": "opposites",
+      "name": "Lawan Kata",
+      "icon": "↔️",
+      "source": "14 Opposites Coloring Book.pdf",
+      "pageCount": 11
+    },
+    {
+      "id": "professions",
+      "name": "Pekerjaan",
+      "icon": "👩‍⚕️",
+      "source": "15 Professions Coloring Book.pdf",
+      "pageCount": 11
+    },
+    {
+      "id": "seasons",
+      "name": "Musim",
+      "icon": "🌤️",
+      "source": "16 Seasons Coloring Book.pdf",
+      "pageCount": 11
+    },
+    {
+      "id": "solar-system",
+      "name": "Sistem Suria",
+      "icon": "🪐",
+      "source": "17 Solar System Coloring Book.pdf",
+      "pageCount": 11
+    },
+    {
+      "id": "fish-story",
+      "name": "Cerita Ikan Istimewa",
+      "icon": "🐟",
+      "source": "18 The Special Fish Story Coloring Book.pdf",
+      "pageCount": 11
+    },
+    {
+      "id": "transport",
+      "name": "Pengangkutan",
+      "icon": "🚌",
+      "source": "19 Transportations Coloring Book.pdf",
+      "pageCount": 11
+    },
+    {
+      "id": "vegetables",
+      "name": "Sayur-sayuran",
+      "icon": "🥕",
+      "source": "20 Vegetables Coloring Book.pdf",
+      "pageCount": 11
+    }
+  ],
+  "totalPages": 236
+}

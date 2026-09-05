@@ -1,0 +1,35 @@
+{
+  "version": "22.0.0",
+  "status": "PASS",
+  "scope": "SRA Years 3-6 expansion + v21 regression preservation",
+  "tests": {
+    "javascript_syntax": "PASS",
+    "configured_pack_files": 44,
+    "configured_pack_integrity": "PASS",
+    "sra_curated_years_3_to_6": 224,
+    "sra_curated_per_year": 56,
+    "sra_topics_years_3_to_6": [
+      "Tauhid",
+      "Fekah",
+      "Akhlak",
+      "Sirah",
+      "Tajwid",
+      "Jawi",
+      "Bahasa Arab"
+    ],
+    "runtime_curated_items_checked": 224,
+    "runtime_generated_items_checked": 560,
+    "runtime_mcq_validation_failures": 0,
+    "learning_hub_sra_level_filter": "PASS",
+    "sra_years_1_to_2_regression": "PASS",
+    "preschool_coloring_images": 236,
+    "service_worker_asset_check": "PASS",
+    "progress_storage_key_preserved": "latihkuStudyV10",
+    "http_smoke_test": "PASS"
+  },
+  "notes": [
+    "Third-party online material is used only as a public pattern/subject reference; v22 T3-T6 questions are original LatihKu items.",
+    "After unseen curated items are exhausted, the offline SRA generator continues with anti-repeat generated variants.",
+    "SRA and Sekolah Kebangsaan question paths remain separated."
+  ]
+}

@@ -1,7 +1,7 @@
 {
-  "name": "LatihKu Study v20",
+  "name": "LatihKu Study v22",
   "short_name": "LatihKu",
-  "description": "LatihKu Study v20 — latihan KSSR/JAIS dengan AI Question Engine offline, PDF-pattern practice dan Exact Visual Explanation.",
+  "description": "LatihKu Study v22 — SK dan SRA Tahun 1–6 berasingan, curated-first + AI SRA Generator offline, serta Buku Mewarna Pra.",
   "id": "./",
   "start_url": "./",
   "scope": "./",
