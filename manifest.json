@@ -1,7 +1,7 @@
 {
-  "name": "LatihKu Study v19",
+  "name": "LatihKu Study v20",
   "short_name": "LatihKu",
-  "description": "LatihKu Study v19 — latihan KSSR dengan Exact Visual Explanation apabila jawapan salah, Pra Sekolah hingga Tahun 6, offline PWA.",
+  "description": "LatihKu Study v20 — latihan KSSR/JAIS dengan AI Question Engine offline, PDF-pattern practice dan Exact Visual Explanation.",
   "id": "./",
   "start_url": "./",
   "scope": "./",

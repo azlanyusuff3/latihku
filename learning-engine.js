@@ -199,12 +199,53 @@ window.LATIH_LEARNING = (() => {
     return {checks,score,feedback:score===4?(subject==='en'?'Good sentence. Read it aloud and add one useful detail if you can.':'Bagus. Ayat kamu ada ciri asas yang lengkap. Cuba tambah satu maklumat lagi jika sesuai.'):(subject==='en'?'Improve the unchecked parts, then read the sentence again.':'Baiki perkara yang belum bertanda, kemudian baca semula ayat kamu.'),wordCount:words.length};
   }
 
+
+  function extendedLesson(level,subject,topic){
+    const BANK={
+      sra:{
+        'Tauhid':['Tauhid membantu kita mengenal asas keimanan.',['Iman melibatkan lisan, hati dan amalan.','Rukun Iman mempunyai enam perkara.','Malaikat ialah makhluk Allah yang dijadikan daripada cahaya.'],'Rukun Iman bermula dengan beriman kepada Allah.'],
+        'Fekah':['Fekah mengajar cara ibadah dan bersuci dengan betul.',['Ibadah ialah pengabdian diri kepada Allah.','Ibadah boleh berbentuk khusus seperti solat dan umum seperti membantu ibu bapa.','Taharah bermaksud bersuci.'],'Sebelum beribadah, kebersihan dan taharah perlu diberi perhatian.'],
+        'Akhlak':['Akhlak ialah cara kita beradab dalam kehidupan harian.',['Berdoa dengan khusyuk dan merendah diri.','Menjaga kebersihan diri ialah amalan baik.','Adab tandas termasuk membaca doa dan membersihkan diri.'],'Akhlak yang baik ditunjukkan melalui tindakan, bukan hafalan sahaja.'],
+        'Jawi':['Jawi ialah tulisan bahasa Melayu berasaskan huruf Arab dan huruf tambahan.',['Jawi dibaca dari kanan ke kiri.','Kenal bentuk huruf sebelum membina perkataan.','Latih padanan perkataan Rumi dan Jawi secara berperingkat.'],'Contoh: بولا dibaca “bola”.'],
+        'Bahasa Arab':['Bahasa Arab asas bermula dengan huruf, nombor dan kosa kata harian.',['Belajar makna perkataan bersama gambar atau objek.','Ulang sebutan untuk menguatkan ingatan.','Gunakan ucapan mudah dalam situasi sebenar.'],'Contoh: كِتَابٌ bermaksud buku.'],
+        'Hafazan':['Hafazan bukan sekadar mengingat bunyi; fahami juga kegunaan surah.',['Al-Fatihah ialah surah pembukaan al-Quran dan dibaca dalam solat.','Surah perlindungan boleh diamalkan sebelum tidur.','Ulang bacaan dalam bahagian pendek sebelum gabungkan.'],'Baca satu ayat, ulang beberapa kali, kemudian sambung ayat berikutnya.']
+      },
+      ba:{
+        'Nombor':['Nombor Arab boleh dipadankan dengan nilai nombor yang kita kenal.',['Kenal simbol satu demi satu.','Sebut nilai nombor dengan betul.','Latih padanan simbol dan kuantiti.'],'١ = satu, ٢ = dua, ٣ = tiga.'],
+        'Kenderaan':['Kosa kata kenderaan lebih mudah diingat melalui gambar.',['Lihat objek.','Sebut perkataan Arab.','Padankan dengan maksud Bahasa Melayu.'],'🚌 حافلة bermaksud bas.'],
+        'Pakaian':['Kosa kata pakaian digunakan untuk benda yang dipakai.',['Kenal objek pakaian.','Padankan perkataan Arab dengan gambar.','Ulang sebut dalam frasa mudah.'],'👕 قميص bermaksud baju/kemeja.'],
+        'Makanan':['Belajar kosa kata makanan melalui benda yang biasa dilihat.',['Lihat gambar makanan.','Sebut perkataan.','Padankan dengan maksud.'],'🍞 خبز bermaksud roti.'],
+        'Kosa Kata':['Kosa kata ialah perkataan yang kita faham dan boleh gunakan.',['Belajar dalam kumpulan tema.','Gunakan gambar untuk bantu ingatan.','Ulang perkataan dalam konteks.'],'📘 كتاب bermaksud buku.']
+      },
+      psv:{
+        'Garisan':['Garisan ialah unsur seni yang boleh menunjukkan arah, gerak dan bentuk.',['Garisan boleh lurus, melengkung, zig-zag atau beralun.','Jenis garisan memberi kesan visual berbeza.','Gabungan garisan boleh membina rupa dan corak.'],'Garisan beralun sesuai menggambarkan ombak.'],
+        'Warna':['Warna membantu menyampaikan suasana dan membezakan objek.',['Merah, kuning dan biru ialah warna asas.','Campuran dua warna asas menghasilkan warna sekunder.','Warna panas dan sejuk memberi rasa visual berbeza.'],'Merah + kuning = jingga.'],
+        'Bentuk':['Rupa ialah 2D manakala bentuk mempunyai ruang 3D.',['Rupa mempunyai panjang dan lebar.','Bentuk mempunyai panjang, lebar dan tinggi.','Objek sekeliling boleh dikenal melalui rupa/bentuk.'],'Bulatan ialah rupa; bola ialah bentuk sfera.'],
+        'Corak':['Corak terbentuk apabila motif disusun atau diulang.',['Motif ialah unit asas corak.','Ulangan boleh teratur atau berselang.','Cap dan cetakan boleh menghasilkan corak.'],'Satu bentuk daun yang diulang menjadi corak daun.'],
+        'Kolaj':['Kolaj ialah karya yang dihasilkan dengan menampal bahan.',['Pilih bahan seperti kertas, kain atau bahan terpakai.','Susun komposisi dahulu.','Tampal dengan kemas dan selamat.'],'Potongan kertas warna boleh digabungkan menjadi gambar.'],
+        'Kraf':['Kraf menggunakan kemahiran tangan dan bahan untuk menghasilkan objek.',['Kenal bahan dan alat.','Ikut urutan kerja.','Utamakan keselamatan ketika menggunakan alat.'],'Anyaman menggunakan jalur yang dijalin berselang-seli.']
+      },
+      music:{
+        'Tempo':['Tempo ialah kelajuan muzik.',['Tempo boleh cepat, sederhana atau perlahan.','Kekalkan tempo supaya persembahan stabil.','Gerakan atau tepukan boleh membantu rasa tempo.'],'Lagu rancak biasanya menggunakan tempo lebih cepat.'],
+        'Dinamik':['Dinamik ialah tahap kuat dan lembut bunyi.',['Bunyi boleh dimainkan lebih kuat atau lebih lembut.','Perubahan dinamik memberi ekspresi.','Dengar perbezaan sebelum meniru.'],'Nyanyian boleh bermula lembut kemudian semakin kuat.'],
+        'Irama':['Irama ialah susunan bunyi panjang, pendek dan senyap mengikut masa.',['Tepukan boleh mewakili pola irama.','Ulang pola untuk membina kestabilan.','Detik membantu menjaga rentak.'],'Tepuk: panjang–pendek–pendek boleh menjadi satu pola irama.'],
+        'Pic':['Pic menerangkan bunyi tinggi atau rendah.',['Bunyi boleh dibanding sebagai lebih tinggi atau lebih rendah.','Perubahan pic membantu membina melodi.','Gunakan suara atau alat muzik untuk mendengar beza.'],'Suara kecil biasanya kedengaran lebih tinggi berbanding bunyi bass.'],
+        'Alat Muzik':['Alat muzik menghasilkan bunyi melalui cara dimainkan yang berbeza.',['Ada alat dipukul, dipetik atau ditiup.','Kenal bunyi dan cara main.','Gunakan alat dengan teknik dan keselamatan yang betul.'],'🥁 dram dipukul, 🎸 gitar dipetik.'],
+        'Nyanyian':['Nyanyian yang baik memerlukan pernafasan, sebutan dan tempo.',['Berdiri atau duduk dengan postur baik.','Ambil nafas dengan terkawal.','Sebut lirik dengan jelas dan ikut tempo.'],'Nyanyian berkumpulan perlu bermula dan berhenti bersama.']
+      }
+    };
+    const row=BANK[subject]?.[topic];
+    if(!row)return null;
+    const [definition,bullets,exampleText]=row;
+    return base({goal:`Faham asas ${topic} dan boleh jawab soalan aplikasi mudah.`,definition,bullets,steps:[{title:'1. Kenal konsep',text:definition},{title:'2. Ingat idea utama',text:bullets[0]},{title:'3. Cuba contoh',text:exampleText}],example:{title:'Contoh',work:exampleText,explain:bullets[1]||definition},guided:mc(`Pilih idea yang paling tepat tentang ${topic}.`,bullets[0],[bullets[1]||'Tidak berkaitan',bullets[2]||'Tiada perubahan','Abaikan konsep'],'Gunakan definisi dan idea utama yang baru dipelajari.'),concept:activity('Pilih dua cara belajar yang membantu topik ini.',[bullets[0],bullets[1]||exampleText],['Menghafal tanpa memahami apa-apa','Memilih jawapan secara rawak'])});
+  }
+
   function attachMeta(level,subject,topic,x){
-    const icon={math:'🔢',bm:'📖',en:'🔤',sci:'🔬',hist:'🏛️',islam:'🕌',moral:'🤝',pjpk:'🏃',pra:'🧒'}[subject]||'📚';
+    const icon={math:'🔢',bm:'📖',en:'🔤',sci:'🔬',hist:'🏛️',islam:'🕌',moral:'🤝',pjpk:'🏃',sra:'☪️',ba:'🗣️',psv:'🎨',music:'🎵',pra:'🧒'}[subject]||'📚';
     return {...x,level,subject,topic,icon,title:topic==='Campur-campur'?'Asas Pra':topic,tone:x.definition,tip:x.tip||'Fahami contoh dahulu, kemudian cuba sendiri.',sentence:x.sentence||(['bm','en'].includes(subject)?sentenceActivity(level,subject,'general'):null)};
   }
   function getLesson(level,subject,topic){
-    let x;if(subject==='math')x=mathLesson(level,topic);else if(subject==='bm')x=bmLesson(level,topic);else if(subject==='en')x=enLesson(level,topic);else if(subject==='sci')x=scienceLesson(level,topic);else if(subject==='hist')x=historyLesson(level,topic);else if(subject==='islam')x=islamLesson(level,topic);else if(subject==='moral')x=moralLesson(level,topic);else if(subject==='pjpk')x=pjpkLesson(level,topic);else x=praLesson(topic);
+    let x;if(subject==='math')x=mathLesson(level,topic);else if(subject==='bm')x=bmLesson(level,topic);else if(subject==='en')x=enLesson(level,topic);else if(subject==='sci')x=scienceLesson(level,topic);else if(subject==='hist')x=historyLesson(level,topic);else if(subject==='islam')x=islamLesson(level,topic);else if(subject==='moral')x=moralLesson(level,topic);else if(subject==='pjpk')x=pjpkLesson(level,topic);else if(['sra','ba','psv','music'].includes(subject))x=extendedLesson(level,subject,topic);else x=praLesson(topic);
     return attachMeta(level,subject,topic,x);
   }
   function topics(subject){return C.subjects[subject]?.topics||[]}

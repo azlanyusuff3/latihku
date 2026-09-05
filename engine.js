@@ -1,4 +1,4 @@
-/* LatihKu v15 bundle engine: v10 QA baseline + v11 clock + v13 smart rotation/generator. */
+/* LatihKu v20 engine: curated-first rotation + AI/PDF-pattern generator + procedural Math. */
 window.LATIH_ENGINE = (() => {
   const C=window.LATIH_CONFIG;
   const memory=new Map();
@@ -11,9 +11,9 @@ window.LATIH_ENGINE = (() => {
     const num=Number(String(correct).replace(/,/g,''));
     if(Number.isFinite(num)){for(const x of [num+2,Math.max(0,num-2),num+5,Math.max(0,num-5)]){if(dist.length>=3)break;const s=String(x);if(s!==c&&!dist.includes(s))dist.push(s)}}
     for(const x of ['Tidak berkaitan','Pilihan lain','Tiada perubahan']){if(dist.length>=3)break;if(x!==c&&!dist.includes(x))dist.push(x)}
-    return {id:`MATH-${Date.now()}-${Math.random().toString(36).slice(2,8)}`,topic,question,correct:c,answers:shuffle([c,...dist.slice(0,3)]),explanation,difficulty,concept,qa:'v11-procedural',source:'LatihKu Original',alignment:'KPM-aligned',itemType:'mcq',...meta}
+    return {id:`MATH-${Date.now()}-${Math.random().toString(36).slice(2,8)}`,topic,question,correct:c,answers:shuffle([c,...dist.slice(0,3)]),explanation,difficulty,concept,qa:'v20-procedural',source:'LatihKu AI Math Generator',alignment:'KPM/PDF-pattern aligned practice',itemType:'mcq',smart:true,smartSignature:`math|${topic}|${concept}`,...meta}
   };
-  const qs=(topic,question,correct,explanation,difficulty='sederhana',concept='math-short',meta={})=>({id:`MATH-${Date.now()}-${Math.random().toString(36).slice(2,8)}`,topic,question,correct:String(correct),answers:[],explanation,difficulty,concept,qa:'v11-procedural',source:'LatihKu Original',alignment:'KPM UASA pattern',itemType:'short',...meta});
+  const qs=(topic,question,correct,explanation,difficulty='sederhana',concept='math-short',meta={})=>({id:`MATH-${Date.now()}-${Math.random().toString(36).slice(2,8)}`,topic,question,correct:String(correct),answers:[],explanation,difficulty,concept,qa:'v20-procedural',source:'LatihKu AI Math Generator',alignment:'KPM UASA pattern',itemType:'short',smart:true,smartSignature:`math|${topic}|${concept}`,...meta});
   const fmt=n=>Number(n).toLocaleString('ms-MY',{maximumFractionDigits:2});
 
   function subjectMeta(id){return C.subjects[id]}
@@ -43,19 +43,34 @@ window.LATIH_ENGINE = (() => {
     const all=await loadPack(level,subject);
     let pool=topic==='Campur Semua'?all:all.filter(x=>x.topic===topic);
     if(!pool.length)pool=all;
-    // UASA remains curated-first because it is the formal assessment mode.
+    const seen=new Set(ctx.seenIds||[]);
+    // UASA is also curated-first. Once unseen curated items for an aras are exhausted,
+    // generate fresh items instead of recycling the same paper forever.
     if(difficulty==='uasa'){
-      const plan=[]; const easy=Math.round(count*.5),mid=Math.round(count*.3),hard=Math.max(0,count-easy-mid);
-      for(const [d,n] of [['mudah',easy],['sederhana',mid],['sukar',hard]]){const p=pool.filter(x=>x.difficulty===d);plan.push(...sampleDistinct(p.length?p:pool,n))}
-      return shuffle(plan).slice(0,count).map((x,i)=>({...x,alignment:'KPM UASA pattern',source:x.source||'LatihKu Original',itemType:(['sci','hist'].includes(subject)&&i>=Math.ceil(count*.65)&&String(x.correct).length<=35)?'short':'mcq'}));
+      const out=[], easy=Math.round(count*.5),mid=Math.round(count*.3),hard=Math.max(0,count-easy-mid),genCtx={weakTopics:ctx.weakTopics||{},recentGenerated:ctx.recentGenerated||[]};
+      for(const [d,n] of [['mudah',easy],['sederhana',mid],['sukar',hard]]){
+        const exact=pool.filter(x=>x.difficulty===d),base=exact.length?exact:pool,unseen=shuffle(base.filter(x=>!seen.has(String(x.id))));
+        out.push(...unseen.slice(0,n).map(cloneQuestion));
+        let need=n-Math.min(n,unseen.length);
+        if(need>0){
+          let fresh=[];
+          if(window.LATIH_PDF_ENGINE?.supports(level,subject))fresh=window.LATIH_PDF_ENGINE.makeSet(level,subject,topic,need,d,genCtx)||[];
+          if(fresh.length<need){const extra=window.LATIH_SMART?.makeSet(level,subject,topic,need-fresh.length,d,genCtx)||[];fresh.push(...extra);}
+          out.push(...fresh.slice(0,need));need-=Math.min(need,fresh.length);
+        }
+        if(need>0)out.push(...sampleDistinct(base,need).map(x=>({...x,rotationFallback:true})));
+      }
+      return shuffle(out).slice(0,count).map((x,i)=>({...x,alignment:x.alignment||'KPM UASA pattern',source:x.source||'LatihKu Original',itemType:x.itemType||((['sci','hist'].includes(subject)&&i>=Math.ceil(count*.65)&&String(x.correct).length<=35)?'short':'mcq')}));
     }
     if(difficulty!=='auto'){const exact=pool.filter(x=>x.difficulty===difficulty);if(exact.length>=Math.min(5,count))pool=exact}
-    const seen=new Set(ctx.seenIds||[]);
     const unseen=shuffle(pool.filter(x=>!seen.has(String(x.id))));
     const staticItems=unseen.slice(0,count).map(cloneQuestion);
     const remaining=count-staticItems.length;
     if(remaining<=0)return staticItems;
-    const smart=window.LATIH_SMART?.makeSet(level,subject,topic,remaining,difficulty,{weakTopics:ctx.weakTopics||{},recentGenerated:ctx.recentGenerated||[]})||[];
+    const genCtx={weakTopics:ctx.weakTopics||{},recentGenerated:ctx.recentGenerated||[]};
+    let smart=[];
+    if(window.LATIH_PDF_ENGINE?.supports(level,subject)) smart=window.LATIH_PDF_ENGINE.makeSet(level,subject,topic,remaining,difficulty,genCtx)||[];
+    if(smart.length<remaining){const extra=window.LATIH_SMART?.makeSet(level,subject,topic,remaining-smart.length,difficulty,genCtx)||[];smart.push(...extra);}
     if(smart.length<remaining){
       const fallback=sampleDistinct(pool,remaining-smart.length).map(x=>({...x,rotationFallback:true}));
       smart.push(...fallback);
@@ -115,18 +130,24 @@ window.LATIH_ENGINE = (() => {
   }
   function safeGenerate(gen,level,diff){for(let i=0;i<50;i++){const item=gen(level,diff);if(validateItem(item))return item}throw new Error('Generator gagal menghasilkan item yang sah.')}
   const MATH_GEN={'Nombor':mathNumber,'Tambah & Tolak':mathAddSub,'Darab & Bahagi':mathMulDiv,'Pecahan':mathFraction,'Wang':mathMoney,'Masa':mathTime,'Ukuran':mathMeasure,'Bentuk & Ruang':mathShape,'Data':mathData};
-  function mathSet(level,topic,count,difficulty){
-    const topics=topic==='Campur Semua'?C.subjects.math.topics:[topic],out=[],seen=new Set(),uasa=difficulty==='uasa'&&+level>=4;
+  function mathSet(level,topic,count,difficulty,ctx={}){
+    const topics=topic==='Campur Semua'?C.subjects.math.topics:[topic],out=[],seen=new Set(),recent=new Set(ctx.recentGenerated||[]),uasa=difficulty==='uasa'&&+level>=4;
     const plan=uasa?[...Array(Math.round(count*.5)).fill('mudah'),...Array(Math.round(count*.3)).fill('sederhana'),...Array(Math.max(0,count-Math.round(count*.5)-Math.round(count*.3))).fill('sukar')]:Array(count).fill(null);
     let tries=0;
-    while(out.length<count&&tries<count*60){tries++;const tpc=pick(topics),d=uasa?(plan[out.length]||'sederhana'):difficultyFor(level,difficulty),item=safeGenerate(MATH_GEN[tpc],level,d);if(!seen.has(item.concept)){out.push(uasa?toShort(item):item);seen.add(item.concept)}}
+    while(out.length<count&&tries<count*60){tries++;const tpc=pick(topics),d=uasa?(plan[out.length]||'sederhana'):difficultyFor(level,difficulty),item=safeGenerate(MATH_GEN[tpc],level,d);if(!seen.has(item.concept)&&!recent.has(item.smartSignature)){out.push(uasa?toShort(item):item);seen.add(item.concept)}}
     while(out.length<count){const tpc=pick(topics),d=uasa?(plan[out.length]||'sederhana'):difficultyFor(level,difficulty),item=safeGenerate(MATH_GEN[tpc],level,d);out.push(uasa?toShort(item):item)}
     return uasa?shuffle(out):out
   }
 
 
   async function makeSet(level,subject,topic,count,difficulty='auto',ctx={}){
-    if(subject==='math')return mathSet(level,topic,count,difficulty);
+    if(subject==='math')return mathSet(level,topic,count,difficulty,ctx);
+    if(!packInfo(level,subject)){
+      if(window.LATIH_PDF_ENGINE?.supports(level,subject))return window.LATIH_PDF_ENGINE.makeSet(level,subject,topic,count,difficulty,ctx);
+      const smart=window.LATIH_SMART?.makeSet(level,subject,topic,count,difficulty,ctx)||[];
+      if(smart.length)return smart;
+      throw new Error('Generator untuk subjek ini belum tersedia.');
+    }
     return staticSet(level,subject,topic,count,difficulty,ctx);
   }
   async function downloadAll(onProgress=()=>{}){
