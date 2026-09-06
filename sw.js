@@ -1,4 +1,4 @@
-const SHELL_CACHE='latihku-shell-v23.0.0';
+const SHELL_CACHE='latihku-shell-v23.1.0';
 const DATA_CACHE='latihku-data-v23.0.0';
 const COLOR_CACHE='latihku-coloring-v23.0.0';
 const SHELL=['./','index.html','styles.css','config.js','smart-engine.js','pdf-pattern-engine.js','engine.js','pra-engine.js','learning-engine.js','adaptive-engine.js','visual-explain.js','coloring-data.js','app.js','manifest.json','icons/icon-192.png','icons/icon-512.png'];
