@@ -13,7 +13,7 @@ window.LATIH_SMART = (() => {
     if(mode===1)shown=subject==='en'?`Revision question for ${learner}: ${question}`:`Soalan ulang kaji untuk ${learner}: ${question}`;
     else if(mode===2)shown=subject==='en'?`${learner} is doing a revision exercise. ${question}`:`${learner} sedang membuat latihan ulang kaji. ${question}`;
     else if(mode===3)shown=subject==='en'?`Try this question: ${question}`:`Cuba soalan ini: ${question}`;
-    const c=String(correct),answers=shuffle([c,...uniqWrong(c,wrong)]),sig=escKey(`${subject}|${topic}|${shown}|${c}`);
+    const c=String(correct),answers=shuffle([c,...uniqWrong(c,wrong)]),sig=escKey(`${subject}|${topic}|${question}|${c}`);
     return {id:`SMART-${subject.toUpperCase()}-${Date.now()}-${Math.random().toString(36).slice(2,8)}`,topic,question:shown,correct:c,answers,explanation,difficulty,concept:`smart-${subject}-${key||sig.slice(0,60)}`,smart:true,smartSignature:sig,source:'LatihKu Smart Generator',alignment:'KPM-aligned practice',itemType:'mcq'};
   }
   const names=['Aina','Amir','Siti','Ravi','Mei Ling','Hakim','Sara','Daniel','Iman','Kumar'];

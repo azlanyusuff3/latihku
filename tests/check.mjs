@@ -55,6 +55,9 @@ for(const year of ['1','2','3','4','5','6']){
     }
   }
 }
+const generatedA=context.LATIH_SMART.makeSet('5','bm','Kosa Kata',5,'sederhana',{});
+const generatedB=context.LATIH_SMART.makeSet('5','bm','Kosa Kata',5,'sederhana',{recentGenerated:generatedA.map(q=>q.smartSignature)});
+assert(generatedA.every(q=>q.smartSignature && !generatedB.some(x=>x.smartSignature===q.smartSignature)),'generated anti-repeat');
 const first=await E.makeSet('1','bm','Campur Semua',5,'auto',{});
 const second=await E.makeSet('1','bm','Campur Semua',5,'auto',{seenIds:first.map(q=>q.id)});
 assert.equal(first.filter(q=>second.some(x=>x.id===q.id)).length,0,'curated rotation before exhaustion');
