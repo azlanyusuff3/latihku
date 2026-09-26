@@ -1,4 +1,4 @@
-/* LatihKu v22 engine: curated-first rotation + AI/PDF-pattern generator + procedural Math. */
+/* LatihKu engine: curated-first rotation + AI/PDF-pattern generator + procedural Math. */
 window.LATIH_ENGINE = (() => {
   const C=window.LATIH_CONFIG;
   const memory=new Map();
@@ -11,9 +11,9 @@ window.LATIH_ENGINE = (() => {
     const num=Number(String(correct).replace(/,/g,''));
     if(Number.isFinite(num)){for(const x of [num+2,Math.max(0,num-2),num+5,Math.max(0,num-5)]){if(dist.length>=3)break;const s=String(x);if(s!==c&&!dist.includes(s))dist.push(s)}}
     for(const x of ['Tidak berkaitan','Pilihan lain','Tiada perubahan']){if(dist.length>=3)break;if(x!==c&&!dist.includes(x))dist.push(x)}
-    return {id:`MATH-${Date.now()}-${Math.random().toString(36).slice(2,8)}`,topic,question,correct:c,answers:shuffle([c,...dist.slice(0,3)]),explanation,difficulty,concept,qa:'v22-procedural',source:'LatihKu AI Math Generator',alignment:'KPM/PDF-pattern aligned practice',itemType:'mcq',smart:true,smartSignature:`math|${topic}|${concept}`,...meta}
+    return {id:`MATH-${Date.now()}-${Math.random().toString(36).slice(2,8)}`,topic,question,correct:c,answers:shuffle([c,...dist.slice(0,3)]),explanation,difficulty,concept,qa:'procedural',source:'LatihKu AI Math Generator',alignment:'KPM/PDF-pattern aligned practice',itemType:'mcq',smart:true,smartSignature:`math|${topic}|${concept}`,...meta}
   };
-  const qs=(topic,question,correct,explanation,difficulty='sederhana',concept='math-short',meta={})=>({id:`MATH-${Date.now()}-${Math.random().toString(36).slice(2,8)}`,topic,question,correct:String(correct),answers:[],explanation,difficulty,concept,qa:'v22-procedural',source:'LatihKu AI Math Generator',alignment:'KPM UASA pattern',itemType:'short',smart:true,smartSignature:`math|${topic}|${concept}`,...meta});
+  const qs=(topic,question,correct,explanation,difficulty='sederhana',concept='math-short',meta={})=>({id:`MATH-${Date.now()}-${Math.random().toString(36).slice(2,8)}`,topic,question,correct:String(correct),answers:[],explanation,difficulty,concept,qa:'procedural',source:'LatihKu AI Math Generator',alignment:'KPM UASA pattern',itemType:'short',smart:true,smartSignature:`math|${topic}|${concept}`,...meta});
   const fmt=n=>Number(n).toLocaleString('ms-MY',{maximumFractionDigits:2});
 
   function subjectMeta(id){return C.subjects[id]}
@@ -122,11 +122,11 @@ window.LATIH_ENGINE = (() => {
   function normalizeAnswer(v){return String(v??'').toLowerCase().trim().replace(/\s+/g,' ').replace(/,/g,'').replace(/^rm\s*/,'rm')}
   function toShort(item){return qs(item.topic,item.question,item.correct,item.explanation,item.difficulty,item.concept+'-short',{source:item.source||'LatihKu Original',alignment:'KPM UASA pattern',visual:item.visual||undefined});}
   function validateItem(item){
-    if(!item||!item.question||item.correct===undefined)return false;
+    if(!item||typeof item.question!=='string'||!item.question.trim()||item.correct===undefined||!String(item.correct).trim()||!item.topic||!['mudah','sederhana','sukar','uasa'].includes(item.difficulty)||!String(item.explanation||'').trim())return false;
     if(item.itemType==='short')return true;
     if(!Array.isArray(item.answers)||item.answers.length!==4)return false;
     const a=item.answers.map(x=>String(x).trim()),c=String(item.correct).trim();
-    return new Set(a).size===4&&a.filter(x=>x===c).length===1;
+    return a.every(Boolean)&&new Set(a.map(x=>x.toLowerCase())).size===4&&a.filter(x=>x===c).length===1;
   }
   function safeGenerate(gen,level,diff){for(let i=0;i<50;i++){const item=gen(level,diff);if(validateItem(item))return item}throw new Error('Generator gagal menghasilkan item yang sah.')}
   const MATH_GEN={'Nombor':mathNumber,'Tambah & Tolak':mathAddSub,'Darab & Bahagi':mathMulDiv,'Pecahan':mathFraction,'Wang':mathMoney,'Masa':mathTime,'Ukuran':mathMeasure,'Bentuk & Ruang':mathShape,'Data':mathData};
@@ -134,7 +134,7 @@ window.LATIH_ENGINE = (() => {
     const topics=topic==='Campur Semua'?C.subjects.math.topics:[topic],out=[],seen=new Set(),recent=new Set(ctx.recentGenerated||[]),uasa=difficulty==='uasa'&&+level>=4;
     const plan=uasa?[...Array(Math.round(count*.5)).fill('mudah'),...Array(Math.round(count*.3)).fill('sederhana'),...Array(Math.max(0,count-Math.round(count*.5)-Math.round(count*.3))).fill('sukar')]:Array(count).fill(null);
     let tries=0;
-    while(out.length<count&&tries<count*60){tries++;const tpc=pick(topics),d=uasa?(plan[out.length]||'sederhana'):difficultyFor(level,difficulty),item=safeGenerate(MATH_GEN[tpc],level,d);if(!seen.has(item.concept)&&!recent.has(item.smartSignature)){out.push(uasa?toShort(item):item);seen.add(item.concept)}}
+    while(out.length<count&&tries<count*60){tries++;const tpc=pick(topics),d=uasa?(plan[out.length]||'sederhana'):difficultyFor(level,difficulty),item=safeGenerate(MATH_GEN[tpc],level,d);if(!seen.has(item.concept)){out.push(uasa?toShort(item):item);seen.add(item.concept)}}
     while(out.length<count){const tpc=pick(topics),d=uasa?(plan[out.length]||'sederhana'):difficultyFor(level,difficulty),item=safeGenerate(MATH_GEN[tpc],level,d);out.push(uasa?toShort(item):item)}
     return uasa?shuffle(out):out
   }
@@ -151,8 +151,19 @@ window.LATIH_ENGINE = (() => {
     return staticSet(level,subject,topic,count,difficulty,ctx);
   }
   async function downloadAll(onProgress=()=>{}){
-    const packs=Object.values(C.packs),total=packs.length;let done=0,bytes=0;
-    for(const p of packs){const res=await fetch(p.url);if(!res.ok)throw new Error(`Gagal memuat turun ${p.url}`);await res.arrayBuffer();done++;bytes+=p.bytes||0;onProgress(done,total,p)}
+    if(!('caches'in window))throw new Error('Cache Storage tidak tersedia pada browser ini');
+    const packs=Object.values(C.packs),cache=await caches.open(`latihku-data-v${C.version}`),total=packs.length;let done=0,bytes=0;
+    for(const p of packs){
+      try{
+        const cached=await cache.match(p.url);let valid=false;
+        if(cached?.ok){try{valid=Array.isArray((await cached.clone().json()).questions)}catch{}}
+        if(!valid){const res=await fetch(p.url,{cache:'no-store'});if(!res.ok)throw new Error('HTTP '+res.status);
+          const body=await res.clone().json();if(!Array.isArray(body.questions)||body.questions.length!==p.count)throw new Error('Bilangan soalan tidak sepadan');
+          await cache.put(p.url,res.clone());if(!await cache.match(p.url))throw new Error('Gagal simpan cache');
+        }
+        done++;bytes+=p.bytes||0;onProgress(done,total,p);
+      }catch(err){throw new Error(`${p.url}: ${err.message}`)}
+    }
     return {done,total,bytes};
   }
   function clearMemory(){memory.clear()}

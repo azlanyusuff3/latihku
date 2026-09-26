@@ -1,7 +1,7 @@
 {
-  "name": "LatihKu Study v23.1",
+  "name": "LatihKu Study v23.1.0",
   "short_name": "LatihKu",
-  "description": "LatihKu Study v23.1 — SK dan SRA Tahun 1–6 berasingan, curated-first + AI SRA Generator offline, serta Buku Mewarna Pra.",
+  "description": "LatihKu Study v23.1.0 — SK dan SRA Tahun 1–6 berasingan, curated-first + AI SRA Generator offline, serta Buku Mewarna Pra.",
   "id": "./",
   "start_url": "./",
   "scope": "./",
