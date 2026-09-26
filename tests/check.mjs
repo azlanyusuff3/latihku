@@ -10,17 +10,20 @@ context.fetch=async url => ({ok:true,json:async()=>JSON.parse(read(url))});
 vm.createContext(context);
 for(const file of ['version.js','config.js','state-helpers.js','smart-engine.js','pdf-pattern-engine.js','engine.js','pra-engine.js','coloring-data.js']) vm.runInContext(read(file),context,{filename:file});
 const C=context.LATIH_CONFIG,H=context.LATIH_STATE,E=context.LATIH_ENGINE;
-assert.equal(C.version,'23.1.0');
+assert.equal(C.version,'24.0.0');
+assert(!('sra' in C.subjects));assert(Object.keys(C.packs).every(x=>!x.endsWith(':sra')));
+assert.equal(H.migratePreferences({schoolType:'sra',level:'4',subject:'sra',topic:'Tauhid'},C).subject,'math');
+assert.equal(H.migratePreferences({level:'3',subject:'bm',topic:'Campur Semua'},C).subject,'bm');
 const pathExists=p=>fs.existsSync(new URL(p,root));
 const shell=read('sw.js').match(/const SHELL=\[([^\]]+)\]/)?.[1].match(/'[^']+'/g)?.map(x=>x.slice(1,-1))||[];
-assert(shell.length>=15);for(const asset of shell) assert(pathExists(asset==='./'?'index.html':asset),asset);
+assert(shell.includes('v24.css'));assert(shell.length>=15);for(const asset of shell) assert(pathExists(asset==='./'?'index.html':asset),asset);
 for(const asset of ['index.html','styles.css','sw.js','version.js','config.js','state-helpers.js','app.js','icons/icon-192.png','icons/icon-512.png']) assert(pathExists(asset),asset);
 for(const [key,p] of Object.entries(C.packs)){
   assert(pathExists(p.url),key);
   const bytes=fs.readFileSync(new URL(p.url,root)),bank=JSON.parse(bytes);
   assert.equal(bank.questions.length,p.count,key);
   assert.equal(bytes.length,p.bytes,key);
-  for(const q of bank.questions) { assert(E.validateItem(q),`${key}: invalid curated item`); assert(q.question && q.topic && q.correct !== undefined,key); assert(C.subjects[key.split(':')[1]].topics.includes(q.topic) || (key.endsWith(':sra') && C.sraTopicsByLevel[key.split(':')[0]].includes(q.topic)),`${key}: ${q.topic}`); }
+  for(const q of bank.questions) { assert(E.validateItem(q),`${key}: invalid curated item`); assert(q.question && q.topic && q.correct !== undefined,key); assert(C.subjects[key.split(':')[1]].topics.includes(q.topic),`${key}: ${q.topic}`); }
 }
 const coloring=context.LATIH_COLORING;
 for(const asset of coloring.assets) assert(pathExists(asset),asset);
@@ -43,9 +46,11 @@ const state={profile:{name:'Aiman'},prefs:quiz.prefs,sessions:[],activeQuiz:quiz
 assert(H.validateBackup({app:'LatihKu Study',state},C));
 assert(!H.validateBackup({state:{...state,profile:'bad'}},C));
 assert(!H.validateBackup({state:{...state,activeQuiz:{...quiz,i:99}}},C));
+assert(H.validateBackup({state:{...state,prefs:{...quiz.prefs,schoolType:'sra',subject:'sra'},sessions:[{subject:'sra',score:3,total:5}],activeQuiz:{...quiz,prefs:{...quiz.prefs,subject:'sra'}}}},C));
+assert.equal(H.migrateQuiz({...quiz,prefs:{...quiz.prefs,subject:'sra'}},quiz.prefs,C),null);
 let generated=0;
 for(const year of ['1','2','3','4','5','6']){
-  for(const subject of ['math','bm','en','sci','islam','moral','pjpk','sra',...(Number(year)>=4?['hist']:[])]){
+  for(const subject of ['math','bm','en','sci','islam','moral','pjpk',...(Number(year)>=4?['hist']:[])]){
     const items=await E.makeSet(year,subject,'Campur Semua',5,'auto',{});
     assert.equal(items.length,5,`${year}:${subject}`);
     for(const q of items) {

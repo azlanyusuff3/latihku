@@ -1,27 +1,23 @@
-# LatihKu Study 23.1.0
+# LatihKu v24.0.0
 
-LatihKu is a vanilla HTML/CSS/JavaScript local-first PWA. It has no account, backend, external AI service or analytics endpoint. Serve this directory over HTTPS (or localhost); deploy the repository's static files to GitHub Pages. No build step is required.
+LatihKu is a local-first and offline-first learning and practice PWA for Malaysian **Sekolah Kebangsaan** pupils from Pra to Tahun 6. It uses vanilla HTML, CSS and JavaScript, with no account, backend, cloud database, remote AI API or build step. Host the static repository over HTTPS, such as GitHub Pages, or run it on localhost for development.
 
-## Learning and content
+## Navigation and learning
 
-SK and SRA have separate year/subject/topic routes; Pra includes activities and Buku Mewarna. Curated JSON packs under `data/` are used first where available, followed by local procedural Smart/PDF-pattern generation. Math and SRA Years 1–2 can generate without a JSON pack. The adaptive tutor, visual explanation, learning flow and Smart Practice run on the device. “AI” in product labels describes these local rules, not a trained model or remote LLM.
+The five tabs are **Utama**, **Latihan**, **Pra**, **Prestasi** and **Tetapan**. Choose a year and a supported SK subject, then a topic and a practice mode. Latihan Biasa gives feedback while answering; Mode Ujian reviews at the end; Format UASA is available for supported years and subjects and is practice rather than an official paper. Difficulty and question count are under Pilihan lanjut. Pra includes early activities and Buku Mewarna with 236 worksheets. The adaptive learning flow, visual explanations, mastery, response timing and Smart Practice run entirely on the device. Curated JSON questions take priority; procedural Smart and PDF pattern generators provide further items. No generated content is sent to a server.
 
-## Storage and backups
+## Progress and upgrades
 
-Progress stays under **`latihkuStudyV10`** in localStorage and is mirrored to IndexedDB (`LatihKuStudyDB`). The more recent valid copy is loaded at startup; writes to the mirror are serialized. A separate IndexedDB database stores coloring canvas layers. Backup JSON contains progress and completed coloring metadata, **not** canvas layers. Restore validates the structure and keeps older compatible backups; export a backup before replacing progress. Reset clears learning state and the separate canvas database. Raw sessions are capped at 100; subject aggregates and overall counts continue for future sessions. Older progress contributes the retained sessions to new aggregates, while preexisting overall answer counts remain intact.
+Progress remains in **`latihkuStudyV10`** in localStorage and is mirrored to IndexedDB (`LatihKuStudyDB`). The more recent valid copy is loaded on startup, and writes to the mirror are serialized. Coloring canvas layers use a separate IndexedDB database. A v23 user who last selected SRA is moved to a valid SK subject and topic without resetting profile, XP, streak, SK history, mastery, Pra or coloring work. Old SRA records may remain in a backup as legacy history but are excluded from the current SK performance display and question selection. A saved SK quiz keeps questions, answers, score, mode, timer and timing state; **Sambung latihan** restores it after refresh or restart. An incompatible legacy SRA quiz is discarded while the rest of progress is retained.
 
-A saved in-progress quiz keeps its questions, answers, score, settings, timer and response timing. “Sambung Sesi” restores it after refresh or PWA restart. Invalid saved quizzes are ignored without erasing the rest of progress.
+Backup exports local progress and completed coloring metadata as JSON; canvas layers remain on that device. Restore validates structure and accepts compatible older backups, including old SRA preferences. Reset clears learning state and the separate coloring database. Recent raw sessions are capped at 100; lifetime subject aggregates remain separate.
 
-## Timer
+## Timer and offline use
 
-Timer is optional. When enabled, regular Latihan and Ujian use a **total session budget of 45 seconds × question count**. UASA practice uses a proportional reference of 75 minutes for 30 questions (5: 12m30s, 10: 25m, 20: 50m, 30: 75m); this is a practice setting, not an official examination duration. The countdown pauses while backgrounded or between app restarts. The displayed seconds refresh every second, but storage checkpoints occur roughly every 15 seconds and at answer, exit, and background events.
+The optional timer for regular practice and examination modes is a **total session budget of 45 seconds × question count**. UASA practice scales a 75-minute reference for 30 questions proportionally (5: 12m30s, 10: 25m, 20: 50m, 30: 75m). This is a practice budget, not an official examination duration. Background time is paused. UI seconds update without writing storage every second; checkpoints occur about every 15 seconds and on answer, exit and background.
 
-## Offline and updates
+The service worker precaches the shell and uses release-specific caches for question packs and coloring assets. **Download Bank Soalan** verifies all 40 configured SK packs; **Download Buku Mewarna** verifies every image. Partial failures do not mark the package complete, and retry works. Cache controls clear downloaded assets without removing progress or saved coloring layers. To receive an update, open the app online once so the new shell can install and activate.
 
-The service worker precaches the app shell and keeps version-specific question and coloring caches. In Settings, **Download Bank Soalan** verifies and awaits every configured JSON pack; **Download Buku Mewarna** does the same for all coloring images. Failed or partial downloads do not receive a completion marker and can be retried. Clear-cache buttons remove the corresponding Cache Storage data while leaving learning progress and coloring layers intact. The app shell requires one successful online load after a deployment to activate the latest version.
+## Development and deployment
 
-## Development checks
-
-Run `node tests/check.mjs` (Node 22). GitHub Actions runs the same check on pushes and PRs. It verifies config paths/counts/bytes/topics, coloring assets, manifest icons, generated question structure across years and subjects, saved quiz/backup structure, streak day rules and timer calculations. This is a structural and logic check; test touch interactions and PWA installation on actual iPhone/Android browsers before a public release.
-
-Historical SRA source notes are retained in `SOURCES-v22.md` as an archive of the earlier content work.
+Run `node tests/check.mjs` with Node 22. GitHub Actions runs it on push and pull requests. It checks pack paths, counts, sizes and topics, coloring and icon assets, generated MCQs across supported years and subjects, anti-repeat behavior, migration, backup validation and timer calculations. Deploy the repository's static files to GitHub Pages; no package install or compilation is needed. Confirm touch drawing and PWA installation on actual iPhone and Android devices when publishing.

@@ -1,13 +1,13 @@
 {
-  "name": "LatihKu Study v23.1.0",
+  "name": "LatihKu Study v24.0.0",
   "short_name": "LatihKu",
-  "description": "LatihKu Study v23.1.0 — SK dan SRA Tahun 1–6 berasingan, curated-first + AI SRA Generator offline, serta Buku Mewarna Pra.",
+  "description": "LatihKu Study v24.0.0 — Sekolah Kebangsaan Pra hingga Tahun 6, latihan pintar offline dan Buku Mewarna Pra.",
   "id": "./",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",
-  "background_color": "#f3f8ff",
-  "theme_color": "#1976df",
+  "background_color": "#FBF7EE",
+  "theme_color": "#355E8A",
   "orientation": "portrait-primary",
   "categories": [
     "education",

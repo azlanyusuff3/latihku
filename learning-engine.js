@@ -202,16 +202,6 @@ window.LATIH_LEARNING = (() => {
 
   function extendedLesson(level,subject,topic){
     const BANK={
-      sra:{
-        'Tauhid':['Tauhid membantu kita mengenal asas keimanan.',['Iman melibatkan lisan, hati dan amalan.','Rukun Iman mempunyai enam perkara.','Malaikat ialah makhluk Allah yang dijadikan daripada cahaya.'],'Rukun Iman bermula dengan beriman kepada Allah.'],
-        'Fekah':['Fekah mengajar cara ibadah dan bersuci dengan betul.',['Ibadah ialah pengabdian diri kepada Allah.','Ibadah boleh berbentuk khusus seperti solat dan umum seperti membantu ibu bapa.','Taharah bermaksud bersuci.'],'Sebelum beribadah, kebersihan dan taharah perlu diberi perhatian.'],
-        'Akhlak':['Akhlak ialah cara kita beradab dalam kehidupan harian.',['Berdoa dengan khusyuk dan merendah diri.','Menjaga kebersihan diri ialah amalan baik.','Adab tandas termasuk membaca doa dan membersihkan diri.'],'Akhlak yang baik ditunjukkan melalui tindakan, bukan hafalan sahaja.'],
-        'Sirah':['Sirah ialah kisah kehidupan dan perjuangan Rasulullah SAW yang memberi teladan.',['Kenal peristiwa penting dan sebabnya.','Cari nilai seperti amanah, sabar, hikmah dan kemaafan.','Hubungkan pengajaran sirah dengan kehidupan hari ini.'],'Contoh: hijrah mengajar kita merancang, berusaha dan bertawakal.'],
-        'Tajwid':['Tajwid ialah kaedah membaca al-Quran dengan sebutan dan hukum yang betul.',['Kenal hukum melalui tanda dan huruf yang bertemu.','Dengar perbezaan bacaan seperti jelas, dengung, samar dan lantunan.','Baca perlahan dahulu sebelum tingkatkan kelancaran.'],'Contoh: mad asli dibaca dua harakat, manakala hukum nun sakinah/tanwin berubah mengikut huruf selepasnya.'],
-        'Jawi':['Jawi ialah tulisan bahasa Melayu berasaskan huruf Arab dan huruf tambahan.',['Jawi dibaca dari kanan ke kiri.','Kenal bentuk huruf sebelum membina perkataan.','Latih padanan perkataan Rumi dan Jawi secara berperingkat.'],'Contoh: بولا dibaca “bola”.'],
-        'Bahasa Arab':['Bahasa Arab asas bermula dengan huruf, nombor dan kosa kata harian.',['Belajar makna perkataan bersama gambar atau objek.','Ulang sebutan untuk menguatkan ingatan.','Gunakan ucapan mudah dalam situasi sebenar.'],'Contoh: كِتَابٌ bermaksud buku.'],
-        'Hafazan':['Hafazan bukan sekadar mengingat bunyi; fahami juga kegunaan surah.',['Al-Fatihah ialah surah pembukaan al-Quran dan dibaca dalam solat.','Surah perlindungan boleh diamalkan sebelum tidur.','Ulang bacaan dalam bahagian pendek sebelum gabungkan.'],'Baca satu ayat, ulang beberapa kali, kemudian sambung ayat berikutnya.']
-      },
       ba:{
         'Nombor':['Nombor Arab boleh dipadankan dengan nilai nombor yang kita kenal.',['Kenal simbol satu demi satu.','Sebut nilai nombor dengan betul.','Latih padanan simbol dan kuantiti.'],'١ = satu, ٢ = dua, ٣ = tiga.'],
         'Kenderaan':['Kosa kata kenderaan lebih mudah diingat melalui gambar.',['Lihat objek.','Sebut perkataan Arab.','Padankan dengan maksud Bahasa Melayu.'],'🚌 حافلة bermaksud bas.'],
@@ -243,11 +233,11 @@ window.LATIH_LEARNING = (() => {
   }
 
   function attachMeta(level,subject,topic,x){
-    const icon={math:'🔢',bm:'📖',en:'🔤',sci:'🔬',hist:'🏛️',islam:'🕌',moral:'🤝',pjpk:'🏃',sra:'☪️',ba:'🗣️',psv:'🎨',music:'🎵',pra:'🧒'}[subject]||'📚';
+    const icon={math:'🔢',bm:'📖',en:'🔤',sci:'🔬',hist:'🏛️',islam:'🕌',moral:'🤝',pjpk:'🏃',ba:'🗣️',psv:'🎨',music:'🎵',pra:'🧒'}[subject]||'📚';
     return {...x,level,subject,topic,icon,title:topic==='Campur-campur'?'Asas Pra':topic,tone:x.definition,tip:x.tip||'Fahami contoh dahulu, kemudian cuba sendiri.',sentence:x.sentence||(['bm','en'].includes(subject)?sentenceActivity(level,subject,'general'):null)};
   }
   function getLesson(level,subject,topic){
-    let x;if(subject==='math')x=mathLesson(level,topic);else if(subject==='bm')x=bmLesson(level,topic);else if(subject==='en')x=enLesson(level,topic);else if(subject==='sci')x=scienceLesson(level,topic);else if(subject==='hist')x=historyLesson(level,topic);else if(subject==='islam')x=islamLesson(level,topic);else if(subject==='moral')x=moralLesson(level,topic);else if(subject==='pjpk')x=pjpkLesson(level,topic);else if(['sra','ba','psv','music'].includes(subject))x=extendedLesson(level,subject,topic);else x=praLesson(topic);
+    let x;if(subject==='math')x=mathLesson(level,topic);else if(subject==='bm')x=bmLesson(level,topic);else if(subject==='en')x=enLesson(level,topic);else if(subject==='sci')x=scienceLesson(level,topic);else if(subject==='hist')x=historyLesson(level,topic);else if(subject==='islam')x=islamLesson(level,topic);else if(subject==='moral')x=moralLesson(level,topic);else if(subject==='pjpk')x=pjpkLesson(level,topic);else if(['ba','psv','music'].includes(subject))x=extendedLesson(level,subject,topic);else x=praLesson(topic);
     return attachMeta(level,subject,topic,x);
   }
   function topics(subject){return C.subjects[subject]?.topics||[]}

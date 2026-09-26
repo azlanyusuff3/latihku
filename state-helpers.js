@@ -29,17 +29,27 @@ globalThis.LATIH_STATE = (() => {
     value.shortValue = typeof q.shortValue === 'string' ? q.shortValue.slice(0,300) : '';
     return value;
   }
+  function migratePreferences(input, config) {
+    const old = object(input) ? input : {};
+    const level = ['pra','1','2','3','4','5','6'].includes(String(old.level)) ? String(old.level) : '1';
+    const allowed = Object.entries(config.subjects).filter(([,meta])=>meta.years.includes(level)).map(([id])=>id);
+    const subject = old.subject !== 'sra' && allowed.includes(old.subject) ? old.subject : level === 'pra' ? 'pra' : 'math';
+    const topics = config.subjects[subject]?.topics || [];
+    const topic = old.subject === subject && (topics.includes(old.topic) || old.topic === 'Campur Semua') ? old.topic : level === 'pra' ? 'Campur-campur' : 'Campur Semua';
+    const {schoolType: legacySchoolType, ...prefs} = old;
+    return {...prefs,level,subject,topic};
+  }
   function validateBackup(data, config) {
     if (!object(data) || (data.app !== undefined && data.app !== 'LatihKu Study') || !object(data.state)) return false;
     const s = data.state;
-    if (s.schemaVersion !== undefined && (!finite(s.schemaVersion) || s.schemaVersion < 1 || s.schemaVersion > 23.1)) return false;
+    if (s.schemaVersion !== undefined && (!finite(s.schemaVersion) || s.schemaVersion < 1 || s.schemaVersion > 24)) return false;
     for (const k of ['profile','prefs','settings','learning','smartPractice','coloring','responseAnalytics']) if (s[k] !== undefined && !object(s[k])) return false;
     if (!object(s.profile) || typeof s.profile.name !== 'string' || !object(s.prefs) ||
-        !known(config.subjects,s.prefs.subject) || !['pra','1','2','3','4','5','6'].includes(String(s.prefs.level)) ||
+        !(known(config.subjects,s.prefs.subject) || s.prefs.subject === 'sra') || !['pra','1','2','3','4','5','6'].includes(String(s.prefs.level)) ||
         !Array.isArray(s.sessions) || s.sessions.length > 10000 ||
-        s.sessions.some(x => !object(x) || !known(config.subjects,x.subject) || !finite(x.score) || !finite(x.total))) return false;
+        s.sessions.some(x => !object(x) || !(known(config.subjects,x.subject) || x.subject === 'sra') || !finite(x.score) || !finite(x.total))) return false;
     for (const k of ['answers','correct','xp','streak']) if (s[k] !== undefined && (!finite(s[k]) || s[k] < 0)) return false;
-    if (s.activeQuiz && !migrateQuiz(s.activeQuiz,s.prefs,config)) return false;
+    if (s.activeQuiz && s.activeQuiz.prefs?.subject !== 'sra' && s.prefs.subject !== 'sra' && !migrateQuiz(s.activeQuiz,s.prefs,config)) return false;
     if (s.learning && ['completed','mastery','adaptive'].some(k => s.learning[k] !== undefined && !object(s.learning[k]))) return false;
     if (s.smartPractice && ['seen','recentGenerated'].some(k => s.smartPractice[k] !== undefined && !object(s.smartPractice[k]))) return false;
     if (s.coloring && ['completed','lastPage'].some(k => s.coloring[k] !== undefined && !object(s.coloring[k]))) return false;
@@ -58,5 +68,5 @@ globalThis.LATIH_STATE = (() => {
   function countDay(streak,lastDay,today,yesterday) {
     return lastDay === today ? streak : lastDay === yesterday ? streak+1 : 1;
   }
-  return {validQuiz,migrateQuiz,validateBackup,duration,remaining,countDay};
+  return {validQuiz,migrateQuiz,migratePreferences,validateBackup,duration,remaining,countDay};
 })();
