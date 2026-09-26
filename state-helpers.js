@@ -19,8 +19,8 @@ globalThis.LATIH_STATE = (() => {
         item.answers.filter(a => String(a) === String(item.correct)).length === 1));
   }
   function migrateQuiz(q, prefs, config) {
-    if (!q) return null;
-    const value = {...q, prefs: q.prefs || {...prefs}};
+    if (!q || q.prefs?.subject === 'sra') return null;
+    const value = {...q, prefs: migratePreferences({...prefs,...(q.prefs||{})},config)};
     if (!validQuiz(value, config)) return null;
     value.questionElapsedMs = finite(q.questionElapsedMs) && q.questionElapsedMs >= 0 ? q.questionElapsedMs : 0;
     value.questionStartedAt = 0;
