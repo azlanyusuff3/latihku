@@ -5,7 +5,7 @@
   const PREV_STORAGE_KEY='latihkuStudyV9';
   const AVATARS=['⚽','🦄','🚀','🦖','🐼','🐱','🌈','⭐','🏎️','👑','🦊','🐸','🧒','👦','👧','🧑‍🚀','👩‍🔬','🧑‍🎨'];
   const defaults={
-    schemaVersion:24,meta:{updatedAt:0},profile:{name:'',avatar:'⭐',onboarded:false},
+    schemaVersion:25,meta:{updatedAt:0},profile:{name:'',avatar:'⭐',onboarded:false},
     xp:0,streak:0,lastDay:'',sessions:[],answers:0,correct:0,
     settings:{sound:true,timer:false,offlineDownloadedAt:'',coloringOfflineDownloadedAt:'',persistentStorage:false},
     prefs:{level:'1',subject:'math',topic:'Campur Semua',mode:'learn',count:10,difficulty:'auto',praActivity:'mix'},
@@ -15,13 +15,13 @@
     activeQuiz:null,
     responseAnalytics:{totalTimed:0,totalMs:0,patterns:{}},aggregates:{subjects:{},topics:{},sessionCount:0}
   };
-  let dbPromise=null,idbQueue=Promise.resolve(),hydrating=true,lastSerialized='',storageWarned=false;
+  let dbPromise=null,idbQueue=Promise.resolve(),hydrating=true,lastSerialized='',storageWarned=false,migrationPending=false;
   let state=load(),view='home',quiz=null,praRun=null,lessonRun=null,onboardStep=state.profile.name?2:1,installPrompt=null,timerInt=null,saveTimer=null;
 
   function clone(x){return JSON.parse(JSON.stringify(x))}
   function merge(a,b){const o=clone(a);for(const k of Object.keys(b||{})){if(['__proto__','constructor','prototype'].includes(k))continue;o[k]=(b[k]&&typeof b[k]==='object'&&!Array.isArray(b[k]))?merge(o[k]||{},b[k]):b[k]}return o}
   function migrate(s){
-    const m=merge(defaults,s||{});m.schemaVersion=24;
+    const m=merge(defaults,s||{});m.schemaVersion=25;
     m.prefs=H.migratePreferences(m.prefs,C);
     if(!m.profile||typeof m.profile!=='object')m.profile=clone(defaults.profile);
     if(!m.meta||typeof m.meta!=='object')m.meta={updatedAt:0};
@@ -33,16 +33,12 @@
     if(!m.responseAnalytics.patterns)m.responseAnalytics.patterns={};
     m.profile.avatar=AVATARS.includes(m.profile.avatar)?m.profile.avatar:'⭐';
     m.profile.name=String(m.profile.name||'').slice(0,20);
-    // Legacy records remain in backups/history, but do not feed current SK metrics.
-    m.sessions=Array.isArray(m.sessions)?m.sessions.filter(x=>x&&(x.subject==='sra'||Object.prototype.hasOwnProperty.call(C.subjects,x.subject))&&Number.isFinite(x.score)&&Number.isFinite(x.total)).slice(0,100):[];
+    m.sessions=Array.isArray(m.sessions)?m.sessions.filter(x=>x&&x.schoolType!=='sra'&&Object.prototype.hasOwnProperty.call(C.subjects,x.subject)&&Number.isFinite(x.score)&&Number.isFinite(x.total)).slice(0,100):[];
     if(!s?.aggregates||!Number.isFinite(s.aggregates.sessionCount)){m.aggregates=clone(defaults.aggregates);for(const session of m.sessions)aggregateSession(m,session)}
     if(!m.aggregates||typeof m.aggregates!=='object')m.aggregates=clone(defaults.aggregates);
     if(!m.aggregates.subjects||typeof m.aggregates.subjects!=='object')m.aggregates.subjects={};
     if(!m.aggregates.topics||typeof m.aggregates.topics!=='object')m.aggregates.topics={};
-    const legacySessions=m.aggregates.subjects.sra?.n||0;m.aggregates.sessionCount=Math.max(0,(m.aggregates.sessionCount||0)-legacySessions);delete m.aggregates.subjects.sra;
-    for(const key of Object.keys(m.aggregates.topics||{}))if(key.startsWith('sra|'))delete m.aggregates.topics[key];
-    for(const key of Object.keys(m.smartPractice.seen||{}))if(key.endsWith(':sra'))delete m.smartPractice.seen[key];
-    for(const key of Object.keys(m.smartPractice.recentGenerated||{}))if(key.endsWith(':sra'))delete m.smartPractice.recentGenerated[key];
+    H.purgeLegacySchool(m);
     m.activeQuiz=s?.prefs?.subject==='sra'&&!m.activeQuiz?.prefs?null:H.migrateQuiz(m.activeQuiz,m.prefs,C);
     return m;
   }
@@ -50,7 +46,7 @@
     const row=a.subjects[subject]||(a.subjects[subject]={n:0,c:0,t:0});row.n++;row.c+=Number(session.score)||0;row.t+=Number(session.total)||0;a.sessionCount++;
     for(const answer of session.answers||[]){const key=`${subject}|${answer.topic||session.topic}`;const t=a.topics[key]||(a.topics[key]={total:0,correct:0});t.total++;if(answer.ok)t.correct++}
   }
-  function load(){try{const cur=localStorage.getItem(STORAGE_KEY);if(cur)return migrate(JSON.parse(cur));const prev=localStorage.getItem(PREV_STORAGE_KEY);return prev?migrate(JSON.parse(prev)):clone(defaults)}catch{return clone(defaults)}}
+  function load(){try{const cur=localStorage.getItem(STORAGE_KEY);if(cur){const old=JSON.parse(cur);migrationPending=old.schemaVersion!==25;return migrate(old)}const prev=localStorage.getItem(PREV_STORAGE_KEY);if(prev){migrationPending=true;return migrate(JSON.parse(prev))}return clone(defaults)}catch{return clone(defaults)}}
   function storageError(err){console.warn('LatihKu storage:',err);if(!storageWarned){storageWarned=true;toast('Simpanan peranti bermasalah. Sila buat backup progress.')}}
   function save(immediate=false){
     state.meta.updatedAt=Date.now();
@@ -63,7 +59,7 @@
   function openDB(){if(!dbPromise)dbPromise=new Promise((resolve,reject)=>{if(!('indexedDB'in window))return reject(new Error('No IndexedDB'));const r=indexedDB.open('LatihKuStudyDB',1);r.onupgradeneeded=()=>{if(!r.result.objectStoreNames.contains('state'))r.result.createObjectStore('state')};r.onsuccess=()=>resolve(r.result);r.onerror=()=>reject(r.error)}).catch(err=>{dbPromise=null;throw err});return dbPromise}
   async function idbSave(data){const db=await openDB();return new Promise((res,rej)=>{const tx=db.transaction('state','readwrite');tx.objectStore('state').put(data,'main');tx.oncomplete=()=>res();tx.onerror=()=>rej(tx.error)})}
   async function idbLoad(){const db=await openDB();return new Promise((res,rej)=>{const tx=db.transaction('state','readonly'),r=tx.objectStore('state').get('main');r.onsuccess=()=>res(r.result||null);r.onerror=()=>rej(r.error)})}
-  async function hydrateMirror(){const original=state.meta.updatedAt;try{const m=await idbLoad();if(state.meta.updatedAt!==original)return;if(m?.meta?.updatedAt>original){state=migrate(m);try{localStorage.setItem(STORAGE_KEY,JSON.stringify(state))}catch(err){storageError(err)}render()}else if(!m&&original)idbQueue=idbQueue.then(()=>idbSave(clone(state))).catch(storageError)}catch(err){console.warn('LatihKu mirror unavailable:',err)}finally{hydrating=false}}
+  async function hydrateMirror(){const original=state.meta.updatedAt;let mirrorNeedsUpgrade=false;try{const m=await idbLoad();mirrorNeedsUpgrade=!!m&&m.schemaVersion!==25;if(state.meta.updatedAt!==original)return;if(m?.meta?.updatedAt>original){state=migrate(m);try{localStorage.setItem(STORAGE_KEY,JSON.stringify(state))}catch(err){storageError(err)}render()}else if(!m&&original)idbQueue=idbQueue.then(()=>idbSave(clone(state))).catch(storageError)}catch(err){console.warn('LatihKu mirror unavailable:',err)}finally{hydrating=false;if(migrationPending||mirrorNeedsUpgrade){migrationPending=false;save(true)}}}
 
   function openColorDB(){return new Promise((resolve,reject)=>{if(!('indexedDB'in window))return reject(new Error('No IndexedDB'));const r=indexedDB.open('LatihKuColoringDB',1);r.onupgradeneeded=()=>{if(!r.result.objectStoreNames.contains('paint'))r.result.createObjectStore('paint')};r.onsuccess=()=>resolve(r.result);r.onerror=()=>reject(r.error)})}
   async function colorDBGet(key){try{const db=await openColorDB();return await new Promise((res,rej)=>{const tx=db.transaction('paint','readonly'),r=tx.objectStore('paint').get(key);r.onsuccess=()=>{db.close();res(r.result||null)};r.onerror=()=>rej(r.error)})}catch{return null}}
@@ -382,6 +378,6 @@
   function installApp(){if(installPrompt){installPrompt.prompt();installPrompt.userChoice.finally(()=>installPrompt=null);return}const ios=/iphone|ipad|ipod/i.test(navigator.userAgent);toast(ios?'Safari: Share → Add to Home Screen':'Browser menu → Install app / Add to Home Screen')}
   function bindInstall(){document.querySelector('#installBtn')?.addEventListener('click',installApp)}
   function render(){clearInterval(timerInt);if(!state.profile.onboarded||!state.profile.name)return onboard();if(view==='home')home();else if(view==='learnHub')learningHub();else if(view==='lesson'&&lessonRun)renderLesson();else if(view==='practice')practice();else if(view==='pra')praLanding();else if(view==='praSpecial'&&praRun)renderPraSpecial();else if(view==='progress')progress();else if(view==='settings')settings();else if(view==='quiz'&&quiz)renderQuiz();else home();bindInstall()}
-  window.addEventListener('beforeinstallprompt',e=>{e.preventDefault();installPrompt=e});window.addEventListener('appinstalled',()=>toast('LatihKu berjaya dipasang 🎉'));window.addEventListener('beforeunload',()=>{if(view==='quiz'&&quiz){pauseQuestionClock();persistActiveQuiz()}else if(saveTimer)save(true)});document.addEventListener('visibilitychange',()=>{if(view==='quiz'&&quiz){if(document.visibilityState==='hidden'){pauseQuestionClock();persistActiveQuiz()}else{if(quiz.selected===null)startQuestionClock(false);if(state.settings.timer)startTimer()}}if(document.visibilityState==='hidden')save(true)});if('serviceWorker'in navigator)window.addEventListener('load',()=>{let refreshed=false;navigator.serviceWorker.addEventListener('controllerchange',()=>{if(!refreshed){refreshed=true;location.reload()}});navigator.serviceWorker.register('sw.js').catch(console.error)});
+  window.addEventListener('beforeinstallprompt',e=>{e.preventDefault();installPrompt=e});window.addEventListener('appinstalled',()=>toast('LatihKu berjaya dipasang 🎉'));window.addEventListener('beforeunload',()=>{if(view==='quiz'&&quiz){pauseQuestionClock();persistActiveQuiz()}else if(saveTimer)save(true)});document.addEventListener('visibilitychange',()=>{if(view==='quiz'&&quiz){if(document.visibilityState==='hidden'){pauseQuestionClock();persistActiveQuiz()}else{if(quiz.selected===null)startQuestionClock(false);if(state.settings.timer)startTimer()}}if(document.visibilityState==='hidden')save(true)});if('serviceWorker'in navigator)window.addEventListener('load',()=>{let refreshed=false;navigator.serviceWorker.addEventListener('controllerchange',()=>{if(!refreshed){refreshed=true;location.reload()}});navigator.serviceWorker.register(`sw.js?v=${encodeURIComponent(C.version)}`).catch(console.error)});
   render();hydrateMirror();
 })();

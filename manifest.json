@@ -1,9 +1,9 @@
 {
-  "name": "LatihKu Study v24.0.0",
+  "name": "LatihKu Study v24.0.1",
   "short_name": "LatihKu",
-  "description": "LatihKu Study v24.0.0 — Sekolah Kebangsaan Pra hingga Tahun 6, latihan pintar offline dan Buku Mewarna Pra.",
+  "description": "LatihKu Study v24.0.1 — Sekolah Kebangsaan Pra hingga Tahun 6, latihan pintar offline dan Buku Mewarna Pra.",
   "id": "./",
-  "start_url": "./",
+  "start_url": "./?v=24.0.1",
   "scope": "./",
   "display": "standalone",
   "background_color": "#FBF7EE",

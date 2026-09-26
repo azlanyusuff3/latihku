@@ -39,10 +39,34 @@ globalThis.LATIH_STATE = (() => {
     const {schoolType: legacySchoolType, ...prefs} = old;
     return {...prefs,level,subject,topic};
   }
+  // Remove obsolete school records after reading an older local state or backup.
+  function purgeLegacySchool(s) {
+    if (!object(s)) return s;
+    if (Array.isArray(s.sessions)) s.sessions=s.sessions.filter(row=>row?.subject!=='sra' && row?.schoolType!=='sra');
+    const subjectRows=s.aggregates?.subjects;
+    if (object(subjectRows)) {
+      const old=subjectRows.sra;
+      if (old && finite(s.aggregates.sessionCount)) s.aggregates.sessionCount=Math.max(0,s.aggregates.sessionCount-(Number(old.n)||0));
+      delete subjectRows.sra;
+    }
+    let removedTimingCount=0,removedTimingMs=0;
+    for(const [map,predicate] of [
+      [s.aggregates?.topics,k=>k.startsWith('sra|')],
+      [s.smartPractice?.seen,k=>k.endsWith(':sra')],
+      [s.smartPractice?.recentGenerated,k=>k.endsWith(':sra')],
+      [s.learning?.completed,k=>k.includes(':sra:')],
+      [s.learning?.mastery,k=>k.includes(':sra:')],
+      [s.learning?.adaptive,k=>k.includes(':sra:')],
+      [s.responseAnalytics?.patterns,k=>k.includes('|sra|')]
+    ]) if(object(map)) for(const key of Object.keys(map)) if(predicate(key)){if(map===s.responseAnalytics?.patterns){removedTimingCount+=Number(map[key]?.count)||0;removedTimingMs+=Number(map[key]?.totalMs)||0}delete map[key]};
+    if(s.learning?.pendingMastery?.subject==='sra')s.learning.pendingMastery=null;
+    if(s.responseAnalytics && removedTimingCount){s.responseAnalytics.totalTimed=Math.max(0,(Number(s.responseAnalytics.totalTimed)||0)-removedTimingCount);s.responseAnalytics.totalMs=Math.max(0,(Number(s.responseAnalytics.totalMs)||0)-removedTimingMs)}
+    return s;
+  }
   function validateBackup(data, config) {
     if (!object(data) || (data.app !== undefined && data.app !== 'LatihKu Study') || !object(data.state)) return false;
     const s = data.state;
-    if (s.schemaVersion !== undefined && (!finite(s.schemaVersion) || s.schemaVersion < 1 || s.schemaVersion > 24)) return false;
+    if (s.schemaVersion !== undefined && (!finite(s.schemaVersion) || s.schemaVersion < 1 || s.schemaVersion > 25)) return false;
     for (const k of ['profile','prefs','settings','learning','smartPractice','coloring','responseAnalytics']) if (s[k] !== undefined && !object(s[k])) return false;
     if (!object(s.profile) || typeof s.profile.name !== 'string' || !object(s.prefs) ||
         !(known(config.subjects,s.prefs.subject) || s.prefs.subject === 'sra') || !['pra','1','2','3','4','5','6'].includes(String(s.prefs.level)) ||
@@ -68,5 +92,5 @@ globalThis.LATIH_STATE = (() => {
   function countDay(streak,lastDay,today,yesterday) {
     return lastDay === today ? streak : lastDay === yesterday ? streak+1 : 1;
   }
-  return {validQuiz,migrateQuiz,migratePreferences,validateBackup,duration,remaining,countDay};
+  return {validQuiz,migrateQuiz,migratePreferences,purgeLegacySchool,validateBackup,duration,remaining,countDay};
 })();
