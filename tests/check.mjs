@@ -20,7 +20,7 @@ for(const [key,p] of Object.entries(C.packs)){
   const bytes=fs.readFileSync(new URL(p.url,root)),bank=JSON.parse(bytes);
   assert.equal(bank.questions.length,p.count,key);
   assert.equal(bytes.length,p.bytes,key);
-  for(const q of bank.questions) { assert(q.question && q.topic && q.correct !== undefined,key); assert(C.subjects[key.split(':')[1]].topics.includes(q.topic) || (key.endsWith(':sra') && C.sraTopicsByLevel[key.split(':')[0]].includes(q.topic)),`${key}: ${q.topic}`); }
+  for(const q of bank.questions) { assert(E.validateItem(q),`${key}: invalid curated item`); assert(q.question && q.topic && q.correct !== undefined,key); assert(C.subjects[key.split(':')[1]].topics.includes(q.topic) || (key.endsWith(':sra') && C.sraTopicsByLevel[key.split(':')[0]].includes(q.topic)),`${key}: ${q.topic}`); }
 }
 const coloring=context.LATIH_COLORING;
 for(const asset of coloring.assets) assert(pathExists(asset),asset);

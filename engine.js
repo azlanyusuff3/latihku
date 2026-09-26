@@ -134,7 +134,7 @@ window.LATIH_ENGINE = (() => {
     const topics=topic==='Campur Semua'?C.subjects.math.topics:[topic],out=[],seen=new Set(),recent=new Set(ctx.recentGenerated||[]),uasa=difficulty==='uasa'&&+level>=4;
     const plan=uasa?[...Array(Math.round(count*.5)).fill('mudah'),...Array(Math.round(count*.3)).fill('sederhana'),...Array(Math.max(0,count-Math.round(count*.5)-Math.round(count*.3))).fill('sukar')]:Array(count).fill(null);
     let tries=0;
-    while(out.length<count&&tries<count*60){tries++;const tpc=pick(topics),d=uasa?(plan[out.length]||'sederhana'):difficultyFor(level,difficulty),item=safeGenerate(MATH_GEN[tpc],level,d);if(!seen.has(item.concept)){out.push(uasa?toShort(item):item);seen.add(item.concept)}}
+    while(out.length<count&&tries<count*60){tries++;const tpc=pick(topics),d=uasa?(plan[out.length]||'sederhana'):difficultyFor(level,difficulty),item=safeGenerate(MATH_GEN[tpc],level,d);if(!seen.has(item.concept)&&!recent.has(item.smartSignature)){out.push(uasa?toShort(item):item);seen.add(item.concept)}}
     while(out.length<count){const tpc=pick(topics),d=uasa?(plan[out.length]||'sederhana'):difficultyFor(level,difficulty),item=safeGenerate(MATH_GEN[tpc],level,d);out.push(uasa?toShort(item):item)}
     return uasa?shuffle(out):out
   }
