@@ -8,19 +8,42 @@ const context = {console,Math,Date,setTimeout,clearTimeout};
 context.window=context;context.globalThis=context;
 context.fetch=async url => ({ok:true,json:async()=>JSON.parse(read(url))});
 vm.createContext(context);
-for(const file of ['version.js','config.js','state-helpers.js','smart-engine.js','pdf-pattern-engine.js','engine.js','pra-engine.js','coloring-data.js']) vm.runInContext(read(file),context,{filename:file});
+for(const file of ['version.js','world-flags.js','config.js','state-helpers.js','smart-engine.js','pdf-pattern-engine.js','engine.js','pra-engine.js','coloring-data.js']) vm.runInContext(read(file),context,{filename:file});
 const C=context.LATIH_CONFIG,H=context.LATIH_STATE,E=context.LATIH_ENGINE;
-assert.equal(C.version,'24.0.1');
+assert.equal(C.version,'24.1.0');
 assert(!('sra' in C.subjects));assert(Object.keys(C.packs).every(x=>!x.endsWith(':sra')));
 assert.equal(H.migratePreferences({schoolType:'sra',level:'4',subject:'sra',topic:'Tauhid'},C).subject,'math');
 assert(!('schoolType' in H.migratePreferences({schoolType:'sra',level:'4',subject:'sra'},C)));
 assert.equal(H.migratePreferences({level:'3',subject:'bm',topic:'Campur Semua'},C).subject,'bm');
 const pathExists=p=>fs.existsSync(new URL(p,root));
 const shell=read('sw.js').match(/const SHELL_FILES=\[([^\]]+)\]/)?.[1].match(/'[^']+'/g)?.map(x=>x.slice(1,-1))||[];
-assert(shell.includes('v24.css'));assert(shell.length>=14);
+assert(shell.includes('v24.css'));assert(shell.includes('world-flags.js'));assert(shell.includes('general-quiz.js'));assert(shell.length>=16);
 for(const asset of shell) {assert(pathExists(asset),asset);assert(read('index.html').includes(`${asset}?v=${C.version}`),`versioned shell ${asset}`)}
 assert(read('sw.js').includes('...SHELL_FILES.map(file=>`${file}?v=${RELEASE}`)'));
 assert(read('index.html').includes(`LatihKu Study v${C.version}`));
+assert(read('sw.js').includes("'assets/world-flags.svg'"));
+const F=context.LATIH_FLAGS;
+assert.equal(F.count,195);
+const sprite=read('assets/world-flags.svg');
+for(const country of F.countries)assert(sprite.includes(`id="fi-${country.code.toLowerCase()}"`),country.code);
+for(const n of [5,10,20,30]){
+  for(let repeat=0;repeat<5;repeat++){
+    const items=F.makeQuiz(n);
+    assert.equal(items.length,n);
+    assert.equal(new Set(items.map(x=>x.code)).size,n);
+    for(const item of items){
+      assert.equal(item.options.length,4);
+      assert.equal(new Set(item.options).size,4);
+      assert(item.options.includes(item.code));
+      assert(item.options.every(F.exists));
+      assert(F.name(item.code));
+    }
+    const session={items,i:0,score:0,selected:null,answers:[]};
+    assert(F.validSession(session));
+    assert(!F.validSession({...session,items:[items[0],items[0],...items.slice(2)]}));
+  }
+}
+assert(!F.validSession({items:[],i:0,score:0,selected:null,answers:[]}));
 assert(read('index.html').includes(`manifest.json?v=${C.version}`));
 assert(JSON.parse(read('manifest.json')).start_url.includes(C.version));
 assert(!['1','2','3','4','5','6'].some(y=>pathExists(`data/${y}/sra.json`)));

@@ -14,3 +14,51 @@ h1,h2,h3{color:var(--ink);letter-spacing:-.025em}h1{font-size:clamp(24px,5vw,29p
 .subject-tile .subject-icon{font-family:ui-rounded,'Trebuchet MS',system-ui,sans-serif;font-size:20px;font-weight:900;letter-spacing:-1px;color:var(--blue)}.subject-tile:nth-child(3n+2) .subject-icon{color:var(--terra)}.subject-tile:nth-child(3n) .subject-icon{color:var(--green)}
 /* Learning and explanation screens share the paper surfaces. */
 .learn-hero{background:#e6eff8;color:var(--ink);border:1px solid #cfdeec;box-shadow:none;border-radius:18px;padding:19px;margin:12px 0 18px}.learn-hero:before,.learn-hero:after{display:none}.learn-hero h1{font-size:25px;color:var(--ink);line-height:1.25}.learn-hero p{color:var(--muted)}.learn-hero .eyebrow{color:var(--blue)}.journey-mini span{background:#fffaf1;border:1px solid var(--line);color:var(--blue);font-weight:700}.learn-hero-badge{background:var(--surface);border:1px solid #cfdeec;backdrop-filter:none;color:var(--blue);box-shadow:none}.chooser-block{background:var(--surface);border:1px solid var(--line);border-radius:17px;box-shadow:0 2px 9px #4a38200d}.step-title>span{background:var(--blue);border-radius:9px}.level-card,.category-subject,.learning-topic{background:var(--surface);border-color:var(--line);border-radius:13px;box-shadow:none}.level-card.active,.category-subject.active,.learning-topic.active{background:#e6f2ea;border-color:var(--green);color:var(--ink)}.lesson-page{background:var(--cream)}.lesson-card{background:var(--surface);border:1px solid var(--line);border-radius:18px;box-shadow:0 2px 9px #4a38200d}.lesson-node.active span{background:var(--blue);box-shadow:none}.lesson-node.done span{background:var(--green)}.lesson-step-count{border-color:var(--line);background:var(--surface)}
+
+/* General flag quiz: a self-contained activity, available at every SK level. */
+.bottomnav{grid-template-columns:repeat(6,minmax(0,1fr))}
+.bottomnav .navbtn b{font-size:10px}
+.general-level-button{display:flex;align-items:center;justify-content:space-between;gap:8px;width:100%;margin:10px 0 0;padding:13px 16px;border:2px solid #bbdff2;border-radius:16px;background:#eaf7ff;color:#145b91;font-weight:850;text-align:left;cursor:pointer}
+.general-level-button span{margin-left:auto}
+.general-hero{display:grid;grid-template-columns:98px 1fr;align-items:center;gap:20px;background:linear-gradient(120deg,#d8edff,#edfaff 55%,#fff7df);border:1px solid #c8e3f4;border-radius:25px;padding:24px;margin:12px 0 20px}
+.general-globe{width:92px;height:92px;border-radius:27px;display:grid;place-items:center;background:#fff;font-size:3.2rem;box-shadow:0 8px 20px #214e7517}
+.general-eyebrow{font-size:.72rem;font-weight:900;letter-spacing:.12em;color:#23618e}
+.general-hero h1{font-size:clamp(1.65rem,5vw,2.55rem);line-height:1.18;margin:7px 0}
+.general-hero p{color:#456781;margin:0;line-height:1.5}
+.general-count-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
+.general-count-card{display:grid;justify-items:center;gap:6px;border:2px solid #d8e7f3;border-radius:20px;padding:19px 7px;background:#fff;color:#244b69;cursor:pointer}
+.general-count-card span{font-size:2.1rem}
+.general-count-card b{font-size:1rem}
+.general-count-card small{color:#6b8194}
+.general-count-card:focus-visible,.general-level-button:focus-visible{outline:3px solid #176ed3;outline-offset:3px}
+.general-count-card:hover{border-color:#3a98df;background:#f4faff}
+.general-note{font-size:.82rem;color:#5e7485;line-height:1.55;margin:12px 0}
+.general-resume{display:flex;justify-content:space-between;align-items:center;gap:10px;width:100%;padding:16px;border:1px solid #bedcef;background:#e6f4ff;color:#165b90;border-radius:18px;font-weight:900;text-align:left;cursor:pointer}
+.general-resume span{font-size:.82rem}
+.general-stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.general-stats>div{display:grid;justify-items:center;gap:4px;background:#fff;border:1px solid #d9e6f1;border-radius:18px;padding:15px 8px}
+.general-stats b{font-size:1.45rem;color:#1767a9}
+.general-stats small{color:#5c7287;font-size:.75rem;text-align:center}
+.general-history{margin-top:12px;display:grid;gap:6px}
+.general-history>div{display:flex;justify-content:space-between;gap:12px;padding:12px;border-radius:12px;background:#fff;border:1px solid #e1eaf3;font-size:.84rem}
+.general-quiz-page .quiz-card{max-width:750px}
+.flag-question-title{text-align:center;margin:15px 0 18px!important}
+.world-flag-frame{width:min(100%,420px);min-height:180px;aspect-ratio:4/3;margin:0 auto 22px;border-radius:16px;background:#eef4fa;border:1px solid #d7e5ed;box-shadow:0 8px 25px #18375518;display:grid;place-items:center;overflow:hidden}
+.world-flag-art{display:block;width:100%;height:100%}
+.general-quiz-page .answer-list{grid-template-columns:repeat(2,minmax(0,1fr))}
+.general-quiz-page .answer-btn{min-height:74px}
+.general-quiz-page .answer-btn b{overflow-wrap:anywhere}
+.flag-answer-feedback{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-top:13px;padding:14px;border-radius:14px}
+.flag-answer-feedback.good{color:#147349;background:#e8fbf2}
+.flag-answer-feedback.bad{color:#923d3d;background:#fff0f0}
+.flag-answer-feedback span{font-weight:950}
+@media(max-width:600px){
+ .general-hero{grid-template-columns:1fr;gap:12px;padding:18px}
+ .general-globe{width:68px;height:68px;font-size:2.45rem}
+ .general-count-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .general-quiz-page .answer-list{grid-template-columns:1fr}
+ .general-quiz-page .answer-btn{min-height:58px}
+ .general-history>div{font-size:.77rem}
+ .bottomnav .navbtn b{font-size:9px}
+ .bottomnav .navbtn span{font-size:20px}
+}

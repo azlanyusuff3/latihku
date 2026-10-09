@@ -1,10 +1,10 @@
-# LatihKu v24.0.1
+# LatihKu v24.1.0
 
 LatihKu is a local-first and offline-first learning and practice PWA for Malaysian **Sekolah Kebangsaan** pupils from Pra to Tahun 6. It uses vanilla HTML, CSS and JavaScript, with no account, backend, cloud database, remote AI API or build step. Host the static repository over HTTPS, such as GitHub Pages, or run it on localhost for development.
 
 ## Navigation and learning
 
-The five tabs are **Utama**, **Latihan**, **Pra**, **Prestasi** and **Tetapan**. Choose a year and a supported SK subject, then a topic and a practice mode. Latihan Biasa gives feedback while answering; Mode Ujian reviews at the end; Format UASA is available for supported years and subjects and is practice rather than an official paper. Difficulty and question count are under Pilihan lanjut. Pra includes early activities and Buku Mewarna with 236 worksheets. The adaptive learning flow, visual explanations, mastery, response timing and Smart Practice run entirely on the device. Curated JSON questions take priority; procedural Smart and PDF pattern generators provide further items. No generated content is sent to a server.
+The six tabs are **Utama**, **Latihan**, **General**, **Pra**, **Prestasi** and **Tetapan**. Choose a year and a supported SK subject, then a topic and a practice mode. Latihan Biasa gives feedback while answering; Mode Ujian reviews at the end; Format UASA is available for supported years and subjects and is practice rather than an official paper. Difficulty and question count are under Pilihan lanjut. Pra includes early activities and Buku Mewarna with 236 worksheets. The adaptive learning flow, visual explanations, mastery, response timing and Smart Practice run entirely on the device. Curated JSON questions take priority; procedural Smart and PDF pattern generators provide further items. No generated content is sent to a server.
 
 ## Progress and upgrades
 
@@ -21,3 +21,9 @@ The service worker precaches versioned shell URLs and uses release-specific cach
 ## Development and deployment
 
 Run `node tests/check.mjs` with Node 22. GitHub Actions runs it on push and pull requests. It checks pack paths, counts, sizes and topics, coloring and icon assets, generated MCQs across supported years and subjects, anti-repeat behavior, migration, backup validation and timer calculations. Deploy the repository's static files to GitHub Pages; no package install or compilation is needed. Confirm touch drawing and PWA installation on actual iPhone and Android devices when publishing.
+
+## Kuiz General: Bendera Dunia
+
+A separate **General** category offers a visual multiple-choice flag quiz with 195 sovereign countries (193 UN members plus Palestine and Vatican City). Each question shows a bundled SVG flag and four randomized country-name answers. A set has 5, 10, 20, or 30 unique flags; recent flags are deprioritized across sessions. Users receive immediate correctness feedback, review answers, earn the same global XP, and can save/resume the active General session. General history and summary are stored separately from SK subjects, preserving existing year/subject choices, school progress and backups.
+
+The SVG sprite (`assets/world-flags.svg`) is distributed locally and precached by the service worker; **no image CDN or network call is needed for questions after installation/update**. The artwork comes from [amckenna41/iso3166-flags](https://github.com/amckenna41/iso3166-flags), MIT-licensed (full notice: `assets/FLAGS_LICENSE.txt`). Country English fallback names are based on [hampusborgos/country-flags](https://github.com/hampusborgos/country-flags); display names use the device's Malay locale where supported. This General bank intentionally excludes dependent territories; it can be expanded separately if desired.
