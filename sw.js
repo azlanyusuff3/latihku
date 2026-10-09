@@ -1,10 +1,10 @@
-importScripts('./version.js?v=24.0.1');
+importScripts('./version.js?v=24.1.0');
 const RELEASE=globalThis.LATIH_VERSION;
 const SHELL_CACHE=`latihku-shell-v${RELEASE}`;
 const DATA_CACHE=`latihku-data-v${RELEASE}`;
 const COLOR_CACHE=`latihku-coloring-v${RELEASE}`;
-const SHELL_FILES=['styles.css','v24.css','version.js','config.js','state-helpers.js','smart-engine.js','pdf-pattern-engine.js','engine.js','pra-engine.js','learning-engine.js','adaptive-engine.js','visual-explain.js','coloring-data.js','app.js'];
-const SHELL=['./','index.html',`manifest.json?v=${RELEASE}`,'icons/icon-192.png','icons/icon-512.png',...SHELL_FILES.map(file=>`${file}?v=${RELEASE}`)];
+const SHELL_FILES=['styles.css','v24.css','version.js','config.js','state-helpers.js','smart-engine.js','pdf-pattern-engine.js','engine.js','pra-engine.js','learning-engine.js','adaptive-engine.js','visual-explain.js','coloring-data.js','world-flags.js','general-quiz.js','app.js'];
+const SHELL=['./','index.html',`manifest.json?v=${RELEASE}`,'icons/icon-192.png','icons/icon-512.png','assets/world-flags.svg',...SHELL_FILES.map(file=>`${file}?v=${RELEASE}`)];
 self.addEventListener('install',e=>{e.waitUntil(caches.open(SHELL_CACHE).then(c=>c.addAll(SHELL)).then(()=>self.skipWaiting()))});
 self.addEventListener('activate',e=>{e.waitUntil((async()=>{const keys=await caches.keys();await Promise.all(keys.filter(k=>k.startsWith('latihku-')&&![SHELL_CACHE,DATA_CACHE,COLOR_CACHE].includes(k)).map(k=>caches.delete(k)));await self.clients.claim()})())});
 self.addEventListener('fetch',e=>{
