@@ -10,7 +10,7 @@ context.fetch=async url => ({ok:true,json:async()=>JSON.parse(read(url))});
 vm.createContext(context);
 for(const file of ['version.js','world-flags.js','config.js','state-helpers.js','smart-engine.js','pdf-pattern-engine.js','engine.js','pra-engine.js','coloring-data.js']) vm.runInContext(read(file),context,{filename:file});
 const C=context.LATIH_CONFIG,H=context.LATIH_STATE,E=context.LATIH_ENGINE;
-assert.equal(C.version,'24.1.0');
+assert.equal(C.version,'24.2.0');
 assert(!('sra' in C.subjects));assert(Object.keys(C.packs).every(x=>!x.endsWith(':sra')));
 assert.equal(H.migratePreferences({schoolType:'sra',level:'4',subject:'sra',topic:'Tauhid'},C).subject,'math');
 assert(!('schoolType' in H.migratePreferences({schoolType:'sra',level:'4',subject:'sra'},C)));

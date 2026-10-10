@@ -1,0 +1,422 @@
+[
+  {
+    "id": "senses-eye-0",
+    "category": "senses",
+    "question": "Deria manakah digunakan untuk membaca buku?",
+    "image": "assets/general/eye.webp",
+    "options": [
+      "Penglihatan",
+      "Pendengaran",
+      "Bau",
+      "Sentuhan"
+    ],
+    "correct": "Penglihatan",
+    "explanation": "Mata membantu kita menggunakan deria penglihatan."
+  },
+  {
+    "id": "senses-eye-1",
+    "category": "senses",
+    "question": "Deria manakah digunakan untuk melihat pelangi?",
+    "image": "assets/general/eye.webp",
+    "options": [
+      "Penglihatan",
+      "Pendengaran",
+      "Sentuhan",
+      "Rasa"
+    ],
+    "correct": "Penglihatan",
+    "explanation": "Mata membantu kita menggunakan deria penglihatan."
+  },
+  {
+    "id": "senses-eye-2",
+    "category": "senses",
+    "question": "Deria manakah digunakan untuk menonton gambar?",
+    "image": "assets/general/eye.webp",
+    "options": [
+      "Penglihatan",
+      "Pendengaran",
+      "Bau",
+      "Rasa"
+    ],
+    "correct": "Penglihatan",
+    "explanation": "Mata membantu kita menggunakan deria penglihatan."
+  },
+  {
+    "id": "senses-eye-3",
+    "category": "senses",
+    "question": "Deria manakah digunakan untuk memerhati bintang?",
+    "image": "assets/general/eye.webp",
+    "options": [
+      "Penglihatan",
+      "Pendengaran",
+      "Rasa",
+      "Bau"
+    ],
+    "correct": "Penglihatan",
+    "explanation": "Mata membantu kita menggunakan deria penglihatan."
+  },
+  {
+    "id": "senses-eye-4",
+    "category": "senses",
+    "question": "Deria manakah digunakan untuk mengenal warna?",
+    "image": "assets/general/eye.webp",
+    "options": [
+      "Penglihatan",
+      "Bau",
+      "Rasa",
+      "Sentuhan"
+    ],
+    "correct": "Penglihatan",
+    "explanation": "Mata membantu kita menggunakan deria penglihatan."
+  },
+  {
+    "id": "senses-eye-5",
+    "category": "senses",
+    "question": "Deria manakah digunakan untuk melihat papan tanda?",
+    "image": "assets/general/eye.webp",
+    "options": [
+      "Penglihatan",
+      "Pendengaran",
+      "Rasa",
+      "Sentuhan"
+    ],
+    "correct": "Penglihatan",
+    "explanation": "Mata membantu kita menggunakan deria penglihatan."
+  },
+  {
+    "id": "senses-ear-0",
+    "category": "senses",
+    "question": "Deria manakah digunakan untuk mendengar lagu?",
+    "image": "assets/general/ear.webp",
+    "options": [
+      "Pendengaran",
+      "Bau",
+      "Sentuhan",
+      "Penglihatan"
+    ],
+    "correct": "Pendengaran",
+    "explanation": "Telinga membantu kita menggunakan deria pendengaran."
+  },
+  {
+    "id": "senses-ear-1",
+    "category": "senses",
+    "question": "Deria manakah digunakan untuk mendengar loceng?",
+    "image": "assets/general/ear.webp",
+    "options": [
+      "Pendengaran",
+      "Sentuhan",
+      "Penglihatan",
+      "Rasa"
+    ],
+    "correct": "Pendengaran",
+    "explanation": "Telinga membantu kita menggunakan deria pendengaran."
+  },
+  {
+    "id": "senses-ear-2",
+    "category": "senses",
+    "question": "Deria manakah digunakan untuk mendengar suara guru?",
+    "image": "assets/general/ear.webp",
+    "options": [
+      "Pendengaran",
+      "Rasa",
+      "Bau",
+      "Sentuhan"
+    ],
+    "correct": "Pendengaran",
+    "explanation": "Telinga membantu kita menggunakan deria pendengaran."
+  },
+  {
+    "id": "senses-ear-3",
+    "category": "senses",
+    "question": "Deria manakah digunakan untuk mendengar guruh?",
+    "image": "assets/general/ear.webp",
+    "options": [
+      "Pendengaran",
+      "Penglihatan",
+      "Bau",
+      "Sentuhan"
+    ],
+    "correct": "Pendengaran",
+    "explanation": "Telinga membantu kita menggunakan deria pendengaran."
+  },
+  {
+    "id": "senses-ear-4",
+    "category": "senses",
+    "question": "Deria manakah digunakan untuk mendengar burung?",
+    "image": "assets/general/ear.webp",
+    "options": [
+      "Pendengaran",
+      "Bau",
+      "Penglihatan",
+      "Sentuhan"
+    ],
+    "correct": "Pendengaran",
+    "explanation": "Telinga membantu kita menggunakan deria pendengaran."
+  },
+  {
+    "id": "senses-ear-5",
+    "category": "senses",
+    "question": "Deria manakah digunakan untuk mendengar bunyi kereta?",
+    "image": "assets/general/ear.webp",
+    "options": [
+      "Pendengaran",
+      "Penglihatan",
+      "Rasa",
+      "Bau"
+    ],
+    "correct": "Pendengaran",
+    "explanation": "Telinga membantu kita menggunakan deria pendengaran."
+  },
+  {
+    "id": "senses-nose-0",
+    "category": "senses",
+    "question": "Deria manakah digunakan untuk menghidu bunga?",
+    "image": "assets/general/nose.webp",
+    "options": [
+      "Bau",
+      "Pendengaran",
+      "Penglihatan",
+      "Sentuhan"
+    ],
+    "correct": "Bau",
+    "explanation": "Hidung membantu kita menggunakan deria bau."
+  },
+  {
+    "id": "senses-nose-1",
+    "category": "senses",
+    "question": "Deria manakah digunakan untuk mengesan bau makanan?",
+    "image": "assets/general/nose.webp",
+    "options": [
+      "Bau",
+      "Pendengaran",
+      "Sentuhan",
+      "Rasa"
+    ],
+    "correct": "Bau",
+    "explanation": "Hidung membantu kita menggunakan deria bau."
+  },
+  {
+    "id": "senses-nose-2",
+    "category": "senses",
+    "question": "Deria manakah digunakan untuk menghidu minyak wangi?",
+    "image": "assets/general/nose.webp",
+    "options": [
+      "Bau",
+      "Pendengaran",
+      "Penglihatan",
+      "Rasa"
+    ],
+    "correct": "Bau",
+    "explanation": "Hidung membantu kita menggunakan deria bau."
+  },
+  {
+    "id": "senses-nose-3",
+    "category": "senses",
+    "question": "Deria manakah digunakan untuk mengesan bau asap?",
+    "image": "assets/general/nose.webp",
+    "options": [
+      "Bau",
+      "Sentuhan",
+      "Pendengaran",
+      "Penglihatan"
+    ],
+    "correct": "Bau",
+    "explanation": "Hidung membantu kita menggunakan deria bau."
+  },
+  {
+    "id": "senses-nose-4",
+    "category": "senses",
+    "question": "Deria manakah digunakan untuk menghidu daun pandan?",
+    "image": "assets/general/nose.webp",
+    "options": [
+      "Bau",
+      "Penglihatan",
+      "Rasa",
+      "Pendengaran"
+    ],
+    "correct": "Bau",
+    "explanation": "Hidung membantu kita menggunakan deria bau."
+  },
+  {
+    "id": "senses-nose-5",
+    "category": "senses",
+    "question": "Deria manakah digunakan untuk mengesan bau roti?",
+    "image": "assets/general/nose.webp",
+    "options": [
+      "Bau",
+      "Sentuhan",
+      "Penglihatan",
+      "Pendengaran"
+    ],
+    "correct": "Bau",
+    "explanation": "Hidung membantu kita menggunakan deria bau."
+  },
+  {
+    "id": "senses-tongue-0",
+    "category": "senses",
+    "question": "Deria manakah digunakan untuk merasa makanan manis?",
+    "image": "assets/general/tongue.webp",
+    "options": [
+      "Rasa",
+      "Sentuhan",
+      "Pendengaran",
+      "Bau"
+    ],
+    "correct": "Rasa",
+    "explanation": "Lidah membantu kita menggunakan deria rasa."
+  },
+  {
+    "id": "senses-tongue-1",
+    "category": "senses",
+    "question": "Deria manakah digunakan untuk merasa makanan masin?",
+    "image": "assets/general/tongue.webp",
+    "options": [
+      "Rasa",
+      "Penglihatan",
+      "Bau",
+      "Sentuhan"
+    ],
+    "correct": "Rasa",
+    "explanation": "Lidah membantu kita menggunakan deria rasa."
+  },
+  {
+    "id": "senses-tongue-2",
+    "category": "senses",
+    "question": "Deria manakah digunakan untuk merasa buah masam?",
+    "image": "assets/general/tongue.webp",
+    "options": [
+      "Rasa",
+      "Sentuhan",
+      "Penglihatan",
+      "Pendengaran"
+    ],
+    "correct": "Rasa",
+    "explanation": "Lidah membantu kita menggunakan deria rasa."
+  },
+  {
+    "id": "senses-tongue-3",
+    "category": "senses",
+    "question": "Deria manakah digunakan untuk merasa makanan pahit?",
+    "image": "assets/general/tongue.webp",
+    "options": [
+      "Rasa",
+      "Bau",
+      "Pendengaran",
+      "Sentuhan"
+    ],
+    "correct": "Rasa",
+    "explanation": "Lidah membantu kita menggunakan deria rasa."
+  },
+  {
+    "id": "senses-tongue-4",
+    "category": "senses",
+    "question": "Deria manakah digunakan untuk merasa sup?",
+    "image": "assets/general/tongue.webp",
+    "options": [
+      "Rasa",
+      "Penglihatan",
+      "Sentuhan",
+      "Pendengaran"
+    ],
+    "correct": "Rasa",
+    "explanation": "Lidah membantu kita menggunakan deria rasa."
+  },
+  {
+    "id": "senses-tongue-5",
+    "category": "senses",
+    "question": "Deria manakah digunakan untuk membezakan rasa buah?",
+    "image": "assets/general/tongue.webp",
+    "options": [
+      "Rasa",
+      "Sentuhan",
+      "Pendengaran",
+      "Bau"
+    ],
+    "correct": "Rasa",
+    "explanation": "Lidah membantu kita menggunakan deria rasa."
+  },
+  {
+    "id": "senses-skin-0",
+    "category": "senses",
+    "question": "Deria manakah digunakan untuk merasai kain lembut?",
+    "image": "assets/general/skin.webp",
+    "options": [
+      "Sentuhan",
+      "Pendengaran",
+      "Rasa",
+      "Penglihatan"
+    ],
+    "correct": "Sentuhan",
+    "explanation": "Kulit membantu kita menggunakan deria sentuhan."
+  },
+  {
+    "id": "senses-skin-1",
+    "category": "senses",
+    "question": "Deria manakah digunakan untuk mengesan air suam?",
+    "image": "assets/general/skin.webp",
+    "options": [
+      "Sentuhan",
+      "Bau",
+      "Rasa",
+      "Penglihatan"
+    ],
+    "correct": "Sentuhan",
+    "explanation": "Kulit membantu kita menggunakan deria sentuhan."
+  },
+  {
+    "id": "senses-skin-2",
+    "category": "senses",
+    "question": "Deria manakah digunakan untuk merasai permukaan kasar?",
+    "image": "assets/general/skin.webp",
+    "options": [
+      "Sentuhan",
+      "Penglihatan",
+      "Pendengaran",
+      "Rasa"
+    ],
+    "correct": "Sentuhan",
+    "explanation": "Kulit membantu kita menggunakan deria sentuhan."
+  },
+  {
+    "id": "senses-skin-3",
+    "category": "senses",
+    "question": "Deria manakah digunakan untuk mengesan benda sejuk?",
+    "image": "assets/general/skin.webp",
+    "options": [
+      "Sentuhan",
+      "Pendengaran",
+      "Rasa",
+      "Bau"
+    ],
+    "correct": "Sentuhan",
+    "explanation": "Kulit membantu kita menggunakan deria sentuhan."
+  },
+  {
+    "id": "senses-skin-4",
+    "category": "senses",
+    "question": "Deria manakah digunakan untuk merasai sentuhan tangan?",
+    "image": "assets/general/skin.webp",
+    "options": [
+      "Sentuhan",
+      "Bau",
+      "Penglihatan",
+      "Rasa"
+    ],
+    "correct": "Sentuhan",
+    "explanation": "Kulit membantu kita menggunakan deria sentuhan."
+  },
+  {
+    "id": "senses-skin-5",
+    "category": "senses",
+    "question": "Deria manakah digunakan untuk merasai pasir?",
+    "image": "assets/general/skin.webp",
+    "options": [
+      "Sentuhan",
+      "Pendengaran",
+      "Penglihatan",
+      "Rasa"
+    ],
+    "correct": "Sentuhan",
+    "explanation": "Kulit membantu kita menggunakan deria sentuhan."
+  }
+]

@@ -1,0 +1,385 @@
+{
+  "source": "https://github.com/mledoze/countries",
+  "license": "ODbL-1.0",
+  "records": [
+    {
+      "code": "MY",
+      "name": "Malaysia",
+      "capital": "Kuala Lumpur",
+      "continent": "Asia"
+    },
+    {
+      "code": "JP",
+      "name": "Jepun",
+      "capital": "Tokyo",
+      "continent": "Asia"
+    },
+    {
+      "code": "KR",
+      "name": "Korea Selatan",
+      "capital": "Seoul",
+      "continent": "Asia"
+    },
+    {
+      "code": "CN",
+      "name": "China",
+      "capital": "Beijing",
+      "continent": "Asia"
+    },
+    {
+      "code": "TH",
+      "name": "Thailand",
+      "capital": "Bangkok",
+      "continent": "Asia"
+    },
+    {
+      "code": "ID",
+      "name": "Indonesia",
+      "capital": "Jakarta",
+      "continent": "Asia"
+    },
+    {
+      "code": "SG",
+      "name": "Singapura",
+      "capital": "Singapore",
+      "continent": "Asia"
+    },
+    {
+      "code": "BN",
+      "name": "Brunei",
+      "capital": "Bandar Seri Begawan",
+      "continent": "Asia"
+    },
+    {
+      "code": "PH",
+      "name": "Filipina",
+      "capital": "Manila",
+      "continent": "Asia"
+    },
+    {
+      "code": "VN",
+      "name": "Vietnam",
+      "capital": "Hanoi",
+      "continent": "Asia"
+    },
+    {
+      "code": "KH",
+      "name": "Kemboja",
+      "capital": "Phnom Penh",
+      "continent": "Asia"
+    },
+    {
+      "code": "LA",
+      "name": "Laos",
+      "capital": "Vientiane",
+      "continent": "Asia"
+    },
+    {
+      "code": "MM",
+      "name": "Myanmar",
+      "capital": "Naypyidaw",
+      "continent": "Asia"
+    },
+    {
+      "code": "IN",
+      "name": "India",
+      "capital": "New Delhi",
+      "continent": "Asia"
+    },
+    {
+      "code": "PK",
+      "name": "Pakistan",
+      "capital": "Islamabad",
+      "continent": "Asia"
+    },
+    {
+      "code": "BD",
+      "name": "Bangladesh",
+      "capital": "Dhaka",
+      "continent": "Asia"
+    },
+    {
+      "code": "NP",
+      "name": "Nepal",
+      "capital": "Kathmandu",
+      "continent": "Asia"
+    },
+    {
+      "code": "BT",
+      "name": "Bhutan",
+      "capital": "Thimphu",
+      "continent": "Asia"
+    },
+    {
+      "code": "MV",
+      "name": "Maldives",
+      "capital": "Male",
+      "continent": "Asia"
+    },
+    {
+      "code": "MN",
+      "name": "Mongolia",
+      "capital": "Ulan Bator",
+      "continent": "Asia"
+    },
+    {
+      "code": "AU",
+      "name": "Australia",
+      "capital": "Canberra",
+      "continent": "Oceania"
+    },
+    {
+      "code": "NZ",
+      "name": "New Zealand",
+      "capital": "Wellington",
+      "continent": "Oceania"
+    },
+    {
+      "code": "DE",
+      "name": "Jerman",
+      "capital": "Berlin",
+      "continent": "Eropah"
+    },
+    {
+      "code": "IT",
+      "name": "Itali",
+      "capital": "Rome",
+      "continent": "Eropah"
+    },
+    {
+      "code": "ES",
+      "name": "Sepanyol",
+      "capital": "Madrid",
+      "continent": "Eropah"
+    },
+    {
+      "code": "PT",
+      "name": "Portugal",
+      "capital": "Lisbon",
+      "continent": "Eropah"
+    },
+    {
+      "code": "GB",
+      "name": "United Kingdom",
+      "capital": "London",
+      "continent": "Eropah"
+    },
+    {
+      "code": "IE",
+      "name": "Ireland",
+      "capital": "Dublin",
+      "continent": "Eropah"
+    },
+    {
+      "code": "SE",
+      "name": "Sweden",
+      "capital": "Stockholm",
+      "continent": "Eropah"
+    },
+    {
+      "code": "FI",
+      "name": "Finland",
+      "capital": "Helsinki",
+      "continent": "Eropah"
+    },
+    {
+      "code": "DK",
+      "name": "Denmark",
+      "capital": "Copenhagen",
+      "continent": "Eropah"
+    },
+    {
+      "code": "NL",
+      "name": "Belanda",
+      "capital": "Amsterdam",
+      "continent": "Eropah"
+    },
+    {
+      "code": "BE",
+      "name": "Belgium",
+      "capital": "Brussels",
+      "continent": "Eropah"
+    },
+    {
+      "code": "CH",
+      "name": "Switzerland",
+      "capital": "Bern",
+      "continent": "Eropah"
+    },
+    {
+      "code": "AT",
+      "name": "Austria",
+      "capital": "Vienna",
+      "continent": "Eropah"
+    },
+    {
+      "code": "PL",
+      "name": "Poland",
+      "capital": "Warsaw",
+      "continent": "Eropah"
+    },
+    {
+      "code": "GR",
+      "name": "Greece",
+      "capital": "Athens",
+      "continent": "Eropah"
+    },
+    {
+      "code": "HU",
+      "name": "Hungary",
+      "capital": "Budapest",
+      "continent": "Eropah"
+    },
+    {
+      "code": "RO",
+      "name": "Romania",
+      "capital": "Bucharest",
+      "continent": "Eropah"
+    },
+    {
+      "code": "UA",
+      "name": "Ukraine",
+      "capital": "Kyiv",
+      "continent": "Eropah"
+    },
+    {
+      "code": "IS",
+      "name": "Iceland",
+      "capital": "Reykjavik",
+      "continent": "Eropah"
+    },
+    {
+      "code": "CA",
+      "name": "Kanada",
+      "capital": "Ottawa",
+      "continent": "Amerika"
+    },
+    {
+      "code": "US",
+      "name": "Amerika Syarikat",
+      "capital": "Washington, D.C.",
+      "continent": "Amerika"
+    },
+    {
+      "code": "MX",
+      "name": "Mexico",
+      "capital": "Mexico City",
+      "continent": "Amerika"
+    },
+    {
+      "code": "BR",
+      "name": "Brazil",
+      "capital": "Brasília",
+      "continent": "Amerika"
+    },
+    {
+      "code": "AR",
+      "name": "Argentina",
+      "capital": "Buenos Aires",
+      "continent": "Amerika"
+    },
+    {
+      "code": "CL",
+      "name": "Chile",
+      "capital": "Santiago",
+      "continent": "Amerika"
+    },
+    {
+      "code": "PE",
+      "name": "Peru",
+      "capital": "Lima",
+      "continent": "Amerika"
+    },
+    {
+      "code": "CO",
+      "name": "Colombia",
+      "capital": "Bogotá",
+      "continent": "Amerika"
+    },
+    {
+      "code": "EC",
+      "name": "Ecuador",
+      "capital": "Quito",
+      "continent": "Amerika"
+    },
+    {
+      "code": "VE",
+      "name": "Venezuela",
+      "capital": "Caracas",
+      "continent": "Amerika"
+    },
+    {
+      "code": "EG",
+      "name": "Mesir",
+      "capital": "Cairo",
+      "continent": "Afrika"
+    },
+    {
+      "code": "MA",
+      "name": "Maghribi",
+      "capital": "Rabat",
+      "continent": "Afrika"
+    },
+    {
+      "code": "DZ",
+      "name": "Algeria",
+      "capital": "Algiers",
+      "continent": "Afrika"
+    },
+    {
+      "code": "TN",
+      "name": "Tunisia",
+      "capital": "Tunis",
+      "continent": "Afrika"
+    },
+    {
+      "code": "KE",
+      "name": "Kenya",
+      "capital": "Nairobi",
+      "continent": "Afrika"
+    },
+    {
+      "code": "TZ",
+      "name": "Tanzania",
+      "capital": "Dodoma",
+      "continent": "Afrika"
+    },
+    {
+      "code": "UG",
+      "name": "Uganda",
+      "capital": "Kampala",
+      "continent": "Afrika"
+    },
+    {
+      "code": "GH",
+      "name": "Ghana",
+      "capital": "Accra",
+      "continent": "Afrika"
+    },
+    {
+      "code": "NG",
+      "name": "Nigeria",
+      "capital": "Abuja",
+      "continent": "Afrika"
+    },
+    {
+      "code": "SN",
+      "name": "Senegal",
+      "capital": "Dakar",
+      "continent": "Afrika"
+    },
+    {
+      "code": "ET",
+      "name": "Ethiopia",
+      "capital": "Addis Ababa",
+      "continent": "Afrika"
+    },
+    {
+      "code": "MG",
+      "name": "Madagascar",
+      "capital": "Antananarivo",
+      "continent": "Afrika"
+    }
+  ],
+  "licenseUrl": "https://opendatacommons.org/licenses/odbl/1-0/"
+}

@@ -1,0 +1,1766 @@
+[
+  {
+    "id": "capitals-MY-capital",
+    "category": "capitals",
+    "question": "Apakah ibu negara Malaysia?",
+    "image": "assets/general/map-MY.webp",
+    "options": [
+      "Kuala Lumpur",
+      "Bern",
+      "Vienna",
+      "Cairo"
+    ],
+    "correct": "Kuala Lumpur",
+    "explanation": "Ibu negara Malaysia ialah Kuala Lumpur."
+  },
+  {
+    "id": "capitals-MY-country",
+    "category": "capitals",
+    "question": "Kuala Lumpur ialah ibu negara negara mana?",
+    "image": "assets/general/map-MY.webp",
+    "options": [
+      "Malaysia",
+      "Australia",
+      "Argentina",
+      "Poland"
+    ],
+    "correct": "Malaysia",
+    "explanation": "Kuala Lumpur ialah ibu negara Malaysia."
+  },
+  {
+    "id": "capitals-JP-capital",
+    "category": "capitals",
+    "question": "Apakah ibu negara Jepun?",
+    "image": "assets/general/map-JP.webp",
+    "options": [
+      "Tokyo",
+      "Mexico City",
+      "Kampala",
+      "Vienna"
+    ],
+    "correct": "Tokyo",
+    "explanation": "Ibu negara Jepun ialah Tokyo."
+  },
+  {
+    "id": "capitals-JP-country",
+    "category": "capitals",
+    "question": "Tokyo ialah ibu negara negara mana?",
+    "image": "assets/general/map-JP.webp",
+    "options": [
+      "Jepun",
+      "Maghribi",
+      "Vietnam",
+      "Ireland"
+    ],
+    "correct": "Jepun",
+    "explanation": "Tokyo ialah ibu negara Jepun."
+  },
+  {
+    "id": "capitals-KR-capital",
+    "category": "capitals",
+    "question": "Apakah ibu negara Korea Selatan?",
+    "image": "assets/general/map-KR.webp",
+    "options": [
+      "Seoul",
+      "Quito",
+      "Ulan Bator",
+      "Lisbon"
+    ],
+    "correct": "Seoul",
+    "explanation": "Ibu negara Korea Selatan ialah Seoul."
+  },
+  {
+    "id": "capitals-KR-country",
+    "category": "capitals",
+    "question": "Seoul ialah ibu negara negara mana?",
+    "image": "assets/general/map-KR.webp",
+    "options": [
+      "Korea Selatan",
+      "Ethiopia",
+      "Iceland",
+      "United Kingdom"
+    ],
+    "correct": "Korea Selatan",
+    "explanation": "Seoul ialah ibu negara Korea Selatan."
+  },
+  {
+    "id": "capitals-CN-capital",
+    "category": "capitals",
+    "question": "Apakah ibu negara China?",
+    "image": "assets/general/map-CN.webp",
+    "options": [
+      "Beijing",
+      "Warsaw",
+      "Bucharest",
+      "Antananarivo"
+    ],
+    "correct": "Beijing",
+    "explanation": "Ibu negara China ialah Beijing."
+  },
+  {
+    "id": "capitals-CN-country",
+    "category": "capitals",
+    "question": "Beijing ialah ibu negara negara mana?",
+    "image": "assets/general/map-CN.webp",
+    "options": [
+      "China",
+      "Algeria",
+      "Poland",
+      "Kanada"
+    ],
+    "correct": "China",
+    "explanation": "Beijing ialah ibu negara China."
+  },
+  {
+    "id": "capitals-TH-capital",
+    "category": "capitals",
+    "question": "Apakah ibu negara Thailand?",
+    "image": "assets/general/map-TH.webp",
+    "options": [
+      "Bangkok",
+      "Kathmandu",
+      "Buenos Aires",
+      "Cairo"
+    ],
+    "correct": "Bangkok",
+    "explanation": "Ibu negara Thailand ialah Bangkok."
+  },
+  {
+    "id": "capitals-TH-country",
+    "category": "capitals",
+    "question": "Bangkok ialah ibu negara negara mana?",
+    "image": "assets/general/map-TH.webp",
+    "options": [
+      "Thailand",
+      "Finland",
+      "Argentina",
+      "Iceland"
+    ],
+    "correct": "Thailand",
+    "explanation": "Bangkok ialah ibu negara Thailand."
+  },
+  {
+    "id": "capitals-ID-capital",
+    "category": "capitals",
+    "question": "Apakah ibu negara Indonesia?",
+    "image": "assets/general/map-ID.webp",
+    "options": [
+      "Jakarta",
+      "Bangkok",
+      "Buenos Aires",
+      "Stockholm"
+    ],
+    "correct": "Jakarta",
+    "explanation": "Ibu negara Indonesia ialah Jakarta."
+  },
+  {
+    "id": "capitals-ID-country",
+    "category": "capitals",
+    "question": "Jakarta ialah ibu negara negara mana?",
+    "image": "assets/general/map-ID.webp",
+    "options": [
+      "Indonesia",
+      "Venezuela",
+      "Ireland",
+      "Romania"
+    ],
+    "correct": "Indonesia",
+    "explanation": "Jakarta ialah ibu negara Indonesia."
+  },
+  {
+    "id": "capitals-SG-capital",
+    "category": "capitals",
+    "question": "Apakah ibu negara Singapura?",
+    "image": "assets/general/map-SG.webp",
+    "options": [
+      "Singapore",
+      "Manila",
+      "Mexico City",
+      "Buenos Aires"
+    ],
+    "correct": "Singapore",
+    "explanation": "Ibu negara Singapura ialah Singapore."
+  },
+  {
+    "id": "capitals-SG-country",
+    "category": "capitals",
+    "question": "Singapore ialah ibu negara negara mana?",
+    "image": "assets/general/map-SG.webp",
+    "options": [
+      "Singapura",
+      "Laos",
+      "Romania",
+      "Ghana"
+    ],
+    "correct": "Singapura",
+    "explanation": "Singapore ialah ibu negara Singapura."
+  },
+  {
+    "id": "capitals-BN-capital",
+    "category": "capitals",
+    "question": "Apakah ibu negara Brunei?",
+    "image": "assets/general/map-BN.webp",
+    "options": [
+      "Bandar Seri Begawan",
+      "Rabat",
+      "Algiers",
+      "Kampala"
+    ],
+    "correct": "Bandar Seri Begawan",
+    "explanation": "Ibu negara Brunei ialah Bandar Seri Begawan."
+  },
+  {
+    "id": "capitals-BN-country",
+    "category": "capitals",
+    "question": "Bandar Seri Begawan ialah ibu negara negara mana?",
+    "image": "assets/general/map-BN.webp",
+    "options": [
+      "Brunei",
+      "Finland",
+      "Mongolia",
+      "Brazil"
+    ],
+    "correct": "Brunei",
+    "explanation": "Bandar Seri Begawan ialah ibu negara Brunei."
+  },
+  {
+    "id": "capitals-PH-capital",
+    "category": "capitals",
+    "question": "Apakah ibu negara Filipina?",
+    "image": "assets/general/map-PH.webp",
+    "options": [
+      "Manila",
+      "Vienna",
+      "Berlin",
+      "Madrid"
+    ],
+    "correct": "Manila",
+    "explanation": "Ibu negara Filipina ialah Manila."
+  },
+  {
+    "id": "capitals-PH-country",
+    "category": "capitals",
+    "question": "Manila ialah ibu negara negara mana?",
+    "image": "assets/general/map-PH.webp",
+    "options": [
+      "Filipina",
+      "Denmark",
+      "Kemboja",
+      "Nigeria"
+    ],
+    "correct": "Filipina",
+    "explanation": "Manila ialah ibu negara Filipina."
+  },
+  {
+    "id": "capitals-VN-capital",
+    "category": "capitals",
+    "question": "Apakah ibu negara Vietnam?",
+    "image": "assets/general/map-VN.webp",
+    "options": [
+      "Hanoi",
+      "Vienna",
+      "Bern",
+      "Lisbon"
+    ],
+    "correct": "Hanoi",
+    "explanation": "Ibu negara Vietnam ialah Hanoi."
+  },
+  {
+    "id": "capitals-VN-country",
+    "category": "capitals",
+    "question": "Hanoi ialah ibu negara negara mana?",
+    "image": "assets/general/map-VN.webp",
+    "options": [
+      "Vietnam",
+      "Algeria",
+      "Myanmar",
+      "Malaysia"
+    ],
+    "correct": "Vietnam",
+    "explanation": "Hanoi ialah ibu negara Vietnam."
+  },
+  {
+    "id": "capitals-KH-capital",
+    "category": "capitals",
+    "question": "Apakah ibu negara Kemboja?",
+    "image": "assets/general/map-KH.webp",
+    "options": [
+      "Phnom Penh",
+      "Tunis",
+      "Beijing",
+      "Ottawa"
+    ],
+    "correct": "Phnom Penh",
+    "explanation": "Ibu negara Kemboja ialah Phnom Penh."
+  },
+  {
+    "id": "capitals-KH-country",
+    "category": "capitals",
+    "question": "Phnom Penh ialah ibu negara negara mana?",
+    "image": "assets/general/map-KH.webp",
+    "options": [
+      "Kemboja",
+      "Singapura",
+      "Mongolia",
+      "Jepun"
+    ],
+    "correct": "Kemboja",
+    "explanation": "Phnom Penh ialah ibu negara Kemboja."
+  },
+  {
+    "id": "capitals-LA-capital",
+    "category": "capitals",
+    "question": "Apakah ibu negara Laos?",
+    "image": "assets/general/map-LA.webp",
+    "options": [
+      "Vientiane",
+      "Dakar",
+      "New Delhi",
+      "Kathmandu"
+    ],
+    "correct": "Vientiane",
+    "explanation": "Ibu negara Laos ialah Vientiane."
+  },
+  {
+    "id": "capitals-LA-country",
+    "category": "capitals",
+    "question": "Vientiane ialah ibu negara negara mana?",
+    "image": "assets/general/map-LA.webp",
+    "options": [
+      "Laos",
+      "Thailand",
+      "Ghana",
+      "Brazil"
+    ],
+    "correct": "Laos",
+    "explanation": "Vientiane ialah ibu negara Laos."
+  },
+  {
+    "id": "capitals-MM-capital",
+    "category": "capitals",
+    "question": "Apakah ibu negara Myanmar?",
+    "image": "assets/general/map-MM.webp",
+    "options": [
+      "Naypyidaw",
+      "Bogotá",
+      "Cairo",
+      "Mexico City"
+    ],
+    "correct": "Naypyidaw",
+    "explanation": "Ibu negara Myanmar ialah Naypyidaw."
+  },
+  {
+    "id": "capitals-MM-country",
+    "category": "capitals",
+    "question": "Naypyidaw ialah ibu negara negara mana?",
+    "image": "assets/general/map-MM.webp",
+    "options": [
+      "Myanmar",
+      "Kanada",
+      "Romania",
+      "Brazil"
+    ],
+    "correct": "Myanmar",
+    "explanation": "Naypyidaw ialah ibu negara Myanmar."
+  },
+  {
+    "id": "capitals-IN-capital",
+    "category": "capitals",
+    "question": "Apakah ibu negara India?",
+    "image": "assets/general/map-IN.webp",
+    "options": [
+      "New Delhi",
+      "Brussels",
+      "Kuala Lumpur",
+      "Accra"
+    ],
+    "correct": "New Delhi",
+    "explanation": "Ibu negara India ialah New Delhi."
+  },
+  {
+    "id": "capitals-IN-country",
+    "category": "capitals",
+    "question": "New Delhi ialah ibu negara negara mana?",
+    "image": "assets/general/map-IN.webp",
+    "options": [
+      "India",
+      "Tanzania",
+      "China",
+      "Australia"
+    ],
+    "correct": "India",
+    "explanation": "New Delhi ialah ibu negara India."
+  },
+  {
+    "id": "capitals-PK-capital",
+    "category": "capitals",
+    "question": "Apakah ibu negara Pakistan?",
+    "image": "assets/general/map-PK.webp",
+    "options": [
+      "Islamabad",
+      "Mexico City",
+      "Lisbon",
+      "Male"
+    ],
+    "correct": "Islamabad",
+    "explanation": "Ibu negara Pakistan ialah Islamabad."
+  },
+  {
+    "id": "capitals-PK-country",
+    "category": "capitals",
+    "question": "Islamabad ialah ibu negara negara mana?",
+    "image": "assets/general/map-PK.webp",
+    "options": [
+      "Pakistan",
+      "Jerman",
+      "Belanda",
+      "Bangladesh"
+    ],
+    "correct": "Pakistan",
+    "explanation": "Islamabad ialah ibu negara Pakistan."
+  },
+  {
+    "id": "capitals-BD-capital",
+    "category": "capitals",
+    "question": "Apakah ibu negara Bangladesh?",
+    "image": "assets/general/map-BD.webp",
+    "options": [
+      "Dhaka",
+      "Santiago",
+      "Kathmandu",
+      "Helsinki"
+    ],
+    "correct": "Dhaka",
+    "explanation": "Ibu negara Bangladesh ialah Dhaka."
+  },
+  {
+    "id": "capitals-BD-country",
+    "category": "capitals",
+    "question": "Dhaka ialah ibu negara negara mana?",
+    "image": "assets/general/map-BD.webp",
+    "options": [
+      "Bangladesh",
+      "Thailand",
+      "Hungary",
+      "Sweden"
+    ],
+    "correct": "Bangladesh",
+    "explanation": "Dhaka ialah ibu negara Bangladesh."
+  },
+  {
+    "id": "capitals-NP-capital",
+    "category": "capitals",
+    "question": "Apakah ibu negara Nepal?",
+    "image": "assets/general/map-NP.webp",
+    "options": [
+      "Kathmandu",
+      "Stockholm",
+      "Rome",
+      "Kuala Lumpur"
+    ],
+    "correct": "Kathmandu",
+    "explanation": "Ibu negara Nepal ialah Kathmandu."
+  },
+  {
+    "id": "capitals-NP-country",
+    "category": "capitals",
+    "question": "Kathmandu ialah ibu negara negara mana?",
+    "image": "assets/general/map-NP.webp",
+    "options": [
+      "Nepal",
+      "Jerman",
+      "Myanmar",
+      "Austria"
+    ],
+    "correct": "Nepal",
+    "explanation": "Kathmandu ialah ibu negara Nepal."
+  },
+  {
+    "id": "capitals-BT-capital",
+    "category": "capitals",
+    "question": "Apakah ibu negara Bhutan?",
+    "image": "assets/general/map-BT.webp",
+    "options": [
+      "Thimphu",
+      "Naypyidaw",
+      "Stockholm",
+      "London"
+    ],
+    "correct": "Thimphu",
+    "explanation": "Ibu negara Bhutan ialah Thimphu."
+  },
+  {
+    "id": "capitals-BT-country",
+    "category": "capitals",
+    "question": "Thimphu ialah ibu negara negara mana?",
+    "image": "assets/general/map-BT.webp",
+    "options": [
+      "Bhutan",
+      "Pakistan",
+      "Singapura",
+      "China"
+    ],
+    "correct": "Bhutan",
+    "explanation": "Thimphu ialah ibu negara Bhutan."
+  },
+  {
+    "id": "capitals-MV-capital",
+    "category": "capitals",
+    "question": "Apakah ibu negara Maldives?",
+    "image": "assets/general/map-MV.webp",
+    "options": [
+      "Male",
+      "Athens",
+      "Abuja",
+      "Vientiane"
+    ],
+    "correct": "Male",
+    "explanation": "Ibu negara Maldives ialah Male."
+  },
+  {
+    "id": "capitals-MV-country",
+    "category": "capitals",
+    "question": "Male ialah ibu negara negara mana?",
+    "image": "assets/general/map-MV.webp",
+    "options": [
+      "Maldives",
+      "Korea Selatan",
+      "Switzerland",
+      "Ireland"
+    ],
+    "correct": "Maldives",
+    "explanation": "Male ialah ibu negara Maldives."
+  },
+  {
+    "id": "capitals-MN-capital",
+    "category": "capitals",
+    "question": "Apakah ibu negara Mongolia?",
+    "image": "assets/general/map-MN.webp",
+    "options": [
+      "Ulan Bator",
+      "Bandar Seri Begawan",
+      "Athens",
+      "Jakarta"
+    ],
+    "correct": "Ulan Bator",
+    "explanation": "Ibu negara Mongolia ialah Ulan Bator."
+  },
+  {
+    "id": "capitals-MN-country",
+    "category": "capitals",
+    "question": "Ulan Bator ialah ibu negara negara mana?",
+    "image": "assets/general/map-MN.webp",
+    "options": [
+      "Mongolia",
+      "Mesir",
+      "Ecuador",
+      "Denmark"
+    ],
+    "correct": "Mongolia",
+    "explanation": "Ulan Bator ialah ibu negara Mongolia."
+  },
+  {
+    "id": "capitals-AU-capital",
+    "category": "capitals",
+    "question": "Apakah ibu negara Australia?",
+    "image": "assets/general/map-AU.webp",
+    "options": [
+      "Canberra",
+      "Wellington",
+      "Berlin",
+      "Male"
+    ],
+    "correct": "Canberra",
+    "explanation": "Ibu negara Australia ialah Canberra."
+  },
+  {
+    "id": "capitals-AU-country",
+    "category": "capitals",
+    "question": "Canberra ialah ibu negara negara mana?",
+    "image": "assets/general/map-AU.webp",
+    "options": [
+      "Australia",
+      "Greece",
+      "Malaysia",
+      "Kemboja"
+    ],
+    "correct": "Australia",
+    "explanation": "Canberra ialah ibu negara Australia."
+  },
+  {
+    "id": "capitals-NZ-capital",
+    "category": "capitals",
+    "question": "Apakah ibu negara New Zealand?",
+    "image": "assets/general/map-NZ.webp",
+    "options": [
+      "Wellington",
+      "Cairo",
+      "Budapest",
+      "Brussels"
+    ],
+    "correct": "Wellington",
+    "explanation": "Ibu negara New Zealand ialah Wellington."
+  },
+  {
+    "id": "capitals-NZ-country",
+    "category": "capitals",
+    "question": "Wellington ialah ibu negara negara mana?",
+    "image": "assets/general/map-NZ.webp",
+    "options": [
+      "New Zealand",
+      "Tunisia",
+      "United Kingdom",
+      "Belanda"
+    ],
+    "correct": "New Zealand",
+    "explanation": "Wellington ialah ibu negara New Zealand."
+  },
+  {
+    "id": "capitals-DE-capital",
+    "category": "capitals",
+    "question": "Apakah ibu negara Jerman?",
+    "image": "assets/general/map-DE.webp",
+    "options": [
+      "Berlin",
+      "Bogotá",
+      "Brasília",
+      "Algiers"
+    ],
+    "correct": "Berlin",
+    "explanation": "Ibu negara Jerman ialah Berlin."
+  },
+  {
+    "id": "capitals-DE-country",
+    "category": "capitals",
+    "question": "Berlin ialah ibu negara negara mana?",
+    "image": "assets/general/map-DE.webp",
+    "options": [
+      "Jerman",
+      "Malaysia",
+      "Thailand",
+      "Itali"
+    ],
+    "correct": "Jerman",
+    "explanation": "Berlin ialah ibu negara Jerman."
+  },
+  {
+    "id": "capitals-IT-capital",
+    "category": "capitals",
+    "question": "Apakah ibu negara Itali?",
+    "image": "assets/general/map-IT.webp",
+    "options": [
+      "Rome",
+      "Ulan Bator",
+      "Kathmandu",
+      "Copenhagen"
+    ],
+    "correct": "Rome",
+    "explanation": "Ibu negara Itali ialah Rome."
+  },
+  {
+    "id": "capitals-IT-country",
+    "category": "capitals",
+    "question": "Rome ialah ibu negara negara mana?",
+    "image": "assets/general/map-IT.webp",
+    "options": [
+      "Itali",
+      "Brazil",
+      "Ireland",
+      "Filipina"
+    ],
+    "correct": "Itali",
+    "explanation": "Rome ialah ibu negara Itali."
+  },
+  {
+    "id": "capitals-ES-capital",
+    "category": "capitals",
+    "question": "Apakah ibu negara Sepanyol?",
+    "image": "assets/general/map-ES.webp",
+    "options": [
+      "Madrid",
+      "Amsterdam",
+      "Algiers",
+      "Dodoma"
+    ],
+    "correct": "Madrid",
+    "explanation": "Ibu negara Sepanyol ialah Madrid."
+  },
+  {
+    "id": "capitals-ES-country",
+    "category": "capitals",
+    "question": "Madrid ialah ibu negara negara mana?",
+    "image": "assets/general/map-ES.webp",
+    "options": [
+      "Sepanyol",
+      "Indonesia",
+      "Madagascar",
+      "Maldives"
+    ],
+    "correct": "Sepanyol",
+    "explanation": "Madrid ialah ibu negara Sepanyol."
+  },
+  {
+    "id": "capitals-PT-capital",
+    "category": "capitals",
+    "question": "Apakah ibu negara Portugal?",
+    "image": "assets/general/map-PT.webp",
+    "options": [
+      "Lisbon",
+      "Nairobi",
+      "Hanoi",
+      "Tunis"
+    ],
+    "correct": "Lisbon",
+    "explanation": "Ibu negara Portugal ialah Lisbon."
+  },
+  {
+    "id": "capitals-PT-country",
+    "category": "capitals",
+    "question": "Lisbon ialah ibu negara negara mana?",
+    "image": "assets/general/map-PT.webp",
+    "options": [
+      "Portugal",
+      "Kanada",
+      "Kemboja",
+      "Singapura"
+    ],
+    "correct": "Portugal",
+    "explanation": "Lisbon ialah ibu negara Portugal."
+  },
+  {
+    "id": "capitals-GB-capital",
+    "category": "capitals",
+    "question": "Apakah ibu negara United Kingdom?",
+    "image": "assets/general/map-GB.webp",
+    "options": [
+      "London",
+      "Islamabad",
+      "Bern",
+      "Bandar Seri Begawan"
+    ],
+    "correct": "London",
+    "explanation": "Ibu negara United Kingdom ialah London."
+  },
+  {
+    "id": "capitals-GB-country",
+    "category": "capitals",
+    "question": "London ialah ibu negara negara mana?",
+    "image": "assets/general/map-GB.webp",
+    "options": [
+      "United Kingdom",
+      "Belanda",
+      "Sweden",
+      "Bangladesh"
+    ],
+    "correct": "United Kingdom",
+    "explanation": "London ialah ibu negara United Kingdom."
+  },
+  {
+    "id": "capitals-IE-capital",
+    "category": "capitals",
+    "question": "Apakah ibu negara Ireland?",
+    "image": "assets/general/map-IE.webp",
+    "options": [
+      "Dublin",
+      "Washington, D.C.",
+      "Copenhagen",
+      "Budapest"
+    ],
+    "correct": "Dublin",
+    "explanation": "Ibu negara Ireland ialah Dublin."
+  },
+  {
+    "id": "capitals-IE-country",
+    "category": "capitals",
+    "question": "Dublin ialah ibu negara negara mana?",
+    "image": "assets/general/map-IE.webp",
+    "options": [
+      "Ireland",
+      "Argentina",
+      "Bhutan",
+      "Austria"
+    ],
+    "correct": "Ireland",
+    "explanation": "Dublin ialah ibu negara Ireland."
+  },
+  {
+    "id": "capitals-SE-capital",
+    "category": "capitals",
+    "question": "Apakah ibu negara Sweden?",
+    "image": "assets/general/map-SE.webp",
+    "options": [
+      "Stockholm",
+      "London",
+      "New Delhi",
+      "Nairobi"
+    ],
+    "correct": "Stockholm",
+    "explanation": "Ibu negara Sweden ialah Stockholm."
+  },
+  {
+    "id": "capitals-SE-country",
+    "category": "capitals",
+    "question": "Stockholm ialah ibu negara negara mana?",
+    "image": "assets/general/map-SE.webp",
+    "options": [
+      "Sweden",
+      "Greece",
+      "Bhutan",
+      "India"
+    ],
+    "correct": "Sweden",
+    "explanation": "Stockholm ialah ibu negara Sweden."
+  },
+  {
+    "id": "capitals-FI-capital",
+    "category": "capitals",
+    "question": "Apakah ibu negara Finland?",
+    "image": "assets/general/map-FI.webp",
+    "options": [
+      "Helsinki",
+      "Addis Ababa",
+      "Dublin",
+      "Madrid"
+    ],
+    "correct": "Helsinki",
+    "explanation": "Ibu negara Finland ialah Helsinki."
+  },
+  {
+    "id": "capitals-FI-country",
+    "category": "capitals",
+    "question": "Helsinki ialah ibu negara negara mana?",
+    "image": "assets/general/map-FI.webp",
+    "options": [
+      "Finland",
+      "Uganda",
+      "Singapura",
+      "Itali"
+    ],
+    "correct": "Finland",
+    "explanation": "Helsinki ialah ibu negara Finland."
+  },
+  {
+    "id": "capitals-DK-capital",
+    "category": "capitals",
+    "question": "Apakah ibu negara Denmark?",
+    "image": "assets/general/map-DK.webp",
+    "options": [
+      "Copenhagen",
+      "Accra",
+      "Kuala Lumpur",
+      "Jakarta"
+    ],
+    "correct": "Copenhagen",
+    "explanation": "Ibu negara Denmark ialah Copenhagen."
+  },
+  {
+    "id": "capitals-DK-country",
+    "category": "capitals",
+    "question": "Copenhagen ialah ibu negara negara mana?",
+    "image": "assets/general/map-DK.webp",
+    "options": [
+      "Denmark",
+      "Switzerland",
+      "Maghribi",
+      "Brunei"
+    ],
+    "correct": "Denmark",
+    "explanation": "Copenhagen ialah ibu negara Denmark."
+  },
+  {
+    "id": "capitals-NL-capital",
+    "category": "capitals",
+    "question": "Apakah ibu negara Belanda?",
+    "image": "assets/general/map-NL.webp",
+    "options": [
+      "Amsterdam",
+      "Kampala",
+      "Bucharest",
+      "Dodoma"
+    ],
+    "correct": "Amsterdam",
+    "explanation": "Ibu negara Belanda ialah Amsterdam."
+  },
+  {
+    "id": "capitals-NL-country",
+    "category": "capitals",
+    "question": "Amsterdam ialah ibu negara negara mana?",
+    "image": "assets/general/map-NL.webp",
+    "options": [
+      "Belanda",
+      "Kemboja",
+      "Romania",
+      "Maghribi"
+    ],
+    "correct": "Belanda",
+    "explanation": "Amsterdam ialah ibu negara Belanda."
+  },
+  {
+    "id": "capitals-BE-capital",
+    "category": "capitals",
+    "question": "Apakah ibu negara Belgium?",
+    "image": "assets/general/map-BE.webp",
+    "options": [
+      "Brussels",
+      "Dhaka",
+      "Tokyo",
+      "Quito"
+    ],
+    "correct": "Brussels",
+    "explanation": "Ibu negara Belgium ialah Brussels."
+  },
+  {
+    "id": "capitals-BE-country",
+    "category": "capitals",
+    "question": "Brussels ialah ibu negara negara mana?",
+    "image": "assets/general/map-BE.webp",
+    "options": [
+      "Belgium",
+      "Malaysia",
+      "Thailand",
+      "Brunei"
+    ],
+    "correct": "Belgium",
+    "explanation": "Brussels ialah ibu negara Belgium."
+  },
+  {
+    "id": "capitals-CH-capital",
+    "category": "capitals",
+    "question": "Apakah ibu negara Switzerland?",
+    "image": "assets/general/map-CH.webp",
+    "options": [
+      "Bern",
+      "Nairobi",
+      "Hanoi",
+      "Vienna"
+    ],
+    "correct": "Bern",
+    "explanation": "Ibu negara Switzerland ialah Bern."
+  },
+  {
+    "id": "capitals-CH-country",
+    "category": "capitals",
+    "question": "Bern ialah ibu negara negara mana?",
+    "image": "assets/general/map-CH.webp",
+    "options": [
+      "Switzerland",
+      "Ecuador",
+      "Malaysia",
+      "Singapura"
+    ],
+    "correct": "Switzerland",
+    "explanation": "Bern ialah ibu negara Switzerland."
+  },
+  {
+    "id": "capitals-AT-capital",
+    "category": "capitals",
+    "question": "Apakah ibu negara Austria?",
+    "image": "assets/general/map-AT.webp",
+    "options": [
+      "Vienna",
+      "Phnom Penh",
+      "Quito",
+      "Vientiane"
+    ],
+    "correct": "Vienna",
+    "explanation": "Ibu negara Austria ialah Vienna."
+  },
+  {
+    "id": "capitals-AT-country",
+    "category": "capitals",
+    "question": "Vienna ialah ibu negara negara mana?",
+    "image": "assets/general/map-AT.webp",
+    "options": [
+      "Austria",
+      "Finland",
+      "Sweden",
+      "Kanada"
+    ],
+    "correct": "Austria",
+    "explanation": "Vienna ialah ibu negara Austria."
+  },
+  {
+    "id": "capitals-PL-capital",
+    "category": "capitals",
+    "question": "Apakah ibu negara Poland?",
+    "image": "assets/general/map-PL.webp",
+    "options": [
+      "Warsaw",
+      "Buenos Aires",
+      "Lima",
+      "Caracas"
+    ],
+    "correct": "Warsaw",
+    "explanation": "Ibu negara Poland ialah Warsaw."
+  },
+  {
+    "id": "capitals-PL-country",
+    "category": "capitals",
+    "question": "Warsaw ialah ibu negara negara mana?",
+    "image": "assets/general/map-PL.webp",
+    "options": [
+      "Poland",
+      "Jepun",
+      "Singapura",
+      "Maghribi"
+    ],
+    "correct": "Poland",
+    "explanation": "Warsaw ialah ibu negara Poland."
+  },
+  {
+    "id": "capitals-GR-capital",
+    "category": "capitals",
+    "question": "Apakah ibu negara Greece?",
+    "image": "assets/general/map-GR.webp",
+    "options": [
+      "Athens",
+      "Madrid",
+      "Bogotá",
+      "Bangkok"
+    ],
+    "correct": "Athens",
+    "explanation": "Ibu negara Greece ialah Athens."
+  },
+  {
+    "id": "capitals-GR-country",
+    "category": "capitals",
+    "question": "Athens ialah ibu negara negara mana?",
+    "image": "assets/general/map-GR.webp",
+    "options": [
+      "Greece",
+      "Poland",
+      "Chile",
+      "Amerika Syarikat"
+    ],
+    "correct": "Greece",
+    "explanation": "Athens ialah ibu negara Greece."
+  },
+  {
+    "id": "capitals-HU-capital",
+    "category": "capitals",
+    "question": "Apakah ibu negara Hungary?",
+    "image": "assets/general/map-HU.webp",
+    "options": [
+      "Budapest",
+      "Abuja",
+      "Dakar",
+      "Jakarta"
+    ],
+    "correct": "Budapest",
+    "explanation": "Ibu negara Hungary ialah Budapest."
+  },
+  {
+    "id": "capitals-HU-country",
+    "category": "capitals",
+    "question": "Budapest ialah ibu negara negara mana?",
+    "image": "assets/general/map-HU.webp",
+    "options": [
+      "Hungary",
+      "Mesir",
+      "Sweden",
+      "Iceland"
+    ],
+    "correct": "Hungary",
+    "explanation": "Budapest ialah ibu negara Hungary."
+  },
+  {
+    "id": "capitals-RO-capital",
+    "category": "capitals",
+    "question": "Apakah ibu negara Romania?",
+    "image": "assets/general/map-RO.webp",
+    "options": [
+      "Bucharest",
+      "Dublin",
+      "Kyiv",
+      "Manila"
+    ],
+    "correct": "Bucharest",
+    "explanation": "Ibu negara Romania ialah Bucharest."
+  },
+  {
+    "id": "capitals-RO-country",
+    "category": "capitals",
+    "question": "Bucharest ialah ibu negara negara mana?",
+    "image": "assets/general/map-RO.webp",
+    "options": [
+      "Romania",
+      "Malaysia",
+      "Jerman",
+      "Ukraine"
+    ],
+    "correct": "Romania",
+    "explanation": "Bucharest ialah ibu negara Romania."
+  },
+  {
+    "id": "capitals-UA-capital",
+    "category": "capitals",
+    "question": "Apakah ibu negara Ukraine?",
+    "image": "assets/general/map-UA.webp",
+    "options": [
+      "Kyiv",
+      "Dublin",
+      "Kampala",
+      "Bogotá"
+    ],
+    "correct": "Kyiv",
+    "explanation": "Ibu negara Ukraine ialah Kyiv."
+  },
+  {
+    "id": "capitals-UA-country",
+    "category": "capitals",
+    "question": "Kyiv ialah ibu negara negara mana?",
+    "image": "assets/general/map-UA.webp",
+    "options": [
+      "Ukraine",
+      "Pakistan",
+      "Ecuador",
+      "Venezuela"
+    ],
+    "correct": "Ukraine",
+    "explanation": "Kyiv ialah ibu negara Ukraine."
+  },
+  {
+    "id": "capitals-IS-capital",
+    "category": "capitals",
+    "question": "Apakah ibu negara Iceland?",
+    "image": "assets/general/map-IS.webp",
+    "options": [
+      "Reykjavik",
+      "Bogotá",
+      "Athens",
+      "Stockholm"
+    ],
+    "correct": "Reykjavik",
+    "explanation": "Ibu negara Iceland ialah Reykjavik."
+  },
+  {
+    "id": "capitals-IS-country",
+    "category": "capitals",
+    "question": "Reykjavik ialah ibu negara negara mana?",
+    "image": "assets/general/map-IS.webp",
+    "options": [
+      "Iceland",
+      "Indonesia",
+      "Amerika Syarikat",
+      "Brunei"
+    ],
+    "correct": "Iceland",
+    "explanation": "Reykjavik ialah ibu negara Iceland."
+  },
+  {
+    "id": "capitals-CA-capital",
+    "category": "capitals",
+    "question": "Apakah ibu negara Kanada?",
+    "image": "assets/general/map-CA.webp",
+    "options": [
+      "Ottawa",
+      "Bogotá",
+      "Brussels",
+      "Dakar"
+    ],
+    "correct": "Ottawa",
+    "explanation": "Ibu negara Kanada ialah Ottawa."
+  },
+  {
+    "id": "capitals-CA-country",
+    "category": "capitals",
+    "question": "Ottawa ialah ibu negara negara mana?",
+    "image": "assets/general/map-CA.webp",
+    "options": [
+      "Kanada",
+      "Maldives",
+      "Belanda",
+      "Argentina"
+    ],
+    "correct": "Kanada",
+    "explanation": "Ottawa ialah ibu negara Kanada."
+  },
+  {
+    "id": "capitals-US-capital",
+    "category": "capitals",
+    "question": "Apakah ibu negara Amerika Syarikat?",
+    "image": "assets/general/map-US.webp",
+    "options": [
+      "Washington, D.C.",
+      "Abuja",
+      "Beijing",
+      "Manila"
+    ],
+    "correct": "Washington, D.C.",
+    "explanation": "Ibu negara Amerika Syarikat ialah Washington, D.C.."
+  },
+  {
+    "id": "capitals-US-country",
+    "category": "capitals",
+    "question": "Washington, D.C. ialah ibu negara negara mana?",
+    "image": "assets/general/map-US.webp",
+    "options": [
+      "Amerika Syarikat",
+      "Portugal",
+      "Sweden",
+      "Kanada"
+    ],
+    "correct": "Amerika Syarikat",
+    "explanation": "Washington, D.C. ialah ibu negara Amerika Syarikat."
+  },
+  {
+    "id": "capitals-MX-capital",
+    "category": "capitals",
+    "question": "Apakah ibu negara Mexico?",
+    "image": "assets/general/map-MX.webp",
+    "options": [
+      "Mexico City",
+      "Rabat",
+      "Warsaw",
+      "Canberra"
+    ],
+    "correct": "Mexico City",
+    "explanation": "Ibu negara Mexico ialah Mexico City."
+  },
+  {
+    "id": "capitals-MX-country",
+    "category": "capitals",
+    "question": "Mexico City ialah ibu negara negara mana?",
+    "image": "assets/general/map-MX.webp",
+    "options": [
+      "Mexico",
+      "Mongolia",
+      "Nepal",
+      "United Kingdom"
+    ],
+    "correct": "Mexico",
+    "explanation": "Mexico City ialah ibu negara Mexico."
+  },
+  {
+    "id": "capitals-BR-capital",
+    "category": "capitals",
+    "question": "Apakah ibu negara Brazil?",
+    "image": "assets/general/map-BR.webp",
+    "options": [
+      "Brasília",
+      "Ottawa",
+      "Abuja",
+      "Buenos Aires"
+    ],
+    "correct": "Brasília",
+    "explanation": "Ibu negara Brazil ialah Brasília."
+  },
+  {
+    "id": "capitals-BR-country",
+    "category": "capitals",
+    "question": "Brasília ialah ibu negara negara mana?",
+    "image": "assets/general/map-BR.webp",
+    "options": [
+      "Brazil",
+      "Madagascar",
+      "Jerman",
+      "Colombia"
+    ],
+    "correct": "Brazil",
+    "explanation": "Brasília ialah ibu negara Brazil."
+  },
+  {
+    "id": "capitals-AR-capital",
+    "category": "capitals",
+    "question": "Apakah ibu negara Argentina?",
+    "image": "assets/general/map-AR.webp",
+    "options": [
+      "Buenos Aires",
+      "Caracas",
+      "Islamabad",
+      "Bogotá"
+    ],
+    "correct": "Buenos Aires",
+    "explanation": "Ibu negara Argentina ialah Buenos Aires."
+  },
+  {
+    "id": "capitals-AR-country",
+    "category": "capitals",
+    "question": "Buenos Aires ialah ibu negara negara mana?",
+    "image": "assets/general/map-AR.webp",
+    "options": [
+      "Argentina",
+      "Hungary",
+      "China",
+      "Brazil"
+    ],
+    "correct": "Argentina",
+    "explanation": "Buenos Aires ialah ibu negara Argentina."
+  },
+  {
+    "id": "capitals-CL-capital",
+    "category": "capitals",
+    "question": "Apakah ibu negara Chile?",
+    "image": "assets/general/map-CL.webp",
+    "options": [
+      "Santiago",
+      "Helsinki",
+      "Bandar Seri Begawan",
+      "Seoul"
+    ],
+    "correct": "Santiago",
+    "explanation": "Ibu negara Chile ialah Santiago."
+  },
+  {
+    "id": "capitals-CL-country",
+    "category": "capitals",
+    "question": "Santiago ialah ibu negara negara mana?",
+    "image": "assets/general/map-CL.webp",
+    "options": [
+      "Chile",
+      "Sepanyol",
+      "Itali",
+      "Myanmar"
+    ],
+    "correct": "Chile",
+    "explanation": "Santiago ialah ibu negara Chile."
+  },
+  {
+    "id": "capitals-PE-capital",
+    "category": "capitals",
+    "question": "Apakah ibu negara Peru?",
+    "image": "assets/general/map-PE.webp",
+    "options": [
+      "Lima",
+      "Islamabad",
+      "Kathmandu",
+      "Amsterdam"
+    ],
+    "correct": "Lima",
+    "explanation": "Ibu negara Peru ialah Lima."
+  },
+  {
+    "id": "capitals-PE-country",
+    "category": "capitals",
+    "question": "Lima ialah ibu negara negara mana?",
+    "image": "assets/general/map-PE.webp",
+    "options": [
+      "Peru",
+      "Sweden",
+      "Ukraine",
+      "Ireland"
+    ],
+    "correct": "Peru",
+    "explanation": "Lima ialah ibu negara Peru."
+  },
+  {
+    "id": "capitals-CO-capital",
+    "category": "capitals",
+    "question": "Apakah ibu negara Colombia?",
+    "image": "assets/general/map-CO.webp",
+    "options": [
+      "Bogotá",
+      "Warsaw",
+      "Reykjavik",
+      "Male"
+    ],
+    "correct": "Bogotá",
+    "explanation": "Ibu negara Colombia ialah Bogotá."
+  },
+  {
+    "id": "capitals-CO-country",
+    "category": "capitals",
+    "question": "Bogotá ialah ibu negara negara mana?",
+    "image": "assets/general/map-CO.webp",
+    "options": [
+      "Colombia",
+      "Sepanyol",
+      "Singapura",
+      "Australia"
+    ],
+    "correct": "Colombia",
+    "explanation": "Bogotá ialah ibu negara Colombia."
+  },
+  {
+    "id": "capitals-EC-capital",
+    "category": "capitals",
+    "question": "Apakah ibu negara Ecuador?",
+    "image": "assets/general/map-EC.webp",
+    "options": [
+      "Quito",
+      "Dodoma",
+      "Wellington",
+      "Helsinki"
+    ],
+    "correct": "Quito",
+    "explanation": "Ibu negara Ecuador ialah Quito."
+  },
+  {
+    "id": "capitals-EC-country",
+    "category": "capitals",
+    "question": "Quito ialah ibu negara negara mana?",
+    "image": "assets/general/map-EC.webp",
+    "options": [
+      "Ecuador",
+      "Hungary",
+      "United Kingdom",
+      "Laos"
+    ],
+    "correct": "Ecuador",
+    "explanation": "Quito ialah ibu negara Ecuador."
+  },
+  {
+    "id": "capitals-VE-capital",
+    "category": "capitals",
+    "question": "Apakah ibu negara Venezuela?",
+    "image": "assets/general/map-VE.webp",
+    "options": [
+      "Caracas",
+      "Washington, D.C.",
+      "Seoul",
+      "Phnom Penh"
+    ],
+    "correct": "Caracas",
+    "explanation": "Ibu negara Venezuela ialah Caracas."
+  },
+  {
+    "id": "capitals-VE-country",
+    "category": "capitals",
+    "question": "Caracas ialah ibu negara negara mana?",
+    "image": "assets/general/map-VE.webp",
+    "options": [
+      "Venezuela",
+      "Hungary",
+      "Singapura",
+      "Tanzania"
+    ],
+    "correct": "Venezuela",
+    "explanation": "Caracas ialah ibu negara Venezuela."
+  },
+  {
+    "id": "capitals-EG-capital",
+    "category": "capitals",
+    "question": "Apakah ibu negara Mesir?",
+    "image": "assets/general/map-EG.webp",
+    "options": [
+      "Cairo",
+      "Abuja",
+      "Rabat",
+      "Mexico City"
+    ],
+    "correct": "Cairo",
+    "explanation": "Ibu negara Mesir ialah Cairo."
+  },
+  {
+    "id": "capitals-EG-country",
+    "category": "capitals",
+    "question": "Cairo ialah ibu negara negara mana?",
+    "image": "assets/general/map-EG.webp",
+    "options": [
+      "Mesir",
+      "Nigeria",
+      "Finland",
+      "Chile"
+    ],
+    "correct": "Mesir",
+    "explanation": "Cairo ialah ibu negara Mesir."
+  },
+  {
+    "id": "capitals-MA-capital",
+    "category": "capitals",
+    "question": "Apakah ibu negara Maghribi?",
+    "image": "assets/general/map-MA.webp",
+    "options": [
+      "Rabat",
+      "Washington, D.C.",
+      "Algiers",
+      "Dodoma"
+    ],
+    "correct": "Rabat",
+    "explanation": "Ibu negara Maghribi ialah Rabat."
+  },
+  {
+    "id": "capitals-MA-country",
+    "category": "capitals",
+    "question": "Rabat ialah ibu negara negara mana?",
+    "image": "assets/general/map-MA.webp",
+    "options": [
+      "Maghribi",
+      "Poland",
+      "Portugal",
+      "Jepun"
+    ],
+    "correct": "Maghribi",
+    "explanation": "Rabat ialah ibu negara Maghribi."
+  },
+  {
+    "id": "capitals-DZ-capital",
+    "category": "capitals",
+    "question": "Apakah ibu negara Algeria?",
+    "image": "assets/general/map-DZ.webp",
+    "options": [
+      "Algiers",
+      "Lisbon",
+      "Berlin",
+      "Islamabad"
+    ],
+    "correct": "Algiers",
+    "explanation": "Ibu negara Algeria ialah Algiers."
+  },
+  {
+    "id": "capitals-DZ-country",
+    "category": "capitals",
+    "question": "Algiers ialah ibu negara negara mana?",
+    "image": "assets/general/map-DZ.webp",
+    "options": [
+      "Algeria",
+      "Peru",
+      "Vietnam",
+      "Ireland"
+    ],
+    "correct": "Algeria",
+    "explanation": "Algiers ialah ibu negara Algeria."
+  },
+  {
+    "id": "capitals-TN-capital",
+    "category": "capitals",
+    "question": "Apakah ibu negara Tunisia?",
+    "image": "assets/general/map-TN.webp",
+    "options": [
+      "Tunis",
+      "Ulan Bator",
+      "London",
+      "Ottawa"
+    ],
+    "correct": "Tunis",
+    "explanation": "Ibu negara Tunisia ialah Tunis."
+  },
+  {
+    "id": "capitals-TN-country",
+    "category": "capitals",
+    "question": "Tunis ialah ibu negara negara mana?",
+    "image": "assets/general/map-TN.webp",
+    "options": [
+      "Tunisia",
+      "Ecuador",
+      "Venezuela",
+      "Kemboja"
+    ],
+    "correct": "Tunisia",
+    "explanation": "Tunis ialah ibu negara Tunisia."
+  },
+  {
+    "id": "capitals-KE-capital",
+    "category": "capitals",
+    "question": "Apakah ibu negara Kenya?",
+    "image": "assets/general/map-KE.webp",
+    "options": [
+      "Nairobi",
+      "Lima",
+      "Hanoi",
+      "Thimphu"
+    ],
+    "correct": "Nairobi",
+    "explanation": "Ibu negara Kenya ialah Nairobi."
+  },
+  {
+    "id": "capitals-KE-country",
+    "category": "capitals",
+    "question": "Nairobi ialah ibu negara negara mana?",
+    "image": "assets/general/map-KE.webp",
+    "options": [
+      "Kenya",
+      "Mesir",
+      "Greece",
+      "Ethiopia"
+    ],
+    "correct": "Kenya",
+    "explanation": "Nairobi ialah ibu negara Kenya."
+  },
+  {
+    "id": "capitals-TZ-capital",
+    "category": "capitals",
+    "question": "Apakah ibu negara Tanzania?",
+    "image": "assets/general/map-TZ.webp",
+    "options": [
+      "Dodoma",
+      "Seoul",
+      "Copenhagen",
+      "Vienna"
+    ],
+    "correct": "Dodoma",
+    "explanation": "Ibu negara Tanzania ialah Dodoma."
+  },
+  {
+    "id": "capitals-TZ-country",
+    "category": "capitals",
+    "question": "Dodoma ialah ibu negara negara mana?",
+    "image": "assets/general/map-TZ.webp",
+    "options": [
+      "Tanzania",
+      "Belgium",
+      "Finland",
+      "Nepal"
+    ],
+    "correct": "Tanzania",
+    "explanation": "Dodoma ialah ibu negara Tanzania."
+  },
+  {
+    "id": "capitals-UG-capital",
+    "category": "capitals",
+    "question": "Apakah ibu negara Uganda?",
+    "image": "assets/general/map-UG.webp",
+    "options": [
+      "Kampala",
+      "Naypyidaw",
+      "Rabat",
+      "Ulan Bator"
+    ],
+    "correct": "Kampala",
+    "explanation": "Ibu negara Uganda ialah Kampala."
+  },
+  {
+    "id": "capitals-UG-country",
+    "category": "capitals",
+    "question": "Kampala ialah ibu negara negara mana?",
+    "image": "assets/general/map-UG.webp",
+    "options": [
+      "Uganda",
+      "Maghribi",
+      "Bhutan",
+      "Ecuador"
+    ],
+    "correct": "Uganda",
+    "explanation": "Kampala ialah ibu negara Uganda."
+  },
+  {
+    "id": "capitals-GH-capital",
+    "category": "capitals",
+    "question": "Apakah ibu negara Ghana?",
+    "image": "assets/general/map-GH.webp",
+    "options": [
+      "Accra",
+      "Brussels",
+      "Helsinki",
+      "Addis Ababa"
+    ],
+    "correct": "Accra",
+    "explanation": "Ibu negara Ghana ialah Accra."
+  },
+  {
+    "id": "capitals-GH-country",
+    "category": "capitals",
+    "question": "Accra ialah ibu negara negara mana?",
+    "image": "assets/general/map-GH.webp",
+    "options": [
+      "Ghana",
+      "Pakistan",
+      "Kenya",
+      "Bangladesh"
+    ],
+    "correct": "Ghana",
+    "explanation": "Accra ialah ibu negara Ghana."
+  },
+  {
+    "id": "capitals-NG-capital",
+    "category": "capitals",
+    "question": "Apakah ibu negara Nigeria?",
+    "image": "assets/general/map-NG.webp",
+    "options": [
+      "Abuja",
+      "Quito",
+      "Tunis",
+      "Phnom Penh"
+    ],
+    "correct": "Abuja",
+    "explanation": "Ibu negara Nigeria ialah Abuja."
+  },
+  {
+    "id": "capitals-NG-country",
+    "category": "capitals",
+    "question": "Abuja ialah ibu negara negara mana?",
+    "image": "assets/general/map-NG.webp",
+    "options": [
+      "Nigeria",
+      "Brunei",
+      "Belanda",
+      "Pakistan"
+    ],
+    "correct": "Nigeria",
+    "explanation": "Abuja ialah ibu negara Nigeria."
+  },
+  {
+    "id": "capitals-SN-capital",
+    "category": "capitals",
+    "question": "Apakah ibu negara Senegal?",
+    "image": "assets/general/map-SN.webp",
+    "options": [
+      "Dakar",
+      "Addis Ababa",
+      "Male",
+      "Santiago"
+    ],
+    "correct": "Dakar",
+    "explanation": "Ibu negara Senegal ialah Dakar."
+  },
+  {
+    "id": "capitals-SN-country",
+    "category": "capitals",
+    "question": "Dakar ialah ibu negara negara mana?",
+    "image": "assets/general/map-SN.webp",
+    "options": [
+      "Senegal",
+      "Austria",
+      "Belgium",
+      "Tunisia"
+    ],
+    "correct": "Senegal",
+    "explanation": "Dakar ialah ibu negara Senegal."
+  },
+  {
+    "id": "capitals-ET-capital",
+    "category": "capitals",
+    "question": "Apakah ibu negara Ethiopia?",
+    "image": "assets/general/map-ET.webp",
+    "options": [
+      "Addis Ababa",
+      "Jakarta",
+      "Manila",
+      "Phnom Penh"
+    ],
+    "correct": "Addis Ababa",
+    "explanation": "Ibu negara Ethiopia ialah Addis Ababa."
+  },
+  {
+    "id": "capitals-ET-country",
+    "category": "capitals",
+    "question": "Addis Ababa ialah ibu negara negara mana?",
+    "image": "assets/general/map-ET.webp",
+    "options": [
+      "Ethiopia",
+      "Indonesia",
+      "Myanmar",
+      "Australia"
+    ],
+    "correct": "Ethiopia",
+    "explanation": "Addis Ababa ialah ibu negara Ethiopia."
+  },
+  {
+    "id": "capitals-MG-capital",
+    "category": "capitals",
+    "question": "Apakah ibu negara Madagascar?",
+    "image": "assets/general/map-MG.webp",
+    "options": [
+      "Antananarivo",
+      "Abuja",
+      "Bucharest",
+      "Seoul"
+    ],
+    "correct": "Antananarivo",
+    "explanation": "Ibu negara Madagascar ialah Antananarivo."
+  },
+  {
+    "id": "capitals-MG-country",
+    "category": "capitals",
+    "question": "Antananarivo ialah ibu negara negara mana?",
+    "image": "assets/general/map-MG.webp",
+    "options": [
+      "Madagascar",
+      "Austria",
+      "Jepun",
+      "Nigeria"
+    ],
+    "correct": "Madagascar",
+    "explanation": "Antananarivo ialah ibu negara Madagascar."
+  }
+]

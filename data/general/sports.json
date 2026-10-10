@@ -1,0 +1,422 @@
+[
+  {
+    "id": "sports-football-name",
+    "category": "sports",
+    "question": "Apakah sukan yang ditunjukkan?",
+    "image": "assets/general/football.webp",
+    "options": [
+      "Bola sepak",
+      "Tenis",
+      "Bola keranjang",
+      "Berbasikal"
+    ],
+    "correct": "Bola sepak",
+    "explanation": "Bola sepak ditunjukkan dalam gambar."
+  },
+  {
+    "id": "sports-football-fact",
+    "category": "sports",
+    "question": "Apakah peralatan atau tempat yang berkaitan dengan bola sepak?",
+    "image": "assets/general/football.webp",
+    "options": [
+      "Bola",
+      "Bet dan bola",
+      "Raket dan bola",
+      "Basikal"
+    ],
+    "correct": "Bola",
+    "explanation": "Bola sepak: Bola."
+  },
+  {
+    "id": "sports-badminton-name",
+    "category": "sports",
+    "question": "Apakah sukan yang ditunjukkan?",
+    "image": "assets/general/badminton.webp",
+    "options": [
+      "Badminton",
+      "Larian",
+      "Golf",
+      "Ping pong"
+    ],
+    "correct": "Badminton",
+    "explanation": "Badminton ditunjukkan dalam gambar."
+  },
+  {
+    "id": "sports-badminton-fact",
+    "category": "sports",
+    "question": "Apakah peralatan atau tempat yang berkaitan dengan badminton?",
+    "image": "assets/general/badminton.webp",
+    "options": [
+      "Raket dan bulu tangkis",
+      "Busur dan anak panah",
+      "Bola bujur",
+      "Bet dan bola"
+    ],
+    "correct": "Raket dan bulu tangkis",
+    "explanation": "Badminton: Raket dan bulu tangkis."
+  },
+  {
+    "id": "sports-basketball-name",
+    "category": "sports",
+    "question": "Apakah sukan yang ditunjukkan?",
+    "image": "assets/general/basketball.webp",
+    "options": [
+      "Bola keranjang",
+      "Hoki padang",
+      "Gimnastik",
+      "Bola sepak"
+    ],
+    "correct": "Bola keranjang",
+    "explanation": "Bola keranjang ditunjukkan dalam gambar."
+  },
+  {
+    "id": "sports-basketball-fact",
+    "category": "sports",
+    "question": "Apakah peralatan atau tempat yang berkaitan dengan bola keranjang?",
+    "image": "assets/general/basketball.webp",
+    "options": [
+      "Bola dan bakul",
+      "Kayu golf dan bola",
+      "Kayu hoki dan bola",
+      "Kasut larian"
+    ],
+    "correct": "Bola dan bakul",
+    "explanation": "Bola keranjang: Bola dan bakul."
+  },
+  {
+    "id": "sports-volleyball-name",
+    "category": "sports",
+    "question": "Apakah sukan yang ditunjukkan?",
+    "image": "assets/general/volleyball.webp",
+    "options": [
+      "Bola tampar",
+      "Renang",
+      "Bola keranjang",
+      "Memanah"
+    ],
+    "correct": "Bola tampar",
+    "explanation": "Bola tampar ditunjukkan dalam gambar."
+  },
+  {
+    "id": "sports-volleyball-fact",
+    "category": "sports",
+    "question": "Apakah peralatan atau tempat yang berkaitan dengan bola tampar?",
+    "image": "assets/general/volleyball.webp",
+    "options": [
+      "Bola dan jaring",
+      "Raket dan bola",
+      "Basikal",
+      "Bet dan bola"
+    ],
+    "correct": "Bola dan jaring",
+    "explanation": "Bola tampar: Bola dan jaring."
+  },
+  {
+    "id": "sports-tennis-name",
+    "category": "sports",
+    "question": "Apakah sukan yang ditunjukkan?",
+    "image": "assets/general/tennis.webp",
+    "options": [
+      "Tenis",
+      "Bola tampar",
+      "Golf",
+      "Renang"
+    ],
+    "correct": "Tenis",
+    "explanation": "Tenis ditunjukkan dalam gambar."
+  },
+  {
+    "id": "sports-tennis-fact",
+    "category": "sports",
+    "question": "Apakah peralatan atau tempat yang berkaitan dengan tenis?",
+    "image": "assets/general/tennis.webp",
+    "options": [
+      "Raket dan bola",
+      "Bola",
+      "Basikal",
+      "Busur dan anak panah"
+    ],
+    "correct": "Raket dan bola",
+    "explanation": "Tenis: Raket dan bola."
+  },
+  {
+    "id": "sports-tabletennis-name",
+    "category": "sports",
+    "question": "Apakah sukan yang ditunjukkan?",
+    "image": "assets/general/tabletennis.webp",
+    "options": [
+      "Ping pong",
+      "Gimnastik",
+      "Memanah",
+      "Badminton"
+    ],
+    "correct": "Ping pong",
+    "explanation": "Ping pong ditunjukkan dalam gambar."
+  },
+  {
+    "id": "sports-tabletennis-fact",
+    "category": "sports",
+    "question": "Apakah peralatan atau tempat yang berkaitan dengan ping pong?",
+    "image": "assets/general/tabletennis.webp",
+    "options": [
+      "Bet dan bola",
+      "Palang imbangan",
+      "Busur dan anak panah",
+      "Bola dan bakul"
+    ],
+    "correct": "Bet dan bola",
+    "explanation": "Ping pong: Bet dan bola."
+  },
+  {
+    "id": "sports-swimming-name",
+    "category": "sports",
+    "question": "Apakah sukan yang ditunjukkan?",
+    "image": "assets/general/swimming.webp",
+    "options": [
+      "Renang",
+      "Ragbi",
+      "Boling",
+      "Tenis"
+    ],
+    "correct": "Renang",
+    "explanation": "Renang ditunjukkan dalam gambar."
+  },
+  {
+    "id": "sports-swimming-fact",
+    "category": "sports",
+    "question": "Apakah peralatan atau tempat yang berkaitan dengan renang?",
+    "image": "assets/general/swimming.webp",
+    "options": [
+      "Kolam renang",
+      "Raket dan bola",
+      "Kasut larian",
+      "Palang imbangan"
+    ],
+    "correct": "Kolam renang",
+    "explanation": "Renang: Kolam renang."
+  },
+  {
+    "id": "sports-cycling-name",
+    "category": "sports",
+    "question": "Apakah sukan yang ditunjukkan?",
+    "image": "assets/general/cycling.webp",
+    "options": [
+      "Berbasikal",
+      "Hoki padang",
+      "Bola keranjang",
+      "Larian"
+    ],
+    "correct": "Berbasikal",
+    "explanation": "Berbasikal ditunjukkan dalam gambar."
+  },
+  {
+    "id": "sports-cycling-fact",
+    "category": "sports",
+    "question": "Apakah peralatan atau tempat yang berkaitan dengan berbasikal?",
+    "image": "assets/general/cycling.webp",
+    "options": [
+      "Basikal",
+      "Bet dan bola",
+      "Bola dan pin",
+      "Kayu golf dan bola"
+    ],
+    "correct": "Basikal",
+    "explanation": "Berbasikal: Basikal."
+  },
+  {
+    "id": "sports-running-name",
+    "category": "sports",
+    "question": "Apakah sukan yang ditunjukkan?",
+    "image": "assets/general/running.webp",
+    "options": [
+      "Larian",
+      "Badminton",
+      "Hoki padang",
+      "Ragbi"
+    ],
+    "correct": "Larian",
+    "explanation": "Larian ditunjukkan dalam gambar."
+  },
+  {
+    "id": "sports-running-fact",
+    "category": "sports",
+    "question": "Apakah peralatan atau tempat yang berkaitan dengan larian?",
+    "image": "assets/general/running.webp",
+    "options": [
+      "Kasut larian",
+      "Kayu hoki dan bola",
+      "Bola dan pin",
+      "Kayu golf dan bola"
+    ],
+    "correct": "Kasut larian",
+    "explanation": "Larian: Kasut larian."
+  },
+  {
+    "id": "sports-golf-name",
+    "category": "sports",
+    "question": "Apakah sukan yang ditunjukkan?",
+    "image": "assets/general/golf.webp",
+    "options": [
+      "Golf",
+      "Larian",
+      "Bola sepak",
+      "Gimnastik"
+    ],
+    "correct": "Golf",
+    "explanation": "Golf ditunjukkan dalam gambar."
+  },
+  {
+    "id": "sports-golf-fact",
+    "category": "sports",
+    "question": "Apakah peralatan atau tempat yang berkaitan dengan golf?",
+    "image": "assets/general/golf.webp",
+    "options": [
+      "Kayu golf dan bola",
+      "Kasut larian",
+      "Bet dan bola",
+      "Bola"
+    ],
+    "correct": "Kayu golf dan bola",
+    "explanation": "Golf: Kayu golf dan bola."
+  },
+  {
+    "id": "sports-archery-name",
+    "category": "sports",
+    "question": "Apakah sukan yang ditunjukkan?",
+    "image": "assets/general/archery.webp",
+    "options": [
+      "Memanah",
+      "Tenis",
+      "Bola tampar",
+      "Renang"
+    ],
+    "correct": "Memanah",
+    "explanation": "Memanah ditunjukkan dalam gambar."
+  },
+  {
+    "id": "sports-archery-fact",
+    "category": "sports",
+    "question": "Apakah peralatan atau tempat yang berkaitan dengan memanah?",
+    "image": "assets/general/archery.webp",
+    "options": [
+      "Busur dan anak panah",
+      "Raket dan bulu tangkis",
+      "Bola",
+      "Bet dan bola"
+    ],
+    "correct": "Busur dan anak panah",
+    "explanation": "Memanah: Busur dan anak panah."
+  },
+  {
+    "id": "sports-bowling-name",
+    "category": "sports",
+    "question": "Apakah sukan yang ditunjukkan?",
+    "image": "assets/general/bowling.webp",
+    "options": [
+      "Boling",
+      "Bola sepak",
+      "Golf",
+      "Tenis"
+    ],
+    "correct": "Boling",
+    "explanation": "Boling ditunjukkan dalam gambar."
+  },
+  {
+    "id": "sports-bowling-fact",
+    "category": "sports",
+    "question": "Apakah peralatan atau tempat yang berkaitan dengan boling?",
+    "image": "assets/general/bowling.webp",
+    "options": [
+      "Bola dan pin",
+      "Palang imbangan",
+      "Kasut larian",
+      "Bola dan jaring"
+    ],
+    "correct": "Bola dan pin",
+    "explanation": "Boling: Bola dan pin."
+  },
+  {
+    "id": "sports-rugby-name",
+    "category": "sports",
+    "question": "Apakah sukan yang ditunjukkan?",
+    "image": "assets/general/rugby.webp",
+    "options": [
+      "Ragbi",
+      "Ping pong",
+      "Berbasikal",
+      "Renang"
+    ],
+    "correct": "Ragbi",
+    "explanation": "Ragbi ditunjukkan dalam gambar."
+  },
+  {
+    "id": "sports-rugby-fact",
+    "category": "sports",
+    "question": "Apakah peralatan atau tempat yang berkaitan dengan ragbi?",
+    "image": "assets/general/rugby.webp",
+    "options": [
+      "Bola bujur",
+      "Bola",
+      "Kayu hoki dan bola",
+      "Bola dan bakul"
+    ],
+    "correct": "Bola bujur",
+    "explanation": "Ragbi: Bola bujur."
+  },
+  {
+    "id": "sports-hockey-name",
+    "category": "sports",
+    "question": "Apakah sukan yang ditunjukkan?",
+    "image": "assets/general/hockey.webp",
+    "options": [
+      "Hoki padang",
+      "Golf",
+      "Gimnastik",
+      "Memanah"
+    ],
+    "correct": "Hoki padang",
+    "explanation": "Hoki padang ditunjukkan dalam gambar."
+  },
+  {
+    "id": "sports-hockey-fact",
+    "category": "sports",
+    "question": "Apakah peralatan atau tempat yang berkaitan dengan hoki padang?",
+    "image": "assets/general/hockey.webp",
+    "options": [
+      "Kayu hoki dan bola",
+      "Bola bujur",
+      "Busur dan anak panah",
+      "Raket dan bola"
+    ],
+    "correct": "Kayu hoki dan bola",
+    "explanation": "Hoki padang: Kayu hoki dan bola."
+  },
+  {
+    "id": "sports-gymnastics-name",
+    "category": "sports",
+    "question": "Apakah sukan yang ditunjukkan?",
+    "image": "assets/general/gymnastics.webp",
+    "options": [
+      "Gimnastik",
+      "Ping pong",
+      "Tenis",
+      "Bola sepak"
+    ],
+    "correct": "Gimnastik",
+    "explanation": "Gimnastik ditunjukkan dalam gambar."
+  },
+  {
+    "id": "sports-gymnastics-fact",
+    "category": "sports",
+    "question": "Apakah peralatan atau tempat yang berkaitan dengan gimnastik?",
+    "image": "assets/general/gymnastics.webp",
+    "options": [
+      "Palang imbangan",
+      "Basikal",
+      "Bola bujur",
+      "Bet dan bola"
+    ],
+    "correct": "Palang imbangan",
+    "explanation": "Gimnastik: Palang imbangan."
+  }
+]

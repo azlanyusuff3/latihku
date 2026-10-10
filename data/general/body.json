@@ -1,0 +1,422 @@
+[
+  {
+    "id": "body-eye-name",
+    "category": "body",
+    "question": "Apakah anggota atau organ tubuh yang ditunjukkan?",
+    "image": "assets/general/eye.webp",
+    "options": [
+      "Mata",
+      "Gigi",
+      "Jantung",
+      "Kaki"
+    ],
+    "correct": "Mata",
+    "explanation": "Mata ditunjukkan dalam gambar."
+  },
+  {
+    "id": "body-eye-fact",
+    "category": "body",
+    "question": "Apakah fungsi asas mata?",
+    "image": "assets/general/eye.webp",
+    "options": [
+      "Melihat",
+      "Mengawal banyak aktiviti tubuh",
+      "Mengepam darah",
+      "Mengesan sentuhan"
+    ],
+    "correct": "Melihat",
+    "explanation": "Mata: Melihat."
+  },
+  {
+    "id": "body-ear-name",
+    "category": "body",
+    "question": "Apakah anggota atau organ tubuh yang ditunjukkan?",
+    "image": "assets/general/ear.webp",
+    "options": [
+      "Telinga",
+      "Hidung",
+      "Rangka",
+      "Perut"
+    ],
+    "correct": "Telinga",
+    "explanation": "Telinga ditunjukkan dalam gambar."
+  },
+  {
+    "id": "body-ear-fact",
+    "category": "body",
+    "question": "Apakah fungsi asas telinga?",
+    "image": "assets/general/ear.webp",
+    "options": [
+      "Mendengar",
+      "Memegang",
+      "Merasa",
+      "Menyokong tubuh"
+    ],
+    "correct": "Mendengar",
+    "explanation": "Telinga: Mendengar."
+  },
+  {
+    "id": "body-nose-name",
+    "category": "body",
+    "question": "Apakah anggota atau organ tubuh yang ditunjukkan?",
+    "image": "assets/general/nose.webp",
+    "options": [
+      "Hidung",
+      "Rangka",
+      "Perut",
+      "Gigi"
+    ],
+    "correct": "Hidung",
+    "explanation": "Hidung ditunjukkan dalam gambar."
+  },
+  {
+    "id": "body-nose-fact",
+    "category": "body",
+    "question": "Apakah fungsi asas hidung?",
+    "image": "assets/general/nose.webp",
+    "options": [
+      "Menghidu",
+      "Mendengar",
+      "Berjalan",
+      "Menapis darah dan menghasilkan air kencing"
+    ],
+    "correct": "Menghidu",
+    "explanation": "Hidung: Menghidu."
+  },
+  {
+    "id": "body-tongue-name",
+    "category": "body",
+    "question": "Apakah anggota atau organ tubuh yang ditunjukkan?",
+    "image": "assets/general/tongue.webp",
+    "options": [
+      "Lidah",
+      "Hidung",
+      "Telinga",
+      "Rangka"
+    ],
+    "correct": "Lidah",
+    "explanation": "Lidah ditunjukkan dalam gambar."
+  },
+  {
+    "id": "body-tongue-fact",
+    "category": "body",
+    "question": "Apakah fungsi asas lidah?",
+    "image": "assets/general/tongue.webp",
+    "options": [
+      "Merasa",
+      "Membantu menghadam makanan",
+      "Mengepam darah",
+      "Mengawal banyak aktiviti tubuh"
+    ],
+    "correct": "Merasa",
+    "explanation": "Lidah: Merasa."
+  },
+  {
+    "id": "body-hand-name",
+    "category": "body",
+    "question": "Apakah anggota atau organ tubuh yang ditunjukkan?",
+    "image": "assets/general/hand.webp",
+    "options": [
+      "Tangan",
+      "Mata",
+      "Otot",
+      "Rangka"
+    ],
+    "correct": "Tangan",
+    "explanation": "Tangan ditunjukkan dalam gambar."
+  },
+  {
+    "id": "body-hand-fact",
+    "category": "body",
+    "question": "Apakah fungsi asas tangan?",
+    "image": "assets/general/hand.webp",
+    "options": [
+      "Memegang",
+      "Menghidu",
+      "Mendengar",
+      "Mengunyah makanan"
+    ],
+    "correct": "Memegang",
+    "explanation": "Tangan: Memegang."
+  },
+  {
+    "id": "body-foot-name",
+    "category": "body",
+    "question": "Apakah anggota atau organ tubuh yang ditunjukkan?",
+    "image": "assets/general/foot.webp",
+    "options": [
+      "Kaki",
+      "Tangan",
+      "Telinga",
+      "Hidung"
+    ],
+    "correct": "Kaki",
+    "explanation": "Kaki ditunjukkan dalam gambar."
+  },
+  {
+    "id": "body-foot-fact",
+    "category": "body",
+    "question": "Apakah fungsi asas kaki?",
+    "image": "assets/general/foot.webp",
+    "options": [
+      "Berjalan",
+      "Menghidu",
+      "Merasa",
+      "Membantu menghadam makanan"
+    ],
+    "correct": "Berjalan",
+    "explanation": "Kaki: Berjalan."
+  },
+  {
+    "id": "body-heart-name",
+    "category": "body",
+    "question": "Apakah anggota atau organ tubuh yang ditunjukkan?",
+    "image": "assets/general/heart.webp",
+    "options": [
+      "Jantung",
+      "Hidung",
+      "Paru-paru",
+      "Tangan"
+    ],
+    "correct": "Jantung",
+    "explanation": "Jantung ditunjukkan dalam gambar."
+  },
+  {
+    "id": "body-heart-fact",
+    "category": "body",
+    "question": "Apakah fungsi asas jantung?",
+    "image": "assets/general/heart.webp",
+    "options": [
+      "Mengepam darah",
+      "Memegang",
+      "Menapis darah dan menghasilkan air kencing",
+      "Mendengar"
+    ],
+    "correct": "Mengepam darah",
+    "explanation": "Jantung: Mengepam darah."
+  },
+  {
+    "id": "body-lung-name",
+    "category": "body",
+    "question": "Apakah anggota atau organ tubuh yang ditunjukkan?",
+    "image": "assets/general/lung.webp",
+    "options": [
+      "Paru-paru",
+      "Perut",
+      "Rangka",
+      "Jantung"
+    ],
+    "correct": "Paru-paru",
+    "explanation": "Paru-paru ditunjukkan dalam gambar."
+  },
+  {
+    "id": "body-lung-fact",
+    "category": "body",
+    "question": "Apakah fungsi asas paru-paru?",
+    "image": "assets/general/lung.webp",
+    "options": [
+      "Pertukaran oksigen dan karbon dioksida",
+      "Menghidu",
+      "Melihat",
+      "Berjalan"
+    ],
+    "correct": "Pertukaran oksigen dan karbon dioksida",
+    "explanation": "Paru-paru: Pertukaran oksigen dan karbon dioksida."
+  },
+  {
+    "id": "body-brain-name",
+    "category": "body",
+    "question": "Apakah anggota atau organ tubuh yang ditunjukkan?",
+    "image": "assets/general/brain.webp",
+    "options": [
+      "Otak",
+      "Gigi",
+      "Otot",
+      "Hidung"
+    ],
+    "correct": "Otak",
+    "explanation": "Otak ditunjukkan dalam gambar."
+  },
+  {
+    "id": "body-brain-fact",
+    "category": "body",
+    "question": "Apakah fungsi asas otak?",
+    "image": "assets/general/brain.webp",
+    "options": [
+      "Mengawal banyak aktiviti tubuh",
+      "Membantu tubuh bergerak",
+      "Merasa",
+      "Mengepam darah"
+    ],
+    "correct": "Mengawal banyak aktiviti tubuh",
+    "explanation": "Otak: Mengawal banyak aktiviti tubuh."
+  },
+  {
+    "id": "body-stomach-name",
+    "category": "body",
+    "question": "Apakah anggota atau organ tubuh yang ditunjukkan?",
+    "image": "assets/general/stomach.webp",
+    "options": [
+      "Perut",
+      "Hidung",
+      "Lidah",
+      "Kaki"
+    ],
+    "correct": "Perut",
+    "explanation": "Perut ditunjukkan dalam gambar."
+  },
+  {
+    "id": "body-stomach-fact",
+    "category": "body",
+    "question": "Apakah fungsi asas perut?",
+    "image": "assets/general/stomach.webp",
+    "options": [
+      "Membantu menghadam makanan",
+      "Menyokong tubuh",
+      "Menapis darah dan menghasilkan air kencing",
+      "Merasa"
+    ],
+    "correct": "Membantu menghadam makanan",
+    "explanation": "Perut: Membantu menghadam makanan."
+  },
+  {
+    "id": "body-kidney-name",
+    "category": "body",
+    "question": "Apakah anggota atau organ tubuh yang ditunjukkan?",
+    "image": "assets/general/kidney.webp",
+    "options": [
+      "Buah pinggang",
+      "Telinga",
+      "Tangan",
+      "Kaki"
+    ],
+    "correct": "Buah pinggang",
+    "explanation": "Buah pinggang ditunjukkan dalam gambar."
+  },
+  {
+    "id": "body-kidney-fact",
+    "category": "body",
+    "question": "Apakah fungsi asas buah pinggang?",
+    "image": "assets/general/kidney.webp",
+    "options": [
+      "Menapis darah dan menghasilkan air kencing",
+      "Membantu tubuh bergerak",
+      "Mengunyah makanan",
+      "Berjalan"
+    ],
+    "correct": "Menapis darah dan menghasilkan air kencing",
+    "explanation": "Buah pinggang: Menapis darah dan menghasilkan air kencing."
+  },
+  {
+    "id": "body-skeleton-name",
+    "category": "body",
+    "question": "Apakah anggota atau organ tubuh yang ditunjukkan?",
+    "image": "assets/general/skeleton.webp",
+    "options": [
+      "Rangka",
+      "Lidah",
+      "Kaki",
+      "Perut"
+    ],
+    "correct": "Rangka",
+    "explanation": "Rangka ditunjukkan dalam gambar."
+  },
+  {
+    "id": "body-skeleton-fact",
+    "category": "body",
+    "question": "Apakah fungsi asas rangka?",
+    "image": "assets/general/skeleton.webp",
+    "options": [
+      "Menyokong tubuh",
+      "Melihat",
+      "Mengunyah makanan",
+      "Merasa"
+    ],
+    "correct": "Menyokong tubuh",
+    "explanation": "Rangka: Menyokong tubuh."
+  },
+  {
+    "id": "body-teeth-name",
+    "category": "body",
+    "question": "Apakah anggota atau organ tubuh yang ditunjukkan?",
+    "image": "assets/general/teeth.webp",
+    "options": [
+      "Gigi",
+      "Kulit",
+      "Otot",
+      "Lidah"
+    ],
+    "correct": "Gigi",
+    "explanation": "Gigi ditunjukkan dalam gambar."
+  },
+  {
+    "id": "body-teeth-fact",
+    "category": "body",
+    "question": "Apakah fungsi asas gigi?",
+    "image": "assets/general/teeth.webp",
+    "options": [
+      "Mengunyah makanan",
+      "Merasa",
+      "Membantu menghadam makanan",
+      "Mengepam darah"
+    ],
+    "correct": "Mengunyah makanan",
+    "explanation": "Gigi: Mengunyah makanan."
+  },
+  {
+    "id": "body-skin-name",
+    "category": "body",
+    "question": "Apakah anggota atau organ tubuh yang ditunjukkan?",
+    "image": "assets/general/skin.webp",
+    "options": [
+      "Kulit",
+      "Mata",
+      "Lidah",
+      "Buah pinggang"
+    ],
+    "correct": "Kulit",
+    "explanation": "Kulit ditunjukkan dalam gambar."
+  },
+  {
+    "id": "body-skin-fact",
+    "category": "body",
+    "question": "Apakah fungsi asas kulit?",
+    "image": "assets/general/skin.webp",
+    "options": [
+      "Mengesan sentuhan",
+      "Memegang",
+      "Membantu tubuh bergerak",
+      "Mengawal banyak aktiviti tubuh"
+    ],
+    "correct": "Mengesan sentuhan",
+    "explanation": "Kulit: Mengesan sentuhan."
+  },
+  {
+    "id": "body-muscle-name",
+    "category": "body",
+    "question": "Apakah anggota atau organ tubuh yang ditunjukkan?",
+    "image": "assets/general/muscle.webp",
+    "options": [
+      "Otot",
+      "Paru-paru",
+      "Buah pinggang",
+      "Gigi"
+    ],
+    "correct": "Otot",
+    "explanation": "Otot ditunjukkan dalam gambar."
+  },
+  {
+    "id": "body-muscle-fact",
+    "category": "body",
+    "question": "Apakah fungsi asas otot?",
+    "image": "assets/general/muscle.webp",
+    "options": [
+      "Membantu tubuh bergerak",
+      "Menapis darah dan menghasilkan air kencing",
+      "Menyokong tubuh",
+      "Mengesan sentuhan"
+    ],
+    "correct": "Membantu tubuh bergerak",
+    "explanation": "Otot: Membantu tubuh bergerak."
+  }
+]

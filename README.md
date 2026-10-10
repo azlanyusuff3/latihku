@@ -1,4 +1,4 @@
-# LatihKu v24.1.0
+# LatihKu v24.2.0
 
 LatihKu is a local-first and offline-first learning and practice PWA for Malaysian **Sekolah Kebangsaan** pupils from Pra to Tahun 6. It uses vanilla HTML, CSS and JavaScript, with no account, backend, cloud database, remote AI API or build step. Host the static repository over HTTPS, such as GitHub Pages, or run it on localhost for development.
 
@@ -22,8 +22,49 @@ The service worker precaches versioned shell URLs and uses release-specific cach
 
 Run `node tests/check.mjs` with Node 22. GitHub Actions runs it on push and pull requests. It checks pack paths, counts, sizes and topics, coloring and icon assets, generated MCQs across supported years and subjects, anti-repeat behavior, migration, backup validation and timer calculations. Deploy the repository's static files to GitHub Pages; no package install or compilation is needed. Confirm touch drawing and PWA installation on actual iPhone and Android devices when publishing.
 
-## Kuiz General: Bendera Dunia
+## Bendera Dunia dalam Kuiz General
 
-A separate **General** category offers a visual multiple-choice flag quiz with 195 sovereign countries (193 UN members plus Palestine and Vatican City). Each question shows a bundled SVG flag and four randomized country-name answers. A set has 5, 10, 20, or 30 unique flags; recent flags are deprioritized across sessions. Users receive immediate correctness feedback, review answers, earn the same global XP, and can save/resume the active General session. General history and summary are stored separately from SK subjects, preserving existing year/subject choices, school progress and backups.
+The **Bendera Negara** category within General offers a visual multiple-choice flag quiz with 195 sovereign countries (193 UN members plus Palestine and Vatican City). Each question shows a bundled SVG flag and four randomized country-name answers. A set has 5, 10, 20, or 30 unique flags; recent flags are deprioritized across sessions. Users receive immediate correctness feedback, review answers, earn the same global XP, and can save/resume the active General session. General history and summary are stored separately from SK subjects, preserving existing year/subject choices, school progress and backups.
 
 The SVG sprite (`assets/world-flags.svg`) is distributed locally and precached by the service worker; **no image CDN or network call is needed for questions after installation/update**. The artwork comes from [amckenna41/iso3166-flags](https://github.com/amckenna41/iso3166-flags), MIT-licensed (full notice: `assets/FLAGS_LICENSE.txt`). Country English fallback names are based on [hampusborgos/country-flags](https://github.com/hampusborgos/country-flags); display names use the device's Malay locale where supported. This General bank intentionally excludes dependent territories; it can be expanded separately if desired.
+
+
+## Kuiz General — v24.2.0
+
+Menu General berasingan daripada Pra dan Tahun 1–6. 963 soalan dalam dua puluh kategori:
+Bendera Negara, Ibu Negara, Negara & Peta Dunia, Mercu Tanda Dunia,
+Kenali Malaysia, Makanan Malaysia & Dunia, Buah & Sayur, Haiwan,
+Bunyi Haiwan, Tumbuhan & Bunga, Angkasa Lepas, Tubuh Badan Manusia,
+Lima Deria, Kenderaan, Papan Tanda Jalan & Keselamatan, Pekerjaan,
+Sukan, Alat Muzik, Warna/Bentuk/Corak dan Brain Challenge/Logik.
+
+Setiap kategori mempunyai sesi 5, 10, 20 atau 30 soalan rawak, empat pilihan
+jawapan, feedback, penerangan, semakan bergambar dan resume. ID soalan tidak
+berulang dalam satu sesi; imej atau subjek boleh muncul dalam soalan yang berbeza.
+Progress General direkodkan berasingan dengan statistik sepanjang penggunaan.
+XP menggunakan sistem global sedia ada. Tiada daily challenge, badge atau
+leaderboard baru. Kuiz bendera lama dan rekodnya dimigrasikan secara selamat.
+
+Semua imej dan rakaman audio sebenar dibundle dalam repo. Service worker
+menyimpan aset General ketika pemasangan update; pastikan status General
+menyatakan semua kategori tersedia offline sebelum memutuskan internet.
+Update yang gagal memuatkan satu aset tidak menggantikan worker lama.
+Imej soalan ialah foto, ilustrasi anatomi, garis bentuk geografi sebenar atau
+komposisi puzzle daripada foto. Imej utama soalan tidak menggunakan emoji/icon.
+
+Attribution: [assets/general/ATTRIBUTION.md](assets/general/ATTRIBUTION.md),
+[sources.json](assets/general/sources.json) dan
+[audio-sources.json](assets/general/audio-sources.json).
+Audio ESC-50 dipilih **hanya daripada fail individu yang dinyatakan CC0**
+dalam LICENSE sumber; bukan lesen keseluruhan dataset.
+Peta Natural Earth adalah public domain. Fakta geografi daripada
+mledoze/countries mempunyai lesen ODbL; sumber dan subset disimpan dalam
+`data/general/geography-reference.json`.
+
+Bank JSON berada dalam `data/general/`. `general-data.js` ialah bank runtime
+synchronous, `general-engine.js` mengurus generation/validation/migration,
+dan `general-assets.js` ialah inventory precache. Alat build Python dalam
+`scripts/` hanya digunakan semasa pembangunan; app tidak mempunyai runtime API.
+
+Checks: `node tests/check.mjs`, `node tests/general.mjs` dan `node tests/general-worker.mjs`.
+Browser regression: `node tests/general-browser.cjs` (Playwright diperlukan).

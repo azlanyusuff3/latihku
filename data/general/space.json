@@ -1,0 +1,422 @@
+[
+  {
+    "id": "space-mercury-name",
+    "category": "space",
+    "question": "Apakah nama objek angkasa ini?",
+    "image": "assets/general/mercury.webp",
+    "options": [
+      "Utarid",
+      "Musytari",
+      "Komet",
+      "Matahari"
+    ],
+    "correct": "Utarid",
+    "explanation": "Utarid ditunjukkan dalam gambar."
+  },
+  {
+    "id": "space-mercury-fact",
+    "category": "space",
+    "question": "Pernyataan manakah yang betul tentang Utarid?",
+    "image": "assets/general/mercury.webp",
+    "options": [
+      "Planet paling hampir dengan Matahari",
+      "Membawa muatan ke angkasa",
+      "Bintang paling hampir dengan Bumi",
+      "Dikenali sebagai Planet Merah"
+    ],
+    "correct": "Planet paling hampir dengan Matahari",
+    "explanation": "Utarid: Planet paling hampir dengan Matahari."
+  },
+  {
+    "id": "space-venus-name",
+    "category": "space",
+    "question": "Apakah nama objek angkasa ini?",
+    "image": "assets/general/venus.webp",
+    "options": [
+      "Zuhrah",
+      "Zuhal",
+      "Uranus",
+      "Utarid"
+    ],
+    "correct": "Zuhrah",
+    "explanation": "Zuhrah ditunjukkan dalam gambar."
+  },
+  {
+    "id": "space-venus-fact",
+    "category": "space",
+    "question": "Pernyataan manakah yang betul tentang Zuhrah?",
+    "image": "assets/general/venus.webp",
+    "options": [
+      "Planet kedua dari Matahari",
+      "Planet paling hampir dengan Matahari",
+      "Kumpulan sangat banyak bintang",
+      "Planet kelapan dari Matahari"
+    ],
+    "correct": "Planet kedua dari Matahari",
+    "explanation": "Zuhrah: Planet kedua dari Matahari."
+  },
+  {
+    "id": "space-earth-name",
+    "category": "space",
+    "question": "Apakah nama objek angkasa ini?",
+    "image": "assets/general/earth.webp",
+    "options": [
+      "Bumi",
+      "Neptun",
+      "Galaksi",
+      "Zuhal"
+    ],
+    "correct": "Bumi",
+    "explanation": "Bumi ditunjukkan dalam gambar."
+  },
+  {
+    "id": "space-earth-fact",
+    "category": "space",
+    "question": "Pernyataan manakah yang betul tentang Bumi?",
+    "image": "assets/general/earth.webp",
+    "options": [
+      "Planet tempat manusia tinggal",
+      "Planet terbesar dalam Sistem Suria",
+      "Planet kedua dari Matahari",
+      "Manusia yang bertugas di angkasa"
+    ],
+    "correct": "Planet tempat manusia tinggal",
+    "explanation": "Bumi: Planet tempat manusia tinggal."
+  },
+  {
+    "id": "space-mars-name",
+    "category": "space",
+    "question": "Apakah nama objek angkasa ini?",
+    "image": "assets/general/mars.webp",
+    "options": [
+      "Marikh",
+      "Musytari",
+      "Galaksi",
+      "Neptun"
+    ],
+    "correct": "Marikh",
+    "explanation": "Marikh ditunjukkan dalam gambar."
+  },
+  {
+    "id": "space-mars-fact",
+    "category": "space",
+    "question": "Pernyataan manakah yang betul tentang Marikh?",
+    "image": "assets/general/mars.webp",
+    "options": [
+      "Dikenali sebagai Planet Merah",
+      "Planet terbesar dalam Sistem Suria",
+      "Manusia yang bertugas di angkasa",
+      "Planet tempat manusia tinggal"
+    ],
+    "correct": "Dikenali sebagai Planet Merah",
+    "explanation": "Marikh: Dikenali sebagai Planet Merah."
+  },
+  {
+    "id": "space-jupiter-name",
+    "category": "space",
+    "question": "Apakah nama objek angkasa ini?",
+    "image": "assets/general/jupiter.webp",
+    "options": [
+      "Musytari",
+      "Bumi",
+      "Zuhrah",
+      "Roket"
+    ],
+    "correct": "Musytari",
+    "explanation": "Musytari ditunjukkan dalam gambar."
+  },
+  {
+    "id": "space-jupiter-fact",
+    "category": "space",
+    "question": "Pernyataan manakah yang betul tentang Musytari?",
+    "image": "assets/general/jupiter.webp",
+    "options": [
+      "Planet terbesar dalam Sistem Suria",
+      "Satelit semula jadi Bumi",
+      "Bintang paling hampir dengan Bumi",
+      "Membawa muatan ke angkasa"
+    ],
+    "correct": "Planet terbesar dalam Sistem Suria",
+    "explanation": "Musytari: Planet terbesar dalam Sistem Suria."
+  },
+  {
+    "id": "space-saturn-name",
+    "category": "space",
+    "question": "Apakah nama objek angkasa ini?",
+    "image": "assets/general/saturn.webp",
+    "options": [
+      "Zuhal",
+      "Musytari",
+      "Bumi",
+      "Marikh"
+    ],
+    "correct": "Zuhal",
+    "explanation": "Zuhal ditunjukkan dalam gambar."
+  },
+  {
+    "id": "space-saturn-fact",
+    "category": "space",
+    "question": "Pernyataan manakah yang betul tentang Zuhal?",
+    "image": "assets/general/saturn.webp",
+    "options": [
+      "Mempunyai sistem cincin yang jelas",
+      "Planet tempat manusia tinggal",
+      "Planet kelapan dari Matahari",
+      "Planet kedua dari Matahari"
+    ],
+    "correct": "Mempunyai sistem cincin yang jelas",
+    "explanation": "Zuhal: Mempunyai sistem cincin yang jelas."
+  },
+  {
+    "id": "space-uranus-name",
+    "category": "space",
+    "question": "Apakah nama objek angkasa ini?",
+    "image": "assets/general/uranus.webp",
+    "options": [
+      "Uranus",
+      "Stesen Angkasa Antarabangsa",
+      "Bulan",
+      "Komet"
+    ],
+    "correct": "Uranus",
+    "explanation": "Uranus ditunjukkan dalam gambar."
+  },
+  {
+    "id": "space-uranus-fact",
+    "category": "space",
+    "question": "Pernyataan manakah yang betul tentang Uranus?",
+    "image": "assets/general/uranus.webp",
+    "options": [
+      "Planet ketujuh dari Matahari",
+      "Satelit semula jadi Bumi",
+      "Membawa muatan ke angkasa",
+      "Dikenali sebagai Planet Merah"
+    ],
+    "correct": "Planet ketujuh dari Matahari",
+    "explanation": "Uranus: Planet ketujuh dari Matahari."
+  },
+  {
+    "id": "space-neptune-name",
+    "category": "space",
+    "question": "Apakah nama objek angkasa ini?",
+    "image": "assets/general/neptune.webp",
+    "options": [
+      "Neptun",
+      "Stesen Angkasa Antarabangsa",
+      "Zuhrah",
+      "Uranus"
+    ],
+    "correct": "Neptun",
+    "explanation": "Neptun ditunjukkan dalam gambar."
+  },
+  {
+    "id": "space-neptune-fact",
+    "category": "space",
+    "question": "Pernyataan manakah yang betul tentang Neptun?",
+    "image": "assets/general/neptune.webp",
+    "options": [
+      "Planet kelapan dari Matahari",
+      "Planet paling hampir dengan Matahari",
+      "Kumpulan sangat banyak bintang",
+      "Planet tempat manusia tinggal"
+    ],
+    "correct": "Planet kelapan dari Matahari",
+    "explanation": "Neptun: Planet kelapan dari Matahari."
+  },
+  {
+    "id": "space-moon-name",
+    "category": "space",
+    "question": "Apakah nama objek angkasa ini?",
+    "image": "assets/general/moon.webp",
+    "options": [
+      "Bulan",
+      "Galaksi",
+      "Marikh",
+      "Roket"
+    ],
+    "correct": "Bulan",
+    "explanation": "Bulan ditunjukkan dalam gambar."
+  },
+  {
+    "id": "space-moon-fact",
+    "category": "space",
+    "question": "Pernyataan manakah yang betul tentang Bulan?",
+    "image": "assets/general/moon.webp",
+    "options": [
+      "Satelit semula jadi Bumi",
+      "Planet kedua dari Matahari",
+      "Mempunyai sistem cincin yang jelas",
+      "Bintang paling hampir dengan Bumi"
+    ],
+    "correct": "Satelit semula jadi Bumi",
+    "explanation": "Bulan: Satelit semula jadi Bumi."
+  },
+  {
+    "id": "space-sun-name",
+    "category": "space",
+    "question": "Apakah nama objek angkasa ini?",
+    "image": "assets/general/sun.webp",
+    "options": [
+      "Matahari",
+      "Neptun",
+      "Utarid",
+      "Uranus"
+    ],
+    "correct": "Matahari",
+    "explanation": "Matahari ditunjukkan dalam gambar."
+  },
+  {
+    "id": "space-sun-fact",
+    "category": "space",
+    "question": "Pernyataan manakah yang betul tentang Matahari?",
+    "image": "assets/general/sun.webp",
+    "options": [
+      "Bintang paling hampir dengan Bumi",
+      "Dikenali sebagai Planet Merah",
+      "Manusia yang bertugas di angkasa",
+      "Planet kedua dari Matahari"
+    ],
+    "correct": "Bintang paling hampir dengan Bumi",
+    "explanation": "Matahari: Bintang paling hampir dengan Bumi."
+  },
+  {
+    "id": "space-rocket-name",
+    "category": "space",
+    "question": "Apakah nama objek angkasa ini?",
+    "image": "assets/general/rocket.webp",
+    "options": [
+      "Roket",
+      "Neptun",
+      "Galaksi",
+      "Matahari"
+    ],
+    "correct": "Roket",
+    "explanation": "Roket ditunjukkan dalam gambar."
+  },
+  {
+    "id": "space-rocket-fact",
+    "category": "space",
+    "question": "Pernyataan manakah yang betul tentang Roket?",
+    "image": "assets/general/rocket.webp",
+    "options": [
+      "Membawa muatan ke angkasa",
+      "Planet paling hampir dengan Matahari",
+      "Planet tempat manusia tinggal",
+      "Objek berais yang boleh membentuk ekor"
+    ],
+    "correct": "Membawa muatan ke angkasa",
+    "explanation": "Roket: Membawa muatan ke angkasa."
+  },
+  {
+    "id": "space-astronaut-name",
+    "category": "space",
+    "question": "Apakah nama objek angkasa ini?",
+    "image": "assets/general/astronaut.webp",
+    "options": [
+      "Angkasawan",
+      "Zuhrah",
+      "Musytari",
+      "Utarid"
+    ],
+    "correct": "Angkasawan",
+    "explanation": "Angkasawan ditunjukkan dalam gambar."
+  },
+  {
+    "id": "space-astronaut-fact",
+    "category": "space",
+    "question": "Pernyataan manakah yang betul tentang Angkasawan?",
+    "image": "assets/general/astronaut.webp",
+    "options": [
+      "Manusia yang bertugas di angkasa",
+      "Planet ketujuh dari Matahari",
+      "Makmal yang mengorbit Bumi",
+      "Kumpulan sangat banyak bintang"
+    ],
+    "correct": "Manusia yang bertugas di angkasa",
+    "explanation": "Angkasawan: Manusia yang bertugas di angkasa."
+  },
+  {
+    "id": "space-iss-name",
+    "category": "space",
+    "question": "Apakah nama objek angkasa ini?",
+    "image": "assets/general/iss.webp",
+    "options": [
+      "Stesen Angkasa Antarabangsa",
+      "Galaksi",
+      "Bumi",
+      "Zuhrah"
+    ],
+    "correct": "Stesen Angkasa Antarabangsa",
+    "explanation": "Stesen Angkasa Antarabangsa ditunjukkan dalam gambar."
+  },
+  {
+    "id": "space-iss-fact",
+    "category": "space",
+    "question": "Pernyataan manakah yang betul tentang Stesen Angkasa Antarabangsa?",
+    "image": "assets/general/iss.webp",
+    "options": [
+      "Makmal yang mengorbit Bumi",
+      "Planet terbesar dalam Sistem Suria",
+      "Mempunyai sistem cincin yang jelas",
+      "Satelit semula jadi Bumi"
+    ],
+    "correct": "Makmal yang mengorbit Bumi",
+    "explanation": "Stesen Angkasa Antarabangsa: Makmal yang mengorbit Bumi."
+  },
+  {
+    "id": "space-comet-name",
+    "category": "space",
+    "question": "Apakah nama objek angkasa ini?",
+    "image": "assets/general/comet.webp",
+    "options": [
+      "Komet",
+      "Bulan",
+      "Uranus",
+      "Angkasawan"
+    ],
+    "correct": "Komet",
+    "explanation": "Komet ditunjukkan dalam gambar."
+  },
+  {
+    "id": "space-comet-fact",
+    "category": "space",
+    "question": "Pernyataan manakah yang betul tentang Komet?",
+    "image": "assets/general/comet.webp",
+    "options": [
+      "Objek berais yang boleh membentuk ekor",
+      "Mempunyai sistem cincin yang jelas",
+      "Membawa muatan ke angkasa",
+      "Planet tempat manusia tinggal"
+    ],
+    "correct": "Objek berais yang boleh membentuk ekor",
+    "explanation": "Komet: Objek berais yang boleh membentuk ekor."
+  },
+  {
+    "id": "space-galaxy-name",
+    "category": "space",
+    "question": "Apakah nama objek angkasa ini?",
+    "image": "assets/general/galaxy.webp",
+    "options": [
+      "Galaksi",
+      "Bumi",
+      "Roket",
+      "Bulan"
+    ],
+    "correct": "Galaksi",
+    "explanation": "Galaksi ditunjukkan dalam gambar."
+  },
+  {
+    "id": "space-galaxy-fact",
+    "category": "space",
+    "question": "Pernyataan manakah yang betul tentang Galaksi?",
+    "image": "assets/general/galaxy.webp",
+    "options": [
+      "Kumpulan sangat banyak bintang",
+      "Planet paling hampir dengan Matahari",
+      "Satelit semula jadi Bumi",
+      "Planet kedua dari Matahari"
+    ],
+    "correct": "Kumpulan sangat banyak bintang",
+    "explanation": "Galaksi: Kumpulan sangat banyak bintang."
+  }
+]

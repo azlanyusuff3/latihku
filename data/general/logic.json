@@ -1,0 +1,422 @@
+[
+  {
+    "id": "logic-0",
+    "category": "logic",
+    "question": "Apakah gambar seterusnya dalam urutan ini?",
+    "image": "assets/general/logic-0.webp",
+    "options": [
+      "Epal",
+      "Tembikai",
+      "Kubis",
+      "Brokoli"
+    ],
+    "correct": "Epal",
+    "explanation": "Urutan mengulang dua gambar secara berselang-seli."
+  },
+  {
+    "id": "logic-1",
+    "category": "logic",
+    "question": "Apakah gambar seterusnya dalam urutan ini?",
+    "image": "assets/general/logic-1.webp",
+    "options": [
+      "Pisang",
+      "Lobak merah",
+      "Nanas",
+      "Terung"
+    ],
+    "correct": "Pisang",
+    "explanation": "Urutan mengulang dua gambar secara berselang-seli."
+  },
+  {
+    "id": "logic-2",
+    "category": "logic",
+    "question": "Apakah gambar seterusnya dalam urutan ini?",
+    "image": "assets/general/logic-2.webp",
+    "options": [
+      "Oren",
+      "Mangga",
+      "Bawang",
+      "Lobak merah"
+    ],
+    "correct": "Oren",
+    "explanation": "Urutan mengulang dua gambar secara berselang-seli."
+  },
+  {
+    "id": "logic-3",
+    "category": "logic",
+    "question": "Apakah gambar seterusnya dalam urutan ini?",
+    "image": "assets/general/logic-3.webp",
+    "options": [
+      "Kiwi",
+      "Oren",
+      "Durian",
+      "Mangga"
+    ],
+    "correct": "Kiwi",
+    "explanation": "Urutan mengulang dua gambar secara berselang-seli."
+  },
+  {
+    "id": "logic-4",
+    "category": "logic",
+    "question": "Apakah gambar seterusnya dalam urutan ini?",
+    "image": "assets/general/logic-4.webp",
+    "options": [
+      "Lobak merah",
+      "Brokoli",
+      "Tembikai",
+      "Kubis"
+    ],
+    "correct": "Lobak merah",
+    "explanation": "Urutan mengulang dua gambar secara berselang-seli."
+  },
+  {
+    "id": "logic-5",
+    "category": "logic",
+    "question": "Apakah gambar seterusnya dalam urutan ini?",
+    "image": "assets/general/logic-5.webp",
+    "options": [
+      "Brokoli",
+      "Pisang",
+      "Oren",
+      "Strawberi"
+    ],
+    "correct": "Brokoli",
+    "explanation": "Urutan mengulang dua gambar secara berselang-seli."
+  },
+  {
+    "id": "logic-6",
+    "category": "logic",
+    "question": "Apakah gambar seterusnya dalam urutan ini?",
+    "image": "assets/general/logic-6.webp",
+    "options": [
+      "Strawberi",
+      "Kubis",
+      "Epal",
+      "Kiwi"
+    ],
+    "correct": "Strawberi",
+    "explanation": "Urutan mengulang dua gambar secara berselang-seli."
+  },
+  {
+    "id": "logic-7",
+    "category": "logic",
+    "question": "Apakah gambar seterusnya dalam urutan ini?",
+    "image": "assets/general/logic-7.webp",
+    "options": [
+      "Anggur",
+      "Durian",
+      "Mangga",
+      "Epal"
+    ],
+    "correct": "Anggur",
+    "explanation": "Urutan mengulang dua gambar secara berselang-seli."
+  },
+  {
+    "id": "logic-8",
+    "category": "logic",
+    "question": "Apakah gambar seterusnya dalam urutan ini?",
+    "image": "assets/general/logic-8.webp",
+    "options": [
+      "Tembikai",
+      "Bawang",
+      "Strawberi",
+      "Brokoli"
+    ],
+    "correct": "Tembikai",
+    "explanation": "Urutan mengulang dua gambar secara berselang-seli."
+  },
+  {
+    "id": "logic-9",
+    "category": "logic",
+    "question": "Apakah gambar seterusnya dalam urutan ini?",
+    "image": "assets/general/logic-9.webp",
+    "options": [
+      "Nanas",
+      "Strawberi",
+      "Kiwi",
+      "Mangga"
+    ],
+    "correct": "Nanas",
+    "explanation": "Urutan mengulang dua gambar secara berselang-seli."
+  },
+  {
+    "id": "logic-10",
+    "category": "logic",
+    "question": "Panel manakah berbeza daripada tiga yang lain?",
+    "image": "assets/general/logic-10.webp",
+    "options": [
+      "Panel 3",
+      "Panel 4",
+      "Panel 1",
+      "Panel 2"
+    ],
+    "correct": "Panel 3",
+    "explanation": "Panel 3 menunjukkan Oren, sementara panel lain menunjukkan Epal."
+  },
+  {
+    "id": "logic-11",
+    "category": "logic",
+    "question": "Panel manakah berbeza daripada tiga yang lain?",
+    "image": "assets/general/logic-11.webp",
+    "options": [
+      "Panel 3",
+      "Panel 4",
+      "Panel 1",
+      "Panel 2"
+    ],
+    "correct": "Panel 3",
+    "explanation": "Panel 3 menunjukkan Kiwi, sementara panel lain menunjukkan Pisang."
+  },
+  {
+    "id": "logic-12",
+    "category": "logic",
+    "question": "Panel manakah berbeza daripada tiga yang lain?",
+    "image": "assets/general/logic-12.webp",
+    "options": [
+      "Panel 3",
+      "Panel 2",
+      "Panel 1",
+      "Panel 4"
+    ],
+    "correct": "Panel 3",
+    "explanation": "Panel 3 menunjukkan Lobak merah, sementara panel lain menunjukkan Oren."
+  },
+  {
+    "id": "logic-13",
+    "category": "logic",
+    "question": "Panel manakah berbeza daripada tiga yang lain?",
+    "image": "assets/general/logic-13.webp",
+    "options": [
+      "Panel 3",
+      "Panel 2",
+      "Panel 1",
+      "Panel 4"
+    ],
+    "correct": "Panel 3",
+    "explanation": "Panel 3 menunjukkan Brokoli, sementara panel lain menunjukkan Kiwi."
+  },
+  {
+    "id": "logic-14",
+    "category": "logic",
+    "question": "Panel manakah berbeza daripada tiga yang lain?",
+    "image": "assets/general/logic-14.webp",
+    "options": [
+      "Panel 3",
+      "Panel 2",
+      "Panel 1",
+      "Panel 4"
+    ],
+    "correct": "Panel 3",
+    "explanation": "Panel 3 menunjukkan Strawberi, sementara panel lain menunjukkan Lobak merah."
+  },
+  {
+    "id": "logic-15",
+    "category": "logic",
+    "question": "Panel manakah berbeza daripada tiga yang lain?",
+    "image": "assets/general/logic-15.webp",
+    "options": [
+      "Panel 3",
+      "Panel 2",
+      "Panel 4",
+      "Panel 1"
+    ],
+    "correct": "Panel 3",
+    "explanation": "Panel 3 menunjukkan Anggur, sementara panel lain menunjukkan Brokoli."
+  },
+  {
+    "id": "logic-16",
+    "category": "logic",
+    "question": "Panel manakah berbeza daripada tiga yang lain?",
+    "image": "assets/general/logic-16.webp",
+    "options": [
+      "Panel 3",
+      "Panel 1",
+      "Panel 4",
+      "Panel 2"
+    ],
+    "correct": "Panel 3",
+    "explanation": "Panel 3 menunjukkan Tembikai, sementara panel lain menunjukkan Strawberi."
+  },
+  {
+    "id": "logic-17",
+    "category": "logic",
+    "question": "Panel manakah berbeza daripada tiga yang lain?",
+    "image": "assets/general/logic-17.webp",
+    "options": [
+      "Panel 3",
+      "Panel 2",
+      "Panel 1",
+      "Panel 4"
+    ],
+    "correct": "Panel 3",
+    "explanation": "Panel 3 menunjukkan Nanas, sementara panel lain menunjukkan Anggur."
+  },
+  {
+    "id": "logic-18",
+    "category": "logic",
+    "question": "Panel manakah berbeza daripada tiga yang lain?",
+    "image": "assets/general/logic-18.webp",
+    "options": [
+      "Panel 3",
+      "Panel 1",
+      "Panel 4",
+      "Panel 2"
+    ],
+    "correct": "Panel 3",
+    "explanation": "Panel 3 menunjukkan Epal, sementara panel lain menunjukkan Tembikai."
+  },
+  {
+    "id": "logic-19",
+    "category": "logic",
+    "question": "Panel manakah berbeza daripada tiga yang lain?",
+    "image": "assets/general/logic-19.webp",
+    "options": [
+      "Panel 3",
+      "Panel 1",
+      "Panel 2",
+      "Panel 4"
+    ],
+    "correct": "Panel 3",
+    "explanation": "Panel 3 menunjukkan Pisang, sementara panel lain menunjukkan Nanas."
+  },
+  {
+    "id": "logic-20",
+    "category": "logic",
+    "question": "Pilih gambar untuk melengkapkan corak tiga gambar ini.",
+    "image": "assets/general/logic-20.webp",
+    "options": [
+      "Brokoli",
+      "Strawberi",
+      "Nanas",
+      "Bawang"
+    ],
+    "correct": "Brokoli",
+    "explanation": "Urutan mengulang Epal, Oren, Brokoli."
+  },
+  {
+    "id": "logic-21",
+    "category": "logic",
+    "question": "Pilih gambar untuk melengkapkan corak tiga gambar ini.",
+    "image": "assets/general/logic-21.webp",
+    "options": [
+      "Strawberi",
+      "Terung",
+      "Mangga",
+      "Anggur"
+    ],
+    "correct": "Strawberi",
+    "explanation": "Urutan mengulang Pisang, Kiwi, Strawberi."
+  },
+  {
+    "id": "logic-22",
+    "category": "logic",
+    "question": "Pilih gambar untuk melengkapkan corak tiga gambar ini.",
+    "image": "assets/general/logic-22.webp",
+    "options": [
+      "Anggur",
+      "Tembikai",
+      "Pisang",
+      "Terung"
+    ],
+    "correct": "Anggur",
+    "explanation": "Urutan mengulang Oren, Lobak merah, Anggur."
+  },
+  {
+    "id": "logic-23",
+    "category": "logic",
+    "question": "Pilih gambar untuk melengkapkan corak tiga gambar ini.",
+    "image": "assets/general/logic-23.webp",
+    "options": [
+      "Tembikai",
+      "Anggur",
+      "Mangga",
+      "Lobak merah"
+    ],
+    "correct": "Tembikai",
+    "explanation": "Urutan mengulang Kiwi, Brokoli, Tembikai."
+  },
+  {
+    "id": "logic-24",
+    "category": "logic",
+    "question": "Pilih gambar untuk melengkapkan corak tiga gambar ini.",
+    "image": "assets/general/logic-24.webp",
+    "options": [
+      "Nanas",
+      "Kiwi",
+      "Durian",
+      "Kubis"
+    ],
+    "correct": "Nanas",
+    "explanation": "Urutan mengulang Lobak merah, Strawberi, Nanas."
+  },
+  {
+    "id": "logic-25",
+    "category": "logic",
+    "question": "Pilih gambar untuk melengkapkan corak tiga gambar ini.",
+    "image": "assets/general/logic-25.webp",
+    "options": [
+      "Epal",
+      "Oren",
+      "Anggur",
+      "Lobak merah"
+    ],
+    "correct": "Epal",
+    "explanation": "Urutan mengulang Brokoli, Anggur, Epal."
+  },
+  {
+    "id": "logic-26",
+    "category": "logic",
+    "question": "Pilih gambar untuk melengkapkan corak tiga gambar ini.",
+    "image": "assets/general/logic-26.webp",
+    "options": [
+      "Pisang",
+      "Lobak merah",
+      "Durian",
+      "Kiwi"
+    ],
+    "correct": "Pisang",
+    "explanation": "Urutan mengulang Strawberi, Tembikai, Pisang."
+  },
+  {
+    "id": "logic-27",
+    "category": "logic",
+    "question": "Pilih gambar untuk melengkapkan corak tiga gambar ini.",
+    "image": "assets/general/logic-27.webp",
+    "options": [
+      "Oren",
+      "Nanas",
+      "Kubis",
+      "Tembikai"
+    ],
+    "correct": "Oren",
+    "explanation": "Urutan mengulang Anggur, Nanas, Oren."
+  },
+  {
+    "id": "logic-28",
+    "category": "logic",
+    "question": "Pilih gambar untuk melengkapkan corak tiga gambar ini.",
+    "image": "assets/general/logic-28.webp",
+    "options": [
+      "Kiwi",
+      "Epal",
+      "Tembikai",
+      "Bawang"
+    ],
+    "correct": "Kiwi",
+    "explanation": "Urutan mengulang Tembikai, Epal, Kiwi."
+  },
+  {
+    "id": "logic-29",
+    "category": "logic",
+    "question": "Pilih gambar untuk melengkapkan corak tiga gambar ini.",
+    "image": "assets/general/logic-29.webp",
+    "options": [
+      "Lobak merah",
+      "Kiwi",
+      "Brokoli",
+      "Terung"
+    ],
+    "correct": "Lobak merah",
+    "explanation": "Urutan mengulang Nanas, Pisang, Lobak merah."
+  }
+]

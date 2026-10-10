@@ -1,0 +1,1766 @@
+[
+  {
+    "id": "maps-MY-name",
+    "category": "maps",
+    "question": "Bentuk negara dalam gambar mewakili negara mana?",
+    "image": "assets/general/map-MY.webp",
+    "options": [
+      "Malaysia",
+      "Brunei",
+      "Ecuador",
+      "Senegal"
+    ],
+    "correct": "Malaysia",
+    "explanation": "Ini garis bentuk Malaysia."
+  },
+  {
+    "id": "maps-MY-continent",
+    "category": "maps",
+    "question": "Malaysia terletak dalam benua atau rantau mana?",
+    "image": "assets/general/map-MY.webp",
+    "options": [
+      "Asia",
+      "Eropah",
+      "Amerika",
+      "Oceania"
+    ],
+    "correct": "Asia",
+    "explanation": "Malaysia terletak di Asia."
+  },
+  {
+    "id": "maps-JP-name",
+    "category": "maps",
+    "question": "Bentuk negara dalam gambar mewakili negara mana?",
+    "image": "assets/general/map-JP.webp",
+    "options": [
+      "Jepun",
+      "Sweden",
+      "Kanada",
+      "Ecuador"
+    ],
+    "correct": "Jepun",
+    "explanation": "Ini garis bentuk Jepun."
+  },
+  {
+    "id": "maps-JP-continent",
+    "category": "maps",
+    "question": "Jepun terletak dalam benua atau rantau mana?",
+    "image": "assets/general/map-JP.webp",
+    "options": [
+      "Asia",
+      "Oceania",
+      "Afrika",
+      "Amerika"
+    ],
+    "correct": "Asia",
+    "explanation": "Jepun terletak di Asia."
+  },
+  {
+    "id": "maps-KR-name",
+    "category": "maps",
+    "question": "Bentuk negara dalam gambar mewakili negara mana?",
+    "image": "assets/general/map-KR.webp",
+    "options": [
+      "Korea Selatan",
+      "Indonesia",
+      "Thailand",
+      "China"
+    ],
+    "correct": "Korea Selatan",
+    "explanation": "Ini garis bentuk Korea Selatan."
+  },
+  {
+    "id": "maps-KR-continent",
+    "category": "maps",
+    "question": "Korea Selatan terletak dalam benua atau rantau mana?",
+    "image": "assets/general/map-KR.webp",
+    "options": [
+      "Asia",
+      "Eropah",
+      "Amerika",
+      "Afrika"
+    ],
+    "correct": "Asia",
+    "explanation": "Korea Selatan terletak di Asia."
+  },
+  {
+    "id": "maps-CN-name",
+    "category": "maps",
+    "question": "Bentuk negara dalam gambar mewakili negara mana?",
+    "image": "assets/general/map-CN.webp",
+    "options": [
+      "China",
+      "Romania",
+      "Uganda",
+      "Austria"
+    ],
+    "correct": "China",
+    "explanation": "Ini garis bentuk China."
+  },
+  {
+    "id": "maps-CN-continent",
+    "category": "maps",
+    "question": "China terletak dalam benua atau rantau mana?",
+    "image": "assets/general/map-CN.webp",
+    "options": [
+      "Asia",
+      "Afrika",
+      "Oceania",
+      "Amerika"
+    ],
+    "correct": "Asia",
+    "explanation": "China terletak di Asia."
+  },
+  {
+    "id": "maps-TH-name",
+    "category": "maps",
+    "question": "Bentuk negara dalam gambar mewakili negara mana?",
+    "image": "assets/general/map-TH.webp",
+    "options": [
+      "Thailand",
+      "Singapura",
+      "Bhutan",
+      "India"
+    ],
+    "correct": "Thailand",
+    "explanation": "Ini garis bentuk Thailand."
+  },
+  {
+    "id": "maps-TH-continent",
+    "category": "maps",
+    "question": "Thailand terletak dalam benua atau rantau mana?",
+    "image": "assets/general/map-TH.webp",
+    "options": [
+      "Asia",
+      "Amerika",
+      "Afrika",
+      "Eropah"
+    ],
+    "correct": "Asia",
+    "explanation": "Thailand terletak di Asia."
+  },
+  {
+    "id": "maps-ID-name",
+    "category": "maps",
+    "question": "Bentuk negara dalam gambar mewakili negara mana?",
+    "image": "assets/general/map-ID.webp",
+    "options": [
+      "Indonesia",
+      "Chile",
+      "Korea Selatan",
+      "Jepun"
+    ],
+    "correct": "Indonesia",
+    "explanation": "Ini garis bentuk Indonesia."
+  },
+  {
+    "id": "maps-ID-continent",
+    "category": "maps",
+    "question": "Indonesia terletak dalam benua atau rantau mana?",
+    "image": "assets/general/map-ID.webp",
+    "options": [
+      "Asia",
+      "Afrika",
+      "Amerika",
+      "Eropah"
+    ],
+    "correct": "Asia",
+    "explanation": "Indonesia terletak di Asia."
+  },
+  {
+    "id": "maps-SG-name",
+    "category": "maps",
+    "question": "Bentuk negara dalam gambar mewakili negara mana?",
+    "image": "assets/general/map-SG.webp",
+    "options": [
+      "Singapura",
+      "Myanmar",
+      "Kenya",
+      "Tunisia"
+    ],
+    "correct": "Singapura",
+    "explanation": "Ini garis bentuk Singapura."
+  },
+  {
+    "id": "maps-SG-continent",
+    "category": "maps",
+    "question": "Singapura terletak dalam benua atau rantau mana?",
+    "image": "assets/general/map-SG.webp",
+    "options": [
+      "Asia",
+      "Eropah",
+      "Oceania",
+      "Amerika"
+    ],
+    "correct": "Asia",
+    "explanation": "Singapura terletak di Asia."
+  },
+  {
+    "id": "maps-BN-name",
+    "category": "maps",
+    "question": "Bentuk negara dalam gambar mewakili negara mana?",
+    "image": "assets/general/map-BN.webp",
+    "options": [
+      "Brunei",
+      "Mongolia",
+      "Colombia",
+      "Madagascar"
+    ],
+    "correct": "Brunei",
+    "explanation": "Ini garis bentuk Brunei."
+  },
+  {
+    "id": "maps-BN-continent",
+    "category": "maps",
+    "question": "Brunei terletak dalam benua atau rantau mana?",
+    "image": "assets/general/map-BN.webp",
+    "options": [
+      "Asia",
+      "Oceania",
+      "Amerika",
+      "Afrika"
+    ],
+    "correct": "Asia",
+    "explanation": "Brunei terletak di Asia."
+  },
+  {
+    "id": "maps-PH-name",
+    "category": "maps",
+    "question": "Bentuk negara dalam gambar mewakili negara mana?",
+    "image": "assets/general/map-PH.webp",
+    "options": [
+      "Filipina",
+      "Tanzania",
+      "Iceland",
+      "United Kingdom"
+    ],
+    "correct": "Filipina",
+    "explanation": "Ini garis bentuk Filipina."
+  },
+  {
+    "id": "maps-PH-continent",
+    "category": "maps",
+    "question": "Filipina terletak dalam benua atau rantau mana?",
+    "image": "assets/general/map-PH.webp",
+    "options": [
+      "Asia",
+      "Afrika",
+      "Oceania",
+      "Amerika"
+    ],
+    "correct": "Asia",
+    "explanation": "Filipina terletak di Asia."
+  },
+  {
+    "id": "maps-VN-name",
+    "category": "maps",
+    "question": "Bentuk negara dalam gambar mewakili negara mana?",
+    "image": "assets/general/map-VN.webp",
+    "options": [
+      "Vietnam",
+      "Venezuela",
+      "Pakistan",
+      "Denmark"
+    ],
+    "correct": "Vietnam",
+    "explanation": "Ini garis bentuk Vietnam."
+  },
+  {
+    "id": "maps-VN-continent",
+    "category": "maps",
+    "question": "Vietnam terletak dalam benua atau rantau mana?",
+    "image": "assets/general/map-VN.webp",
+    "options": [
+      "Asia",
+      "Amerika",
+      "Afrika",
+      "Oceania"
+    ],
+    "correct": "Asia",
+    "explanation": "Vietnam terletak di Asia."
+  },
+  {
+    "id": "maps-KH-name",
+    "category": "maps",
+    "question": "Bentuk negara dalam gambar mewakili negara mana?",
+    "image": "assets/general/map-KH.webp",
+    "options": [
+      "Kemboja",
+      "India",
+      "Amerika Syarikat",
+      "New Zealand"
+    ],
+    "correct": "Kemboja",
+    "explanation": "Ini garis bentuk Kemboja."
+  },
+  {
+    "id": "maps-KH-continent",
+    "category": "maps",
+    "question": "Kemboja terletak dalam benua atau rantau mana?",
+    "image": "assets/general/map-KH.webp",
+    "options": [
+      "Asia",
+      "Amerika",
+      "Eropah",
+      "Afrika"
+    ],
+    "correct": "Asia",
+    "explanation": "Kemboja terletak di Asia."
+  },
+  {
+    "id": "maps-LA-name",
+    "category": "maps",
+    "question": "Bentuk negara dalam gambar mewakili negara mana?",
+    "image": "assets/general/map-LA.webp",
+    "options": [
+      "Laos",
+      "Mongolia",
+      "Belanda",
+      "Tanzania"
+    ],
+    "correct": "Laos",
+    "explanation": "Ini garis bentuk Laos."
+  },
+  {
+    "id": "maps-LA-continent",
+    "category": "maps",
+    "question": "Laos terletak dalam benua atau rantau mana?",
+    "image": "assets/general/map-LA.webp",
+    "options": [
+      "Asia",
+      "Afrika",
+      "Amerika",
+      "Oceania"
+    ],
+    "correct": "Asia",
+    "explanation": "Laos terletak di Asia."
+  },
+  {
+    "id": "maps-MM-name",
+    "category": "maps",
+    "question": "Bentuk negara dalam gambar mewakili negara mana?",
+    "image": "assets/general/map-MM.webp",
+    "options": [
+      "Myanmar",
+      "Venezuela",
+      "Jepun",
+      "New Zealand"
+    ],
+    "correct": "Myanmar",
+    "explanation": "Ini garis bentuk Myanmar."
+  },
+  {
+    "id": "maps-MM-continent",
+    "category": "maps",
+    "question": "Myanmar terletak dalam benua atau rantau mana?",
+    "image": "assets/general/map-MM.webp",
+    "options": [
+      "Asia",
+      "Amerika",
+      "Oceania",
+      "Afrika"
+    ],
+    "correct": "Asia",
+    "explanation": "Myanmar terletak di Asia."
+  },
+  {
+    "id": "maps-IN-name",
+    "category": "maps",
+    "question": "Bentuk negara dalam gambar mewakili negara mana?",
+    "image": "assets/general/map-IN.webp",
+    "options": [
+      "India",
+      "Maldives",
+      "Jepun",
+      "Nepal"
+    ],
+    "correct": "India",
+    "explanation": "Ini garis bentuk India."
+  },
+  {
+    "id": "maps-IN-continent",
+    "category": "maps",
+    "question": "India terletak dalam benua atau rantau mana?",
+    "image": "assets/general/map-IN.webp",
+    "options": [
+      "Asia",
+      "Amerika",
+      "Afrika",
+      "Oceania"
+    ],
+    "correct": "Asia",
+    "explanation": "India terletak di Asia."
+  },
+  {
+    "id": "maps-PK-name",
+    "category": "maps",
+    "question": "Bentuk negara dalam gambar mewakili negara mana?",
+    "image": "assets/general/map-PK.webp",
+    "options": [
+      "Pakistan",
+      "Amerika Syarikat",
+      "India",
+      "Ukraine"
+    ],
+    "correct": "Pakistan",
+    "explanation": "Ini garis bentuk Pakistan."
+  },
+  {
+    "id": "maps-PK-continent",
+    "category": "maps",
+    "question": "Pakistan terletak dalam benua atau rantau mana?",
+    "image": "assets/general/map-PK.webp",
+    "options": [
+      "Asia",
+      "Eropah",
+      "Oceania",
+      "Amerika"
+    ],
+    "correct": "Asia",
+    "explanation": "Pakistan terletak di Asia."
+  },
+  {
+    "id": "maps-BD-name",
+    "category": "maps",
+    "question": "Bentuk negara dalam gambar mewakili negara mana?",
+    "image": "assets/general/map-BD.webp",
+    "options": [
+      "Bangladesh",
+      "Thailand",
+      "Indonesia",
+      "China"
+    ],
+    "correct": "Bangladesh",
+    "explanation": "Ini garis bentuk Bangladesh."
+  },
+  {
+    "id": "maps-BD-continent",
+    "category": "maps",
+    "question": "Bangladesh terletak dalam benua atau rantau mana?",
+    "image": "assets/general/map-BD.webp",
+    "options": [
+      "Asia",
+      "Oceania",
+      "Amerika",
+      "Afrika"
+    ],
+    "correct": "Asia",
+    "explanation": "Bangladesh terletak di Asia."
+  },
+  {
+    "id": "maps-NP-name",
+    "category": "maps",
+    "question": "Bentuk negara dalam gambar mewakili negara mana?",
+    "image": "assets/general/map-NP.webp",
+    "options": [
+      "Nepal",
+      "Poland",
+      "Filipina",
+      "Denmark"
+    ],
+    "correct": "Nepal",
+    "explanation": "Ini garis bentuk Nepal."
+  },
+  {
+    "id": "maps-NP-continent",
+    "category": "maps",
+    "question": "Nepal terletak dalam benua atau rantau mana?",
+    "image": "assets/general/map-NP.webp",
+    "options": [
+      "Asia",
+      "Amerika",
+      "Eropah",
+      "Oceania"
+    ],
+    "correct": "Asia",
+    "explanation": "Nepal terletak di Asia."
+  },
+  {
+    "id": "maps-BT-name",
+    "category": "maps",
+    "question": "Bentuk negara dalam gambar mewakili negara mana?",
+    "image": "assets/general/map-BT.webp",
+    "options": [
+      "Bhutan",
+      "Filipina",
+      "Hungary",
+      "Maghribi"
+    ],
+    "correct": "Bhutan",
+    "explanation": "Ini garis bentuk Bhutan."
+  },
+  {
+    "id": "maps-BT-continent",
+    "category": "maps",
+    "question": "Bhutan terletak dalam benua atau rantau mana?",
+    "image": "assets/general/map-BT.webp",
+    "options": [
+      "Asia",
+      "Eropah",
+      "Afrika",
+      "Oceania"
+    ],
+    "correct": "Asia",
+    "explanation": "Bhutan terletak di Asia."
+  },
+  {
+    "id": "maps-MV-name",
+    "category": "maps",
+    "question": "Bentuk negara dalam gambar mewakili negara mana?",
+    "image": "assets/general/map-MV.webp",
+    "options": [
+      "Maldives",
+      "Portugal",
+      "Sepanyol",
+      "Vietnam"
+    ],
+    "correct": "Maldives",
+    "explanation": "Ini garis bentuk Maldives."
+  },
+  {
+    "id": "maps-MV-continent",
+    "category": "maps",
+    "question": "Maldives terletak dalam benua atau rantau mana?",
+    "image": "assets/general/map-MV.webp",
+    "options": [
+      "Asia",
+      "Oceania",
+      "Eropah",
+      "Amerika"
+    ],
+    "correct": "Asia",
+    "explanation": "Maldives terletak di Asia."
+  },
+  {
+    "id": "maps-MN-name",
+    "category": "maps",
+    "question": "Bentuk negara dalam gambar mewakili negara mana?",
+    "image": "assets/general/map-MN.webp",
+    "options": [
+      "Mongolia",
+      "Malaysia",
+      "Jepun",
+      "China"
+    ],
+    "correct": "Mongolia",
+    "explanation": "Ini garis bentuk Mongolia."
+  },
+  {
+    "id": "maps-MN-continent",
+    "category": "maps",
+    "question": "Mongolia terletak dalam benua atau rantau mana?",
+    "image": "assets/general/map-MN.webp",
+    "options": [
+      "Asia",
+      "Eropah",
+      "Amerika",
+      "Oceania"
+    ],
+    "correct": "Asia",
+    "explanation": "Mongolia terletak di Asia."
+  },
+  {
+    "id": "maps-AU-name",
+    "category": "maps",
+    "question": "Bentuk negara dalam gambar mewakili negara mana?",
+    "image": "assets/general/map-AU.webp",
+    "options": [
+      "Australia",
+      "Portugal",
+      "Colombia",
+      "Austria"
+    ],
+    "correct": "Australia",
+    "explanation": "Ini garis bentuk Australia."
+  },
+  {
+    "id": "maps-AU-continent",
+    "category": "maps",
+    "question": "Australia terletak dalam benua atau rantau mana?",
+    "image": "assets/general/map-AU.webp",
+    "options": [
+      "Oceania",
+      "Asia",
+      "Afrika",
+      "Amerika"
+    ],
+    "correct": "Oceania",
+    "explanation": "Australia terletak di Oceania."
+  },
+  {
+    "id": "maps-NZ-name",
+    "category": "maps",
+    "question": "Bentuk negara dalam gambar mewakili negara mana?",
+    "image": "assets/general/map-NZ.webp",
+    "options": [
+      "New Zealand",
+      "United Kingdom",
+      "Austria",
+      "Brazil"
+    ],
+    "correct": "New Zealand",
+    "explanation": "Ini garis bentuk New Zealand."
+  },
+  {
+    "id": "maps-NZ-continent",
+    "category": "maps",
+    "question": "New Zealand terletak dalam benua atau rantau mana?",
+    "image": "assets/general/map-NZ.webp",
+    "options": [
+      "Oceania",
+      "Asia",
+      "Afrika",
+      "Amerika"
+    ],
+    "correct": "Oceania",
+    "explanation": "New Zealand terletak di Oceania."
+  },
+  {
+    "id": "maps-DE-name",
+    "category": "maps",
+    "question": "Bentuk negara dalam gambar mewakili negara mana?",
+    "image": "assets/general/map-DE.webp",
+    "options": [
+      "Jerman",
+      "Kemboja",
+      "Brunei",
+      "Mongolia"
+    ],
+    "correct": "Jerman",
+    "explanation": "Ini garis bentuk Jerman."
+  },
+  {
+    "id": "maps-DE-continent",
+    "category": "maps",
+    "question": "Jerman terletak dalam benua atau rantau mana?",
+    "image": "assets/general/map-DE.webp",
+    "options": [
+      "Eropah",
+      "Afrika",
+      "Oceania",
+      "Amerika"
+    ],
+    "correct": "Eropah",
+    "explanation": "Jerman terletak di Eropah."
+  },
+  {
+    "id": "maps-IT-name",
+    "category": "maps",
+    "question": "Bentuk negara dalam gambar mewakili negara mana?",
+    "image": "assets/general/map-IT.webp",
+    "options": [
+      "Itali",
+      "Maghribi",
+      "Ecuador",
+      "Argentina"
+    ],
+    "correct": "Itali",
+    "explanation": "Ini garis bentuk Itali."
+  },
+  {
+    "id": "maps-IT-continent",
+    "category": "maps",
+    "question": "Itali terletak dalam benua atau rantau mana?",
+    "image": "assets/general/map-IT.webp",
+    "options": [
+      "Eropah",
+      "Amerika",
+      "Asia",
+      "Afrika"
+    ],
+    "correct": "Eropah",
+    "explanation": "Itali terletak di Eropah."
+  },
+  {
+    "id": "maps-ES-name",
+    "category": "maps",
+    "question": "Bentuk negara dalam gambar mewakili negara mana?",
+    "image": "assets/general/map-ES.webp",
+    "options": [
+      "Sepanyol",
+      "Brazil",
+      "Argentina",
+      "Denmark"
+    ],
+    "correct": "Sepanyol",
+    "explanation": "Ini garis bentuk Sepanyol."
+  },
+  {
+    "id": "maps-ES-continent",
+    "category": "maps",
+    "question": "Sepanyol terletak dalam benua atau rantau mana?",
+    "image": "assets/general/map-ES.webp",
+    "options": [
+      "Eropah",
+      "Asia",
+      "Oceania",
+      "Afrika"
+    ],
+    "correct": "Eropah",
+    "explanation": "Sepanyol terletak di Eropah."
+  },
+  {
+    "id": "maps-PT-name",
+    "category": "maps",
+    "question": "Bentuk negara dalam gambar mewakili negara mana?",
+    "image": "assets/general/map-PT.webp",
+    "options": [
+      "Portugal",
+      "Vietnam",
+      "Bangladesh",
+      "Algeria"
+    ],
+    "correct": "Portugal",
+    "explanation": "Ini garis bentuk Portugal."
+  },
+  {
+    "id": "maps-PT-continent",
+    "category": "maps",
+    "question": "Portugal terletak dalam benua atau rantau mana?",
+    "image": "assets/general/map-PT.webp",
+    "options": [
+      "Eropah",
+      "Asia",
+      "Oceania",
+      "Afrika"
+    ],
+    "correct": "Eropah",
+    "explanation": "Portugal terletak di Eropah."
+  },
+  {
+    "id": "maps-GB-name",
+    "category": "maps",
+    "question": "Bentuk negara dalam gambar mewakili negara mana?",
+    "image": "assets/general/map-GB.webp",
+    "options": [
+      "United Kingdom",
+      "Myanmar",
+      "Argentina",
+      "Mongolia"
+    ],
+    "correct": "United Kingdom",
+    "explanation": "Ini garis bentuk United Kingdom."
+  },
+  {
+    "id": "maps-GB-continent",
+    "category": "maps",
+    "question": "United Kingdom terletak dalam benua atau rantau mana?",
+    "image": "assets/general/map-GB.webp",
+    "options": [
+      "Eropah",
+      "Afrika",
+      "Amerika",
+      "Oceania"
+    ],
+    "correct": "Eropah",
+    "explanation": "United Kingdom terletak di Eropah."
+  },
+  {
+    "id": "maps-IE-name",
+    "category": "maps",
+    "question": "Bentuk negara dalam gambar mewakili negara mana?",
+    "image": "assets/general/map-IE.webp",
+    "options": [
+      "Ireland",
+      "Tunisia",
+      "Chile",
+      "Austria"
+    ],
+    "correct": "Ireland",
+    "explanation": "Ini garis bentuk Ireland."
+  },
+  {
+    "id": "maps-IE-continent",
+    "category": "maps",
+    "question": "Ireland terletak dalam benua atau rantau mana?",
+    "image": "assets/general/map-IE.webp",
+    "options": [
+      "Eropah",
+      "Asia",
+      "Oceania",
+      "Afrika"
+    ],
+    "correct": "Eropah",
+    "explanation": "Ireland terletak di Eropah."
+  },
+  {
+    "id": "maps-SE-name",
+    "category": "maps",
+    "question": "Bentuk negara dalam gambar mewakili negara mana?",
+    "image": "assets/general/map-SE.webp",
+    "options": [
+      "Sweden",
+      "Maghribi",
+      "Portugal",
+      "Denmark"
+    ],
+    "correct": "Sweden",
+    "explanation": "Ini garis bentuk Sweden."
+  },
+  {
+    "id": "maps-SE-continent",
+    "category": "maps",
+    "question": "Sweden terletak dalam benua atau rantau mana?",
+    "image": "assets/general/map-SE.webp",
+    "options": [
+      "Eropah",
+      "Oceania",
+      "Amerika",
+      "Asia"
+    ],
+    "correct": "Eropah",
+    "explanation": "Sweden terletak di Eropah."
+  },
+  {
+    "id": "maps-FI-name",
+    "category": "maps",
+    "question": "Bentuk negara dalam gambar mewakili negara mana?",
+    "image": "assets/general/map-FI.webp",
+    "options": [
+      "Finland",
+      "Nepal",
+      "Amerika Syarikat",
+      "Maldives"
+    ],
+    "correct": "Finland",
+    "explanation": "Ini garis bentuk Finland."
+  },
+  {
+    "id": "maps-FI-continent",
+    "category": "maps",
+    "question": "Finland terletak dalam benua atau rantau mana?",
+    "image": "assets/general/map-FI.webp",
+    "options": [
+      "Eropah",
+      "Oceania",
+      "Afrika",
+      "Amerika"
+    ],
+    "correct": "Eropah",
+    "explanation": "Finland terletak di Eropah."
+  },
+  {
+    "id": "maps-DK-name",
+    "category": "maps",
+    "question": "Bentuk negara dalam gambar mewakili negara mana?",
+    "image": "assets/general/map-DK.webp",
+    "options": [
+      "Denmark",
+      "Iceland",
+      "Greece",
+      "Mongolia"
+    ],
+    "correct": "Denmark",
+    "explanation": "Ini garis bentuk Denmark."
+  },
+  {
+    "id": "maps-DK-continent",
+    "category": "maps",
+    "question": "Denmark terletak dalam benua atau rantau mana?",
+    "image": "assets/general/map-DK.webp",
+    "options": [
+      "Eropah",
+      "Oceania",
+      "Afrika",
+      "Amerika"
+    ],
+    "correct": "Eropah",
+    "explanation": "Denmark terletak di Eropah."
+  },
+  {
+    "id": "maps-NL-name",
+    "category": "maps",
+    "question": "Bentuk negara dalam gambar mewakili negara mana?",
+    "image": "assets/general/map-NL.webp",
+    "options": [
+      "Belanda",
+      "Pakistan",
+      "Brunei",
+      "Tunisia"
+    ],
+    "correct": "Belanda",
+    "explanation": "Ini garis bentuk Belanda."
+  },
+  {
+    "id": "maps-NL-continent",
+    "category": "maps",
+    "question": "Belanda terletak dalam benua atau rantau mana?",
+    "image": "assets/general/map-NL.webp",
+    "options": [
+      "Eropah",
+      "Asia",
+      "Oceania",
+      "Amerika"
+    ],
+    "correct": "Eropah",
+    "explanation": "Belanda terletak di Eropah."
+  },
+  {
+    "id": "maps-BE-name",
+    "category": "maps",
+    "question": "Bentuk negara dalam gambar mewakili negara mana?",
+    "image": "assets/general/map-BE.webp",
+    "options": [
+      "Belgium",
+      "Australia",
+      "Peru",
+      "Argentina"
+    ],
+    "correct": "Belgium",
+    "explanation": "Ini garis bentuk Belgium."
+  },
+  {
+    "id": "maps-BE-continent",
+    "category": "maps",
+    "question": "Belgium terletak dalam benua atau rantau mana?",
+    "image": "assets/general/map-BE.webp",
+    "options": [
+      "Eropah",
+      "Oceania",
+      "Amerika",
+      "Afrika"
+    ],
+    "correct": "Eropah",
+    "explanation": "Belgium terletak di Eropah."
+  },
+  {
+    "id": "maps-CH-name",
+    "category": "maps",
+    "question": "Bentuk negara dalam gambar mewakili negara mana?",
+    "image": "assets/general/map-CH.webp",
+    "options": [
+      "Switzerland",
+      "Sepanyol",
+      "Belanda",
+      "Maghribi"
+    ],
+    "correct": "Switzerland",
+    "explanation": "Ini garis bentuk Switzerland."
+  },
+  {
+    "id": "maps-CH-continent",
+    "category": "maps",
+    "question": "Switzerland terletak dalam benua atau rantau mana?",
+    "image": "assets/general/map-CH.webp",
+    "options": [
+      "Eropah",
+      "Amerika",
+      "Oceania",
+      "Asia"
+    ],
+    "correct": "Eropah",
+    "explanation": "Switzerland terletak di Eropah."
+  },
+  {
+    "id": "maps-AT-name",
+    "category": "maps",
+    "question": "Bentuk negara dalam gambar mewakili negara mana?",
+    "image": "assets/general/map-AT.webp",
+    "options": [
+      "Austria",
+      "Amerika Syarikat",
+      "Senegal",
+      "Ghana"
+    ],
+    "correct": "Austria",
+    "explanation": "Ini garis bentuk Austria."
+  },
+  {
+    "id": "maps-AT-continent",
+    "category": "maps",
+    "question": "Austria terletak dalam benua atau rantau mana?",
+    "image": "assets/general/map-AT.webp",
+    "options": [
+      "Eropah",
+      "Amerika",
+      "Oceania",
+      "Afrika"
+    ],
+    "correct": "Eropah",
+    "explanation": "Austria terletak di Eropah."
+  },
+  {
+    "id": "maps-PL-name",
+    "category": "maps",
+    "question": "Bentuk negara dalam gambar mewakili negara mana?",
+    "image": "assets/general/map-PL.webp",
+    "options": [
+      "Poland",
+      "Bangladesh",
+      "Algeria",
+      "Austria"
+    ],
+    "correct": "Poland",
+    "explanation": "Ini garis bentuk Poland."
+  },
+  {
+    "id": "maps-PL-continent",
+    "category": "maps",
+    "question": "Poland terletak dalam benua atau rantau mana?",
+    "image": "assets/general/map-PL.webp",
+    "options": [
+      "Eropah",
+      "Oceania",
+      "Afrika",
+      "Amerika"
+    ],
+    "correct": "Eropah",
+    "explanation": "Poland terletak di Eropah."
+  },
+  {
+    "id": "maps-GR-name",
+    "category": "maps",
+    "question": "Bentuk negara dalam gambar mewakili negara mana?",
+    "image": "assets/general/map-GR.webp",
+    "options": [
+      "Greece",
+      "Itali",
+      "Mesir",
+      "United Kingdom"
+    ],
+    "correct": "Greece",
+    "explanation": "Ini garis bentuk Greece."
+  },
+  {
+    "id": "maps-GR-continent",
+    "category": "maps",
+    "question": "Greece terletak dalam benua atau rantau mana?",
+    "image": "assets/general/map-GR.webp",
+    "options": [
+      "Eropah",
+      "Afrika",
+      "Amerika",
+      "Oceania"
+    ],
+    "correct": "Eropah",
+    "explanation": "Greece terletak di Eropah."
+  },
+  {
+    "id": "maps-HU-name",
+    "category": "maps",
+    "question": "Bentuk negara dalam gambar mewakili negara mana?",
+    "image": "assets/general/map-HU.webp",
+    "options": [
+      "Hungary",
+      "Uganda",
+      "Indonesia",
+      "Algeria"
+    ],
+    "correct": "Hungary",
+    "explanation": "Ini garis bentuk Hungary."
+  },
+  {
+    "id": "maps-HU-continent",
+    "category": "maps",
+    "question": "Hungary terletak dalam benua atau rantau mana?",
+    "image": "assets/general/map-HU.webp",
+    "options": [
+      "Eropah",
+      "Asia",
+      "Amerika",
+      "Afrika"
+    ],
+    "correct": "Eropah",
+    "explanation": "Hungary terletak di Eropah."
+  },
+  {
+    "id": "maps-RO-name",
+    "category": "maps",
+    "question": "Bentuk negara dalam gambar mewakili negara mana?",
+    "image": "assets/general/map-RO.webp",
+    "options": [
+      "Romania",
+      "Iceland",
+      "Indonesia",
+      "Maghribi"
+    ],
+    "correct": "Romania",
+    "explanation": "Ini garis bentuk Romania."
+  },
+  {
+    "id": "maps-RO-continent",
+    "category": "maps",
+    "question": "Romania terletak dalam benua atau rantau mana?",
+    "image": "assets/general/map-RO.webp",
+    "options": [
+      "Eropah",
+      "Oceania",
+      "Afrika",
+      "Amerika"
+    ],
+    "correct": "Eropah",
+    "explanation": "Romania terletak di Eropah."
+  },
+  {
+    "id": "maps-UA-name",
+    "category": "maps",
+    "question": "Bentuk negara dalam gambar mewakili negara mana?",
+    "image": "assets/general/map-UA.webp",
+    "options": [
+      "Ukraine",
+      "Amerika Syarikat",
+      "Sweden",
+      "Kanada"
+    ],
+    "correct": "Ukraine",
+    "explanation": "Ini garis bentuk Ukraine."
+  },
+  {
+    "id": "maps-UA-continent",
+    "category": "maps",
+    "question": "Ukraine terletak dalam benua atau rantau mana?",
+    "image": "assets/general/map-UA.webp",
+    "options": [
+      "Eropah",
+      "Asia",
+      "Oceania",
+      "Amerika"
+    ],
+    "correct": "Eropah",
+    "explanation": "Ukraine terletak di Eropah."
+  },
+  {
+    "id": "maps-IS-name",
+    "category": "maps",
+    "question": "Bentuk negara dalam gambar mewakili negara mana?",
+    "image": "assets/general/map-IS.webp",
+    "options": [
+      "Iceland",
+      "Itali",
+      "New Zealand",
+      "Nepal"
+    ],
+    "correct": "Iceland",
+    "explanation": "Ini garis bentuk Iceland."
+  },
+  {
+    "id": "maps-IS-continent",
+    "category": "maps",
+    "question": "Iceland terletak dalam benua atau rantau mana?",
+    "image": "assets/general/map-IS.webp",
+    "options": [
+      "Eropah",
+      "Oceania",
+      "Afrika",
+      "Amerika"
+    ],
+    "correct": "Eropah",
+    "explanation": "Iceland terletak di Eropah."
+  },
+  {
+    "id": "maps-CA-name",
+    "category": "maps",
+    "question": "Bentuk negara dalam gambar mewakili negara mana?",
+    "image": "assets/general/map-CA.webp",
+    "options": [
+      "Kanada",
+      "Ghana",
+      "Nepal",
+      "Senegal"
+    ],
+    "correct": "Kanada",
+    "explanation": "Ini garis bentuk Kanada."
+  },
+  {
+    "id": "maps-CA-continent",
+    "category": "maps",
+    "question": "Kanada terletak dalam benua atau rantau mana?",
+    "image": "assets/general/map-CA.webp",
+    "options": [
+      "Amerika",
+      "Eropah",
+      "Afrika",
+      "Oceania"
+    ],
+    "correct": "Amerika",
+    "explanation": "Kanada terletak di Amerika."
+  },
+  {
+    "id": "maps-US-name",
+    "category": "maps",
+    "question": "Bentuk 48 negeri Amerika Syarikat yang bersambung dalam gambar mewakili negara mana?",
+    "image": "assets/general/map-US.webp",
+    "options": [
+      "Amerika Syarikat",
+      "China",
+      "Senegal",
+      "Thailand"
+    ],
+    "correct": "Amerika Syarikat",
+    "explanation": "Ini garis bentuk Amerika Syarikat."
+  },
+  {
+    "id": "maps-US-continent",
+    "category": "maps",
+    "question": "Amerika Syarikat terletak dalam benua atau rantau mana?",
+    "image": "assets/general/map-US.webp",
+    "options": [
+      "Amerika",
+      "Afrika",
+      "Eropah",
+      "Oceania"
+    ],
+    "correct": "Amerika",
+    "explanation": "Amerika Syarikat terletak di Amerika."
+  },
+  {
+    "id": "maps-MX-name",
+    "category": "maps",
+    "question": "Bentuk negara dalam gambar mewakili negara mana?",
+    "image": "assets/general/map-MX.webp",
+    "options": [
+      "Mexico",
+      "Algeria",
+      "Australia",
+      "Amerika Syarikat"
+    ],
+    "correct": "Mexico",
+    "explanation": "Ini garis bentuk Mexico."
+  },
+  {
+    "id": "maps-MX-continent",
+    "category": "maps",
+    "question": "Mexico terletak dalam benua atau rantau mana?",
+    "image": "assets/general/map-MX.webp",
+    "options": [
+      "Amerika",
+      "Eropah",
+      "Asia",
+      "Afrika"
+    ],
+    "correct": "Amerika",
+    "explanation": "Mexico terletak di Amerika."
+  },
+  {
+    "id": "maps-BR-name",
+    "category": "maps",
+    "question": "Bentuk negara dalam gambar mewakili negara mana?",
+    "image": "assets/general/map-BR.webp",
+    "options": [
+      "Brazil",
+      "United Kingdom",
+      "Kenya",
+      "Kemboja"
+    ],
+    "correct": "Brazil",
+    "explanation": "Ini garis bentuk Brazil."
+  },
+  {
+    "id": "maps-BR-continent",
+    "category": "maps",
+    "question": "Brazil terletak dalam benua atau rantau mana?",
+    "image": "assets/general/map-BR.webp",
+    "options": [
+      "Amerika",
+      "Eropah",
+      "Asia",
+      "Afrika"
+    ],
+    "correct": "Amerika",
+    "explanation": "Brazil terletak di Amerika."
+  },
+  {
+    "id": "maps-AR-name",
+    "category": "maps",
+    "question": "Bentuk negara dalam gambar mewakili negara mana?",
+    "image": "assets/general/map-AR.webp",
+    "options": [
+      "Argentina",
+      "Kenya",
+      "Ecuador",
+      "Algeria"
+    ],
+    "correct": "Argentina",
+    "explanation": "Ini garis bentuk Argentina."
+  },
+  {
+    "id": "maps-AR-continent",
+    "category": "maps",
+    "question": "Argentina terletak dalam benua atau rantau mana?",
+    "image": "assets/general/map-AR.webp",
+    "options": [
+      "Amerika",
+      "Asia",
+      "Oceania",
+      "Afrika"
+    ],
+    "correct": "Amerika",
+    "explanation": "Argentina terletak di Amerika."
+  },
+  {
+    "id": "maps-CL-name",
+    "category": "maps",
+    "question": "Bentuk negara dalam gambar mewakili negara mana?",
+    "image": "assets/general/map-CL.webp",
+    "options": [
+      "Chile",
+      "Brunei",
+      "Colombia",
+      "Amerika Syarikat"
+    ],
+    "correct": "Chile",
+    "explanation": "Ini garis bentuk Chile."
+  },
+  {
+    "id": "maps-CL-continent",
+    "category": "maps",
+    "question": "Chile terletak dalam benua atau rantau mana?",
+    "image": "assets/general/map-CL.webp",
+    "options": [
+      "Amerika",
+      "Oceania",
+      "Asia",
+      "Eropah"
+    ],
+    "correct": "Amerika",
+    "explanation": "Chile terletak di Amerika."
+  },
+  {
+    "id": "maps-PE-name",
+    "category": "maps",
+    "question": "Bentuk negara dalam gambar mewakili negara mana?",
+    "image": "assets/general/map-PE.webp",
+    "options": [
+      "Peru",
+      "Maldives",
+      "Mongolia",
+      "Austria"
+    ],
+    "correct": "Peru",
+    "explanation": "Ini garis bentuk Peru."
+  },
+  {
+    "id": "maps-PE-continent",
+    "category": "maps",
+    "question": "Peru terletak dalam benua atau rantau mana?",
+    "image": "assets/general/map-PE.webp",
+    "options": [
+      "Amerika",
+      "Afrika",
+      "Asia",
+      "Oceania"
+    ],
+    "correct": "Amerika",
+    "explanation": "Peru terletak di Amerika."
+  },
+  {
+    "id": "maps-CO-name",
+    "category": "maps",
+    "question": "Bentuk negara dalam gambar mewakili negara mana?",
+    "image": "assets/general/map-CO.webp",
+    "options": [
+      "Colombia",
+      "Maghribi",
+      "Hungary",
+      "Thailand"
+    ],
+    "correct": "Colombia",
+    "explanation": "Ini garis bentuk Colombia."
+  },
+  {
+    "id": "maps-CO-continent",
+    "category": "maps",
+    "question": "Colombia terletak dalam benua atau rantau mana?",
+    "image": "assets/general/map-CO.webp",
+    "options": [
+      "Amerika",
+      "Oceania",
+      "Afrika",
+      "Asia"
+    ],
+    "correct": "Amerika",
+    "explanation": "Colombia terletak di Amerika."
+  },
+  {
+    "id": "maps-EC-name",
+    "category": "maps",
+    "question": "Bentuk negara dalam gambar mewakili negara mana?",
+    "image": "assets/general/map-EC.webp",
+    "options": [
+      "Ecuador",
+      "Ukraine",
+      "Indonesia",
+      "Mesir"
+    ],
+    "correct": "Ecuador",
+    "explanation": "Ini garis bentuk Ecuador."
+  },
+  {
+    "id": "maps-EC-continent",
+    "category": "maps",
+    "question": "Ecuador terletak dalam benua atau rantau mana?",
+    "image": "assets/general/map-EC.webp",
+    "options": [
+      "Amerika",
+      "Afrika",
+      "Oceania",
+      "Eropah"
+    ],
+    "correct": "Amerika",
+    "explanation": "Ecuador terletak di Amerika."
+  },
+  {
+    "id": "maps-VE-name",
+    "category": "maps",
+    "question": "Bentuk negara dalam gambar mewakili negara mana?",
+    "image": "assets/general/map-VE.webp",
+    "options": [
+      "Venezuela",
+      "Myanmar",
+      "Tunisia",
+      "Argentina"
+    ],
+    "correct": "Venezuela",
+    "explanation": "Ini garis bentuk Venezuela."
+  },
+  {
+    "id": "maps-VE-continent",
+    "category": "maps",
+    "question": "Venezuela terletak dalam benua atau rantau mana?",
+    "image": "assets/general/map-VE.webp",
+    "options": [
+      "Amerika",
+      "Oceania",
+      "Afrika",
+      "Eropah"
+    ],
+    "correct": "Amerika",
+    "explanation": "Venezuela terletak di Amerika."
+  },
+  {
+    "id": "maps-EG-name",
+    "category": "maps",
+    "question": "Bentuk negara dalam gambar mewakili negara mana?",
+    "image": "assets/general/map-EG.webp",
+    "options": [
+      "Mesir",
+      "Korea Selatan",
+      "Switzerland",
+      "Pakistan"
+    ],
+    "correct": "Mesir",
+    "explanation": "Ini garis bentuk Mesir."
+  },
+  {
+    "id": "maps-EG-continent",
+    "category": "maps",
+    "question": "Mesir terletak dalam benua atau rantau mana?",
+    "image": "assets/general/map-EG.webp",
+    "options": [
+      "Afrika",
+      "Eropah",
+      "Oceania",
+      "Amerika"
+    ],
+    "correct": "Afrika",
+    "explanation": "Mesir terletak di Afrika."
+  },
+  {
+    "id": "maps-MA-name",
+    "category": "maps",
+    "question": "Bentuk negara dalam gambar mewakili negara mana?",
+    "image": "assets/general/map-MA.webp",
+    "options": [
+      "Maghribi",
+      "Sepanyol",
+      "Nigeria",
+      "Finland"
+    ],
+    "correct": "Maghribi",
+    "explanation": "Ini garis bentuk Maghribi."
+  },
+  {
+    "id": "maps-MA-continent",
+    "category": "maps",
+    "question": "Maghribi terletak dalam benua atau rantau mana?",
+    "image": "assets/general/map-MA.webp",
+    "options": [
+      "Afrika",
+      "Oceania",
+      "Asia",
+      "Amerika"
+    ],
+    "correct": "Afrika",
+    "explanation": "Maghribi terletak di Afrika."
+  },
+  {
+    "id": "maps-DZ-name",
+    "category": "maps",
+    "question": "Bentuk negara dalam gambar mewakili negara mana?",
+    "image": "assets/general/map-DZ.webp",
+    "options": [
+      "Algeria",
+      "Filipina",
+      "Austria",
+      "Pakistan"
+    ],
+    "correct": "Algeria",
+    "explanation": "Ini garis bentuk Algeria."
+  },
+  {
+    "id": "maps-DZ-continent",
+    "category": "maps",
+    "question": "Algeria terletak dalam benua atau rantau mana?",
+    "image": "assets/general/map-DZ.webp",
+    "options": [
+      "Afrika",
+      "Eropah",
+      "Oceania",
+      "Amerika"
+    ],
+    "correct": "Afrika",
+    "explanation": "Algeria terletak di Afrika."
+  },
+  {
+    "id": "maps-TN-name",
+    "category": "maps",
+    "question": "Bentuk negara dalam gambar mewakili negara mana?",
+    "image": "assets/general/map-TN.webp",
+    "options": [
+      "Tunisia",
+      "Venezuela",
+      "Australia",
+      "Kenya"
+    ],
+    "correct": "Tunisia",
+    "explanation": "Ini garis bentuk Tunisia."
+  },
+  {
+    "id": "maps-TN-continent",
+    "category": "maps",
+    "question": "Tunisia terletak dalam benua atau rantau mana?",
+    "image": "assets/general/map-TN.webp",
+    "options": [
+      "Afrika",
+      "Oceania",
+      "Amerika",
+      "Asia"
+    ],
+    "correct": "Afrika",
+    "explanation": "Tunisia terletak di Afrika."
+  },
+  {
+    "id": "maps-KE-name",
+    "category": "maps",
+    "question": "Bentuk negara dalam gambar mewakili negara mana?",
+    "image": "assets/general/map-KE.webp",
+    "options": [
+      "Kenya",
+      "Madagascar",
+      "Iceland",
+      "Ethiopia"
+    ],
+    "correct": "Kenya",
+    "explanation": "Ini garis bentuk Kenya."
+  },
+  {
+    "id": "maps-KE-continent",
+    "category": "maps",
+    "question": "Kenya terletak dalam benua atau rantau mana?",
+    "image": "assets/general/map-KE.webp",
+    "options": [
+      "Afrika",
+      "Oceania",
+      "Eropah",
+      "Asia"
+    ],
+    "correct": "Afrika",
+    "explanation": "Kenya terletak di Afrika."
+  },
+  {
+    "id": "maps-TZ-name",
+    "category": "maps",
+    "question": "Bentuk negara dalam gambar mewakili negara mana?",
+    "image": "assets/general/map-TZ.webp",
+    "options": [
+      "Tanzania",
+      "Finland",
+      "Portugal",
+      "Indonesia"
+    ],
+    "correct": "Tanzania",
+    "explanation": "Ini garis bentuk Tanzania."
+  },
+  {
+    "id": "maps-TZ-continent",
+    "category": "maps",
+    "question": "Tanzania terletak dalam benua atau rantau mana?",
+    "image": "assets/general/map-TZ.webp",
+    "options": [
+      "Afrika",
+      "Oceania",
+      "Asia",
+      "Eropah"
+    ],
+    "correct": "Afrika",
+    "explanation": "Tanzania terletak di Afrika."
+  },
+  {
+    "id": "maps-UG-name",
+    "category": "maps",
+    "question": "Bentuk negara dalam gambar mewakili negara mana?",
+    "image": "assets/general/map-UG.webp",
+    "options": [
+      "Uganda",
+      "Thailand",
+      "Pakistan",
+      "Brazil"
+    ],
+    "correct": "Uganda",
+    "explanation": "Ini garis bentuk Uganda."
+  },
+  {
+    "id": "maps-UG-continent",
+    "category": "maps",
+    "question": "Uganda terletak dalam benua atau rantau mana?",
+    "image": "assets/general/map-UG.webp",
+    "options": [
+      "Afrika",
+      "Oceania",
+      "Asia",
+      "Eropah"
+    ],
+    "correct": "Afrika",
+    "explanation": "Uganda terletak di Afrika."
+  },
+  {
+    "id": "maps-GH-name",
+    "category": "maps",
+    "question": "Bentuk negara dalam gambar mewakili negara mana?",
+    "image": "assets/general/map-GH.webp",
+    "options": [
+      "Ghana",
+      "Senegal",
+      "Finland",
+      "United Kingdom"
+    ],
+    "correct": "Ghana",
+    "explanation": "Ini garis bentuk Ghana."
+  },
+  {
+    "id": "maps-GH-continent",
+    "category": "maps",
+    "question": "Ghana terletak dalam benua atau rantau mana?",
+    "image": "assets/general/map-GH.webp",
+    "options": [
+      "Afrika",
+      "Amerika",
+      "Asia",
+      "Oceania"
+    ],
+    "correct": "Afrika",
+    "explanation": "Ghana terletak di Afrika."
+  },
+  {
+    "id": "maps-NG-name",
+    "category": "maps",
+    "question": "Bentuk negara dalam gambar mewakili negara mana?",
+    "image": "assets/general/map-NG.webp",
+    "options": [
+      "Nigeria",
+      "Sweden",
+      "Iceland",
+      "Kenya"
+    ],
+    "correct": "Nigeria",
+    "explanation": "Ini garis bentuk Nigeria."
+  },
+  {
+    "id": "maps-NG-continent",
+    "category": "maps",
+    "question": "Nigeria terletak dalam benua atau rantau mana?",
+    "image": "assets/general/map-NG.webp",
+    "options": [
+      "Afrika",
+      "Amerika",
+      "Oceania",
+      "Asia"
+    ],
+    "correct": "Afrika",
+    "explanation": "Nigeria terletak di Afrika."
+  },
+  {
+    "id": "maps-SN-name",
+    "category": "maps",
+    "question": "Bentuk negara dalam gambar mewakili negara mana?",
+    "image": "assets/general/map-SN.webp",
+    "options": [
+      "Senegal",
+      "Malaysia",
+      "Mesir",
+      "Poland"
+    ],
+    "correct": "Senegal",
+    "explanation": "Ini garis bentuk Senegal."
+  },
+  {
+    "id": "maps-SN-continent",
+    "category": "maps",
+    "question": "Senegal terletak dalam benua atau rantau mana?",
+    "image": "assets/general/map-SN.webp",
+    "options": [
+      "Afrika",
+      "Eropah",
+      "Asia",
+      "Oceania"
+    ],
+    "correct": "Afrika",
+    "explanation": "Senegal terletak di Afrika."
+  },
+  {
+    "id": "maps-ET-name",
+    "category": "maps",
+    "question": "Bentuk negara dalam gambar mewakili negara mana?",
+    "image": "assets/general/map-ET.webp",
+    "options": [
+      "Ethiopia",
+      "Hungary",
+      "Algeria",
+      "Filipina"
+    ],
+    "correct": "Ethiopia",
+    "explanation": "Ini garis bentuk Ethiopia."
+  },
+  {
+    "id": "maps-ET-continent",
+    "category": "maps",
+    "question": "Ethiopia terletak dalam benua atau rantau mana?",
+    "image": "assets/general/map-ET.webp",
+    "options": [
+      "Afrika",
+      "Oceania",
+      "Asia",
+      "Amerika"
+    ],
+    "correct": "Afrika",
+    "explanation": "Ethiopia terletak di Afrika."
+  },
+  {
+    "id": "maps-MG-name",
+    "category": "maps",
+    "question": "Bentuk negara dalam gambar mewakili negara mana?",
+    "image": "assets/general/map-MG.webp",
+    "options": [
+      "Madagascar",
+      "India",
+      "Belanda",
+      "Finland"
+    ],
+    "correct": "Madagascar",
+    "explanation": "Ini garis bentuk Madagascar."
+  },
+  {
+    "id": "maps-MG-continent",
+    "category": "maps",
+    "question": "Madagascar terletak dalam benua atau rantau mana?",
+    "image": "assets/general/map-MG.webp",
+    "options": [
+      "Afrika",
+      "Amerika",
+      "Asia",
+      "Oceania"
+    ],
+    "correct": "Afrika",
+    "explanation": "Madagascar terletak di Afrika."
+  }
+]

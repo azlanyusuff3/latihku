@@ -1,0 +1,422 @@
+[
+  {
+    "id": "animals-lion-name",
+    "category": "animals",
+    "question": "Apakah nama haiwan ini?",
+    "image": "assets/general/lion.webp",
+    "options": [
+      "Singa",
+      "Penyu",
+      "Panda",
+      "Gajah"
+    ],
+    "correct": "Singa",
+    "explanation": "Singa ditunjukkan dalam gambar."
+  },
+  {
+    "id": "animals-lion-fact",
+    "category": "animals",
+    "question": "Di manakah habitat umum singa?",
+    "image": "assets/general/lion.webp",
+    "options": [
+      "Darat",
+      "Laut",
+      "Udara sahaja",
+      "Darat dan air tawar"
+    ],
+    "correct": "Darat",
+    "explanation": "Singa: Darat."
+  },
+  {
+    "id": "animals-tiger-name",
+    "category": "animals",
+    "question": "Apakah nama haiwan ini?",
+    "image": "assets/general/tiger.webp",
+    "options": [
+      "Harimau",
+      "Arnab",
+      "Kuda",
+      "Rama-rama"
+    ],
+    "correct": "Harimau",
+    "explanation": "Harimau ditunjukkan dalam gambar."
+  },
+  {
+    "id": "animals-tiger-fact",
+    "category": "animals",
+    "question": "Di manakah habitat umum harimau?",
+    "image": "assets/general/tiger.webp",
+    "options": [
+      "Darat",
+      "Darat dan air tawar",
+      "Laut",
+      "Darat dan laut"
+    ],
+    "correct": "Darat",
+    "explanation": "Harimau: Darat."
+  },
+  {
+    "id": "animals-elephant-name",
+    "category": "animals",
+    "question": "Apakah nama haiwan ini?",
+    "image": "assets/general/elephant.webp",
+    "options": [
+      "Gajah",
+      "Zirafah",
+      "Arnab",
+      "Rama-rama"
+    ],
+    "correct": "Gajah",
+    "explanation": "Gajah ditunjukkan dalam gambar."
+  },
+  {
+    "id": "animals-elephant-fact",
+    "category": "animals",
+    "question": "Di manakah habitat umum gajah?",
+    "image": "assets/general/elephant.webp",
+    "options": [
+      "Darat",
+      "Udara sahaja",
+      "Darat dan laut",
+      "Darat dan air tawar"
+    ],
+    "correct": "Darat",
+    "explanation": "Gajah: Darat."
+  },
+  {
+    "id": "animals-giraffe-name",
+    "category": "animals",
+    "question": "Apakah nama haiwan ini?",
+    "image": "assets/general/giraffe.webp",
+    "options": [
+      "Zirafah",
+      "Harimau",
+      "Lumba-lumba",
+      "Arnab"
+    ],
+    "correct": "Zirafah",
+    "explanation": "Zirafah ditunjukkan dalam gambar."
+  },
+  {
+    "id": "animals-giraffe-fact",
+    "category": "animals",
+    "question": "Di manakah habitat umum zirafah?",
+    "image": "assets/general/giraffe.webp",
+    "options": [
+      "Darat",
+      "Darat dan air tawar",
+      "Darat dan laut",
+      "Udara sahaja"
+    ],
+    "correct": "Darat",
+    "explanation": "Zirafah: Darat."
+  },
+  {
+    "id": "animals-zebra-name",
+    "category": "animals",
+    "question": "Apakah nama haiwan ini?",
+    "image": "assets/general/zebra.webp",
+    "options": [
+      "Zebra",
+      "Singa",
+      "Jerung",
+      "Kuda"
+    ],
+    "correct": "Zebra",
+    "explanation": "Zebra ditunjukkan dalam gambar."
+  },
+  {
+    "id": "animals-zebra-fact",
+    "category": "animals",
+    "question": "Di manakah habitat umum zebra?",
+    "image": "assets/general/zebra.webp",
+    "options": [
+      "Darat",
+      "Udara sahaja",
+      "Laut",
+      "Darat dan air tawar"
+    ],
+    "correct": "Darat",
+    "explanation": "Zebra: Darat."
+  },
+  {
+    "id": "animals-panda-name",
+    "category": "animals",
+    "question": "Apakah nama haiwan ini?",
+    "image": "assets/general/panda.webp",
+    "options": [
+      "Panda",
+      "Penguin",
+      "Penyu",
+      "Kuda"
+    ],
+    "correct": "Panda",
+    "explanation": "Panda ditunjukkan dalam gambar."
+  },
+  {
+    "id": "animals-panda-fact",
+    "category": "animals",
+    "question": "Di manakah habitat umum panda?",
+    "image": "assets/general/panda.webp",
+    "options": [
+      "Darat",
+      "Darat dan air tawar",
+      "Darat dan laut",
+      "Udara sahaja"
+    ],
+    "correct": "Darat",
+    "explanation": "Panda: Darat."
+  },
+  {
+    "id": "animals-penguin-name",
+    "category": "animals",
+    "question": "Apakah nama haiwan ini?",
+    "image": "assets/general/penguin.webp",
+    "options": [
+      "Penguin",
+      "Penyu",
+      "Kuda",
+      "Rama-rama"
+    ],
+    "correct": "Penguin",
+    "explanation": "Penguin ditunjukkan dalam gambar."
+  },
+  {
+    "id": "animals-penguin-fact",
+    "category": "animals",
+    "question": "Di manakah habitat umum penguin?",
+    "image": "assets/general/penguin.webp",
+    "options": [
+      "Darat dan laut",
+      "Darat dan air tawar",
+      "Udara sahaja",
+      "Laut"
+    ],
+    "correct": "Darat dan laut",
+    "explanation": "Penguin: Darat dan laut."
+  },
+  {
+    "id": "animals-dolphin-name",
+    "category": "animals",
+    "question": "Apakah nama haiwan ini?",
+    "image": "assets/general/dolphin.webp",
+    "options": [
+      "Lumba-lumba",
+      "Lebah",
+      "Rama-rama",
+      "Singa"
+    ],
+    "correct": "Lumba-lumba",
+    "explanation": "Lumba-lumba ditunjukkan dalam gambar."
+  },
+  {
+    "id": "animals-dolphin-fact",
+    "category": "animals",
+    "question": "Di manakah habitat umum lumba-lumba?",
+    "image": "assets/general/dolphin.webp",
+    "options": [
+      "Laut",
+      "Darat dan laut",
+      "Darat dan air tawar",
+      "Darat"
+    ],
+    "correct": "Laut",
+    "explanation": "Lumba-lumba: Laut."
+  },
+  {
+    "id": "animals-shark-name",
+    "category": "animals",
+    "question": "Apakah nama haiwan ini?",
+    "image": "assets/general/shark.webp",
+    "options": [
+      "Jerung",
+      "Katak",
+      "Panda",
+      "Zirafah"
+    ],
+    "correct": "Jerung",
+    "explanation": "Jerung ditunjukkan dalam gambar."
+  },
+  {
+    "id": "animals-shark-fact",
+    "category": "animals",
+    "question": "Di manakah habitat umum jerung?",
+    "image": "assets/general/shark.webp",
+    "options": [
+      "Laut",
+      "Darat",
+      "Udara sahaja",
+      "Darat dan laut"
+    ],
+    "correct": "Laut",
+    "explanation": "Jerung: Laut."
+  },
+  {
+    "id": "animals-turtle-name",
+    "category": "animals",
+    "question": "Apakah nama haiwan ini?",
+    "image": "assets/general/turtle.webp",
+    "options": [
+      "Penyu",
+      "Lebah",
+      "Gajah",
+      "Rama-rama"
+    ],
+    "correct": "Penyu",
+    "explanation": "Penyu ditunjukkan dalam gambar."
+  },
+  {
+    "id": "animals-turtle-fact",
+    "category": "animals",
+    "question": "Di manakah habitat umum penyu?",
+    "image": "assets/general/turtle.webp",
+    "options": [
+      "Laut",
+      "Darat dan air tawar",
+      "Darat dan laut",
+      "Udara sahaja"
+    ],
+    "correct": "Laut",
+    "explanation": "Penyu: Laut."
+  },
+  {
+    "id": "animals-frog-name",
+    "category": "animals",
+    "question": "Apakah nama haiwan ini?",
+    "image": "assets/general/frog.webp",
+    "options": [
+      "Katak",
+      "Arnab",
+      "Lumba-lumba",
+      "Gajah"
+    ],
+    "correct": "Katak",
+    "explanation": "Katak ditunjukkan dalam gambar."
+  },
+  {
+    "id": "animals-frog-fact",
+    "category": "animals",
+    "question": "Di manakah habitat umum katak?",
+    "image": "assets/general/frog.webp",
+    "options": [
+      "Darat dan air tawar",
+      "Udara sahaja",
+      "Laut",
+      "Darat dan laut"
+    ],
+    "correct": "Darat dan air tawar",
+    "explanation": "Katak: Darat dan air tawar."
+  },
+  {
+    "id": "animals-butterfly-name",
+    "category": "animals",
+    "question": "Apakah nama haiwan ini?",
+    "image": "assets/general/butterfly.webp",
+    "options": [
+      "Rama-rama",
+      "Gajah",
+      "Penguin",
+      "Kuda"
+    ],
+    "correct": "Rama-rama",
+    "explanation": "Rama-rama ditunjukkan dalam gambar."
+  },
+  {
+    "id": "animals-butterfly-fact",
+    "category": "animals",
+    "question": "Di manakah habitat umum rama-rama?",
+    "image": "assets/general/butterfly.webp",
+    "options": [
+      "Darat",
+      "Laut",
+      "Darat dan laut",
+      "Udara sahaja"
+    ],
+    "correct": "Darat",
+    "explanation": "Rama-rama: Darat."
+  },
+  {
+    "id": "animals-bee-name",
+    "category": "animals",
+    "question": "Apakah nama haiwan ini?",
+    "image": "assets/general/bee.webp",
+    "options": [
+      "Lebah",
+      "Katak",
+      "Arnab",
+      "Lumba-lumba"
+    ],
+    "correct": "Lebah",
+    "explanation": "Lebah ditunjukkan dalam gambar."
+  },
+  {
+    "id": "animals-bee-fact",
+    "category": "animals",
+    "question": "Di manakah habitat umum lebah?",
+    "image": "assets/general/bee.webp",
+    "options": [
+      "Darat",
+      "Udara sahaja",
+      "Darat dan laut",
+      "Darat dan air tawar"
+    ],
+    "correct": "Darat",
+    "explanation": "Lebah: Darat."
+  },
+  {
+    "id": "animals-horse-name",
+    "category": "animals",
+    "question": "Apakah nama haiwan ini?",
+    "image": "assets/general/horse.webp",
+    "options": [
+      "Kuda",
+      "Lumba-lumba",
+      "Panda",
+      "Jerung"
+    ],
+    "correct": "Kuda",
+    "explanation": "Kuda ditunjukkan dalam gambar."
+  },
+  {
+    "id": "animals-horse-fact",
+    "category": "animals",
+    "question": "Di manakah habitat umum kuda?",
+    "image": "assets/general/horse.webp",
+    "options": [
+      "Darat",
+      "Laut",
+      "Darat dan laut",
+      "Darat dan air tawar"
+    ],
+    "correct": "Darat",
+    "explanation": "Kuda: Darat."
+  },
+  {
+    "id": "animals-rabbit-name",
+    "category": "animals",
+    "question": "Apakah nama haiwan ini?",
+    "image": "assets/general/rabbit.webp",
+    "options": [
+      "Arnab",
+      "Singa",
+      "Katak",
+      "Rama-rama"
+    ],
+    "correct": "Arnab",
+    "explanation": "Arnab ditunjukkan dalam gambar."
+  },
+  {
+    "id": "animals-rabbit-fact",
+    "category": "animals",
+    "question": "Di manakah habitat umum arnab?",
+    "image": "assets/general/rabbit.webp",
+    "options": [
+      "Darat",
+      "Laut",
+      "Udara sahaja",
+      "Darat dan air tawar"
+    ],
+    "correct": "Darat",
+    "explanation": "Arnab: Darat."
+  }
+]
