@@ -1,0 +1,422 @@
+[
+  {
+    "id": "malaysia-state-0-flag",
+    "category": "malaysia",
+    "question": "Ini bendera negeri mana?",
+    "image": "assets/general/state-0.svg",
+    "options": [
+      "Johor",
+      "Perlis",
+      "Negeri Sembilan",
+      "Pulau Pinang"
+    ],
+    "correct": "Johor",
+    "explanation": "Ini bendera negeri Johor."
+  },
+  {
+    "id": "malaysia-state-0-capital",
+    "category": "malaysia",
+    "question": "Apakah ibu negeri Johor?",
+    "image": "assets/general/state-0.svg",
+    "options": [
+      "Johor Bahru",
+      "Kuching",
+      "Alor Setar",
+      "Shah Alam"
+    ],
+    "correct": "Johor Bahru",
+    "explanation": "Johor Bahru ialah ibu negeri Johor."
+  },
+  {
+    "id": "malaysia-state-1-flag",
+    "category": "malaysia",
+    "question": "Ini bendera negeri mana?",
+    "image": "assets/general/state-1.svg",
+    "options": [
+      "Kedah",
+      "Selangor",
+      "Negeri Sembilan",
+      "Sarawak"
+    ],
+    "correct": "Kedah",
+    "explanation": "Ini bendera negeri Kedah."
+  },
+  {
+    "id": "malaysia-state-1-capital",
+    "category": "malaysia",
+    "question": "Apakah ibu negeri Kedah?",
+    "image": "assets/general/state-1.svg",
+    "options": [
+      "Alor Setar",
+      "Kuantan",
+      "Kota Bharu",
+      "Shah Alam"
+    ],
+    "correct": "Alor Setar",
+    "explanation": "Alor Setar ialah ibu negeri Kedah."
+  },
+  {
+    "id": "malaysia-state-2-flag",
+    "category": "malaysia",
+    "question": "Ini bendera negeri mana?",
+    "image": "assets/general/state-2.svg",
+    "options": [
+      "Kelantan",
+      "Melaka",
+      "Kedah",
+      "Pulau Pinang"
+    ],
+    "correct": "Kelantan",
+    "explanation": "Ini bendera negeri Kelantan."
+  },
+  {
+    "id": "malaysia-state-2-capital",
+    "category": "malaysia",
+    "question": "Apakah ibu negeri Kelantan?",
+    "image": "assets/general/state-2.svg",
+    "options": [
+      "Kota Bharu",
+      "George Town",
+      "Kuantan",
+      "Bandar Melaka"
+    ],
+    "correct": "Kota Bharu",
+    "explanation": "Kota Bharu ialah ibu negeri Kelantan."
+  },
+  {
+    "id": "malaysia-state-3-flag",
+    "category": "malaysia",
+    "question": "Ini bendera negeri mana?",
+    "image": "assets/general/state-3.svg",
+    "options": [
+      "Melaka",
+      "Perlis",
+      "Sarawak",
+      "Kelantan"
+    ],
+    "correct": "Melaka",
+    "explanation": "Ini bendera negeri Melaka."
+  },
+  {
+    "id": "malaysia-state-3-capital",
+    "category": "malaysia",
+    "question": "Apakah ibu negeri Melaka?",
+    "image": "assets/general/state-3.svg",
+    "options": [
+      "Bandar Melaka",
+      "Kuantan",
+      "Johor Bahru",
+      "Alor Setar"
+    ],
+    "correct": "Bandar Melaka",
+    "explanation": "Bandar Melaka ialah ibu negeri Melaka."
+  },
+  {
+    "id": "malaysia-state-4-flag",
+    "category": "malaysia",
+    "question": "Ini bendera negeri mana?",
+    "image": "assets/general/state-4.svg",
+    "options": [
+      "Negeri Sembilan",
+      "Johor",
+      "Pahang",
+      "Perlis"
+    ],
+    "correct": "Negeri Sembilan",
+    "explanation": "Ini bendera negeri Negeri Sembilan."
+  },
+  {
+    "id": "malaysia-state-4-capital",
+    "category": "malaysia",
+    "question": "Apakah ibu negeri Negeri Sembilan?",
+    "image": "assets/general/state-4.svg",
+    "options": [
+      "Seremban",
+      "Shah Alam",
+      "Johor Bahru",
+      "Kota Kinabalu"
+    ],
+    "correct": "Seremban",
+    "explanation": "Seremban ialah ibu negeri Negeri Sembilan."
+  },
+  {
+    "id": "malaysia-state-5-flag",
+    "category": "malaysia",
+    "question": "Ini bendera negeri mana?",
+    "image": "assets/general/state-5.svg",
+    "options": [
+      "Pahang",
+      "Sabah",
+      "Perlis",
+      "Pulau Pinang"
+    ],
+    "correct": "Pahang",
+    "explanation": "Ini bendera negeri Pahang."
+  },
+  {
+    "id": "malaysia-state-5-capital",
+    "category": "malaysia",
+    "question": "Apakah ibu negeri Pahang?",
+    "image": "assets/general/state-5.svg",
+    "options": [
+      "Kuantan",
+      "Seremban",
+      "George Town",
+      "Ipoh"
+    ],
+    "correct": "Kuantan",
+    "explanation": "Kuantan ialah ibu negeri Pahang."
+  },
+  {
+    "id": "malaysia-state-6-flag",
+    "category": "malaysia",
+    "question": "Ini bendera negeri mana?",
+    "image": "assets/general/state-6.svg",
+    "options": [
+      "Perak",
+      "Pahang",
+      "Sarawak",
+      "Pulau Pinang"
+    ],
+    "correct": "Perak",
+    "explanation": "Ini bendera negeri Perak."
+  },
+  {
+    "id": "malaysia-state-6-capital",
+    "category": "malaysia",
+    "question": "Apakah ibu negeri Perak?",
+    "image": "assets/general/state-6.svg",
+    "options": [
+      "Ipoh",
+      "Kuala Terengganu",
+      "George Town",
+      "Bandar Melaka"
+    ],
+    "correct": "Ipoh",
+    "explanation": "Ipoh ialah ibu negeri Perak."
+  },
+  {
+    "id": "malaysia-state-7-flag",
+    "category": "malaysia",
+    "question": "Ini bendera negeri mana?",
+    "image": "assets/general/state-7.svg",
+    "options": [
+      "Perlis",
+      "Pahang",
+      "Melaka",
+      "Perak"
+    ],
+    "correct": "Perlis",
+    "explanation": "Ini bendera negeri Perlis."
+  },
+  {
+    "id": "malaysia-state-7-capital",
+    "category": "malaysia",
+    "question": "Apakah ibu negeri Perlis?",
+    "image": "assets/general/state-7.svg",
+    "options": [
+      "Kangar",
+      "Seremban",
+      "Kuala Terengganu",
+      "Johor Bahru"
+    ],
+    "correct": "Kangar",
+    "explanation": "Kangar ialah ibu negeri Perlis."
+  },
+  {
+    "id": "malaysia-state-8-flag",
+    "category": "malaysia",
+    "question": "Ini bendera negeri mana?",
+    "image": "assets/general/state-8.svg",
+    "options": [
+      "Pulau Pinang",
+      "Sarawak",
+      "Pahang",
+      "Terengganu"
+    ],
+    "correct": "Pulau Pinang",
+    "explanation": "Ini bendera negeri Pulau Pinang."
+  },
+  {
+    "id": "malaysia-state-8-capital",
+    "category": "malaysia",
+    "question": "Apakah ibu negeri Pulau Pinang?",
+    "image": "assets/general/state-8.svg",
+    "options": [
+      "George Town",
+      "Shah Alam",
+      "Alor Setar",
+      "Kota Kinabalu"
+    ],
+    "correct": "George Town",
+    "explanation": "George Town ialah ibu negeri Pulau Pinang."
+  },
+  {
+    "id": "malaysia-state-9-flag",
+    "category": "malaysia",
+    "question": "Ini bendera negeri mana?",
+    "image": "assets/general/state-9.svg",
+    "options": [
+      "Sabah",
+      "Melaka",
+      "Sarawak",
+      "Negeri Sembilan"
+    ],
+    "correct": "Sabah",
+    "explanation": "Ini bendera negeri Sabah."
+  },
+  {
+    "id": "malaysia-state-9-capital",
+    "category": "malaysia",
+    "question": "Apakah ibu negeri Sabah?",
+    "image": "assets/general/state-9.svg",
+    "options": [
+      "Kota Kinabalu",
+      "Kuala Terengganu",
+      "Kuching",
+      "Alor Setar"
+    ],
+    "correct": "Kota Kinabalu",
+    "explanation": "Kota Kinabalu ialah ibu negeri Sabah."
+  },
+  {
+    "id": "malaysia-state-10-flag",
+    "category": "malaysia",
+    "question": "Ini bendera negeri mana?",
+    "image": "assets/general/state-10.svg",
+    "options": [
+      "Sarawak",
+      "Pahang",
+      "Kelantan",
+      "Johor"
+    ],
+    "correct": "Sarawak",
+    "explanation": "Ini bendera negeri Sarawak."
+  },
+  {
+    "id": "malaysia-state-10-capital",
+    "category": "malaysia",
+    "question": "Apakah ibu negeri Sarawak?",
+    "image": "assets/general/state-10.svg",
+    "options": [
+      "Kuching",
+      "Kuala Terengganu",
+      "Kuantan",
+      "Johor Bahru"
+    ],
+    "correct": "Kuching",
+    "explanation": "Kuching ialah ibu negeri Sarawak."
+  },
+  {
+    "id": "malaysia-state-11-flag",
+    "category": "malaysia",
+    "question": "Ini bendera negeri mana?",
+    "image": "assets/general/state-11.svg",
+    "options": [
+      "Selangor",
+      "Sarawak",
+      "Pulau Pinang",
+      "Sabah"
+    ],
+    "correct": "Selangor",
+    "explanation": "Ini bendera negeri Selangor."
+  },
+  {
+    "id": "malaysia-state-11-capital",
+    "category": "malaysia",
+    "question": "Apakah ibu negeri Selangor?",
+    "image": "assets/general/state-11.svg",
+    "options": [
+      "Shah Alam",
+      "Bandar Melaka",
+      "Alor Setar",
+      "Kota Kinabalu"
+    ],
+    "correct": "Shah Alam",
+    "explanation": "Shah Alam ialah ibu negeri Selangor."
+  },
+  {
+    "id": "malaysia-state-12-flag",
+    "category": "malaysia",
+    "question": "Ini bendera negeri mana?",
+    "image": "assets/general/state-12.svg",
+    "options": [
+      "Terengganu",
+      "Kedah",
+      "Selangor",
+      "Kelantan"
+    ],
+    "correct": "Terengganu",
+    "explanation": "Ini bendera negeri Terengganu."
+  },
+  {
+    "id": "malaysia-state-12-capital",
+    "category": "malaysia",
+    "question": "Apakah ibu negeri Terengganu?",
+    "image": "assets/general/state-12.svg",
+    "options": [
+      "Kuala Terengganu",
+      "Johor Bahru",
+      "George Town",
+      "Alor Setar"
+    ],
+    "correct": "Kuala Terengganu",
+    "explanation": "Kuala Terengganu ialah ibu negeri Terengganu."
+  },
+  {
+    "id": "malaysia-landmark-0",
+    "category": "malaysia",
+    "question": "Menara Berkembar Petronas terletak di mana?",
+    "image": "assets/general/petronas.webp",
+    "options": [
+      "Kuala Lumpur",
+      "Shah Alam",
+      "Putrajaya",
+      "Kuching"
+    ],
+    "correct": "Kuala Lumpur",
+    "explanation": "Menara Berkembar Petronas terletak di Kuala Lumpur."
+  },
+  {
+    "id": "malaysia-landmark-1",
+    "category": "malaysia",
+    "question": "Negara manakah yang mempunyai Menara Berkembar Petronas?",
+    "image": "assets/general/petronas.webp",
+    "options": [
+      "Malaysia",
+      "Brunei",
+      "Thailand",
+      "Indonesia"
+    ],
+    "correct": "Malaysia",
+    "explanation": "Menara Berkembar Petronas ialah mercu tanda Malaysia."
+  },
+  {
+    "id": "malaysia-landmark-2",
+    "category": "malaysia",
+    "question": "Berapakah bilangan menara utama dalam Menara Berkembar Petronas?",
+    "image": "assets/general/petronas.webp",
+    "options": [
+      "Dua",
+      "Tiga",
+      "Satu",
+      "Empat"
+    ],
+    "correct": "Dua",
+    "explanation": "Berkembar merujuk kepada dua menara utama."
+  },
+  {
+    "id": "malaysia-landmark-3",
+    "category": "malaysia",
+    "question": "Menara Berkembar Petronas ialah contoh apa?",
+    "image": "assets/general/petronas.webp",
+    "options": [
+      "Mercu tanda",
+      "Pulau",
+      "Gunung",
+      "Air terjun"
+    ],
+    "correct": "Mercu tanda",
+    "explanation": "Bangunan ini ialah mercu tanda yang terkenal."
+  }
+]

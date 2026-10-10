@@ -1,0 +1,422 @@
+[
+  {
+    "id": "jobs-doctor-name",
+    "category": "jobs",
+    "question": "Apakah pekerjaan orang dalam gambar ini?",
+    "image": "assets/general/doctor.webp",
+    "options": [
+      "Doktor",
+      "Nelayan",
+      "Jururawat",
+      "Juruterbang"
+    ],
+    "correct": "Doktor",
+    "explanation": "Doktor ditunjukkan dalam gambar."
+  },
+  {
+    "id": "jobs-doctor-fact",
+    "category": "jobs",
+    "question": "Apakah tugas utama seorang doktor?",
+    "image": "assets/general/doctor.webp",
+    "options": [
+      "Merawat pesakit",
+      "Merawat gigi",
+      "Menjaga pesakit",
+      "Memadam kebakaran"
+    ],
+    "correct": "Merawat pesakit",
+    "explanation": "Doktor: Merawat pesakit."
+  },
+  {
+    "id": "jobs-nurse-name",
+    "category": "jobs",
+    "question": "Apakah pekerjaan orang dalam gambar ini?",
+    "image": "assets/general/nurse.webp",
+    "options": [
+      "Jururawat",
+      "Doktor haiwan",
+      "Doktor gigi",
+      "Saintis"
+    ],
+    "correct": "Jururawat",
+    "explanation": "Jururawat ditunjukkan dalam gambar."
+  },
+  {
+    "id": "jobs-nurse-fact",
+    "category": "jobs",
+    "question": "Apakah tugas utama seorang jururawat?",
+    "image": "assets/general/nurse.webp",
+    "options": [
+      "Menjaga pesakit",
+      "Memadam kebakaran",
+      "Merawat pesakit",
+      "Membina barangan kayu"
+    ],
+    "correct": "Menjaga pesakit",
+    "explanation": "Jururawat: Menjaga pesakit."
+  },
+  {
+    "id": "jobs-firefighter-name",
+    "category": "jobs",
+    "question": "Apakah pekerjaan orang dalam gambar ini?",
+    "image": "assets/general/firefighter.webp",
+    "options": [
+      "Anggota bomba",
+      "Saintis",
+      "Jururawat",
+      "Doktor haiwan"
+    ],
+    "correct": "Anggota bomba",
+    "explanation": "Anggota bomba ditunjukkan dalam gambar."
+  },
+  {
+    "id": "jobs-firefighter-fact",
+    "category": "jobs",
+    "question": "Apakah tugas utama seorang anggota bomba?",
+    "image": "assets/general/firefighter.webp",
+    "options": [
+      "Memadam kebakaran",
+      "Merawat gigi",
+      "Membina barangan kayu",
+      "Menjaga pesakit"
+    ],
+    "correct": "Memadam kebakaran",
+    "explanation": "Anggota bomba: Memadam kebakaran."
+  },
+  {
+    "id": "jobs-police-name",
+    "category": "jobs",
+    "question": "Apakah pekerjaan orang dalam gambar ini?",
+    "image": "assets/general/police.webp",
+    "options": [
+      "Polis",
+      "Anggota bomba",
+      "Jurugambar",
+      "Nelayan"
+    ],
+    "correct": "Polis",
+    "explanation": "Polis ditunjukkan dalam gambar."
+  },
+  {
+    "id": "jobs-police-fact",
+    "category": "jobs",
+    "question": "Apakah tugas utama seorang polis?",
+    "image": "assets/general/police.webp",
+    "options": [
+      "Menjaga keselamatan awam",
+      "Menangkap ikan",
+      "Mengambil gambar",
+      "Mengajar murid"
+    ],
+    "correct": "Menjaga keselamatan awam",
+    "explanation": "Polis: Menjaga keselamatan awam."
+  },
+  {
+    "id": "jobs-teacher-name",
+    "category": "jobs",
+    "question": "Apakah pekerjaan orang dalam gambar ini?",
+    "image": "assets/general/teacher.webp",
+    "options": [
+      "Guru",
+      "Polis",
+      "Saintis",
+      "Jurugambar"
+    ],
+    "correct": "Guru",
+    "explanation": "Guru ditunjukkan dalam gambar."
+  },
+  {
+    "id": "jobs-teacher-fact",
+    "category": "jobs",
+    "question": "Apakah tugas utama seorang guru?",
+    "image": "assets/general/teacher.webp",
+    "options": [
+      "Mengajar murid",
+      "Menjalankan penyelidikan",
+      "Menjaga keselamatan awam",
+      "Menjaga pesakit"
+    ],
+    "correct": "Mengajar murid",
+    "explanation": "Guru: Mengajar murid."
+  },
+  {
+    "id": "jobs-farmer-name",
+    "category": "jobs",
+    "question": "Apakah pekerjaan orang dalam gambar ini?",
+    "image": "assets/general/farmer.webp",
+    "options": [
+      "Petani",
+      "Tukang masak",
+      "Doktor gigi",
+      "Mekanik"
+    ],
+    "correct": "Petani",
+    "explanation": "Petani ditunjukkan dalam gambar."
+  },
+  {
+    "id": "jobs-farmer-fact",
+    "category": "jobs",
+    "question": "Apakah tugas utama seorang petani?",
+    "image": "assets/general/farmer.webp",
+    "options": [
+      "Menanam tanaman",
+      "Menyediakan makanan",
+      "Mengambil gambar",
+      "Merawat gigi"
+    ],
+    "correct": "Menanam tanaman",
+    "explanation": "Petani: Menanam tanaman."
+  },
+  {
+    "id": "jobs-chef-name",
+    "category": "jobs",
+    "question": "Apakah pekerjaan orang dalam gambar ini?",
+    "image": "assets/general/chef.webp",
+    "options": [
+      "Tukang masak",
+      "Petani",
+      "Doktor gigi",
+      "Doktor haiwan"
+    ],
+    "correct": "Tukang masak",
+    "explanation": "Tukang masak ditunjukkan dalam gambar."
+  },
+  {
+    "id": "jobs-chef-fact",
+    "category": "jobs",
+    "question": "Apakah tugas utama seorang tukang masak?",
+    "image": "assets/general/chef.webp",
+    "options": [
+      "Menyediakan makanan",
+      "Memadam kebakaran",
+      "Menanam tanaman",
+      "Membina barangan kayu"
+    ],
+    "correct": "Menyediakan makanan",
+    "explanation": "Tukang masak: Menyediakan makanan."
+  },
+  {
+    "id": "jobs-pilot-name",
+    "category": "jobs",
+    "question": "Apakah pekerjaan orang dalam gambar ini?",
+    "image": "assets/general/pilot.webp",
+    "options": [
+      "Juruterbang",
+      "Guru",
+      "Doktor gigi",
+      "Polis"
+    ],
+    "correct": "Juruterbang",
+    "explanation": "Juruterbang ditunjukkan dalam gambar."
+  },
+  {
+    "id": "jobs-pilot-fact",
+    "category": "jobs",
+    "question": "Apakah tugas utama seorang juruterbang?",
+    "image": "assets/general/pilot.webp",
+    "options": [
+      "Menerbangkan pesawat",
+      "Menjaga pesakit",
+      "Merawat haiwan",
+      "Menyediakan makanan"
+    ],
+    "correct": "Menerbangkan pesawat",
+    "explanation": "Juruterbang: Menerbangkan pesawat."
+  },
+  {
+    "id": "jobs-dentist-name",
+    "category": "jobs",
+    "question": "Apakah pekerjaan orang dalam gambar ini?",
+    "image": "assets/general/dentist.webp",
+    "options": [
+      "Doktor gigi",
+      "Juruterbang",
+      "Saintis",
+      "Doktor haiwan"
+    ],
+    "correct": "Doktor gigi",
+    "explanation": "Doktor gigi ditunjukkan dalam gambar."
+  },
+  {
+    "id": "jobs-dentist-fact",
+    "category": "jobs",
+    "question": "Apakah tugas utama seorang doktor gigi?",
+    "image": "assets/general/dentist.webp",
+    "options": [
+      "Merawat gigi",
+      "Menjaga keselamatan awam",
+      "Menanam tanaman",
+      "Mengajar murid"
+    ],
+    "correct": "Merawat gigi",
+    "explanation": "Doktor gigi: Merawat gigi."
+  },
+  {
+    "id": "jobs-veterinarian-name",
+    "category": "jobs",
+    "question": "Apakah pekerjaan orang dalam gambar ini?",
+    "image": "assets/general/veterinarian.webp",
+    "options": [
+      "Doktor haiwan",
+      "Mekanik",
+      "Doktor gigi",
+      "Saintis"
+    ],
+    "correct": "Doktor haiwan",
+    "explanation": "Doktor haiwan ditunjukkan dalam gambar."
+  },
+  {
+    "id": "jobs-veterinarian-fact",
+    "category": "jobs",
+    "question": "Apakah tugas utama seorang doktor haiwan?",
+    "image": "assets/general/veterinarian.webp",
+    "options": [
+      "Merawat haiwan",
+      "Merawat pesakit",
+      "Menjaga pesakit",
+      "Membina barangan kayu"
+    ],
+    "correct": "Merawat haiwan",
+    "explanation": "Doktor haiwan: Merawat haiwan."
+  },
+  {
+    "id": "jobs-mechanic-name",
+    "category": "jobs",
+    "question": "Apakah pekerjaan orang dalam gambar ini?",
+    "image": "assets/general/mechanic.webp",
+    "options": [
+      "Mekanik",
+      "Doktor gigi",
+      "Jurugambar",
+      "Saintis"
+    ],
+    "correct": "Mekanik",
+    "explanation": "Mekanik ditunjukkan dalam gambar."
+  },
+  {
+    "id": "jobs-mechanic-fact",
+    "category": "jobs",
+    "question": "Apakah tugas utama seorang mekanik?",
+    "image": "assets/general/mechanic.webp",
+    "options": [
+      "Membaiki kenderaan",
+      "Memadam kebakaran",
+      "Mengajar murid",
+      "Menangkap ikan"
+    ],
+    "correct": "Membaiki kenderaan",
+    "explanation": "Mekanik: Membaiki kenderaan."
+  },
+  {
+    "id": "jobs-carpenter-name",
+    "category": "jobs",
+    "question": "Apakah pekerjaan orang dalam gambar ini?",
+    "image": "assets/general/carpenter.webp",
+    "options": [
+      "Tukang kayu",
+      "Doktor",
+      "Jururawat",
+      "Juruterbang"
+    ],
+    "correct": "Tukang kayu",
+    "explanation": "Tukang kayu ditunjukkan dalam gambar."
+  },
+  {
+    "id": "jobs-carpenter-fact",
+    "category": "jobs",
+    "question": "Apakah tugas utama seorang tukang kayu?",
+    "image": "assets/general/carpenter.webp",
+    "options": [
+      "Membina barangan kayu",
+      "Menjaga keselamatan awam",
+      "Menjalankan penyelidikan",
+      "Menanam tanaman"
+    ],
+    "correct": "Membina barangan kayu",
+    "explanation": "Tukang kayu: Membina barangan kayu."
+  },
+  {
+    "id": "jobs-fisherman-name",
+    "category": "jobs",
+    "question": "Apakah pekerjaan orang dalam gambar ini?",
+    "image": "assets/general/fisherman.webp",
+    "options": [
+      "Nelayan",
+      "Tukang kayu",
+      "Doktor",
+      "Mekanik"
+    ],
+    "correct": "Nelayan",
+    "explanation": "Nelayan ditunjukkan dalam gambar."
+  },
+  {
+    "id": "jobs-fisherman-fact",
+    "category": "jobs",
+    "question": "Apakah tugas utama seorang nelayan?",
+    "image": "assets/general/fisherman.webp",
+    "options": [
+      "Menangkap ikan",
+      "Mengambil gambar",
+      "Menanam tanaman",
+      "Memadam kebakaran"
+    ],
+    "correct": "Menangkap ikan",
+    "explanation": "Nelayan: Menangkap ikan."
+  },
+  {
+    "id": "jobs-photographer-name",
+    "category": "jobs",
+    "question": "Apakah pekerjaan orang dalam gambar ini?",
+    "image": "assets/general/photographer.webp",
+    "options": [
+      "Jurugambar",
+      "Jururawat",
+      "Doktor",
+      "Juruterbang"
+    ],
+    "correct": "Jurugambar",
+    "explanation": "Jurugambar ditunjukkan dalam gambar."
+  },
+  {
+    "id": "jobs-photographer-fact",
+    "category": "jobs",
+    "question": "Apakah tugas utama seorang jurugambar?",
+    "image": "assets/general/photographer.webp",
+    "options": [
+      "Mengambil gambar",
+      "Menangkap ikan",
+      "Membina barangan kayu",
+      "Menjaga keselamatan awam"
+    ],
+    "correct": "Mengambil gambar",
+    "explanation": "Jurugambar: Mengambil gambar."
+  },
+  {
+    "id": "jobs-scientist-name",
+    "category": "jobs",
+    "question": "Apakah pekerjaan orang dalam gambar ini?",
+    "image": "assets/general/scientist.webp",
+    "options": [
+      "Saintis",
+      "Doktor gigi",
+      "Juruterbang",
+      "Tukang kayu"
+    ],
+    "correct": "Saintis",
+    "explanation": "Saintis ditunjukkan dalam gambar."
+  },
+  {
+    "id": "jobs-scientist-fact",
+    "category": "jobs",
+    "question": "Apakah tugas utama seorang saintis?",
+    "image": "assets/general/scientist.webp",
+    "options": [
+      "Menjalankan penyelidikan",
+      "Menanam tanaman",
+      "Memadam kebakaran",
+      "Menyediakan makanan"
+    ],
+    "correct": "Menjalankan penyelidikan",
+    "explanation": "Saintis: Menjalankan penyelidikan."
+  }
+]

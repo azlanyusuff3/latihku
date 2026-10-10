@@ -1,0 +1,542 @@
+[
+  {
+    "id": "sounds-sound-rooster-1",
+    "category": "sounds",
+    "question": "Bunyi ini dihasilkan oleh haiwan apa?",
+    "image": "assets/general/farm.webp",
+    "options": [
+      "Ayam jantan",
+      "Burung hantu",
+      "Kucing",
+      "Burung gagak"
+    ],
+    "correct": "Ayam jantan",
+    "explanation": "Rakaman ini ialah bunyi ayam jantan.",
+    "audio": "assets/general/sound-rooster-1.mp3"
+  },
+  {
+    "id": "sounds-sound-rooster-2",
+    "category": "sounds",
+    "question": "Bunyi ini dihasilkan oleh haiwan apa?",
+    "image": "assets/general/farm.webp",
+    "options": [
+      "Ayam jantan",
+      "Serangga",
+      "Biri-biri",
+      "Babi"
+    ],
+    "correct": "Ayam jantan",
+    "explanation": "Rakaman ini ialah bunyi ayam jantan.",
+    "audio": "assets/general/sound-rooster-2.mp3"
+  },
+  {
+    "id": "sounds-sound-frog-1",
+    "category": "sounds",
+    "question": "Bunyi ini dihasilkan oleh haiwan apa?",
+    "image": "assets/general/farm.webp",
+    "options": [
+      "Katak",
+      "Biri-biri",
+      "Burung gagak",
+      "Anjing"
+    ],
+    "correct": "Katak",
+    "explanation": "Rakaman ini ialah bunyi katak.",
+    "audio": "assets/general/sound-frog-1.mp3"
+  },
+  {
+    "id": "sounds-sound-frog-2",
+    "category": "sounds",
+    "question": "Bunyi ini dihasilkan oleh haiwan apa?",
+    "image": "assets/general/farm.webp",
+    "options": [
+      "Katak",
+      "Babi",
+      "Burung gagak",
+      "Lembu"
+    ],
+    "correct": "Katak",
+    "explanation": "Rakaman ini ialah bunyi katak.",
+    "audio": "assets/general/sound-frog-2.mp3"
+  },
+  {
+    "id": "sounds-sound-owl-1",
+    "category": "sounds",
+    "question": "Bunyi ini dihasilkan oleh haiwan apa?",
+    "image": "assets/general/farm.webp",
+    "options": [
+      "Burung hantu",
+      "Kucing",
+      "Anjing",
+      "Biri-biri"
+    ],
+    "correct": "Burung hantu",
+    "explanation": "Rakaman ini ialah bunyi burung hantu.",
+    "audio": "assets/general/sound-owl-1.mp3"
+  },
+  {
+    "id": "sounds-sound-owl-2",
+    "category": "sounds",
+    "question": "Bunyi ini dihasilkan oleh haiwan apa?",
+    "image": "assets/general/farm.webp",
+    "options": [
+      "Burung hantu",
+      "Katak",
+      "Ayam betina",
+      "Babi"
+    ],
+    "correct": "Burung hantu",
+    "explanation": "Rakaman ini ialah bunyi burung hantu.",
+    "audio": "assets/general/sound-owl-2.mp3"
+  },
+  {
+    "id": "sounds-sound-cc0-1-100032-A-0",
+    "category": "sounds",
+    "question": "Bunyi ini dihasilkan oleh haiwan apa?",
+    "image": "assets/general/farm.webp",
+    "options": [
+      "Anjing",
+      "Lembu",
+      "Burung gagak",
+      "Katak"
+    ],
+    "correct": "Anjing",
+    "explanation": "Rakaman ini ialah bunyi anjing.",
+    "audio": "assets/general/sound-cc0-1-100032-A-0.mp3"
+  },
+  {
+    "id": "sounds-sound-cc0-1-30226-A-0",
+    "category": "sounds",
+    "question": "Bunyi ini dihasilkan oleh haiwan apa?",
+    "image": "assets/general/farm.webp",
+    "options": [
+      "Anjing",
+      "Burung hantu",
+      "Ayam jantan",
+      "Serangga"
+    ],
+    "correct": "Anjing",
+    "explanation": "Rakaman ini ialah bunyi anjing.",
+    "audio": "assets/general/sound-cc0-1-30226-A-0.mp3"
+  },
+  {
+    "id": "sounds-sound-cc0-1-32318-A-0",
+    "category": "sounds",
+    "question": "Bunyi ini dihasilkan oleh haiwan apa?",
+    "image": "assets/general/farm.webp",
+    "options": [
+      "Anjing",
+      "Biri-biri",
+      "Ayam betina",
+      "Lembu"
+    ],
+    "correct": "Anjing",
+    "explanation": "Rakaman ini ialah bunyi anjing.",
+    "audio": "assets/general/sound-cc0-1-32318-A-0.mp3"
+  },
+  {
+    "id": "sounds-sound-cc0-1-59513-A-0",
+    "category": "sounds",
+    "question": "Bunyi ini dihasilkan oleh haiwan apa?",
+    "image": "assets/general/farm.webp",
+    "options": [
+      "Anjing",
+      "Lembu",
+      "Ayam betina",
+      "Biri-biri"
+    ],
+    "correct": "Anjing",
+    "explanation": "Rakaman ini ialah bunyi anjing.",
+    "audio": "assets/general/sound-cc0-1-59513-A-0.mp3"
+  },
+  {
+    "id": "sounds-sound-cc0-2-114587-A-0",
+    "category": "sounds",
+    "question": "Bunyi ini dihasilkan oleh haiwan apa?",
+    "image": "assets/general/farm.webp",
+    "options": [
+      "Anjing",
+      "Serangga",
+      "Ayam betina",
+      "Kucing"
+    ],
+    "correct": "Anjing",
+    "explanation": "Rakaman ini ialah bunyi anjing.",
+    "audio": "assets/general/sound-cc0-2-114587-A-0.mp3"
+  },
+  {
+    "id": "sounds-sound-cc0-1-27724-A-1",
+    "category": "sounds",
+    "question": "Bunyi ini dihasilkan oleh haiwan apa?",
+    "image": "assets/general/farm.webp",
+    "options": [
+      "Ayam jantan",
+      "Burung hantu",
+      "Kucing",
+      "Katak"
+    ],
+    "correct": "Ayam jantan",
+    "explanation": "Rakaman ini ialah bunyi ayam jantan.",
+    "audio": "assets/general/sound-cc0-1-27724-A-1.mp3"
+  },
+  {
+    "id": "sounds-sound-cc0-1-34119-A-1",
+    "category": "sounds",
+    "question": "Bunyi ini dihasilkan oleh haiwan apa?",
+    "image": "assets/general/farm.webp",
+    "options": [
+      "Ayam jantan",
+      "Kucing",
+      "Lembu",
+      "Katak"
+    ],
+    "correct": "Ayam jantan",
+    "explanation": "Rakaman ini ialah bunyi ayam jantan.",
+    "audio": "assets/general/sound-cc0-1-34119-A-1.mp3"
+  },
+  {
+    "id": "sounds-sound-cc0-1-44831-A-1",
+    "category": "sounds",
+    "question": "Bunyi ini dihasilkan oleh haiwan apa?",
+    "image": "assets/general/farm.webp",
+    "options": [
+      "Ayam jantan",
+      "Biri-biri",
+      "Anjing",
+      "Katak"
+    ],
+    "correct": "Ayam jantan",
+    "explanation": "Rakaman ini ialah bunyi ayam jantan.",
+    "audio": "assets/general/sound-cc0-1-44831-A-1.mp3"
+  },
+  {
+    "id": "sounds-sound-cc0-1-208757-A-2",
+    "category": "sounds",
+    "question": "Bunyi ini dihasilkan oleh haiwan apa?",
+    "image": "assets/general/farm.webp",
+    "options": [
+      "Babi",
+      "Kucing",
+      "Lembu",
+      "Ayam jantan"
+    ],
+    "correct": "Babi",
+    "explanation": "Rakaman ini ialah bunyi babi.",
+    "audio": "assets/general/sound-cc0-1-208757-A-2.mp3"
+  },
+  {
+    "id": "sounds-sound-cc0-1-260640-A-2",
+    "category": "sounds",
+    "question": "Bunyi ini dihasilkan oleh haiwan apa?",
+    "image": "assets/general/farm.webp",
+    "options": [
+      "Babi",
+      "Biri-biri",
+      "Lembu",
+      "Burung hantu"
+    ],
+    "correct": "Babi",
+    "explanation": "Rakaman ini ialah bunyi babi.",
+    "audio": "assets/general/sound-cc0-1-260640-A-2.mp3"
+  },
+  {
+    "id": "sounds-sound-cc0-2-158746-A-2",
+    "category": "sounds",
+    "question": "Bunyi ini dihasilkan oleh haiwan apa?",
+    "image": "assets/general/farm.webp",
+    "options": [
+      "Babi",
+      "Biri-biri",
+      "Ayam betina",
+      "Serangga"
+    ],
+    "correct": "Babi",
+    "explanation": "Rakaman ini ialah bunyi babi.",
+    "audio": "assets/general/sound-cc0-2-158746-A-2.mp3"
+  },
+  {
+    "id": "sounds-sound-cc0-1-202111-A-3",
+    "category": "sounds",
+    "question": "Bunyi ini dihasilkan oleh haiwan apa?",
+    "image": "assets/general/farm.webp",
+    "options": [
+      "Lembu",
+      "Burung gagak",
+      "Anjing",
+      "Burung hantu"
+    ],
+    "correct": "Lembu",
+    "explanation": "Rakaman ini ialah bunyi lembu.",
+    "audio": "assets/general/sound-cc0-1-202111-A-3.mp3"
+  },
+  {
+    "id": "sounds-sound-cc0-1-81269-A-3",
+    "category": "sounds",
+    "question": "Bunyi ini dihasilkan oleh haiwan apa?",
+    "image": "assets/general/farm.webp",
+    "options": [
+      "Lembu",
+      "Anjing",
+      "Babi",
+      "Burung gagak"
+    ],
+    "correct": "Lembu",
+    "explanation": "Rakaman ini ialah bunyi lembu.",
+    "audio": "assets/general/sound-cc0-1-81269-A-3.mp3"
+  },
+  {
+    "id": "sounds-sound-cc0-2-104877-A-3",
+    "category": "sounds",
+    "question": "Bunyi ini dihasilkan oleh haiwan apa?",
+    "image": "assets/general/farm.webp",
+    "options": [
+      "Lembu",
+      "Babi",
+      "Serangga",
+      "Burung hantu"
+    ],
+    "correct": "Lembu",
+    "explanation": "Rakaman ini ialah bunyi lembu.",
+    "audio": "assets/general/sound-cc0-2-104877-A-3.mp3"
+  },
+  {
+    "id": "sounds-sound-cc0-5-187201-A-4",
+    "category": "sounds",
+    "question": "Bunyi ini dihasilkan oleh haiwan apa?",
+    "image": "assets/general/farm.webp",
+    "options": [
+      "Katak",
+      "Burung hantu",
+      "Babi",
+      "Kucing"
+    ],
+    "correct": "Katak",
+    "explanation": "Rakaman ini ialah bunyi katak.",
+    "audio": "assets/general/sound-cc0-5-187201-A-4.mp3"
+  },
+  {
+    "id": "sounds-sound-cc0-2-110010-A-5",
+    "category": "sounds",
+    "question": "Bunyi ini dihasilkan oleh haiwan apa?",
+    "image": "assets/general/farm.webp",
+    "options": [
+      "Kucing",
+      "Serangga",
+      "Ayam jantan",
+      "Babi"
+    ],
+    "correct": "Kucing",
+    "explanation": "Rakaman ini ialah bunyi kucing.",
+    "audio": "assets/general/sound-cc0-2-110010-A-5.mp3"
+  },
+  {
+    "id": "sounds-sound-cc0-2-110011-A-5",
+    "category": "sounds",
+    "question": "Bunyi ini dihasilkan oleh haiwan apa?",
+    "image": "assets/general/farm.webp",
+    "options": [
+      "Kucing",
+      "Anjing",
+      "Lembu",
+      "Katak"
+    ],
+    "correct": "Kucing",
+    "explanation": "Rakaman ini ialah bunyi kucing.",
+    "audio": "assets/general/sound-cc0-2-110011-A-5.mp3"
+  },
+  {
+    "id": "sounds-sound-cc0-3-146964-A-5",
+    "category": "sounds",
+    "question": "Bunyi ini dihasilkan oleh haiwan apa?",
+    "image": "assets/general/farm.webp",
+    "options": [
+      "Kucing",
+      "Anjing",
+      "Serangga",
+      "Biri-biri"
+    ],
+    "correct": "Kucing",
+    "explanation": "Rakaman ini ialah bunyi kucing.",
+    "audio": "assets/general/sound-cc0-3-146964-A-5.mp3"
+  },
+  {
+    "id": "sounds-sound-cc0-3-171281-A-6",
+    "category": "sounds",
+    "question": "Bunyi ini dihasilkan oleh haiwan apa?",
+    "image": "assets/general/farm.webp",
+    "options": [
+      "Ayam betina",
+      "Katak",
+      "Anjing",
+      "Babi"
+    ],
+    "correct": "Ayam betina",
+    "explanation": "Rakaman ini ialah bunyi ayam betina.",
+    "audio": "assets/general/sound-cc0-3-171281-A-6.mp3"
+  },
+  {
+    "id": "sounds-sound-cc0-3-187549-A-6",
+    "category": "sounds",
+    "question": "Bunyi ini dihasilkan oleh haiwan apa?",
+    "image": "assets/general/farm.webp",
+    "options": [
+      "Ayam betina",
+      "Burung hantu",
+      "Serangga",
+      "Anjing"
+    ],
+    "correct": "Ayam betina",
+    "explanation": "Rakaman ini ialah bunyi ayam betina.",
+    "audio": "assets/general/sound-cc0-3-187549-A-6.mp3"
+  },
+  {
+    "id": "sounds-sound-cc0-4-197103-A-6",
+    "category": "sounds",
+    "question": "Bunyi ini dihasilkan oleh haiwan apa?",
+    "image": "assets/general/farm.webp",
+    "options": [
+      "Ayam betina",
+      "Babi",
+      "Anjing",
+      "Katak"
+    ],
+    "correct": "Ayam betina",
+    "explanation": "Rakaman ini ialah bunyi ayam betina.",
+    "audio": "assets/general/sound-cc0-4-197103-A-6.mp3"
+  },
+  {
+    "id": "sounds-sound-cc0-1-46938-A-7",
+    "category": "sounds",
+    "question": "Bunyi ini dihasilkan oleh haiwan apa?",
+    "image": "assets/general/farm.webp",
+    "options": [
+      "Serangga",
+      "Katak",
+      "Kucing",
+      "Ayam betina"
+    ],
+    "correct": "Serangga",
+    "explanation": "Rakaman ini ialah bunyi serangga.",
+    "audio": "assets/general/sound-cc0-1-46938-A-7.mp3"
+  },
+  {
+    "id": "sounds-sound-cc0-3-104761-A-7",
+    "category": "sounds",
+    "question": "Bunyi ini dihasilkan oleh haiwan apa?",
+    "image": "assets/general/farm.webp",
+    "options": [
+      "Serangga",
+      "Lembu",
+      "Ayam jantan",
+      "Babi"
+    ],
+    "correct": "Serangga",
+    "explanation": "Rakaman ini ialah bunyi serangga.",
+    "audio": "assets/general/sound-cc0-3-104761-A-7.mp3"
+  },
+  {
+    "id": "sounds-sound-cc0-4-143118-A-7",
+    "category": "sounds",
+    "question": "Bunyi ini dihasilkan oleh haiwan apa?",
+    "image": "assets/general/farm.webp",
+    "options": [
+      "Serangga",
+      "Babi",
+      "Kucing",
+      "Anjing"
+    ],
+    "correct": "Serangga",
+    "explanation": "Rakaman ini ialah bunyi serangga.",
+    "audio": "assets/general/sound-cc0-4-143118-A-7.mp3"
+  },
+  {
+    "id": "sounds-sound-cc0-1-121951-A-8",
+    "category": "sounds",
+    "question": "Bunyi ini dihasilkan oleh haiwan apa?",
+    "image": "assets/general/farm.webp",
+    "options": [
+      "Biri-biri",
+      "Burung gagak",
+      "Katak",
+      "Babi"
+    ],
+    "correct": "Biri-biri",
+    "explanation": "Rakaman ini ialah bunyi biri-biri.",
+    "audio": "assets/general/sound-cc0-1-121951-A-8.mp3"
+  },
+  {
+    "id": "sounds-sound-cc0-2-182508-A-8",
+    "category": "sounds",
+    "question": "Bunyi ini dihasilkan oleh haiwan apa?",
+    "image": "assets/general/farm.webp",
+    "options": [
+      "Biri-biri",
+      "Serangga",
+      "Ayam jantan",
+      "Anjing"
+    ],
+    "correct": "Biri-biri",
+    "explanation": "Rakaman ini ialah bunyi biri-biri.",
+    "audio": "assets/general/sound-cc0-2-182508-A-8.mp3"
+  },
+  {
+    "id": "sounds-sound-cc0-3-140199-A-8",
+    "category": "sounds",
+    "question": "Bunyi ini dihasilkan oleh haiwan apa?",
+    "image": "assets/general/farm.webp",
+    "options": [
+      "Biri-biri",
+      "Kucing",
+      "Anjing",
+      "Ayam betina"
+    ],
+    "correct": "Biri-biri",
+    "explanation": "Rakaman ini ialah bunyi biri-biri.",
+    "audio": "assets/general/sound-cc0-3-140199-A-8.mp3"
+  },
+  {
+    "id": "sounds-sound-cc0-1-56233-A-9",
+    "category": "sounds",
+    "question": "Bunyi ini dihasilkan oleh haiwan apa?",
+    "image": "assets/general/farm.webp",
+    "options": [
+      "Burung gagak",
+      "Ayam betina",
+      "Lembu",
+      "Anjing"
+    ],
+    "correct": "Burung gagak",
+    "explanation": "Rakaman ini ialah bunyi burung gagak.",
+    "audio": "assets/general/sound-cc0-1-56233-A-9.mp3"
+  },
+  {
+    "id": "sounds-sound-cc0-1-56234-A-9",
+    "category": "sounds",
+    "question": "Bunyi ini dihasilkan oleh haiwan apa?",
+    "image": "assets/general/farm.webp",
+    "options": [
+      "Burung gagak",
+      "Kucing",
+      "Ayam betina",
+      "Lembu"
+    ],
+    "correct": "Burung gagak",
+    "explanation": "Rakaman ini ialah bunyi burung gagak.",
+    "audio": "assets/general/sound-cc0-1-56234-A-9.mp3"
+  },
+  {
+    "id": "sounds-sound-cc0-1-75162-A-9",
+    "category": "sounds",
+    "question": "Bunyi ini dihasilkan oleh haiwan apa?",
+    "image": "assets/general/farm.webp",
+    "options": [
+      "Burung gagak",
+      "Kucing",
+      "Katak",
+      "Babi"
+    ],
+    "correct": "Burung gagak",
+    "explanation": "Rakaman ini ialah bunyi burung gagak.",
+    "audio": "assets/general/sound-cc0-1-75162-A-9.mp3"
+  }
+]

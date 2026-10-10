@@ -1,0 +1,422 @@
+[
+  {
+    "id": "food-nasilemak-name",
+    "category": "food",
+    "question": "Apakah nama makanan ini?",
+    "image": "assets/general/nasilemak.webp",
+    "options": [
+      "Nasi lemak",
+      "Wafel",
+      "Croissant",
+      "Roti canai"
+    ],
+    "correct": "Nasi lemak",
+    "explanation": "Nasi lemak ditunjukkan dalam gambar."
+  },
+  {
+    "id": "food-nasilemak-fact",
+    "category": "food",
+    "question": "Apakah bahan asas yang biasa digunakan untuk nasi lemak?",
+    "image": "assets/general/nasilemak.webp",
+    "options": [
+      "Nasi",
+      "Roti",
+      "Sayur",
+      "Tortila"
+    ],
+    "correct": "Nasi",
+    "explanation": "Nasi lemak: Nasi."
+  },
+  {
+    "id": "food-satay-name",
+    "category": "food",
+    "question": "Apakah nama makanan ini?",
+    "image": "assets/general/satay.webp",
+    "options": [
+      "Sate",
+      "Nasi lemak",
+      "Kimchi",
+      "Taco"
+    ],
+    "correct": "Sate",
+    "explanation": "Sate ditunjukkan dalam gambar."
+  },
+  {
+    "id": "food-satay-fact",
+    "category": "food",
+    "question": "Apakah bahan asas yang biasa digunakan untuk sate?",
+    "image": "assets/general/satay.webp",
+    "options": [
+      "Daging",
+      "Pasta",
+      "Roti",
+      "Doh"
+    ],
+    "correct": "Daging",
+    "explanation": "Sate: Daging."
+  },
+  {
+    "id": "food-sushi-name",
+    "category": "food",
+    "question": "Apakah nama makanan ini?",
+    "image": "assets/general/sushi.webp",
+    "options": [
+      "Sushi",
+      "Roti canai",
+      "Rendang",
+      "Laksa"
+    ],
+    "correct": "Sushi",
+    "explanation": "Sushi ditunjukkan dalam gambar."
+  },
+  {
+    "id": "food-sushi-fact",
+    "category": "food",
+    "question": "Apakah bahan asas yang biasa digunakan untuk sushi?",
+    "image": "assets/general/sushi.webp",
+    "options": [
+      "Nasi",
+      "Tortila",
+      "Roti",
+      "Daging"
+    ],
+    "correct": "Nasi",
+    "explanation": "Sushi: Nasi."
+  },
+  {
+    "id": "food-pizza-name",
+    "category": "food",
+    "question": "Apakah nama makanan ini?",
+    "image": "assets/general/pizza.webp",
+    "options": [
+      "Pizza",
+      "Rendang",
+      "Burger",
+      "Nasi lemak"
+    ],
+    "correct": "Pizza",
+    "explanation": "Pizza ditunjukkan dalam gambar."
+  },
+  {
+    "id": "food-pizza-fact",
+    "category": "food",
+    "question": "Apakah bahan asas yang biasa digunakan untuk pizza?",
+    "image": "assets/general/pizza.webp",
+    "options": [
+      "Doh",
+      "Pasta",
+      "Sayur",
+      "Adunan tepung"
+    ],
+    "correct": "Doh",
+    "explanation": "Pizza: Doh."
+  },
+  {
+    "id": "food-rendang-name",
+    "category": "food",
+    "question": "Apakah nama makanan ini?",
+    "image": "assets/general/rendang.webp",
+    "options": [
+      "Rendang",
+      "Pankek",
+      "Kimchi",
+      "Ladu"
+    ],
+    "correct": "Rendang",
+    "explanation": "Rendang ditunjukkan dalam gambar."
+  },
+  {
+    "id": "food-rendang-fact",
+    "category": "food",
+    "question": "Apakah bahan asas yang biasa digunakan untuk rendang?",
+    "image": "assets/general/rendang.webp",
+    "options": [
+      "Daging",
+      "Mi",
+      "Roti",
+      "Tortila"
+    ],
+    "correct": "Daging",
+    "explanation": "Rendang: Daging."
+  },
+  {
+    "id": "food-roticanai-name",
+    "category": "food",
+    "question": "Apakah nama makanan ini?",
+    "image": "assets/general/roticanai.webp",
+    "options": [
+      "Roti canai",
+      "Kimchi",
+      "Laksa",
+      "Pizza"
+    ],
+    "correct": "Roti canai",
+    "explanation": "Roti canai ditunjukkan dalam gambar."
+  },
+  {
+    "id": "food-roticanai-fact",
+    "category": "food",
+    "question": "Apakah bahan asas yang biasa digunakan untuk roti canai?",
+    "image": "assets/general/roticanai.webp",
+    "options": [
+      "Doh",
+      "Adunan tepung",
+      "Sayur",
+      "Nasi"
+    ],
+    "correct": "Doh",
+    "explanation": "Roti canai: Doh."
+  },
+  {
+    "id": "food-laksa-name",
+    "category": "food",
+    "question": "Apakah nama makanan ini?",
+    "image": "assets/general/laksa.webp",
+    "options": [
+      "Laksa",
+      "Nasi lemak",
+      "Pankek",
+      "Kimchi"
+    ],
+    "correct": "Laksa",
+    "explanation": "Laksa ditunjukkan dalam gambar."
+  },
+  {
+    "id": "food-laksa-fact",
+    "category": "food",
+    "question": "Apakah bahan asas yang biasa digunakan untuk laksa?",
+    "image": "assets/general/laksa.webp",
+    "options": [
+      "Mi",
+      "Adunan tepung",
+      "Pasta",
+      "Tortila"
+    ],
+    "correct": "Mi",
+    "explanation": "Laksa: Mi."
+  },
+  {
+    "id": "food-spaghetti-name",
+    "category": "food",
+    "question": "Apakah nama makanan ini?",
+    "image": "assets/general/spaghetti.webp",
+    "options": [
+      "Spageti",
+      "Rendang",
+      "Sate",
+      "Croissant"
+    ],
+    "correct": "Spageti",
+    "explanation": "Spageti ditunjukkan dalam gambar."
+  },
+  {
+    "id": "food-spaghetti-fact",
+    "category": "food",
+    "question": "Apakah bahan asas yang biasa digunakan untuk spageti?",
+    "image": "assets/general/spaghetti.webp",
+    "options": [
+      "Pasta",
+      "Tortila",
+      "Roti",
+      "Daging"
+    ],
+    "correct": "Pasta",
+    "explanation": "Spageti: Pasta."
+  },
+  {
+    "id": "food-burger-name",
+    "category": "food",
+    "question": "Apakah nama makanan ini?",
+    "image": "assets/general/burger.webp",
+    "options": [
+      "Burger",
+      "Pizza",
+      "Rendang",
+      "Nasi lemak"
+    ],
+    "correct": "Burger",
+    "explanation": "Burger ditunjukkan dalam gambar."
+  },
+  {
+    "id": "food-burger-fact",
+    "category": "food",
+    "question": "Apakah bahan asas yang biasa digunakan untuk burger?",
+    "image": "assets/general/burger.webp",
+    "options": [
+      "Roti",
+      "Mi",
+      "Sayur",
+      "Nasi"
+    ],
+    "correct": "Roti",
+    "explanation": "Burger: Roti."
+  },
+  {
+    "id": "food-croissant-name",
+    "category": "food",
+    "question": "Apakah nama makanan ini?",
+    "image": "assets/general/croissant.webp",
+    "options": [
+      "Croissant",
+      "Spageti",
+      "Sushi",
+      "Taco"
+    ],
+    "correct": "Croissant",
+    "explanation": "Croissant ditunjukkan dalam gambar."
+  },
+  {
+    "id": "food-croissant-fact",
+    "category": "food",
+    "question": "Apakah bahan asas yang biasa digunakan untuk croissant?",
+    "image": "assets/general/croissant.webp",
+    "options": [
+      "Doh",
+      "Tortila",
+      "Adunan tepung",
+      "Mi"
+    ],
+    "correct": "Doh",
+    "explanation": "Croissant: Doh."
+  },
+  {
+    "id": "food-dumpling-name",
+    "category": "food",
+    "question": "Apakah nama makanan ini?",
+    "image": "assets/general/dumpling.webp",
+    "options": [
+      "Ladu",
+      "Wafel",
+      "Pizza",
+      "Croissant"
+    ],
+    "correct": "Ladu",
+    "explanation": "Ladu ditunjukkan dalam gambar."
+  },
+  {
+    "id": "food-dumpling-fact",
+    "category": "food",
+    "question": "Apakah bahan asas yang biasa digunakan untuk ladu?",
+    "image": "assets/general/dumpling.webp",
+    "options": [
+      "Doh",
+      "Roti",
+      "Sayur",
+      "Mi"
+    ],
+    "correct": "Doh",
+    "explanation": "Ladu: Doh."
+  },
+  {
+    "id": "food-taco-name",
+    "category": "food",
+    "question": "Apakah nama makanan ini?",
+    "image": "assets/general/taco.webp",
+    "options": [
+      "Taco",
+      "Spageti",
+      "Croissant",
+      "Rendang"
+    ],
+    "correct": "Taco",
+    "explanation": "Taco ditunjukkan dalam gambar."
+  },
+  {
+    "id": "food-taco-fact",
+    "category": "food",
+    "question": "Apakah bahan asas yang biasa digunakan untuk taco?",
+    "image": "assets/general/taco.webp",
+    "options": [
+      "Tortila",
+      "Pasta",
+      "Doh",
+      "Adunan tepung"
+    ],
+    "correct": "Tortila",
+    "explanation": "Taco: Tortila."
+  },
+  {
+    "id": "food-pancake-name",
+    "category": "food",
+    "question": "Apakah nama makanan ini?",
+    "image": "assets/general/pancake.webp",
+    "options": [
+      "Pankek",
+      "Sate",
+      "Rendang",
+      "Laksa"
+    ],
+    "correct": "Pankek",
+    "explanation": "Pankek ditunjukkan dalam gambar."
+  },
+  {
+    "id": "food-pancake-fact",
+    "category": "food",
+    "question": "Apakah bahan asas yang biasa digunakan untuk pankek?",
+    "image": "assets/general/pancake.webp",
+    "options": [
+      "Adunan tepung",
+      "Mi",
+      "Roti",
+      "Pasta"
+    ],
+    "correct": "Adunan tepung",
+    "explanation": "Pankek: Adunan tepung."
+  },
+  {
+    "id": "food-waffle-name",
+    "category": "food",
+    "question": "Apakah nama makanan ini?",
+    "image": "assets/general/waffle.webp",
+    "options": [
+      "Wafel",
+      "Pankek",
+      "Spageti",
+      "Roti canai"
+    ],
+    "correct": "Wafel",
+    "explanation": "Wafel ditunjukkan dalam gambar."
+  },
+  {
+    "id": "food-waffle-fact",
+    "category": "food",
+    "question": "Apakah bahan asas yang biasa digunakan untuk wafel?",
+    "image": "assets/general/waffle.webp",
+    "options": [
+      "Adunan tepung",
+      "Daging",
+      "Sayur",
+      "Doh"
+    ],
+    "correct": "Adunan tepung",
+    "explanation": "Wafel: Adunan tepung."
+  },
+  {
+    "id": "food-kimchi-name",
+    "category": "food",
+    "question": "Apakah nama makanan ini?",
+    "image": "assets/general/kimchi.webp",
+    "options": [
+      "Kimchi",
+      "Spageti",
+      "Ladu",
+      "Sushi"
+    ],
+    "correct": "Kimchi",
+    "explanation": "Kimchi ditunjukkan dalam gambar."
+  },
+  {
+    "id": "food-kimchi-fact",
+    "category": "food",
+    "question": "Apakah bahan asas yang biasa digunakan untuk kimchi?",
+    "image": "assets/general/kimchi.webp",
+    "options": [
+      "Sayur",
+      "Daging",
+      "Pasta",
+      "Tortila"
+    ],
+    "correct": "Sayur",
+    "explanation": "Kimchi: Sayur."
+  }
+]

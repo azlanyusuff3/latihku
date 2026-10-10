@@ -1,0 +1,422 @@
+[
+  {
+    "id": "landmarks-eiffel-name",
+    "category": "landmarks",
+    "question": "Apakah nama mercu tanda ini?",
+    "image": "assets/general/eiffel.webp",
+    "options": [
+      "Menara Eiffel",
+      "Sydney Opera House",
+      "Burj Khalifa",
+      "Patung Liberty"
+    ],
+    "correct": "Menara Eiffel",
+    "explanation": "Menara Eiffel ditunjukkan dalam gambar."
+  },
+  {
+    "id": "landmarks-eiffel-fact",
+    "category": "landmarks",
+    "question": "Mercu tanda ini terletak di negara mana?",
+    "image": "assets/general/eiffel.webp",
+    "options": [
+      "Perancis",
+      "India",
+      "Jordan",
+      "Peru"
+    ],
+    "correct": "Perancis",
+    "explanation": "Menara Eiffel: Perancis."
+  },
+  {
+    "id": "landmarks-taj-name",
+    "category": "landmarks",
+    "question": "Apakah nama mercu tanda ini?",
+    "image": "assets/general/taj.webp",
+    "options": [
+      "Taj Mahal",
+      "Menara Eiffel",
+      "Menara Berkembar Petronas",
+      "Colosseum"
+    ],
+    "correct": "Taj Mahal",
+    "explanation": "Taj Mahal ditunjukkan dalam gambar."
+  },
+  {
+    "id": "landmarks-taj-fact",
+    "category": "landmarks",
+    "question": "Mercu tanda ini terletak di negara mana?",
+    "image": "assets/general/taj.webp",
+    "options": [
+      "India",
+      "Kemboja",
+      "Amerika Syarikat",
+      "China"
+    ],
+    "correct": "India",
+    "explanation": "Taj Mahal: India."
+  },
+  {
+    "id": "landmarks-pyramids-name",
+    "category": "landmarks",
+    "question": "Apakah nama mercu tanda ini?",
+    "image": "assets/general/pyramids.webp",
+    "options": [
+      "Piramid Giza",
+      "Petra",
+      "Machu Picchu",
+      "Burj Khalifa"
+    ],
+    "correct": "Piramid Giza",
+    "explanation": "Piramid Giza ditunjukkan dalam gambar."
+  },
+  {
+    "id": "landmarks-pyramids-fact",
+    "category": "landmarks",
+    "question": "Mercu tanda ini terletak di negara mana?",
+    "image": "assets/general/pyramids.webp",
+    "options": [
+      "Mesir",
+      "United Kingdom",
+      "Amerika Syarikat",
+      "China"
+    ],
+    "correct": "Mesir",
+    "explanation": "Piramid Giza: Mesir."
+  },
+  {
+    "id": "landmarks-colosseum-name",
+    "category": "landmarks",
+    "question": "Apakah nama mercu tanda ini?",
+    "image": "assets/general/colosseum.webp",
+    "options": [
+      "Colosseum",
+      "Christ the Redeemer",
+      "Angkor Wat",
+      "Menara Elizabeth (Big Ben)"
+    ],
+    "correct": "Colosseum",
+    "explanation": "Colosseum ditunjukkan dalam gambar."
+  },
+  {
+    "id": "landmarks-colosseum-fact",
+    "category": "landmarks",
+    "question": "Mercu tanda ini terletak di negara mana?",
+    "image": "assets/general/colosseum.webp",
+    "options": [
+      "Itali",
+      "Emiriah Arab Bersatu",
+      "Kemboja",
+      "Jordan"
+    ],
+    "correct": "Itali",
+    "explanation": "Colosseum: Itali."
+  },
+  {
+    "id": "landmarks-liberty-name",
+    "category": "landmarks",
+    "question": "Apakah nama mercu tanda ini?",
+    "image": "assets/general/liberty.webp",
+    "options": [
+      "Patung Liberty",
+      "Sydney Opera House",
+      "Christ the Redeemer",
+      "Petra"
+    ],
+    "correct": "Patung Liberty",
+    "explanation": "Patung Liberty ditunjukkan dalam gambar."
+  },
+  {
+    "id": "landmarks-liberty-fact",
+    "category": "landmarks",
+    "question": "Mercu tanda ini terletak di negara mana?",
+    "image": "assets/general/liberty.webp",
+    "options": [
+      "Amerika Syarikat",
+      "Malaysia",
+      "Emiriah Arab Bersatu",
+      "Itali"
+    ],
+    "correct": "Amerika Syarikat",
+    "explanation": "Patung Liberty: Amerika Syarikat."
+  },
+  {
+    "id": "landmarks-greatwall-name",
+    "category": "landmarks",
+    "question": "Apakah nama mercu tanda ini?",
+    "image": "assets/general/greatwall.webp",
+    "options": [
+      "Tembok Besar China",
+      "Petra",
+      "Machu Picchu",
+      "Patung Liberty"
+    ],
+    "correct": "Tembok Besar China",
+    "explanation": "Tembok Besar China ditunjukkan dalam gambar."
+  },
+  {
+    "id": "landmarks-greatwall-fact",
+    "category": "landmarks",
+    "question": "Mercu tanda ini terletak di negara mana?",
+    "image": "assets/general/greatwall.webp",
+    "options": [
+      "China",
+      "United Kingdom",
+      "Brazil",
+      "Mesir"
+    ],
+    "correct": "China",
+    "explanation": "Tembok Besar China: China."
+  },
+  {
+    "id": "landmarks-sydney-name",
+    "category": "landmarks",
+    "question": "Apakah nama mercu tanda ini?",
+    "image": "assets/general/sydney.webp",
+    "options": [
+      "Sydney Opera House",
+      "Piramid Giza",
+      "Machu Picchu",
+      "Chichen Itza"
+    ],
+    "correct": "Sydney Opera House",
+    "explanation": "Sydney Opera House ditunjukkan dalam gambar."
+  },
+  {
+    "id": "landmarks-sydney-fact",
+    "category": "landmarks",
+    "question": "Mercu tanda ini terletak di negara mana?",
+    "image": "assets/general/sydney.webp",
+    "options": [
+      "Australia",
+      "Itali",
+      "Amerika Syarikat",
+      "Brazil"
+    ],
+    "correct": "Australia",
+    "explanation": "Sydney Opera House: Australia."
+  },
+  {
+    "id": "landmarks-burj-name",
+    "category": "landmarks",
+    "question": "Apakah nama mercu tanda ini?",
+    "image": "assets/general/burj.webp",
+    "options": [
+      "Burj Khalifa",
+      "Petra",
+      "Patung Liberty",
+      "Menara Berkembar Petronas"
+    ],
+    "correct": "Burj Khalifa",
+    "explanation": "Burj Khalifa ditunjukkan dalam gambar."
+  },
+  {
+    "id": "landmarks-burj-fact",
+    "category": "landmarks",
+    "question": "Mercu tanda ini terletak di negara mana?",
+    "image": "assets/general/burj.webp",
+    "options": [
+      "Emiriah Arab Bersatu",
+      "Malaysia",
+      "United Kingdom",
+      "Mesir"
+    ],
+    "correct": "Emiriah Arab Bersatu",
+    "explanation": "Burj Khalifa: Emiriah Arab Bersatu."
+  },
+  {
+    "id": "landmarks-petra-name",
+    "category": "landmarks",
+    "question": "Apakah nama mercu tanda ini?",
+    "image": "assets/general/petra.webp",
+    "options": [
+      "Petra",
+      "Menara Elizabeth (Big Ben)",
+      "Machu Picchu",
+      "Angkor Wat"
+    ],
+    "correct": "Petra",
+    "explanation": "Petra ditunjukkan dalam gambar."
+  },
+  {
+    "id": "landmarks-petra-fact",
+    "category": "landmarks",
+    "question": "Mercu tanda ini terletak di negara mana?",
+    "image": "assets/general/petra.webp",
+    "options": [
+      "Jordan",
+      "Perancis",
+      "Kemboja",
+      "Malaysia"
+    ],
+    "correct": "Jordan",
+    "explanation": "Petra: Jordan."
+  },
+  {
+    "id": "landmarks-machu-name",
+    "category": "landmarks",
+    "question": "Apakah nama mercu tanda ini?",
+    "image": "assets/general/machu.webp",
+    "options": [
+      "Machu Picchu",
+      "Burj Khalifa",
+      "Petra",
+      "Menara Berkembar Petronas"
+    ],
+    "correct": "Machu Picchu",
+    "explanation": "Machu Picchu ditunjukkan dalam gambar."
+  },
+  {
+    "id": "landmarks-machu-fact",
+    "category": "landmarks",
+    "question": "Mercu tanda ini terletak di negara mana?",
+    "image": "assets/general/machu.webp",
+    "options": [
+      "Peru",
+      "Itali",
+      "Brazil",
+      "Malaysia"
+    ],
+    "correct": "Peru",
+    "explanation": "Machu Picchu: Peru."
+  },
+  {
+    "id": "landmarks-bigben-name",
+    "category": "landmarks",
+    "question": "Apakah nama mercu tanda ini?",
+    "image": "assets/general/bigben.webp",
+    "options": [
+      "Menara Elizabeth (Big Ben)",
+      "Colosseum",
+      "Menara Eiffel",
+      "Menara Berkembar Petronas"
+    ],
+    "correct": "Menara Elizabeth (Big Ben)",
+    "explanation": "Menara Elizabeth (Big Ben) ditunjukkan dalam gambar."
+  },
+  {
+    "id": "landmarks-bigben-fact",
+    "category": "landmarks",
+    "question": "Mercu tanda ini terletak di negara mana?",
+    "image": "assets/general/bigben.webp",
+    "options": [
+      "United Kingdom",
+      "Brazil",
+      "Itali",
+      "Peru"
+    ],
+    "correct": "United Kingdom",
+    "explanation": "Menara Elizabeth (Big Ben): United Kingdom."
+  },
+  {
+    "id": "landmarks-angkor-name",
+    "category": "landmarks",
+    "question": "Apakah nama mercu tanda ini?",
+    "image": "assets/general/angkor.webp",
+    "options": [
+      "Angkor Wat",
+      "Taj Mahal",
+      "Tembok Besar China",
+      "Machu Picchu"
+    ],
+    "correct": "Angkor Wat",
+    "explanation": "Angkor Wat ditunjukkan dalam gambar."
+  },
+  {
+    "id": "landmarks-angkor-fact",
+    "category": "landmarks",
+    "question": "Mercu tanda ini terletak di negara mana?",
+    "image": "assets/general/angkor.webp",
+    "options": [
+      "Kemboja",
+      "Jordan",
+      "Perancis",
+      "Itali"
+    ],
+    "correct": "Kemboja",
+    "explanation": "Angkor Wat: Kemboja."
+  },
+  {
+    "id": "landmarks-chichen-name",
+    "category": "landmarks",
+    "question": "Apakah nama mercu tanda ini?",
+    "image": "assets/general/chichen.webp",
+    "options": [
+      "Chichen Itza",
+      "Menara Eiffel",
+      "Taj Mahal",
+      "Colosseum"
+    ],
+    "correct": "Chichen Itza",
+    "explanation": "Chichen Itza ditunjukkan dalam gambar."
+  },
+  {
+    "id": "landmarks-chichen-fact",
+    "category": "landmarks",
+    "question": "Mercu tanda ini terletak di negara mana?",
+    "image": "assets/general/chichen.webp",
+    "options": [
+      "Mexico",
+      "Peru",
+      "Malaysia",
+      "Emiriah Arab Bersatu"
+    ],
+    "correct": "Mexico",
+    "explanation": "Chichen Itza: Mexico."
+  },
+  {
+    "id": "landmarks-christ-name",
+    "category": "landmarks",
+    "question": "Apakah nama mercu tanda ini?",
+    "image": "assets/general/christ.webp",
+    "options": [
+      "Christ the Redeemer",
+      "Burj Khalifa",
+      "Petra",
+      "Sydney Opera House"
+    ],
+    "correct": "Christ the Redeemer",
+    "explanation": "Christ the Redeemer ditunjukkan dalam gambar."
+  },
+  {
+    "id": "landmarks-christ-fact",
+    "category": "landmarks",
+    "question": "Mercu tanda ini terletak di negara mana?",
+    "image": "assets/general/christ.webp",
+    "options": [
+      "Brazil",
+      "Malaysia",
+      "Mexico",
+      "United Kingdom"
+    ],
+    "correct": "Brazil",
+    "explanation": "Christ the Redeemer: Brazil."
+  },
+  {
+    "id": "landmarks-petronas-name",
+    "category": "landmarks",
+    "question": "Apakah nama mercu tanda ini?",
+    "image": "assets/general/petronas.webp",
+    "options": [
+      "Menara Berkembar Petronas",
+      "Burj Khalifa",
+      "Machu Picchu",
+      "Christ the Redeemer"
+    ],
+    "correct": "Menara Berkembar Petronas",
+    "explanation": "Menara Berkembar Petronas ditunjukkan dalam gambar."
+  },
+  {
+    "id": "landmarks-petronas-fact",
+    "category": "landmarks",
+    "question": "Mercu tanda ini terletak di negara mana?",
+    "image": "assets/general/petronas.webp",
+    "options": [
+      "Malaysia",
+      "Amerika Syarikat",
+      "China",
+      "Mexico"
+    ],
+    "correct": "Malaysia",
+    "explanation": "Menara Berkembar Petronas: Malaysia."
+  }
+]

@@ -1,0 +1,422 @@
+[
+  {
+    "id": "roads-stop-name",
+    "category": "roads",
+    "question": "Apakah maksud tanda atau kemudahan jalan ini?",
+    "image": "assets/general/stop.webp",
+    "options": [
+      "Berhenti",
+      "Pejalan kaki dilarang",
+      "Bulatan",
+      "Kawasan sekolah"
+    ],
+    "correct": "Berhenti",
+    "explanation": "Berhenti ditunjukkan dalam gambar."
+  },
+  {
+    "id": "roads-stop-fact",
+    "category": "roads",
+    "question": "Apakah tindakan yang sesuai di sini?",
+    "image": "assets/general/stop.webp",
+    "options": [
+      "Berhenti sepenuhnya",
+      "Berhenti ketika lampu merah",
+      "Beri laluan kepada trafik utama",
+      "Berwaspada terhadap pejalan kaki"
+    ],
+    "correct": "Berhenti sepenuhnya",
+    "explanation": "Berhenti: Berhenti sepenuhnya."
+  },
+  {
+    "id": "roads-giveway-name",
+    "category": "roads",
+    "question": "Apakah maksud tanda atau kemudahan jalan ini?",
+    "image": "assets/general/giveway.webp",
+    "options": [
+      "Beri laluan",
+      "Bulatan",
+      "Tempat letak kereta",
+      "Dilarang masuk"
+    ],
+    "correct": "Beri laluan",
+    "explanation": "Beri laluan ditunjukkan dalam gambar."
+  },
+  {
+    "id": "roads-giveway-fact",
+    "category": "roads",
+    "question": "Apakah tindakan yang sesuai di sini?",
+    "image": "assets/general/giveway.webp",
+    "options": [
+      "Beri laluan kepada trafik utama",
+      "Berhenti ketika lampu merah",
+      "Perlahankan kenderaan",
+      "Jangan berjalan di kawasan itu"
+    ],
+    "correct": "Beri laluan kepada trafik utama",
+    "explanation": "Beri laluan: Beri laluan kepada trafik utama."
+  },
+  {
+    "id": "roads-crossing-name",
+    "category": "roads",
+    "question": "Apakah maksud tanda atau kemudahan jalan ini?",
+    "image": "assets/general/crossing.webp",
+    "options": [
+      "Lintasan pejalan kaki",
+      "Bulatan",
+      "Berhenti",
+      "Kawasan sekolah"
+    ],
+    "correct": "Lintasan pejalan kaki",
+    "explanation": "Lintasan pejalan kaki ditunjukkan dalam gambar."
+  },
+  {
+    "id": "roads-crossing-fact",
+    "category": "roads",
+    "question": "Apakah tindakan yang sesuai di sini?",
+    "image": "assets/general/crossing.webp",
+    "options": [
+      "Berwaspada terhadap pejalan kaki",
+      "Kurangkan laju dan elakkan brek mengejut",
+      "Gunakan laluan yang ditetapkan",
+      "Perlahankan kenderaan dan awasi kanak-kanak"
+    ],
+    "correct": "Berwaspada terhadap pejalan kaki",
+    "explanation": "Lintasan pejalan kaki: Berwaspada terhadap pejalan kaki."
+  },
+  {
+    "id": "roads-speed-name",
+    "category": "roads",
+    "question": "Apakah maksud tanda atau kemudahan jalan ini?",
+    "image": "assets/general/speed.webp",
+    "options": [
+      "Had laju",
+      "Lampu isyarat",
+      "Kerja jalan",
+      "Jalan licin"
+    ],
+    "correct": "Had laju",
+    "explanation": "Had laju ditunjukkan dalam gambar."
+  },
+  {
+    "id": "roads-speed-fact",
+    "category": "roads",
+    "question": "Apakah tindakan yang sesuai di sini?",
+    "image": "assets/general/speed.webp",
+    "options": [
+      "Patuhi had laju yang tertera",
+      "Berhati-hati sebelum melintas landasan",
+      "Kurangkan laju dan elakkan brek mengejut",
+      "Perlahankan kenderaan"
+    ],
+    "correct": "Patuhi had laju yang tertera",
+    "explanation": "Had laju: Patuhi had laju yang tertera."
+  },
+  {
+    "id": "roads-noentry-name",
+    "category": "roads",
+    "question": "Apakah maksud tanda atau kemudahan jalan ini?",
+    "image": "assets/general/noentry.webp",
+    "options": [
+      "Dilarang masuk",
+      "Kerja jalan",
+      "Lintasan kereta api",
+      "Jalan licin"
+    ],
+    "correct": "Dilarang masuk",
+    "explanation": "Dilarang masuk ditunjukkan dalam gambar."
+  },
+  {
+    "id": "roads-noentry-fact",
+    "category": "roads",
+    "question": "Apakah tindakan yang sesuai di sini?",
+    "image": "assets/general/noentry.webp",
+    "options": [
+      "Jangan masuk ke jalan itu",
+      "Perlahankan kenderaan sebelum selekoh",
+      "Berhenti sepenuhnya",
+      "Parkir di tempat yang dibenarkan"
+    ],
+    "correct": "Jangan masuk ke jalan itu",
+    "explanation": "Dilarang masuk: Jangan masuk ke jalan itu."
+  },
+  {
+    "id": "roads-parking-name",
+    "category": "roads",
+    "question": "Apakah maksud tanda atau kemudahan jalan ini?",
+    "image": "assets/general/parking.webp",
+    "options": [
+      "Tempat letak kereta",
+      "Kawasan sekolah",
+      "Jalan licin",
+      "Had laju"
+    ],
+    "correct": "Tempat letak kereta",
+    "explanation": "Tempat letak kereta ditunjukkan dalam gambar."
+  },
+  {
+    "id": "roads-parking-fact",
+    "category": "roads",
+    "question": "Apakah tindakan yang sesuai di sini?",
+    "image": "assets/general/parking.webp",
+    "options": [
+      "Parkir di tempat yang dibenarkan",
+      "Kurangkan laju dan elakkan brek mengejut",
+      "Jangan berjalan di kawasan itu",
+      "Gunakan laluan yang ditetapkan"
+    ],
+    "correct": "Parkir di tempat yang dibenarkan",
+    "explanation": "Tempat letak kereta: Parkir di tempat yang dibenarkan."
+  },
+  {
+    "id": "roads-trafficlight-name",
+    "category": "roads",
+    "question": "Apakah maksud tanda atau kemudahan jalan ini?",
+    "image": "assets/general/trafficlight.webp",
+    "options": [
+      "Lampu isyarat",
+      "Lintasan kereta api",
+      "Selekoh",
+      "Berhenti"
+    ],
+    "correct": "Lampu isyarat",
+    "explanation": "Lampu isyarat ditunjukkan dalam gambar."
+  },
+  {
+    "id": "roads-trafficlight-fact",
+    "category": "roads",
+    "question": "Apakah tindakan yang sesuai di sini?",
+    "image": "assets/general/trafficlight.webp",
+    "options": [
+      "Berhenti ketika lampu merah",
+      "Berwaspada terhadap pejalan kaki",
+      "Beri laluan kepada trafik utama",
+      "Kurangkan laju dan elakkan brek mengejut"
+    ],
+    "correct": "Berhenti ketika lampu merah",
+    "explanation": "Lampu isyarat: Berhenti ketika lampu merah."
+  },
+  {
+    "id": "roads-railway-name",
+    "category": "roads",
+    "question": "Apakah maksud tanda atau kemudahan jalan ini?",
+    "image": "assets/general/railway.webp",
+    "options": [
+      "Lintasan kereta api",
+      "Kerja jalan",
+      "Selekoh",
+      "Lampu isyarat"
+    ],
+    "correct": "Lintasan kereta api",
+    "explanation": "Lintasan kereta api ditunjukkan dalam gambar."
+  },
+  {
+    "id": "roads-railway-fact",
+    "category": "roads",
+    "question": "Apakah tindakan yang sesuai di sini?",
+    "image": "assets/general/railway.webp",
+    "options": [
+      "Berhati-hati sebelum melintas landasan",
+      "Berhenti sepenuhnya",
+      "Jangan berjalan di kawasan itu",
+      "Patuhi had laju yang tertera"
+    ],
+    "correct": "Berhati-hati sebelum melintas landasan",
+    "explanation": "Lintasan kereta api: Berhati-hati sebelum melintas landasan."
+  },
+  {
+    "id": "roads-roadworks-name",
+    "category": "roads",
+    "question": "Apakah maksud tanda atau kemudahan jalan ini?",
+    "image": "assets/general/roadworks.webp",
+    "options": [
+      "Kerja jalan",
+      "Selekoh",
+      "Had laju",
+      "Lintasan kereta api"
+    ],
+    "correct": "Kerja jalan",
+    "explanation": "Kerja jalan ditunjukkan dalam gambar."
+  },
+  {
+    "id": "roads-roadworks-fact",
+    "category": "roads",
+    "question": "Apakah tindakan yang sesuai di sini?",
+    "image": "assets/general/roadworks.webp",
+    "options": [
+      "Perlahankan kenderaan",
+      "Berhati-hati sebelum melintas landasan",
+      "Jangan masuk ke jalan itu",
+      "Perlahankan kenderaan dan awasi kanak-kanak"
+    ],
+    "correct": "Perlahankan kenderaan",
+    "explanation": "Kerja jalan: Perlahankan kenderaan."
+  },
+  {
+    "id": "roads-school-name",
+    "category": "roads",
+    "question": "Apakah maksud tanda atau kemudahan jalan ini?",
+    "image": "assets/general/school.webp",
+    "options": [
+      "Kawasan sekolah",
+      "Had laju",
+      "Bulatan",
+      "Pejalan kaki dilarang"
+    ],
+    "correct": "Kawasan sekolah",
+    "explanation": "Kawasan sekolah ditunjukkan dalam gambar."
+  },
+  {
+    "id": "roads-school-fact",
+    "category": "roads",
+    "question": "Apakah tindakan yang sesuai di sini?",
+    "image": "assets/general/school.webp",
+    "options": [
+      "Perlahankan kenderaan dan awasi kanak-kanak",
+      "Patuhi had laju yang tertera",
+      "Jangan berjalan di kawasan itu",
+      "Jangan masuk ke jalan itu"
+    ],
+    "correct": "Perlahankan kenderaan dan awasi kanak-kanak",
+    "explanation": "Kawasan sekolah: Perlahankan kenderaan dan awasi kanak-kanak."
+  },
+  {
+    "id": "roads-bend-name",
+    "category": "roads",
+    "question": "Apakah maksud tanda atau kemudahan jalan ini?",
+    "image": "assets/general/bend.webp",
+    "options": [
+      "Selekoh",
+      "Lintasan kereta api",
+      "Laluan basikal",
+      "Berhenti"
+    ],
+    "correct": "Selekoh",
+    "explanation": "Selekoh ditunjukkan dalam gambar."
+  },
+  {
+    "id": "roads-bend-fact",
+    "category": "roads",
+    "question": "Apakah tindakan yang sesuai di sini?",
+    "image": "assets/general/bend.webp",
+    "options": [
+      "Perlahankan kenderaan sebelum selekoh",
+      "Kurangkan laju dan elakkan brek mengejut",
+      "Perlahankan kenderaan dan awasi kanak-kanak",
+      "Berhati-hati sebelum melintas landasan"
+    ],
+    "correct": "Perlahankan kenderaan sebelum selekoh",
+    "explanation": "Selekoh: Perlahankan kenderaan sebelum selekoh."
+  },
+  {
+    "id": "roads-slippery-name",
+    "category": "roads",
+    "question": "Apakah maksud tanda atau kemudahan jalan ini?",
+    "image": "assets/general/slippery.webp",
+    "options": [
+      "Jalan licin",
+      "Lampu isyarat",
+      "Had laju",
+      "Lintasan kereta api"
+    ],
+    "correct": "Jalan licin",
+    "explanation": "Jalan licin ditunjukkan dalam gambar."
+  },
+  {
+    "id": "roads-slippery-fact",
+    "category": "roads",
+    "question": "Apakah tindakan yang sesuai di sini?",
+    "image": "assets/general/slippery.webp",
+    "options": [
+      "Kurangkan laju dan elakkan brek mengejut",
+      "Parkir di tempat yang dibenarkan",
+      "Perlahankan kenderaan dan awasi kanak-kanak",
+      "Berwaspada terhadap pejalan kaki"
+    ],
+    "correct": "Kurangkan laju dan elakkan brek mengejut",
+    "explanation": "Jalan licin: Kurangkan laju dan elakkan brek mengejut."
+  },
+  {
+    "id": "roads-roundabout-name",
+    "category": "roads",
+    "question": "Apakah maksud tanda atau kemudahan jalan ini?",
+    "image": "assets/general/roundabout.webp",
+    "options": [
+      "Bulatan",
+      "Kawasan sekolah",
+      "Lampu isyarat",
+      "Pejalan kaki dilarang"
+    ],
+    "correct": "Bulatan",
+    "explanation": "Bulatan ditunjukkan dalam gambar."
+  },
+  {
+    "id": "roads-roundabout-fact",
+    "category": "roads",
+    "question": "Apakah tindakan yang sesuai di sini?",
+    "image": "assets/general/roundabout.webp",
+    "options": [
+      "Beri laluan mengikut peraturan bulatan",
+      "Berwaspada terhadap pejalan kaki",
+      "Kurangkan laju dan elakkan brek mengejut",
+      "Berhati-hati sebelum melintas landasan"
+    ],
+    "correct": "Beri laluan mengikut peraturan bulatan",
+    "explanation": "Bulatan: Beri laluan mengikut peraturan bulatan."
+  },
+  {
+    "id": "roads-nopedestrian-name",
+    "category": "roads",
+    "question": "Apakah maksud tanda atau kemudahan jalan ini?",
+    "image": "assets/general/nopedestrian.webp",
+    "options": [
+      "Pejalan kaki dilarang",
+      "Dilarang masuk",
+      "Kawasan sekolah",
+      "Tempat letak kereta"
+    ],
+    "correct": "Pejalan kaki dilarang",
+    "explanation": "Pejalan kaki dilarang ditunjukkan dalam gambar."
+  },
+  {
+    "id": "roads-nopedestrian-fact",
+    "category": "roads",
+    "question": "Apakah tindakan yang sesuai di sini?",
+    "image": "assets/general/nopedestrian.webp",
+    "options": [
+      "Jangan berjalan di kawasan itu",
+      "Jangan masuk ke jalan itu",
+      "Gunakan laluan yang ditetapkan",
+      "Perlahankan kenderaan sebelum selekoh"
+    ],
+    "correct": "Jangan berjalan di kawasan itu",
+    "explanation": "Pejalan kaki dilarang: Jangan berjalan di kawasan itu."
+  },
+  {
+    "id": "roads-bicyclelane-name",
+    "category": "roads",
+    "question": "Apakah maksud tanda atau kemudahan jalan ini?",
+    "image": "assets/general/bicyclelane.webp",
+    "options": [
+      "Laluan basikal",
+      "Selekoh",
+      "Had laju",
+      "Pejalan kaki dilarang"
+    ],
+    "correct": "Laluan basikal",
+    "explanation": "Laluan basikal ditunjukkan dalam gambar."
+  },
+  {
+    "id": "roads-bicyclelane-fact",
+    "category": "roads",
+    "question": "Apakah tindakan yang sesuai di sini?",
+    "image": "assets/general/bicyclelane.webp",
+    "options": [
+      "Gunakan laluan yang ditetapkan",
+      "Perlahankan kenderaan dan awasi kanak-kanak",
+      "Jangan masuk ke jalan itu",
+      "Beri laluan mengikut peraturan bulatan"
+    ],
+    "correct": "Gunakan laluan yang ditetapkan",
+    "explanation": "Laluan basikal: Gunakan laluan yang ditetapkan."
+  }
+]

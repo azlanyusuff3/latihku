@@ -1,0 +1,422 @@
+[
+  {
+    "id": "colors-color-0",
+    "category": "colors",
+    "question": "Apakah warna utama epal dalam gambar?",
+    "image": "assets/general/apple.webp",
+    "options": [
+      "Merah",
+      "Biru",
+      "Hijau",
+      "Ungu"
+    ],
+    "correct": "Merah",
+    "explanation": "Warna utama dalam gambar ialah merah."
+  },
+  {
+    "id": "colors-color-1",
+    "category": "colors",
+    "question": "Apakah warna utama pisang dalam gambar?",
+    "image": "assets/general/banana.webp",
+    "options": [
+      "Kuning",
+      "Biru",
+      "Merah",
+      "Ungu"
+    ],
+    "correct": "Kuning",
+    "explanation": "Warna utama dalam gambar ialah kuning."
+  },
+  {
+    "id": "colors-color-2",
+    "category": "colors",
+    "question": "Apakah warna utama oren dalam gambar?",
+    "image": "assets/general/orange.webp",
+    "options": [
+      "Oren",
+      "Merah",
+      "Kuning",
+      "Hijau"
+    ],
+    "correct": "Oren",
+    "explanation": "Warna utama dalam gambar ialah oren."
+  },
+  {
+    "id": "colors-color-3",
+    "category": "colors",
+    "question": "Apakah warna utama brokoli dalam gambar?",
+    "image": "assets/general/broccoli.webp",
+    "options": [
+      "Hijau",
+      "Ungu",
+      "Kuning",
+      "Oren"
+    ],
+    "correct": "Hijau",
+    "explanation": "Warna utama dalam gambar ialah hijau."
+  },
+  {
+    "id": "colors-color-4",
+    "category": "colors",
+    "question": "Apakah warna utama strawberi dalam gambar?",
+    "image": "assets/general/strawberry.webp",
+    "options": [
+      "Merah",
+      "Kuning",
+      "Hijau",
+      "Ungu"
+    ],
+    "correct": "Merah",
+    "explanation": "Warna utama dalam gambar ialah merah."
+  },
+  {
+    "id": "colors-count-0",
+    "category": "colors",
+    "question": "Berapakah panel gambar epal yang ditunjukkan?",
+    "image": "assets/general/count-0.webp",
+    "options": [
+      "1",
+      "3",
+      "4",
+      "6"
+    ],
+    "correct": "1",
+    "explanation": "Ada 1 panel gambar."
+  },
+  {
+    "id": "colors-count-1",
+    "category": "colors",
+    "question": "Berapakah panel gambar pisang yang ditunjukkan?",
+    "image": "assets/general/count-1.webp",
+    "options": [
+      "2",
+      "4",
+      "6",
+      "1"
+    ],
+    "correct": "2",
+    "explanation": "Ada 2 panel gambar."
+  },
+  {
+    "id": "colors-count-2",
+    "category": "colors",
+    "question": "Berapakah panel gambar oren yang ditunjukkan?",
+    "image": "assets/general/count-2.webp",
+    "options": [
+      "3",
+      "5",
+      "2",
+      "6"
+    ],
+    "correct": "3",
+    "explanation": "Ada 3 panel gambar."
+  },
+  {
+    "id": "colors-count-3",
+    "category": "colors",
+    "question": "Berapakah panel gambar kiwi yang ditunjukkan?",
+    "image": "assets/general/count-3.webp",
+    "options": [
+      "4",
+      "6",
+      "3",
+      "2"
+    ],
+    "correct": "4",
+    "explanation": "Ada 4 panel gambar."
+  },
+  {
+    "id": "colors-count-4",
+    "category": "colors",
+    "question": "Berapakah panel gambar lobak merah yang ditunjukkan?",
+    "image": "assets/general/count-4.webp",
+    "options": [
+      "5",
+      "1",
+      "3",
+      "4"
+    ],
+    "correct": "5",
+    "explanation": "Ada 5 panel gambar."
+  },
+  {
+    "id": "colors-count-5",
+    "category": "colors",
+    "question": "Berapakah panel gambar brokoli yang ditunjukkan?",
+    "image": "assets/general/count-5.webp",
+    "options": [
+      "1",
+      "5",
+      "3",
+      "6"
+    ],
+    "correct": "1",
+    "explanation": "Ada 1 panel gambar."
+  },
+  {
+    "id": "colors-count-6",
+    "category": "colors",
+    "question": "Berapakah panel gambar strawberi yang ditunjukkan?",
+    "image": "assets/general/count-6.webp",
+    "options": [
+      "2",
+      "4",
+      "1",
+      "3"
+    ],
+    "correct": "2",
+    "explanation": "Ada 2 panel gambar."
+  },
+  {
+    "id": "colors-count-7",
+    "category": "colors",
+    "question": "Berapakah panel gambar anggur yang ditunjukkan?",
+    "image": "assets/general/count-7.webp",
+    "options": [
+      "3",
+      "6",
+      "4",
+      "1"
+    ],
+    "correct": "3",
+    "explanation": "Ada 3 panel gambar."
+  },
+  {
+    "id": "colors-count-8",
+    "category": "colors",
+    "question": "Berapakah panel gambar tembikai yang ditunjukkan?",
+    "image": "assets/general/count-8.webp",
+    "options": [
+      "4",
+      "5",
+      "2",
+      "1"
+    ],
+    "correct": "4",
+    "explanation": "Ada 4 panel gambar."
+  },
+  {
+    "id": "colors-count-9",
+    "category": "colors",
+    "question": "Berapakah panel gambar nanas yang ditunjukkan?",
+    "image": "assets/general/count-9.webp",
+    "options": [
+      "5",
+      "2",
+      "3",
+      "6"
+    ],
+    "correct": "5",
+    "explanation": "Ada 5 panel gambar."
+  },
+  {
+    "id": "colors-pattern-0",
+    "category": "colors",
+    "question": "Gambar manakah menyambung corak ini?",
+    "image": "assets/general/pattern-0.webp",
+    "options": [
+      "Epal",
+      "Lobak merah",
+      "Strawberi",
+      "Oren"
+    ],
+    "correct": "Epal",
+    "explanation": "Corak berselang-seli: Epal, Kiwi."
+  },
+  {
+    "id": "colors-pattern-1",
+    "category": "colors",
+    "question": "Gambar manakah menyambung corak ini?",
+    "image": "assets/general/pattern-1.webp",
+    "options": [
+      "Pisang",
+      "Epal",
+      "Lobak merah",
+      "Bawang"
+    ],
+    "correct": "Pisang",
+    "explanation": "Corak berselang-seli: Pisang, Lobak merah."
+  },
+  {
+    "id": "colors-pattern-2",
+    "category": "colors",
+    "question": "Gambar manakah menyambung corak ini?",
+    "image": "assets/general/pattern-2.webp",
+    "options": [
+      "Oren",
+      "Strawberi",
+      "Nanas",
+      "Mangga"
+    ],
+    "correct": "Oren",
+    "explanation": "Corak berselang-seli: Oren, Brokoli."
+  },
+  {
+    "id": "colors-pattern-3",
+    "category": "colors",
+    "question": "Gambar manakah menyambung corak ini?",
+    "image": "assets/general/pattern-3.webp",
+    "options": [
+      "Kiwi",
+      "Bawang",
+      "Nanas",
+      "Durian"
+    ],
+    "correct": "Kiwi",
+    "explanation": "Corak berselang-seli: Kiwi, Strawberi."
+  },
+  {
+    "id": "colors-pattern-4",
+    "category": "colors",
+    "question": "Gambar manakah menyambung corak ini?",
+    "image": "assets/general/pattern-4.webp",
+    "options": [
+      "Lobak merah",
+      "Epal",
+      "Strawberi",
+      "Terung"
+    ],
+    "correct": "Lobak merah",
+    "explanation": "Corak berselang-seli: Lobak merah, Anggur."
+  },
+  {
+    "id": "colors-pattern-5",
+    "category": "colors",
+    "question": "Gambar manakah menyambung corak ini?",
+    "image": "assets/general/pattern-5.webp",
+    "options": [
+      "Brokoli",
+      "Oren",
+      "Strawberi",
+      "Mangga"
+    ],
+    "correct": "Brokoli",
+    "explanation": "Corak berselang-seli: Brokoli, Tembikai."
+  },
+  {
+    "id": "colors-pattern-6",
+    "category": "colors",
+    "question": "Gambar manakah menyambung corak ini?",
+    "image": "assets/general/pattern-6.webp",
+    "options": [
+      "Strawberi",
+      "Bawang",
+      "Anggur",
+      "Tembikai"
+    ],
+    "correct": "Strawberi",
+    "explanation": "Corak berselang-seli: Strawberi, Nanas."
+  },
+  {
+    "id": "colors-pattern-7",
+    "category": "colors",
+    "question": "Gambar manakah menyambung corak ini?",
+    "image": "assets/general/pattern-7.webp",
+    "options": [
+      "Anggur",
+      "Mangga",
+      "Durian",
+      "Lobak merah"
+    ],
+    "correct": "Anggur",
+    "explanation": "Corak berselang-seli: Anggur, Epal."
+  },
+  {
+    "id": "colors-pattern-8",
+    "category": "colors",
+    "question": "Gambar manakah menyambung corak ini?",
+    "image": "assets/general/pattern-8.webp",
+    "options": [
+      "Tembikai",
+      "Bawang",
+      "Epal",
+      "Nanas"
+    ],
+    "correct": "Tembikai",
+    "explanation": "Corak berselang-seli: Tembikai, Pisang."
+  },
+  {
+    "id": "colors-pattern-9",
+    "category": "colors",
+    "question": "Gambar manakah menyambung corak ini?",
+    "image": "assets/general/pattern-9.webp",
+    "options": [
+      "Nanas",
+      "Brokoli",
+      "Tembikai",
+      "Pisang"
+    ],
+    "correct": "Nanas",
+    "explanation": "Corak berselang-seli: Nanas, Oren."
+  },
+  {
+    "id": "colors-shape-0",
+    "category": "colors",
+    "question": "Apakah bentuk keseluruhan objek makanan dalam gambar?",
+    "image": "assets/general/pizza.webp",
+    "options": [
+      "Bulat",
+      "Bujur",
+      "Segi empat",
+      "Segi tiga"
+    ],
+    "correct": "Bulat",
+    "explanation": "Bentuk keseluruhan gambar ini paling hampir dengan bulat."
+  },
+  {
+    "id": "colors-shape-1",
+    "category": "colors",
+    "question": "Apakah bentuk keseluruhan objek makanan dalam gambar?",
+    "image": "assets/general/orange.webp",
+    "options": [
+      "Bulat",
+      "Bujur",
+      "Segi empat",
+      "Segi tiga"
+    ],
+    "correct": "Bulat",
+    "explanation": "Bentuk keseluruhan gambar ini paling hampir dengan bulat."
+  },
+  {
+    "id": "colors-shape-2",
+    "category": "colors",
+    "question": "Apakah bentuk keseluruhan objek makanan dalam gambar?",
+    "image": "assets/general/pancake.webp",
+    "options": [
+      "Bulat",
+      "Bujur",
+      "Segi empat",
+      "Segi tiga"
+    ],
+    "correct": "Bulat",
+    "explanation": "Bentuk keseluruhan gambar ini paling hampir dengan bulat."
+  },
+  {
+    "id": "colors-shape-3",
+    "category": "colors",
+    "question": "Apakah bentuk petak kecil pada permukaan wafel?",
+    "image": "assets/general/waffle.webp",
+    "options": [
+      "Segi empat",
+      "Segi tiga",
+      "Bujur",
+      "Bulat"
+    ],
+    "correct": "Segi empat",
+    "explanation": "Bentuk keseluruhan gambar ini paling hampir dengan segi empat."
+  },
+  {
+    "id": "colors-shape-4",
+    "category": "colors",
+    "question": "Apakah bentuk keseluruhan objek makanan dalam gambar?",
+    "image": "assets/general/kiwi.webp",
+    "options": [
+      "Bulat",
+      "Segi empat",
+      "Bujur",
+      "Segi tiga"
+    ],
+    "correct": "Bulat",
+    "explanation": "Bentuk keseluruhan gambar ini paling hampir dengan bulat."
+  }
+]

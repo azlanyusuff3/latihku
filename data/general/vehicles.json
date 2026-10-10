@@ -1,0 +1,422 @@
+[
+  {
+    "id": "vehicles-car-name",
+    "category": "vehicles",
+    "question": "Apakah nama kenderaan ini?",
+    "image": "assets/general/car.webp",
+    "options": [
+      "Kereta",
+      "Helikopter",
+      "Ambulans",
+      "Kapal selam"
+    ],
+    "correct": "Kereta",
+    "explanation": "Kereta ditunjukkan dalam gambar."
+  },
+  {
+    "id": "vehicles-car-fact",
+    "category": "vehicles",
+    "question": "Di manakah kereta biasanya bergerak?",
+    "image": "assets/general/car.webp",
+    "options": [
+      "Darat",
+      "Landasan",
+      "Air",
+      "Bawah air"
+    ],
+    "correct": "Darat",
+    "explanation": "Kereta: Darat."
+  },
+  {
+    "id": "vehicles-bus-name",
+    "category": "vehicles",
+    "question": "Apakah nama kenderaan ini?",
+    "image": "assets/general/bus.webp",
+    "options": [
+      "Bas",
+      "Jentera bomba",
+      "Lori",
+      "Kereta api"
+    ],
+    "correct": "Bas",
+    "explanation": "Bas ditunjukkan dalam gambar."
+  },
+  {
+    "id": "vehicles-bus-fact",
+    "category": "vehicles",
+    "question": "Di manakah bas biasanya bergerak?",
+    "image": "assets/general/bus.webp",
+    "options": [
+      "Darat",
+      "Air",
+      "Landasan",
+      "Udara"
+    ],
+    "correct": "Darat",
+    "explanation": "Bas: Darat."
+  },
+  {
+    "id": "vehicles-truck-name",
+    "category": "vehicles",
+    "question": "Apakah nama kenderaan ini?",
+    "image": "assets/general/truck.webp",
+    "options": [
+      "Lori",
+      "Bot layar",
+      "Kapal terbang",
+      "Kereta"
+    ],
+    "correct": "Lori",
+    "explanation": "Lori ditunjukkan dalam gambar."
+  },
+  {
+    "id": "vehicles-truck-fact",
+    "category": "vehicles",
+    "question": "Di manakah lori biasanya bergerak?",
+    "image": "assets/general/truck.webp",
+    "options": [
+      "Darat",
+      "Air",
+      "Udara",
+      "Bawah air"
+    ],
+    "correct": "Darat",
+    "explanation": "Lori: Darat."
+  },
+  {
+    "id": "vehicles-motorcycle-name",
+    "category": "vehicles",
+    "question": "Apakah nama kenderaan ini?",
+    "image": "assets/general/motorcycle.webp",
+    "options": [
+      "Motosikal",
+      "Kapal selam",
+      "Trem",
+      "Jentera bomba"
+    ],
+    "correct": "Motosikal",
+    "explanation": "Motosikal ditunjukkan dalam gambar."
+  },
+  {
+    "id": "vehicles-motorcycle-fact",
+    "category": "vehicles",
+    "question": "Di manakah motosikal biasanya bergerak?",
+    "image": "assets/general/motorcycle.webp",
+    "options": [
+      "Darat",
+      "Udara",
+      "Air",
+      "Bawah air"
+    ],
+    "correct": "Darat",
+    "explanation": "Motosikal: Darat."
+  },
+  {
+    "id": "vehicles-bicycle-name",
+    "category": "vehicles",
+    "question": "Apakah nama kenderaan ini?",
+    "image": "assets/general/bicycle.webp",
+    "options": [
+      "Basikal",
+      "Kereta api",
+      "Kapal",
+      "Bot layar"
+    ],
+    "correct": "Basikal",
+    "explanation": "Basikal ditunjukkan dalam gambar."
+  },
+  {
+    "id": "vehicles-bicycle-fact",
+    "category": "vehicles",
+    "question": "Di manakah basikal biasanya bergerak?",
+    "image": "assets/general/bicycle.webp",
+    "options": [
+      "Darat",
+      "Air",
+      "Landasan",
+      "Bawah air"
+    ],
+    "correct": "Darat",
+    "explanation": "Basikal: Darat."
+  },
+  {
+    "id": "vehicles-train-name",
+    "category": "vehicles",
+    "question": "Apakah nama kenderaan ini?",
+    "image": "assets/general/train.webp",
+    "options": [
+      "Kereta api",
+      "Kereta",
+      "Trem",
+      "Basikal"
+    ],
+    "correct": "Kereta api",
+    "explanation": "Kereta api ditunjukkan dalam gambar."
+  },
+  {
+    "id": "vehicles-train-fact",
+    "category": "vehicles",
+    "question": "Di manakah kereta api biasanya bergerak?",
+    "image": "assets/general/train.webp",
+    "options": [
+      "Landasan",
+      "Udara",
+      "Bawah air",
+      "Darat"
+    ],
+    "correct": "Landasan",
+    "explanation": "Kereta api: Landasan."
+  },
+  {
+    "id": "vehicles-tram-name",
+    "category": "vehicles",
+    "question": "Apakah nama kenderaan ini?",
+    "image": "assets/general/tram.webp",
+    "options": [
+      "Trem",
+      "Motosikal",
+      "Jentera bomba",
+      "Kapal"
+    ],
+    "correct": "Trem",
+    "explanation": "Trem ditunjukkan dalam gambar."
+  },
+  {
+    "id": "vehicles-tram-fact",
+    "category": "vehicles",
+    "question": "Di manakah trem biasanya bergerak?",
+    "image": "assets/general/tram.webp",
+    "options": [
+      "Landasan",
+      "Air",
+      "Darat",
+      "Udara"
+    ],
+    "correct": "Landasan",
+    "explanation": "Trem: Landasan."
+  },
+  {
+    "id": "vehicles-airplane-name",
+    "category": "vehicles",
+    "question": "Apakah nama kenderaan ini?",
+    "image": "assets/general/airplane.webp",
+    "options": [
+      "Kapal terbang",
+      "Kapal selam",
+      "Kereta",
+      "Motosikal"
+    ],
+    "correct": "Kapal terbang",
+    "explanation": "Kapal terbang ditunjukkan dalam gambar."
+  },
+  {
+    "id": "vehicles-airplane-fact",
+    "category": "vehicles",
+    "question": "Di manakah kapal terbang biasanya bergerak?",
+    "image": "assets/general/airplane.webp",
+    "options": [
+      "Udara",
+      "Air",
+      "Darat",
+      "Bawah air"
+    ],
+    "correct": "Udara",
+    "explanation": "Kapal terbang: Udara."
+  },
+  {
+    "id": "vehicles-helicopter-name",
+    "category": "vehicles",
+    "question": "Apakah nama kenderaan ini?",
+    "image": "assets/general/helicopter.webp",
+    "options": [
+      "Helikopter",
+      "Kereta api",
+      "Motosikal",
+      "Kapal selam"
+    ],
+    "correct": "Helikopter",
+    "explanation": "Helikopter ditunjukkan dalam gambar."
+  },
+  {
+    "id": "vehicles-helicopter-fact",
+    "category": "vehicles",
+    "question": "Di manakah helikopter biasanya bergerak?",
+    "image": "assets/general/helicopter.webp",
+    "options": [
+      "Udara",
+      "Darat",
+      "Bawah air",
+      "Landasan"
+    ],
+    "correct": "Udara",
+    "explanation": "Helikopter: Udara."
+  },
+  {
+    "id": "vehicles-sailboat-name",
+    "category": "vehicles",
+    "question": "Apakah nama kenderaan ini?",
+    "image": "assets/general/sailboat.webp",
+    "options": [
+      "Bot layar",
+      "Lori",
+      "Bas",
+      "Jentera bomba"
+    ],
+    "correct": "Bot layar",
+    "explanation": "Bot layar ditunjukkan dalam gambar."
+  },
+  {
+    "id": "vehicles-sailboat-fact",
+    "category": "vehicles",
+    "question": "Di manakah bot layar biasanya bergerak?",
+    "image": "assets/general/sailboat.webp",
+    "options": [
+      "Air",
+      "Udara",
+      "Bawah air",
+      "Landasan"
+    ],
+    "correct": "Air",
+    "explanation": "Bot layar: Air."
+  },
+  {
+    "id": "vehicles-ship-name",
+    "category": "vehicles",
+    "question": "Apakah nama kenderaan ini?",
+    "image": "assets/general/ship.webp",
+    "options": [
+      "Kapal",
+      "Ambulans",
+      "Basikal",
+      "Motosikal"
+    ],
+    "correct": "Kapal",
+    "explanation": "Kapal ditunjukkan dalam gambar."
+  },
+  {
+    "id": "vehicles-ship-fact",
+    "category": "vehicles",
+    "question": "Di manakah kapal biasanya bergerak?",
+    "image": "assets/general/ship.webp",
+    "options": [
+      "Air",
+      "Udara",
+      "Darat",
+      "Bawah air"
+    ],
+    "correct": "Air",
+    "explanation": "Kapal: Air."
+  },
+  {
+    "id": "vehicles-submarine-name",
+    "category": "vehicles",
+    "question": "Apakah nama kenderaan ini?",
+    "image": "assets/general/submarine.webp",
+    "options": [
+      "Kapal selam",
+      "Bas",
+      "Jentera bomba",
+      "Kereta"
+    ],
+    "correct": "Kapal selam",
+    "explanation": "Kapal selam ditunjukkan dalam gambar."
+  },
+  {
+    "id": "vehicles-submarine-fact",
+    "category": "vehicles",
+    "question": "Di manakah kapal selam biasanya bergerak?",
+    "image": "assets/general/submarine.webp",
+    "options": [
+      "Bawah air",
+      "Udara",
+      "Landasan",
+      "Air"
+    ],
+    "correct": "Bawah air",
+    "explanation": "Kapal selam: Bawah air."
+  },
+  {
+    "id": "vehicles-ambulance-name",
+    "category": "vehicles",
+    "question": "Apakah nama kenderaan ini?",
+    "image": "assets/general/ambulance.webp",
+    "options": [
+      "Ambulans",
+      "Motosikal",
+      "Basikal",
+      "Helikopter"
+    ],
+    "correct": "Ambulans",
+    "explanation": "Ambulans ditunjukkan dalam gambar."
+  },
+  {
+    "id": "vehicles-ambulance-fact",
+    "category": "vehicles",
+    "question": "Di manakah ambulans biasanya bergerak?",
+    "image": "assets/general/ambulance.webp",
+    "options": [
+      "Darat",
+      "Air",
+      "Landasan",
+      "Bawah air"
+    ],
+    "correct": "Darat",
+    "explanation": "Ambulans: Darat."
+  },
+  {
+    "id": "vehicles-firetruck-name",
+    "category": "vehicles",
+    "question": "Apakah nama kenderaan ini?",
+    "image": "assets/general/firetruck.webp",
+    "options": [
+      "Jentera bomba",
+      "Lori",
+      "Kereta",
+      "Kereta api"
+    ],
+    "correct": "Jentera bomba",
+    "explanation": "Jentera bomba ditunjukkan dalam gambar."
+  },
+  {
+    "id": "vehicles-firetruck-fact",
+    "category": "vehicles",
+    "question": "Di manakah jentera bomba biasanya bergerak?",
+    "image": "assets/general/firetruck.webp",
+    "options": [
+      "Darat",
+      "Bawah air",
+      "Udara",
+      "Air"
+    ],
+    "correct": "Darat",
+    "explanation": "Jentera bomba: Darat."
+  },
+  {
+    "id": "vehicles-tractor-name",
+    "category": "vehicles",
+    "question": "Apakah nama kenderaan ini?",
+    "image": "assets/general/tractor.webp",
+    "options": [
+      "Traktor",
+      "Trem",
+      "Bot layar",
+      "Ambulans"
+    ],
+    "correct": "Traktor",
+    "explanation": "Traktor ditunjukkan dalam gambar."
+  },
+  {
+    "id": "vehicles-tractor-fact",
+    "category": "vehicles",
+    "question": "Di manakah traktor biasanya bergerak?",
+    "image": "assets/general/tractor.webp",
+    "options": [
+      "Darat",
+      "Air",
+      "Landasan",
+      "Bawah air"
+    ],
+    "correct": "Darat",
+    "explanation": "Traktor: Darat."
+  }
+]

@@ -1,0 +1,422 @@
+[
+  {
+    "id": "produce-apple-name",
+    "category": "produce",
+    "question": "Apakah nama buah atau sayur ini?",
+    "image": "assets/general/apple.webp",
+    "options": [
+      "Epal",
+      "Tembikai",
+      "Bawang",
+      "Brokoli"
+    ],
+    "correct": "Epal",
+    "explanation": "Epal ditunjukkan dalam gambar."
+  },
+  {
+    "id": "produce-apple-fact",
+    "category": "produce",
+    "question": "Dalam kegunaan makanan harian, apakah kumpulan epal?",
+    "image": "assets/general/apple.webp",
+    "options": [
+      "Buah",
+      "Kekacang",
+      "Sayur",
+      "Bijirin"
+    ],
+    "correct": "Buah",
+    "explanation": "Epal: Buah."
+  },
+  {
+    "id": "produce-banana-name",
+    "category": "produce",
+    "question": "Apakah nama buah atau sayur ini?",
+    "image": "assets/general/banana.webp",
+    "options": [
+      "Pisang",
+      "Kiwi",
+      "Epal",
+      "Nanas"
+    ],
+    "correct": "Pisang",
+    "explanation": "Pisang ditunjukkan dalam gambar."
+  },
+  {
+    "id": "produce-banana-fact",
+    "category": "produce",
+    "question": "Dalam kegunaan makanan harian, apakah kumpulan pisang?",
+    "image": "assets/general/banana.webp",
+    "options": [
+      "Buah",
+      "Sayur",
+      "Kekacang",
+      "Bijirin"
+    ],
+    "correct": "Buah",
+    "explanation": "Pisang: Buah."
+  },
+  {
+    "id": "produce-orange-name",
+    "category": "produce",
+    "question": "Apakah nama buah atau sayur ini?",
+    "image": "assets/general/orange.webp",
+    "options": [
+      "Oren",
+      "Nanas",
+      "Epal",
+      "Brokoli"
+    ],
+    "correct": "Oren",
+    "explanation": "Oren ditunjukkan dalam gambar."
+  },
+  {
+    "id": "produce-orange-fact",
+    "category": "produce",
+    "question": "Dalam kegunaan makanan harian, apakah kumpulan oren?",
+    "image": "assets/general/orange.webp",
+    "options": [
+      "Buah",
+      "Kekacang",
+      "Sayur",
+      "Bijirin"
+    ],
+    "correct": "Buah",
+    "explanation": "Oren: Buah."
+  },
+  {
+    "id": "produce-watermelon-name",
+    "category": "produce",
+    "question": "Apakah nama buah atau sayur ini?",
+    "image": "assets/general/watermelon.webp",
+    "options": [
+      "Tembikai",
+      "Anggur",
+      "Strawberi",
+      "Terung"
+    ],
+    "correct": "Tembikai",
+    "explanation": "Tembikai ditunjukkan dalam gambar."
+  },
+  {
+    "id": "produce-watermelon-fact",
+    "category": "produce",
+    "question": "Dalam kegunaan makanan harian, apakah kumpulan tembikai?",
+    "image": "assets/general/watermelon.webp",
+    "options": [
+      "Buah",
+      "Bijirin",
+      "Sayur",
+      "Kekacang"
+    ],
+    "correct": "Buah",
+    "explanation": "Tembikai: Buah."
+  },
+  {
+    "id": "produce-pineapple-name",
+    "category": "produce",
+    "question": "Apakah nama buah atau sayur ini?",
+    "image": "assets/general/pineapple.webp",
+    "options": [
+      "Nanas",
+      "Brokoli",
+      "Kiwi",
+      "Durian"
+    ],
+    "correct": "Nanas",
+    "explanation": "Nanas ditunjukkan dalam gambar."
+  },
+  {
+    "id": "produce-pineapple-fact",
+    "category": "produce",
+    "question": "Dalam kegunaan makanan harian, apakah kumpulan nanas?",
+    "image": "assets/general/pineapple.webp",
+    "options": [
+      "Buah",
+      "Bijirin",
+      "Sayur",
+      "Kekacang"
+    ],
+    "correct": "Buah",
+    "explanation": "Nanas: Buah."
+  },
+  {
+    "id": "produce-mango-name",
+    "category": "produce",
+    "question": "Apakah nama buah atau sayur ini?",
+    "image": "assets/general/mango.webp",
+    "options": [
+      "Mangga",
+      "Anggur",
+      "Tembikai",
+      "Epal"
+    ],
+    "correct": "Mangga",
+    "explanation": "Mangga ditunjukkan dalam gambar."
+  },
+  {
+    "id": "produce-mango-fact",
+    "category": "produce",
+    "question": "Dalam kegunaan makanan harian, apakah kumpulan mangga?",
+    "image": "assets/general/mango.webp",
+    "options": [
+      "Buah",
+      "Kekacang",
+      "Sayur",
+      "Bijirin"
+    ],
+    "correct": "Buah",
+    "explanation": "Mangga: Buah."
+  },
+  {
+    "id": "produce-durian-name",
+    "category": "produce",
+    "question": "Apakah nama buah atau sayur ini?",
+    "image": "assets/general/durian.webp",
+    "options": [
+      "Durian",
+      "Kubis",
+      "Epal",
+      "Oren"
+    ],
+    "correct": "Durian",
+    "explanation": "Durian ditunjukkan dalam gambar."
+  },
+  {
+    "id": "produce-durian-fact",
+    "category": "produce",
+    "question": "Dalam kegunaan makanan harian, apakah kumpulan durian?",
+    "image": "assets/general/durian.webp",
+    "options": [
+      "Buah",
+      "Sayur",
+      "Bijirin",
+      "Kekacang"
+    ],
+    "correct": "Buah",
+    "explanation": "Durian: Buah."
+  },
+  {
+    "id": "produce-kiwi-name",
+    "category": "produce",
+    "question": "Apakah nama buah atau sayur ini?",
+    "image": "assets/general/kiwi.webp",
+    "options": [
+      "Kiwi",
+      "Terung",
+      "Nanas",
+      "Epal"
+    ],
+    "correct": "Kiwi",
+    "explanation": "Kiwi ditunjukkan dalam gambar."
+  },
+  {
+    "id": "produce-kiwi-fact",
+    "category": "produce",
+    "question": "Dalam kegunaan makanan harian, apakah kumpulan kiwi?",
+    "image": "assets/general/kiwi.webp",
+    "options": [
+      "Buah",
+      "Kekacang",
+      "Sayur",
+      "Bijirin"
+    ],
+    "correct": "Buah",
+    "explanation": "Kiwi: Buah."
+  },
+  {
+    "id": "produce-grape-name",
+    "category": "produce",
+    "question": "Apakah nama buah atau sayur ini?",
+    "image": "assets/general/grape.webp",
+    "options": [
+      "Anggur",
+      "Durian",
+      "Brokoli",
+      "Epal"
+    ],
+    "correct": "Anggur",
+    "explanation": "Anggur ditunjukkan dalam gambar."
+  },
+  {
+    "id": "produce-grape-fact",
+    "category": "produce",
+    "question": "Dalam kegunaan makanan harian, apakah kumpulan anggur?",
+    "image": "assets/general/grape.webp",
+    "options": [
+      "Buah",
+      "Bijirin",
+      "Kekacang",
+      "Sayur"
+    ],
+    "correct": "Buah",
+    "explanation": "Anggur: Buah."
+  },
+  {
+    "id": "produce-strawberry-name",
+    "category": "produce",
+    "question": "Apakah nama buah atau sayur ini?",
+    "image": "assets/general/strawberry.webp",
+    "options": [
+      "Strawberi",
+      "Epal",
+      "Nanas",
+      "Bawang"
+    ],
+    "correct": "Strawberi",
+    "explanation": "Strawberi ditunjukkan dalam gambar."
+  },
+  {
+    "id": "produce-strawberry-fact",
+    "category": "produce",
+    "question": "Dalam kegunaan makanan harian, apakah kumpulan strawberi?",
+    "image": "assets/general/strawberry.webp",
+    "options": [
+      "Buah",
+      "Kekacang",
+      "Bijirin",
+      "Sayur"
+    ],
+    "correct": "Buah",
+    "explanation": "Strawberi: Buah."
+  },
+  {
+    "id": "produce-carrot-name",
+    "category": "produce",
+    "question": "Apakah nama buah atau sayur ini?",
+    "image": "assets/general/carrot.webp",
+    "options": [
+      "Lobak merah",
+      "Mangga",
+      "Nanas",
+      "Durian"
+    ],
+    "correct": "Lobak merah",
+    "explanation": "Lobak merah ditunjukkan dalam gambar."
+  },
+  {
+    "id": "produce-carrot-fact",
+    "category": "produce",
+    "question": "Dalam kegunaan makanan harian, apakah kumpulan lobak merah?",
+    "image": "assets/general/carrot.webp",
+    "options": [
+      "Sayur",
+      "Kekacang",
+      "Buah",
+      "Bijirin"
+    ],
+    "correct": "Sayur",
+    "explanation": "Lobak merah: Sayur."
+  },
+  {
+    "id": "produce-broccoli-name",
+    "category": "produce",
+    "question": "Apakah nama buah atau sayur ini?",
+    "image": "assets/general/broccoli.webp",
+    "options": [
+      "Brokoli",
+      "Tembikai",
+      "Strawberi",
+      "Epal"
+    ],
+    "correct": "Brokoli",
+    "explanation": "Brokoli ditunjukkan dalam gambar."
+  },
+  {
+    "id": "produce-broccoli-fact",
+    "category": "produce",
+    "question": "Dalam kegunaan makanan harian, apakah kumpulan brokoli?",
+    "image": "assets/general/broccoli.webp",
+    "options": [
+      "Sayur",
+      "Bijirin",
+      "Buah",
+      "Kekacang"
+    ],
+    "correct": "Sayur",
+    "explanation": "Brokoli: Sayur."
+  },
+  {
+    "id": "produce-cabbage-name",
+    "category": "produce",
+    "question": "Apakah nama buah atau sayur ini?",
+    "image": "assets/general/cabbage.webp",
+    "options": [
+      "Kubis",
+      "Strawberi",
+      "Epal",
+      "Pisang"
+    ],
+    "correct": "Kubis",
+    "explanation": "Kubis ditunjukkan dalam gambar."
+  },
+  {
+    "id": "produce-cabbage-fact",
+    "category": "produce",
+    "question": "Dalam kegunaan makanan harian, apakah kumpulan kubis?",
+    "image": "assets/general/cabbage.webp",
+    "options": [
+      "Sayur",
+      "Bijirin",
+      "Kekacang",
+      "Buah"
+    ],
+    "correct": "Sayur",
+    "explanation": "Kubis: Sayur."
+  },
+  {
+    "id": "produce-eggplant-name",
+    "category": "produce",
+    "question": "Apakah nama buah atau sayur ini?",
+    "image": "assets/general/eggplant.webp",
+    "options": [
+      "Terung",
+      "Mangga",
+      "Anggur",
+      "Kiwi"
+    ],
+    "correct": "Terung",
+    "explanation": "Terung ditunjukkan dalam gambar."
+  },
+  {
+    "id": "produce-eggplant-fact",
+    "category": "produce",
+    "question": "Dalam kegunaan makanan harian, apakah kumpulan terung?",
+    "image": "assets/general/eggplant.webp",
+    "options": [
+      "Sayur",
+      "Bijirin",
+      "Kekacang",
+      "Buah"
+    ],
+    "correct": "Sayur",
+    "explanation": "Terung: Sayur."
+  },
+  {
+    "id": "produce-onion-name",
+    "category": "produce",
+    "question": "Apakah nama buah atau sayur ini?",
+    "image": "assets/general/onion.webp",
+    "options": [
+      "Bawang",
+      "Tembikai",
+      "Mangga",
+      "Kubis"
+    ],
+    "correct": "Bawang",
+    "explanation": "Bawang ditunjukkan dalam gambar."
+  },
+  {
+    "id": "produce-onion-fact",
+    "category": "produce",
+    "question": "Dalam kegunaan makanan harian, apakah kumpulan bawang?",
+    "image": "assets/general/onion.webp",
+    "options": [
+      "Sayur",
+      "Bijirin",
+      "Buah",
+      "Kekacang"
+    ],
+    "correct": "Sayur",
+    "explanation": "Bawang: Sayur."
+  }
+]

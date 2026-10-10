@@ -1,0 +1,422 @@
+[
+  {
+    "id": "music-piano-name",
+    "category": "music",
+    "question": "Apakah nama alat muzik ini?",
+    "image": "assets/general/piano.webp",
+    "options": [
+      "Piano",
+      "Klarinet",
+      "Ukulele",
+      "Set dram"
+    ],
+    "correct": "Piano",
+    "explanation": "Piano ditunjukkan dalam gambar."
+  },
+  {
+    "id": "music-piano-fact",
+    "category": "music",
+    "question": "Apakah cara atau komponen utama untuk memainkan piano?",
+    "image": "assets/general/piano.webp",
+    "options": [
+      "Kekunci",
+      "Goncangan atau pukulan",
+      "Tali",
+      "Pukulan"
+    ],
+    "correct": "Kekunci",
+    "explanation": "Piano: Kekunci."
+  },
+  {
+    "id": "music-guitar-name",
+    "category": "music",
+    "question": "Apakah nama alat muzik ini?",
+    "image": "assets/general/guitar.webp",
+    "options": [
+      "Gitar",
+      "Trompet",
+      "Harp",
+      "Klarinet"
+    ],
+    "correct": "Gitar",
+    "explanation": "Gitar ditunjukkan dalam gambar."
+  },
+  {
+    "id": "music-guitar-fact",
+    "category": "music",
+    "question": "Apakah cara atau komponen utama untuk memainkan gitar?",
+    "image": "assets/general/guitar.webp",
+    "options": [
+      "Tali",
+      "Goncangan atau pukulan",
+      "Tiupan",
+      "Kekunci"
+    ],
+    "correct": "Tali",
+    "explanation": "Gitar: Tali."
+  },
+  {
+    "id": "music-violin-name",
+    "category": "music",
+    "question": "Apakah nama alat muzik ini?",
+    "image": "assets/general/violin.webp",
+    "options": [
+      "Biola",
+      "Trompet",
+      "Gitar",
+      "Ukulele"
+    ],
+    "correct": "Biola",
+    "explanation": "Biola ditunjukkan dalam gambar."
+  },
+  {
+    "id": "music-violin-fact",
+    "category": "music",
+    "question": "Apakah cara atau komponen utama untuk memainkan biola?",
+    "image": "assets/general/violin.webp",
+    "options": [
+      "Tali",
+      "Belos dan kekunci",
+      "Goncangan atau pukulan",
+      "Tiupan"
+    ],
+    "correct": "Tali",
+    "explanation": "Biola: Tali."
+  },
+  {
+    "id": "music-cello-name",
+    "category": "music",
+    "question": "Apakah nama alat muzik ini?",
+    "image": "assets/general/cello.webp",
+    "options": [
+      "Selo",
+      "Harp",
+      "Akordion",
+      "Ukulele"
+    ],
+    "correct": "Selo",
+    "explanation": "Selo ditunjukkan dalam gambar."
+  },
+  {
+    "id": "music-cello-fact",
+    "category": "music",
+    "question": "Apakah cara atau komponen utama untuk memainkan selo?",
+    "image": "assets/general/cello.webp",
+    "options": [
+      "Tali",
+      "Belos dan kekunci",
+      "Pukulan",
+      "Tiupan"
+    ],
+    "correct": "Tali",
+    "explanation": "Selo: Tali."
+  },
+  {
+    "id": "music-harp-name",
+    "category": "music",
+    "question": "Apakah nama alat muzik ini?",
+    "image": "assets/general/harp.webp",
+    "options": [
+      "Harp",
+      "Saksofon",
+      "Ukulele",
+      "Selo"
+    ],
+    "correct": "Harp",
+    "explanation": "Harp ditunjukkan dalam gambar."
+  },
+  {
+    "id": "music-harp-fact",
+    "category": "music",
+    "question": "Apakah cara atau komponen utama untuk memainkan harp?",
+    "image": "assets/general/harp.webp",
+    "options": [
+      "Tali",
+      "Pukulan",
+      "Tiupan",
+      "Kekunci"
+    ],
+    "correct": "Tali",
+    "explanation": "Harp: Tali."
+  },
+  {
+    "id": "music-flute-name",
+    "category": "music",
+    "question": "Apakah nama alat muzik ini?",
+    "image": "assets/general/flute.webp",
+    "options": [
+      "Seruling",
+      "Trombon",
+      "Trompet",
+      "Gitar"
+    ],
+    "correct": "Seruling",
+    "explanation": "Seruling ditunjukkan dalam gambar."
+  },
+  {
+    "id": "music-flute-fact",
+    "category": "music",
+    "question": "Apakah cara atau komponen utama untuk memainkan seruling?",
+    "image": "assets/general/flute.webp",
+    "options": [
+      "Tiupan",
+      "Pukulan",
+      "Belos dan kekunci",
+      "Goncangan atau pukulan"
+    ],
+    "correct": "Tiupan",
+    "explanation": "Seruling: Tiupan."
+  },
+  {
+    "id": "music-trumpet-name",
+    "category": "music",
+    "question": "Apakah nama alat muzik ini?",
+    "image": "assets/general/trumpet.webp",
+    "options": [
+      "Trompet",
+      "Tamborin",
+      "Harp",
+      "Akordion"
+    ],
+    "correct": "Trompet",
+    "explanation": "Trompet ditunjukkan dalam gambar."
+  },
+  {
+    "id": "music-trumpet-fact",
+    "category": "music",
+    "question": "Apakah cara atau komponen utama untuk memainkan trompet?",
+    "image": "assets/general/trumpet.webp",
+    "options": [
+      "Tiupan",
+      "Tali",
+      "Kekunci",
+      "Belos dan kekunci"
+    ],
+    "correct": "Tiupan",
+    "explanation": "Trompet: Tiupan."
+  },
+  {
+    "id": "music-saxophone-name",
+    "category": "music",
+    "question": "Apakah nama alat muzik ini?",
+    "image": "assets/general/saxophone.webp",
+    "options": [
+      "Saksofon",
+      "Selo",
+      "Piano",
+      "Trombon"
+    ],
+    "correct": "Saksofon",
+    "explanation": "Saksofon ditunjukkan dalam gambar."
+  },
+  {
+    "id": "music-saxophone-fact",
+    "category": "music",
+    "question": "Apakah cara atau komponen utama untuk memainkan saksofon?",
+    "image": "assets/general/saxophone.webp",
+    "options": [
+      "Tiupan",
+      "Tali",
+      "Goncangan atau pukulan",
+      "Pukulan"
+    ],
+    "correct": "Tiupan",
+    "explanation": "Saksofon: Tiupan."
+  },
+  {
+    "id": "music-clarinet-name",
+    "category": "music",
+    "question": "Apakah nama alat muzik ini?",
+    "image": "assets/general/clarinet.webp",
+    "options": [
+      "Klarinet",
+      "Trompet",
+      "Akordion",
+      "Seruling"
+    ],
+    "correct": "Klarinet",
+    "explanation": "Klarinet ditunjukkan dalam gambar."
+  },
+  {
+    "id": "music-clarinet-fact",
+    "category": "music",
+    "question": "Apakah cara atau komponen utama untuk memainkan klarinet?",
+    "image": "assets/general/clarinet.webp",
+    "options": [
+      "Tiupan",
+      "Tali",
+      "Pukulan",
+      "Belos dan kekunci"
+    ],
+    "correct": "Tiupan",
+    "explanation": "Klarinet: Tiupan."
+  },
+  {
+    "id": "music-trombone-name",
+    "category": "music",
+    "question": "Apakah nama alat muzik ini?",
+    "image": "assets/general/trombone.webp",
+    "options": [
+      "Trombon",
+      "Tamborin",
+      "Ukulele",
+      "Klarinet"
+    ],
+    "correct": "Trombon",
+    "explanation": "Trombon ditunjukkan dalam gambar."
+  },
+  {
+    "id": "music-trombone-fact",
+    "category": "music",
+    "question": "Apakah cara atau komponen utama untuk memainkan trombon?",
+    "image": "assets/general/trombone.webp",
+    "options": [
+      "Tiupan",
+      "Belos dan kekunci",
+      "Tali",
+      "Goncangan atau pukulan"
+    ],
+    "correct": "Tiupan",
+    "explanation": "Trombon: Tiupan."
+  },
+  {
+    "id": "music-drums-name",
+    "category": "music",
+    "question": "Apakah nama alat muzik ini?",
+    "image": "assets/general/drums.webp",
+    "options": [
+      "Set dram",
+      "Tamborin",
+      "Trompet",
+      "Gitar"
+    ],
+    "correct": "Set dram",
+    "explanation": "Set dram ditunjukkan dalam gambar."
+  },
+  {
+    "id": "music-drums-fact",
+    "category": "music",
+    "question": "Apakah cara atau komponen utama untuk memainkan set dram?",
+    "image": "assets/general/drums.webp",
+    "options": [
+      "Pukulan",
+      "Tiupan",
+      "Tali",
+      "Goncangan atau pukulan"
+    ],
+    "correct": "Pukulan",
+    "explanation": "Set dram: Pukulan."
+  },
+  {
+    "id": "music-tambourine-name",
+    "category": "music",
+    "question": "Apakah nama alat muzik ini?",
+    "image": "assets/general/tambourine.webp",
+    "options": [
+      "Tamborin",
+      "Ukulele",
+      "Set dram",
+      "Seruling"
+    ],
+    "correct": "Tamborin",
+    "explanation": "Tamborin ditunjukkan dalam gambar."
+  },
+  {
+    "id": "music-tambourine-fact",
+    "category": "music",
+    "question": "Apakah cara atau komponen utama untuk memainkan tamborin?",
+    "image": "assets/general/tambourine.webp",
+    "options": [
+      "Goncangan atau pukulan",
+      "Tali",
+      "Tiupan",
+      "Pukulan"
+    ],
+    "correct": "Goncangan atau pukulan",
+    "explanation": "Tamborin: Goncangan atau pukulan."
+  },
+  {
+    "id": "music-xylophone-name",
+    "category": "music",
+    "question": "Apakah nama alat muzik ini?",
+    "image": "assets/general/xylophone.webp",
+    "options": [
+      "Xilofon",
+      "Ukulele",
+      "Gitar",
+      "Akordion"
+    ],
+    "correct": "Xilofon",
+    "explanation": "Xilofon ditunjukkan dalam gambar."
+  },
+  {
+    "id": "music-xylophone-fact",
+    "category": "music",
+    "question": "Apakah cara atau komponen utama untuk memainkan xilofon?",
+    "image": "assets/general/xylophone.webp",
+    "options": [
+      "Pukulan",
+      "Tiupan",
+      "Belos dan kekunci",
+      "Kekunci"
+    ],
+    "correct": "Pukulan",
+    "explanation": "Xilofon: Pukulan."
+  },
+  {
+    "id": "music-accordion-name",
+    "category": "music",
+    "question": "Apakah nama alat muzik ini?",
+    "image": "assets/general/accordion.webp",
+    "options": [
+      "Akordion",
+      "Harp",
+      "Trompet",
+      "Seruling"
+    ],
+    "correct": "Akordion",
+    "explanation": "Akordion ditunjukkan dalam gambar."
+  },
+  {
+    "id": "music-accordion-fact",
+    "category": "music",
+    "question": "Apakah cara atau komponen utama untuk memainkan akordion?",
+    "image": "assets/general/accordion.webp",
+    "options": [
+      "Belos dan kekunci",
+      "Pukulan",
+      "Tali",
+      "Tiupan"
+    ],
+    "correct": "Belos dan kekunci",
+    "explanation": "Akordion: Belos dan kekunci."
+  },
+  {
+    "id": "music-ukulele-name",
+    "category": "music",
+    "question": "Apakah nama alat muzik ini?",
+    "image": "assets/general/ukulele.webp",
+    "options": [
+      "Ukulele",
+      "Harp",
+      "Trompet",
+      "Seruling"
+    ],
+    "correct": "Ukulele",
+    "explanation": "Ukulele ditunjukkan dalam gambar."
+  },
+  {
+    "id": "music-ukulele-fact",
+    "category": "music",
+    "question": "Apakah cara atau komponen utama untuk memainkan ukulele?",
+    "image": "assets/general/ukulele.webp",
+    "options": [
+      "Tali",
+      "Tiupan",
+      "Pukulan",
+      "Goncangan atau pukulan"
+    ],
+    "correct": "Tali",
+    "explanation": "Ukulele: Tali."
+  }
+]

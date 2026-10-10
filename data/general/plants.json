@@ -1,0 +1,422 @@
+[
+  {
+    "id": "plants-hibiscus-name",
+    "category": "plants",
+    "question": "Apakah nama tumbuhan ini?",
+    "image": "assets/general/hibiscus.webp",
+    "options": [
+      "Bunga raya",
+      "Mawar",
+      "Lavender",
+      "Pokok oak"
+    ],
+    "correct": "Bunga raya",
+    "explanation": "Bunga raya ditunjukkan dalam gambar."
+  },
+  {
+    "id": "plants-hibiscus-fact",
+    "category": "plants",
+    "question": "Apakah jenis tumbuhan bunga raya?",
+    "image": "assets/general/hibiscus.webp",
+    "options": [
+      "Bunga",
+      "Paku-pakis",
+      "Pokok",
+      "Rumput"
+    ],
+    "correct": "Bunga",
+    "explanation": "Bunga raya: Bunga."
+  },
+  {
+    "id": "plants-rose-name",
+    "category": "plants",
+    "question": "Apakah nama tumbuhan ini?",
+    "image": "assets/general/rose.webp",
+    "options": [
+      "Mawar",
+      "Padi",
+      "Paku-pakis",
+      "Bunga matahari"
+    ],
+    "correct": "Mawar",
+    "explanation": "Mawar ditunjukkan dalam gambar."
+  },
+  {
+    "id": "plants-rose-fact",
+    "category": "plants",
+    "question": "Apakah jenis tumbuhan mawar?",
+    "image": "assets/general/rose.webp",
+    "options": [
+      "Bunga",
+      "Paku-pakis",
+      "Sukulen",
+      "Pokok"
+    ],
+    "correct": "Bunga",
+    "explanation": "Mawar: Bunga."
+  },
+  {
+    "id": "plants-sunflower-name",
+    "category": "plants",
+    "question": "Apakah nama tumbuhan ini?",
+    "image": "assets/general/sunflower.webp",
+    "options": [
+      "Bunga matahari",
+      "Melur",
+      "Orkid",
+      "Tulip"
+    ],
+    "correct": "Bunga matahari",
+    "explanation": "Bunga matahari ditunjukkan dalam gambar."
+  },
+  {
+    "id": "plants-sunflower-fact",
+    "category": "plants",
+    "question": "Apakah jenis tumbuhan bunga matahari?",
+    "image": "assets/general/sunflower.webp",
+    "options": [
+      "Bunga",
+      "Rumput",
+      "Paku-pakis",
+      "Pokok"
+    ],
+    "correct": "Bunga",
+    "explanation": "Bunga matahari: Bunga."
+  },
+  {
+    "id": "plants-orchid-name",
+    "category": "plants",
+    "question": "Apakah nama tumbuhan ini?",
+    "image": "assets/general/orchid.webp",
+    "options": [
+      "Orkid",
+      "Bunga matahari",
+      "Pokok kelapa",
+      "Pokok oak"
+    ],
+    "correct": "Orkid",
+    "explanation": "Orkid ditunjukkan dalam gambar."
+  },
+  {
+    "id": "plants-orchid-fact",
+    "category": "plants",
+    "question": "Apakah jenis tumbuhan orkid?",
+    "image": "assets/general/orchid.webp",
+    "options": [
+      "Bunga",
+      "Pokok",
+      "Rumput",
+      "Paku-pakis"
+    ],
+    "correct": "Bunga",
+    "explanation": "Orkid: Bunga."
+  },
+  {
+    "id": "plants-lotus-name",
+    "category": "plants",
+    "question": "Apakah nama tumbuhan ini?",
+    "image": "assets/general/lotus.webp",
+    "options": [
+      "Teratai",
+      "Bunga raya",
+      "Tulip",
+      "Lavender"
+    ],
+    "correct": "Teratai",
+    "explanation": "Teratai ditunjukkan dalam gambar."
+  },
+  {
+    "id": "plants-lotus-fact",
+    "category": "plants",
+    "question": "Apakah jenis tumbuhan teratai?",
+    "image": "assets/general/lotus.webp",
+    "options": [
+      "Bunga",
+      "Rumput",
+      "Pokok",
+      "Paku-pakis"
+    ],
+    "correct": "Bunga",
+    "explanation": "Teratai: Bunga."
+  },
+  {
+    "id": "plants-jasmine-name",
+    "category": "plants",
+    "question": "Apakah nama tumbuhan ini?",
+    "image": "assets/general/jasmine.webp",
+    "options": [
+      "Melur",
+      "Padi",
+      "Buluh",
+      "Paku-pakis"
+    ],
+    "correct": "Melur",
+    "explanation": "Melur ditunjukkan dalam gambar."
+  },
+  {
+    "id": "plants-jasmine-fact",
+    "category": "plants",
+    "question": "Apakah jenis tumbuhan melur?",
+    "image": "assets/general/jasmine.webp",
+    "options": [
+      "Bunga",
+      "Paku-pakis",
+      "Sukulen",
+      "Pokok"
+    ],
+    "correct": "Bunga",
+    "explanation": "Melur: Bunga."
+  },
+  {
+    "id": "plants-tulip-name",
+    "category": "plants",
+    "question": "Apakah nama tumbuhan ini?",
+    "image": "assets/general/tulip.webp",
+    "options": [
+      "Tulip",
+      "Kaktus",
+      "Mawar",
+      "Padi"
+    ],
+    "correct": "Tulip",
+    "explanation": "Tulip ditunjukkan dalam gambar."
+  },
+  {
+    "id": "plants-tulip-fact",
+    "category": "plants",
+    "question": "Apakah jenis tumbuhan tulip?",
+    "image": "assets/general/tulip.webp",
+    "options": [
+      "Bunga",
+      "Paku-pakis",
+      "Pokok",
+      "Rumput"
+    ],
+    "correct": "Bunga",
+    "explanation": "Tulip: Bunga."
+  },
+  {
+    "id": "plants-lavender-name",
+    "category": "plants",
+    "question": "Apakah nama tumbuhan ini?",
+    "image": "assets/general/lavender.webp",
+    "options": [
+      "Lavender",
+      "Teratai",
+      "Padi",
+      "Paku-pakis"
+    ],
+    "correct": "Lavender",
+    "explanation": "Lavender ditunjukkan dalam gambar."
+  },
+  {
+    "id": "plants-lavender-fact",
+    "category": "plants",
+    "question": "Apakah jenis tumbuhan lavender?",
+    "image": "assets/general/lavender.webp",
+    "options": [
+      "Bunga",
+      "Rumput",
+      "Sukulen",
+      "Pokok"
+    ],
+    "correct": "Bunga",
+    "explanation": "Lavender: Bunga."
+  },
+  {
+    "id": "plants-coconut-name",
+    "category": "plants",
+    "question": "Apakah nama tumbuhan ini?",
+    "image": "assets/general/coconut.webp",
+    "options": [
+      "Pokok kelapa",
+      "Orkid",
+      "Paku-pakis",
+      "Mawar"
+    ],
+    "correct": "Pokok kelapa",
+    "explanation": "Pokok kelapa ditunjukkan dalam gambar."
+  },
+  {
+    "id": "plants-coconut-fact",
+    "category": "plants",
+    "question": "Apakah jenis tumbuhan pokok kelapa?",
+    "image": "assets/general/coconut.webp",
+    "options": [
+      "Pokok",
+      "Sukulen",
+      "Bunga",
+      "Rumput"
+    ],
+    "correct": "Pokok",
+    "explanation": "Pokok kelapa: Pokok."
+  },
+  {
+    "id": "plants-bamboo-name",
+    "category": "plants",
+    "question": "Apakah nama tumbuhan ini?",
+    "image": "assets/general/bamboo.webp",
+    "options": [
+      "Buluh",
+      "Bunga raya",
+      "Melur",
+      "Lavender"
+    ],
+    "correct": "Buluh",
+    "explanation": "Buluh ditunjukkan dalam gambar."
+  },
+  {
+    "id": "plants-bamboo-fact",
+    "category": "plants",
+    "question": "Apakah jenis tumbuhan buluh?",
+    "image": "assets/general/bamboo.webp",
+    "options": [
+      "Rumput",
+      "Pokok",
+      "Bunga",
+      "Paku-pakis"
+    ],
+    "correct": "Rumput",
+    "explanation": "Buluh: Rumput."
+  },
+  {
+    "id": "plants-rice-name",
+    "category": "plants",
+    "question": "Apakah nama tumbuhan ini?",
+    "image": "assets/general/rice.webp",
+    "options": [
+      "Padi",
+      "Bunga raya",
+      "Pokok kelapa",
+      "Melur"
+    ],
+    "correct": "Padi",
+    "explanation": "Padi ditunjukkan dalam gambar."
+  },
+  {
+    "id": "plants-rice-fact",
+    "category": "plants",
+    "question": "Apakah jenis tumbuhan padi?",
+    "image": "assets/general/rice.webp",
+    "options": [
+      "Rumput",
+      "Bunga",
+      "Pokok",
+      "Paku-pakis"
+    ],
+    "correct": "Rumput",
+    "explanation": "Padi: Rumput."
+  },
+  {
+    "id": "plants-fern-name",
+    "category": "plants",
+    "question": "Apakah nama tumbuhan ini?",
+    "image": "assets/general/fern.webp",
+    "options": [
+      "Paku-pakis",
+      "Bunga raya",
+      "Bunga matahari",
+      "Buluh"
+    ],
+    "correct": "Paku-pakis",
+    "explanation": "Paku-pakis ditunjukkan dalam gambar."
+  },
+  {
+    "id": "plants-fern-fact",
+    "category": "plants",
+    "question": "Apakah jenis tumbuhan paku-pakis?",
+    "image": "assets/general/fern.webp",
+    "options": [
+      "Paku-pakis",
+      "Rumput",
+      "Sukulen",
+      "Pokok"
+    ],
+    "correct": "Paku-pakis",
+    "explanation": "Paku-pakis: Paku-pakis."
+  },
+  {
+    "id": "plants-cactus-name",
+    "category": "plants",
+    "question": "Apakah nama tumbuhan ini?",
+    "image": "assets/general/cactus.webp",
+    "options": [
+      "Kaktus",
+      "Pokok kelapa",
+      "Pokok maple",
+      "Paku-pakis"
+    ],
+    "correct": "Kaktus",
+    "explanation": "Kaktus ditunjukkan dalam gambar."
+  },
+  {
+    "id": "plants-cactus-fact",
+    "category": "plants",
+    "question": "Apakah jenis tumbuhan kaktus?",
+    "image": "assets/general/cactus.webp",
+    "options": [
+      "Sukulen",
+      "Rumput",
+      "Bunga",
+      "Pokok"
+    ],
+    "correct": "Sukulen",
+    "explanation": "Kaktus: Sukulen."
+  },
+  {
+    "id": "plants-oak-name",
+    "category": "plants",
+    "question": "Apakah nama tumbuhan ini?",
+    "image": "assets/general/oak.webp",
+    "options": [
+      "Pokok oak",
+      "Paku-pakis",
+      "Padi",
+      "Melur"
+    ],
+    "correct": "Pokok oak",
+    "explanation": "Pokok oak ditunjukkan dalam gambar."
+  },
+  {
+    "id": "plants-oak-fact",
+    "category": "plants",
+    "question": "Apakah jenis tumbuhan pokok oak?",
+    "image": "assets/general/oak.webp",
+    "options": [
+      "Pokok",
+      "Rumput",
+      "Bunga",
+      "Paku-pakis"
+    ],
+    "correct": "Pokok",
+    "explanation": "Pokok oak: Pokok."
+  },
+  {
+    "id": "plants-maple-name",
+    "category": "plants",
+    "question": "Apakah nama tumbuhan ini?",
+    "image": "assets/general/maple.webp",
+    "options": [
+      "Pokok maple",
+      "Buluh",
+      "Lavender",
+      "Pokok kelapa"
+    ],
+    "correct": "Pokok maple",
+    "explanation": "Pokok maple ditunjukkan dalam gambar."
+  },
+  {
+    "id": "plants-maple-fact",
+    "category": "plants",
+    "question": "Apakah jenis tumbuhan pokok maple?",
+    "image": "assets/general/maple.webp",
+    "options": [
+      "Pokok",
+      "Rumput",
+      "Paku-pakis",
+      "Sukulen"
+    ],
+    "correct": "Pokok",
+    "explanation": "Pokok maple: Pokok."
+  }
+]
