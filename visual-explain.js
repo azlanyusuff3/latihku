@@ -92,7 +92,21 @@ window.LATIH_VISUAL_EXPLAIN=(()=>{
   function languageGeneric(item,ctx,icon='🧩'){return `<div class="vx-language"><div class="vx-generic-map"><span>${icon}</span><i>➜</i><strong>${esc(item.correct)}</strong></div>${answerPill(item,ctx)}</div>`}
   function otherExplain(item,ctx,subject){const icon={en:'🔤',islam:'🕌',moral:'🤝',pjpk:'🏃'}[subject]||'🧩';return languageGeneric(item,ctx,icon)}
 
-  function math(item,ctx){const c=concept(item),p=c.split('-'),kind=p[0];
+  function year2Math(item,ctx){
+    const parts=concept(item).split('-'),operation=parts[1]||'';
+    const cue={
+      tambah:'Kata petunjuk: lagi, semuanya, jumlah, altogether.',
+      tolak:'Kata petunjuk: baki, tinggal, diberikan, left.',
+      darab:'Kata petunjuk: setiap kumpulan mengandungi bilangan yang sama.',
+      bahagi:'Kata petunjuk: sama rata, setiap orang, equally.'
+    }[operation]||'Baca maklumat dan pilih operasi yang sesuai.';
+    const raw=String(item.explanation||'');
+    const partsOfSteps=raw.split(/(?=Langkah \d+:)/).map(s=>s.trim()).filter(Boolean);
+    const details=partsOfSteps.map((step,i)=>'<div class="vx-step" style="display:block;padding:10px 12px;margin:8px 0"><strong>'+(partsOfSteps.length>1?'Langkah '+(i+1):'Cara kira')+'</strong><div>'+esc(step.replace(/^Langkah \d+:\s*/,''))+'</div></div>').join('');
+    return '<div class="vx-math"><div style="font-weight:700;margin-bottom:8px">Cara selesaikan soalan</div>'+
+      '<p style="margin:0 0 10px">'+esc(cue)+'</p>'+details+answerPill(item,ctx)+'</div>';
+  }
+  function math(item,ctx){const c=concept(item),p=c.split('-'),kind=p[0];if(c.startsWith('tahun2-'))return year2Math(item,ctx);
     if(kind==='add')return addition(+p[1],+p[2],item,ctx);
     if(kind==='sub')return subtraction(+p[1],+p[2],item,ctx);
     if(kind==='mul')return multiplication(+p[1],+p[2],item,ctx);
