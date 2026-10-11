@@ -126,7 +126,7 @@ window.LATIH_ENGINE = (() => {
     if(item.itemType==='short')return true;
     if(!Array.isArray(item.answers)||item.answers.length!==4)return false;
     const a=item.answers.map(x=>String(x).trim()),c=String(item.correct).trim();
-    return a.every(Boolean)&&new Set(a.map(x=>x.toLowerCase())).size===4&&a.filter(x=>x===c).length===1;
+    return a.every(Boolean)&&new Set(a).size===4&&a.filter(x=>x===c).length===1;
   }
   function safeGenerate(gen,level,diff){for(let i=0;i<50;i++){const item=gen(level,diff);if(validateItem(item))return item}throw new Error('Generator gagal menghasilkan item yang sah.')}
   const MATH_GEN={'Nombor':mathNumber,'Tambah & Tolak':mathAddSub,'Darab & Bahagi':mathMulDiv,'Pecahan':mathFraction,'Wang':mathMoney,'Masa':mathTime,'Ukuran':mathMeasure,'Bentuk & Ruang':mathShape,'Data':mathData};

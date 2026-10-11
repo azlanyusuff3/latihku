@@ -59,6 +59,7 @@ const coloring=context.LATIH_COLORING;
 for(const asset of coloring.assets) assert(pathExists(asset),asset);
 const manifest=JSON.parse(read('manifest.json'));
 for(const icon of manifest.icons) assert(pathExists(icon.src),icon.src);
+assert(E.validateItem({question:'Choose the sentence with correct punctuation.',topic:'Grammar',correct:'Amir is reading a book.',answers:['Amir is reading a book.','amir is reading a book.','Amir is reading a book','Amir is reading a book?'],difficulty:'mudah',explanation:'Capital letters and punctuation matter.'}),'Preserve meaningful English capitalisation answer options');
 assert.equal(H.duration('uasa',5),750);
 assert.equal(H.duration('uasa',10),1500);
 assert.equal(H.duration('uasa',20),3000);
@@ -116,7 +117,7 @@ for(const year of ['1','2','3','4','5','6']){
     assert.equal(items.length,50,`${year}:${subject} must produce 50 questions`);
     for(const q of items) {
       assert(q.question?.trim() && String(q.correct??'').trim(),`${year}:${subject}`);
-      if(q.itemType!=='short') assert(q.answers?.length===4 && new Set(q.answers.map(x=>String(x).toLowerCase().trim())).size===4 && q.answers.filter(x=>String(x)===String(q.correct)).length===1,`${year}:${subject}: ${q.question}`);
+      if(q.itemType!=='short') assert(q.answers?.length===4 && new Set(q.answers.map(x=>String(x).trim())).size===4 && q.answers.filter(x=>String(x)===String(q.correct)).length===1,`${year}:${subject}: ${q.question}`);
       assert(E.validateItem(q),`${year}:${subject}: ${q.question}`);generated++;
     }
   }
