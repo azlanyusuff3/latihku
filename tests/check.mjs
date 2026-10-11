@@ -63,6 +63,9 @@ assert.equal(H.duration('uasa',5),750);
 assert.equal(H.duration('uasa',10),1500);
 assert.equal(H.duration('uasa',20),3000);
 assert.equal(H.duration('uasa',30),4500);
+assert.equal(H.duration('uasa',50),7500);
+assert.equal(H.duration('exam',50),2250);
+assert(read('app.js').includes('[5,10,20,30,50]'),'Year 1-6 practice includes a 50-question option');
 assert.equal(H.duration('exam',10),450);
 assert.equal(H.remaining({remaining:45,timerStartedAt:1000},6500),40);
 assert.equal(H.remaining({remaining:45,timerStartedAt:0},6500),45);
@@ -96,11 +99,21 @@ for(const topic of ['Campur Semua','Tambah & Tolak','Darab & Bahagi']){
   assert(items.some(q=>q.id.startsWith('Y2M-')),'Tahun 2 patterns in '+topic);
 }
 
+for(const topic of context.LATIH_YEAR2_MATH.special){
+  const items=await E.makeSet('2','math',topic,50,'auto',{});
+  assert.equal(items.length,50,'Year 2 special topic '+topic);
+  assert(items.every(q=>E.validateItem(q)),'Invalid Year 2 topic '+topic);
+}
+for(const year of ['4','5','6'])for(const subject of ['math','bm','en','sci','hist']){
+  const items=await E.makeSet(year,subject,'Campur Semua',50,'uasa',{});
+  assert.equal(items.length,50,year+':'+subject+' UASA needs 50 questions');
+  assert(items.every(q=>E.validateItem(q)),year+':'+subject+' invalid 50-question UASA item');
+}
 let generated=0;
 for(const year of ['1','2','3','4','5','6']){
   for(const subject of ['math','bm','en','sci','islam','moral','pjpk',...(Number(year)>=4?['hist']:[])]){
-    const items=await E.makeSet(year,subject,'Campur Semua',5,'auto',{});
-    assert.equal(items.length,5,`${year}:${subject}`);
+    const items=await E.makeSet(year,subject,'Campur Semua',50,'auto',{});
+    assert.equal(items.length,50,`${year}:${subject} must produce 50 questions`);
     for(const q of items) {
       assert(q.question?.trim() && String(q.correct??'').trim(),`${year}:${subject}`);
       if(q.itemType!=='short') assert(q.answers?.length===4 && new Set(q.answers.map(x=>String(x).toLowerCase().trim())).size===4 && q.answers.filter(x=>String(x)===String(q.correct)).length===1,`${year}:${subject}: ${q.question}`);
