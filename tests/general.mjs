@@ -42,7 +42,8 @@ assert.equal(E.migrate({active:{category:'bad'}}).active,null);
 assert(read('app.js').includes('m.general=window.LATIH_GENERAL_ENGINE.migrate(s?.general)'));
 assert(read('app.js').includes('general:window.LATIH_GENERAL_ENGINE.migrate(null)'),'new profiles and reset get General statistics defaults');
 assert(read('sw.js').includes('...globalThis.LATIH_GENERAL_ASSETS'));
-assert(read('sw.js').includes("'./general-assets.js?v=24.2.0'"));
+const release=read('version.js').match(/LATIH_VERSION\s*=\s*'([^']+)'/)?.[1];
+assert(release&&read('sw.js').includes("'./general-assets.js?v="+release+"'"));
 const sources=JSON.parse(read('assets/general/sources.json')),audio=JSON.parse(read('assets/general/audio-sources.json'));
 for(const path of assets)if(path.endsWith('.webp')&&path.includes('/general/'))assert(Object.values(sources).some(r=>r.path===path&&r.license&&r.source),`Missing licence ${path}`);
 for(const q of B.questions.filter(q=>q.audio)){const r=Object.values(audio).find(r=>r.path===q.audio);assert(r&&r.license&&r.source);assert(!r.title.match(/^File:(En|De|Fr)-/i),'Pronunciation is not an animal recording')}
