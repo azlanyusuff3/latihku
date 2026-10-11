@@ -1,4 +1,6 @@
 import assert from 'node:assert/strict';import fs from 'node:fs';import vm from 'node:vm';
+const release=fs.readFileSync(new URL('../version.js',import.meta.url),'utf8').match(/LATIH_VERSION\s*=\s*'([^']+)'/)?.[1];
+assert(release);
 const handlers={},stores=new Map();
 class Cache{constructor(){this.rows=new Map()}async match(k){return this.rows.get(k)}async put(k,v){this.rows.set(k,v)}async keys(){return [...this.rows.keys()]}async addAll(keys){assert.equal(new Set(keys).size,keys.length);for(const k of keys)this.rows.set(k,{ok:true,clone(){return this}})}}
 const caches={async open(k){if(!stores.has(k))stores.set(k,new Cache());return stores.get(k)},async keys(){return [...stores.keys()]},async delete(k){return stores.delete(k)},async match(k){for(const c of stores.values()){const v=await c.match(k);if(v)return v}}};
@@ -10,7 +12,7 @@ vm.createContext(c);c.importScripts=(...files)=>{for(const p of files)vm.runInCo
 vm.runInContext(fs.readFileSync(new URL('../sw.js',import.meta.url),'utf8'),c);
 await new Promise((resolve,reject)=>handlers.install({waitUntil:p=>p.then(resolve,reject)}));
 await new Promise((resolve,reject)=>handlers.activate({waitUntil:p=>p.then(resolve,reject)}));
-assert.equal((await (await caches.open('latihku-data-v24.2.0')).match('data/3/math.json')).body,'school pack');
-assert.equal((await (await caches.open('latihku-coloring-v24.2.0')).match('assets/coloring/page.svg')).body,'coloring page');
+assert.equal((await (await caches.open('latihku-data-v'+release)).match('data/3/math.json')).body,'school pack');
+assert.equal((await (await caches.open('latihku-coloring-v'+release)).match('assets/coloring/page.svg')).body,'coloring page');
 assert(stores.has('unrelated-app'));assert(!stores.has('latihku-data-v24.1.0'));
 console.log('Service worker checks passed: deduplicated precache and retained offline school/coloring packs.');
