@@ -1,4 +1,4 @@
-# LatihKu v24.3.3
+# LatihKu v24.4.0
 
 LatihKu is a local-first and offline-first learning and practice PWA for Malaysian **Sekolah Kebangsaan** pupils from Pra to Tahun 6. It uses vanilla HTML, CSS and JavaScript, with no account, backend, cloud database, remote AI API or build step. Host the static repository over HTTPS, such as GitHub Pages, or run it on localhost for development.
 
@@ -72,3 +72,10 @@ Browser regression: `node tests/general-browser.cjs` (Playwright diperlukan).
 ## Matematik Tahun 2 — operasi asas dan penyelesaian masalah
 
 Tahun 2 Matematik mempunyai pilihan khas **Tambah**, **Tolak**, **Darab**, **Bahagi**, **Soalan Berayat**, **Bentuk Lazim** dan **KBAT Dua Langkah**. Bank soalan asal dijana secara offline daripada pola latihan Tahap 1 Bahasa Melayu dan DLP, bukan salinan PDF. Enjin menghasilkan nilai rawak, pilihan jawapan unik, langkah penyelesaian dan latihan dua langkah. Dalam topik gabungan asal, soalan baharu bercampur dengan latihan LatihKu yang sedia ada. Generator dimuatkan melalui `year2-math-engine.js` dan disimpan dalam precache PWA; tiada data kemajuan lama dipadam.
+
+
+## Fahami Soalan Berayat — Matematik Tahun 1–6
+
+The offline guided learning mode covers four operations with grade-appropriate numbers and 5, 10, 20, 30 or 50 questions per set. Each question guides pupils through identifying what changes in the story, selecting the corresponding mathematical sentence, and calculating a final answer. Mistakes receive immediate reasoning and a retry, rather than relying solely on memorised keywords. No timer is used.
+
+Access it from the home-screen shortcut or from Mathematics > Fahami Soalan Berayat. A guided session can be saved and resumed; recent guided sessions and current progress are stored in the existing local profile under wordProblems. Results also contribute to standard Maths progress, with independent success counted only when all three stages are correct on the first try. Original LatihKu-generated questions work offline without APIs or third-party packages.

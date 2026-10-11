@@ -9,6 +9,7 @@ jobs:
         with:
           node-version: '22'
       - run: node tests/check.mjs
+      - run: node tests/word-problems.mjs
       - run: node tests/general.mjs
       - run: node tests/general-worker.mjs
   browser:
@@ -24,6 +25,7 @@ jobs:
         run: |
           export CHROMIUM_EXECUTABLE="$(command -v google-chrome || command -v chromium)"
           node tests/general-browser.cjs
+          node tests/word-browser.cjs
       - uses: actions/upload-artifact@v4
         if: always()
         with:
