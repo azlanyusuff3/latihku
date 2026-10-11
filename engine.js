@@ -131,14 +131,22 @@ window.LATIH_ENGINE = (() => {
   function safeGenerate(gen,level,diff){for(let i=0;i<50;i++){const item=gen(level,diff);if(validateItem(item))return item}throw new Error('Generator gagal menghasilkan item yang sah.')}
   const MATH_GEN={'Nombor':mathNumber,'Tambah & Tolak':mathAddSub,'Darab & Bahagi':mathMulDiv,'Pecahan':mathFraction,'Wang':mathMoney,'Masa':mathTime,'Ukuran':mathMeasure,'Bentuk & Ruang':mathShape,'Data':mathData};
   function mathSet(level,topic,count,difficulty,ctx={}){
-    const topics=topic==='Campur Semua'?C.subjects.math.topics:[topic],out=[],seen=new Set(),recent=new Set(ctx.recentGenerated||[]),uasa=difficulty==='uasa'&&+level>=4;
-    const plan=uasa?[...Array(Math.round(count*.5)).fill('mudah'),...Array(Math.round(count*.3)).fill('sederhana'),...Array(Math.max(0,count-Math.round(count*.5)-Math.round(count*.3))).fill('sukar')]:Array(count).fill(null);
+    // Tahun 2: mix the new Tahap 1 / DLP-inspired questions with existing LatihKu Maths.
+    // Dedicated Tahun 2 topics receive only the new question patterns.
+    const year2=String(level)==='2'&&window.LATIH_YEAR2_MATH?.supports(topic);
+    const dedicated=year2&&window.LATIH_YEAR2_MATH.special.includes(topic);
+    const enhancedCount=year2?(dedicated?count:Math.max(1,Math.round(count*(topic==='Campur Semua'?0.45:0.80)))):0;
+    const enhanced=enhancedCount?window.LATIH_YEAR2_MATH.makeSet(topic,enhancedCount,difficulty,ctx):[];
+    const regularCount=count-enhanced.length;
+    if(regularCount<=0)return enhanced;
+    const topics=topic==='Campur Semua'?C.subjects.math.topics:[topic];
+    const out=[],seen=new Set(),recent=new Set(ctx.recentGenerated||[]),uasa=difficulty==='uasa'&&+level>=4;
+    const plan=uasa?[...Array(Math.round(regularCount*.5)).fill('mudah'),...Array(Math.round(regularCount*.3)).fill('sederhana'),...Array(Math.max(0,regularCount-Math.round(regularCount*.5)-Math.round(regularCount*.3))).fill('sukar')]:Array(regularCount).fill(null);
     let tries=0;
-    while(out.length<count&&tries<count*60){tries++;const tpc=pick(topics),d=uasa?(plan[out.length]||'sederhana'):difficultyFor(level,difficulty),item=safeGenerate(MATH_GEN[tpc],level,d);if(!seen.has(item.concept)&&!recent.has(item.smartSignature)){out.push(uasa?toShort(item):item);seen.add(item.concept)}}
-    while(out.length<count){const tpc=pick(topics),d=uasa?(plan[out.length]||'sederhana'):difficultyFor(level,difficulty),item=safeGenerate(MATH_GEN[tpc],level,d);out.push(uasa?toShort(item):item)}
-    return uasa?shuffle(out):out
+    while(out.length<regularCount&&tries<regularCount*60){tries++;const tpc=pick(topics),d=uasa?(plan[out.length]||'sederhana'):difficultyFor(level,difficulty),item=safeGenerate(MATH_GEN[tpc],level,d);if(!seen.has(item.concept)&&!recent.has(item.smartSignature)){out.push(uasa?toShort(item):item);seen.add(item.concept)}}
+    while(out.length<regularCount){const tpc=pick(topics),d=uasa?(plan[out.length]||'sederhana'):difficultyFor(level,difficulty),item=safeGenerate(MATH_GEN[tpc],level,d);out.push(uasa?toShort(item):item)}
+    return uasa?shuffle(out):shuffle([...enhanced,...out]);
   }
-
 
   async function makeSet(level,subject,topic,count,difficulty='auto',ctx={}){
     if(subject==='math')return mathSet(level,topic,count,difficulty,ctx);
