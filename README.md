@@ -1,4 +1,4 @@
-# LatihKu v24.2.0
+# LatihKu v24.3.2
 
 LatihKu is a local-first and offline-first learning and practice PWA for Malaysian **Sekolah Kebangsaan** pupils from Pra to Tahun 6. It uses vanilla HTML, CSS and JavaScript, with no account, backend, cloud database, remote AI API or build step. Host the static repository over HTTPS, such as GitHub Pages, or run it on localhost for development.
 
@@ -68,3 +68,7 @@ dan `general-assets.js` ialah inventory precache. Alat build Python dalam
 
 Checks: `node tests/check.mjs`, `node tests/general.mjs` dan `node tests/general-worker.mjs`.
 Browser regression: `node tests/general-browser.cjs` (Playwright diperlukan).
+
+## Matematik Tahun 2 — operasi asas dan penyelesaian masalah
+
+Tahun 2 Matematik mempunyai pilihan khas **Tambah**, **Tolak**, **Darab**, **Bahagi**, **Soalan Berayat**, **Bentuk Lazim** dan **KBAT Dua Langkah**. Bank soalan asal dijana secara offline daripada pola latihan Tahap 1 Bahasa Melayu dan DLP, bukan salinan PDF. Enjin menghasilkan nilai rawak, pilihan jawapan unik, langkah penyelesaian dan latihan dua langkah. Dalam topik gabungan asal, soalan baharu bercampur dengan latihan LatihKu yang sedia ada. Generator dimuatkan melalui `year2-math-engine.js` dan disimpan dalam precache PWA; tiada data kemajuan lama dipadam.
