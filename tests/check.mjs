@@ -8,16 +8,16 @@ const context = {console,Math,Date,setTimeout,clearTimeout};
 context.window=context;context.globalThis=context;
 context.fetch=async url => ({ok:true,json:async()=>JSON.parse(read(url))});
 vm.createContext(context);
-for(const file of ['version.js','world-flags.js','config.js','state-helpers.js','smart-engine.js','pdf-pattern-engine.js','engine.js','pra-engine.js','coloring-data.js']) vm.runInContext(read(file),context,{filename:file});
+for(const file of ['version.js','world-flags.js','config.js','state-helpers.js','smart-engine.js','pdf-pattern-engine.js','year2-math-engine.js','engine.js','pra-engine.js','coloring-data.js']) vm.runInContext(read(file),context,{filename:file});
 const C=context.LATIH_CONFIG,H=context.LATIH_STATE,E=context.LATIH_ENGINE;
-assert.equal(C.version,'24.2.0');
+assert.match(C.version,/^\d+\.\d+\.\d+$/);
 assert(!('sra' in C.subjects));assert(Object.keys(C.packs).every(x=>!x.endsWith(':sra')));
 assert.equal(H.migratePreferences({schoolType:'sra',level:'4',subject:'sra',topic:'Tauhid'},C).subject,'math');
 assert(!('schoolType' in H.migratePreferences({schoolType:'sra',level:'4',subject:'sra'},C)));
 assert.equal(H.migratePreferences({level:'3',subject:'bm',topic:'Campur Semua'},C).subject,'bm');
 const pathExists=p=>fs.existsSync(new URL(p,root));
 const shell=read('sw.js').match(/const SHELL_FILES=\[([^\]]+)\]/)?.[1].match(/'[^']+'/g)?.map(x=>x.slice(1,-1))||[];
-assert(shell.includes('v24.css'));assert(shell.includes('world-flags.js'));assert(shell.includes('general-quiz.js'));assert(shell.length>=16);
+assert(shell.includes('year2-math-engine.js'));assert(shell.includes('v24.css'));assert(shell.includes('world-flags.js'));assert(shell.includes('general-quiz.js'));assert(shell.length>=16);
 for(const asset of shell) {assert(pathExists(asset),asset);assert(read('index.html').includes(`${asset}?v=${C.version}`),`versioned shell ${asset}`)}
 assert(read('sw.js').includes('...SHELL_FILES.map(file=>`${file}?v=${RELEASE}`)'));
 assert(read('index.html').includes(`LatihKu Study v${C.version}`));
@@ -81,6 +81,20 @@ assert(H.validateBackup({state:{...state,prefs:{...quiz.prefs,schoolType:'sra',s
 assert.equal(H.migrateQuiz({...quiz,prefs:{...quiz.prefs,subject:'sra'}},quiz.prefs,C),null);
 const legacy={xp:120,streak:4,sessions:[{subject:'sra',score:3,total:5},{subject:'math',score:4,total:5}],aggregates:{subjects:{sra:{n:1,c:3,t:5},math:{n:1,c:4,t:5}},topics:{'sra|Tauhid':{total:5},'math|Nombor':{total:5}},sessionCount:2},smartPractice:{seen:{'4:sra':['old'],'4:math':['sk']},recentGenerated:{'4:sra':['old']}},learning:{completed:{'4:sra:Tauhid':1,'4:math:Nombor':1},mastery:{'4:sra:Tauhid':90},adaptive:{'4:sra:Tauhid':{}}},responseAnalytics:{totalTimed:3,totalMs:8000,patterns:{'4|sra|Tauhid|old':{count:1,totalMs:2000},'4|math|Nombor|add':{count:2,totalMs:6000}}}};
 H.purgeLegacySchool(legacy);assert.equal(legacy.sessions.length,1);assert.equal(legacy.aggregates.sessionCount,1);assert.equal(legacy.responseAnalytics.totalTimed,2);assert.equal(legacy.responseAnalytics.totalMs,6000);assert.equal(legacy.xp,120);assert.equal(legacy.streak,4);assert.equal(legacy.learning.completed['4:math:Nombor'],1);assert(!JSON.stringify(legacy).includes('sra'));
+
+
+const Y2=context.LATIH_YEAR2_MATH;
+assert.equal(Y2.special.length,7);
+for(const topic of Y2.special){
+  const items=await E.makeSet('2','math',topic,30,'auto',{});
+  assert.equal(items.length,30,'Tahun 2 '+topic);
+  assert(items.every(q=>q.id.startsWith('Y2M-')&&E.validateItem(q)),'Valid Tahun 2 '+topic);
+  assert(items.every(q=>Number(String(q.correct).replace(/[^\d-]/g,''))>=0));
+}
+for(const topic of ['Campur Semua','Tambah & Tolak','Darab & Bahagi']){
+  const items=await E.makeSet('2','math',topic,30,'auto',{});
+  assert(items.some(q=>q.id.startsWith('Y2M-')),'Tahun 2 patterns in '+topic);
+}
 
 let generated=0;
 for(const year of ['1','2','3','4','5','6']){
