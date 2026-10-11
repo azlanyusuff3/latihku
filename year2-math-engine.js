@@ -56,7 +56,7 @@ window.LATIH_YEAR2_MATH = (() => {
       'Perkataan tambah seperti lagi / more dan semuanya / altogether bermaksud tambah. '+a+' + '+b+' = '+(a+b)+'.',d);
   }
   function sub(d,style){
-    let [a,b]=amounts(d);a=clamp(a,d==='mudah'?20:101,999);b=Math.min(b,a-rand(1,Math.min(10,a-1)));if(b<1)b=1;
+    let [a,b]=amounts(d);a=clamp(a,d==='mudah'?20:101,999);b=Math.min(b,a-rand(style==='kbat'?4:1,Math.min(style==='kbat'?12:10,a-1)));if(b<1)b=1;
     const name=pick(children),[unit,en]=pick(supplies),ans=a-b;
     if(style==='kbat'){
       const c=rand(2,Math.max(2,Math.min(d==='mudah'?12:70,ans-1)));
