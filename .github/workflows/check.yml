@@ -9,6 +9,7 @@ jobs:
         with:
           node-version: '22'
       - run: node tests/check.mjs
+      - run: node tests/games.mjs
       - run: node tests/word-problems.mjs
       - run: node tests/general.mjs
       - run: node tests/general-worker.mjs
