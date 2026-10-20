@@ -279,6 +279,7 @@
       if(head.x<0||head.y<0||head.x>=12||head.y>=12||body.some(p=>p.x===head.x&&p.y===head.y)){
         worm.over=true;closeTimer();const p=getProgress();if(worm.score>Number(p.bestWorm)||!Number.isFinite(Number(p.bestWorm))){p.bestWorm=worm.score;persist();}
         const status=document.querySelector('#lgWormStatus');if(status)status.textContent=`Permainan tamat · Skor ${worm.score}`;
+        const finalScore=document.querySelector('#lgWormEndScore');if(finalScore)finalScore.textContent=worm.score;
         document.querySelector('#lgWormOverlay')?.classList.remove('hidden');sfx(false);return;
       }
       worm.snake.unshift(head);
