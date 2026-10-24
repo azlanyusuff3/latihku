@@ -262,6 +262,23 @@
       const last=worm.queue.length?worm.queue[worm.queue.length-1]:worm.dir;
       if(d!==last&&d!==opposite[last]&&worm.queue.length<2)worm.queue.push(d);
     }
+    // Tap on the board: steer toward the tapped spot, measured from the worm's head.
+    // A tap that points along the current line of travel (ahead or behind) turns the worm
+    // sideways toward the tap instead; a tap straight ahead/behind or on the head does nothing.
+    function wormTapDirection(clientX,clientY,rect){
+      if(!worm||!rect||!rect.width||!rect.height)return null;
+      const head=worm.snake[0],cellW=rect.width/12,cellH=rect.height/12;
+      const dx=(clientX-rect.left)/cellW-(head.x+.5),dy=(clientY-rect.top)/cellH-(head.y+.5);
+      if(Math.abs(dx)<.5&&Math.abs(dy)<.5)return null;
+      const last=worm.queue.length?worm.queue[worm.queue.length-1]:worm.dir;
+      const moving=last==='left'||last==='right'?'horizontal':'vertical';
+      const dominant=Math.abs(dx)>Math.abs(dy)?'horizontal':'vertical';
+      const dead=.3;
+      if(dominant!==moving)return dominant==='horizontal'?(dx>0?'right':'left'):(dy>0?'down':'up');
+      const side=moving==='horizontal'?dy:dx;
+      if(Math.abs(side)<dead)return null;
+      return moving==='horizontal'?(side>0?'down':'up'):(side>0?'right':'left');
+    }
     function wormKey(e){
       // Leave browser shortcuts (Ctrl/Cmd+S, +D, +A ...) alone.
       if(screen!=='worm'||e.ctrlKey||e.metaKey||e.altKey||e.target?.closest?.('input,textarea,select,[contenteditable="true"]'))return;
@@ -341,28 +358,32 @@
       document.querySelector('#lgWormStatus').textContent=worm.paused?'Pause · tekan ▶ untuk sambung':'Collect the fruits!';
     }
     function renderWorm(){
-      draw(`${mkHeader('Worm Game',`⭐ <span id="lgWormScore">0</span>`)}<div class="lg-worm-top"><span id="lgWormStatus">Collect the fruits!</span><button class="lg-pause" id="lgWormPause" aria-label="Pause">Ⅱ</button></div><div class="lg-worm-frame"><div class="lg-worm-board" id="lgWormBoard">${wormCells()}</div><div class="lg-worm-over hidden" id="lgWormOverlay"><strong>Bagus! 🎉</strong><p>Skor kamu: <span id="lgWormEndScore">${worm.score}</span></p><button id="lgWormAgain">Main Lagi ↻</button></div></div><div class="lg-worm-desc">🍎 Kutip buah, jangan langgar badan atau tepi!</div>
-      <div class="lg-dpad" aria-label="Kawalan ulat"><button data-worm-dir="up" aria-label="Atas">▲</button><div><button data-worm-dir="left" aria-label="Kiri">◀</button><button data-worm-dir="down" aria-label="Bawah">▼</button><button data-worm-dir="right" aria-label="Kanan">▶</button></div></div><div class="lg-worm-foot">🏆 Rekod tertinggi: ${Number(getProgress().bestWorm)||0}</div>`);
-      document.querySelectorAll('[data-worm-dir]').forEach(b=>{
-        b.addEventListener('pointerdown',e=>{if(!e.isPrimary||e.button!==0)return;e.preventDefault();changeWormDirection(b.dataset.wormDir);});
-        b.onclick=e=>{if(e.detail===0)changeWormDirection(b.dataset.wormDir);};
-      });
+      draw(`${mkHeader('Worm Game',`⭐ <span id="lgWormScore">0</span>`)}<div class="lg-worm-top"><span id="lgWormStatus">Collect the fruits!</span><button class="lg-pause" id="lgWormPause" aria-label="Pause">Ⅱ</button></div><div class="lg-worm-frame"><div class="lg-worm-board" id="lgWormBoard">${wormCells()}</div><div class="lg-worm-over hidden" id="lgWormOverlay"><strong>Bagus! 🎉</strong><p>Skor kamu: <span id="lgWormEndScore">${worm.score}</span></p><button id="lgWormAgain">Main Lagi ↻</button></div></div><div class="lg-worm-desc">🍎 Kutip buah, jangan langgar badan atau tepi!<br>👆 Tekan atas papan untuk pusing ke arah itu</div>
+      <div class="lg-worm-foot">🏆 Rekod tertinggi: ${Number(getProgress().bestWorm)||0}</div>`);
       document.querySelector('#lgWormPause').onclick=toggleWorm;
       document.querySelector('#lgWormAgain').onclick=startWorm;
       if(!wormListening){document.addEventListener('keydown',wormKey);document.addEventListener('visibilitychange',wormHidden);window.addEventListener('blur',wormBlur);wormListening=true;}
       const board=document.querySelector('#lgWormBoard');let start=null;
       board.addEventListener('pointerdown',e=>{
         if(!e.isPrimary||e.button!==0)return;
-        e.preventDefault();start={x:e.clientX,y:e.clientY,id:e.pointerId};board.setPointerCapture(e.pointerId);
+        e.preventDefault();start={x:e.clientX,y:e.clientY,id:e.pointerId,swiped:false};board.setPointerCapture(e.pointerId);
       });
       board.addEventListener('pointermove',e=>{
         if(!start||start.id!==e.pointerId)return;
         const dx=e.clientX-start.x,dy=e.clientY-start.y;
         if(Math.max(Math.abs(dx),Math.abs(dy))<16)return;
         changeWormDirection(Math.abs(dx)>Math.abs(dy)?(dx>0?'right':'left'):(dy>0?'down':'up'));
-        start={x:e.clientX,y:e.clientY,id:e.pointerId};
+        start={x:e.clientX,y:e.clientY,id:e.pointerId,swiped:true};
       });
-      for(const event of ['pointerup','pointercancel','lostpointercapture'])board.addEventListener(event,()=>{start=null;});
+      // A press that never turned into a swipe is a tap.
+      board.addEventListener('pointerup',e=>{
+        if(start&&start.id===e.pointerId&&!start.swiped){
+          const d=wormTapDirection(e.clientX,e.clientY,board.getBoundingClientRect());
+          if(d)changeWormDirection(d);
+        }
+        start=null;
+      });
+      for(const event of ['pointercancel','lostpointercapture'])board.addEventListener(event,()=>{start=null;});
     }
     function startMemory(pairCount=6){
       closeTimer();screen='memory';

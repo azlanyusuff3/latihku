@@ -130,9 +130,6 @@
 .lg-worm-over{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:10px;text-align:center;background:#0d365980;border-radius:20px;color:#fff;}
 .lg-worm-over.hidden{display:none;}.lg-worm-over strong{font-size:26px}.lg-worm-over button{border:0;border-radius:17px;background:#2ddda1;color:#fff;font-weight:900;padding:11px 20px;}
 .lg-worm-desc{text-align:center;background:#fff;border-radius:16px;padding:10px;margin:12px 0;color:#35659a;font-size:12px;font-weight:900;}
-.lg-dpad{display:grid;justify-items:center;gap:5px;margin:6px 0;}
-.lg-dpad>div{display:flex;gap:8px;}
-.lg-dpad button{border:4px solid #fff;border-radius:21px;background:linear-gradient(#54b7fe,#2387e9);color:#fff;width:66px;height:59px;font-size:29px!important;font-weight:1000!important;box-shadow:0 5px 0 #2864b469;}
 .lg-worm-foot{text-align:center;color:#427c9a;font-size:13px;font-weight:800;margin:14px;}
 .lg-memory-level{display:flex;align-items:center;gap:6px;font-size:12px;font-weight:900;background:#fff;border-radius:18px;padding:10px;margin-bottom:12px;flex-wrap:wrap;}
 .lg-memory-level button{padding:5px 15px;background:#eef4ff;border:2px solid #d2e3fa;border-radius:11px;font-weight:900;color:#325d8e;}
@@ -155,7 +152,7 @@
 @keyframes lg-pulse{from{box-shadow:0 0 0 2px #ffda52}to{box-shadow:0 0 0 7px #ffda5266}}
 .lg-spot-found{text-align:center;border-radius:20px;padding:12px;margin:16px 0 8px;background:#fff;font-weight:1000;color:#278d79;}
 @media(min-width:700px){.lg-gallery{grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}.lg-hero{min-height:195px;padding:20px 27px}.lg-hero-child{font-size:90px}.lg-gamecard{min-height:196px}.lg-cardart{height:142px}.lg-level-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.lg-screen{padding:20px max(24px,calc((100% - 700px)/2)) 38px;margin:-8px -20px -36px}}
-@media(max-width:460px){.lg-screen{margin:-8px -12px -36px;padding:7px 11px 30px}.lg-hero{min-height:163px}.lg-hero h1{font-size:29px}.lg-hero-child{font-size:64px;right:-7px}.lg-hero p{font-size:16px}.lg-hero-stats{font-size:10px}.lg-gallery{gap:9px}.lg-cardart{height:112px}.lg-gamecard{border-radius:20px;min-height:164px}.lg-cardlabel{padding:7px 8px 0}.lg-cardlabel span{width:25px;height:25px;font-size:21px}.lg-gamecard>small{font-size:9px}.lg-gamehead{grid-template-columns:39px minmax(0,1fr) auto;gap:5px}.lg-gamehead h1{font-size:19px;padding:12px 5px;border-radius:16px}.lg-head-pill{font-size:9px;padding:10px 6px}.lg-back{width:39px;height:41px;border-radius:13px;font-size:33px!important}.lg-intro{padding:13px}.lg-instruction{padding:11px 8px}.lg-play-wrap{padding:9px;border-radius:20px}.lg-puzzle-frame{border-width:5px;border-radius:17px}.lg-puzzle-tray{max-height:188px;gap:5px;padding:6px}.lg-puzzle-piece{border-width:2px;border-radius:8px}.lg-tray-head{font-size:12px}.lg-tray-head small{font-size:10px}.lg-action{font-size:11px!important;padding:8px 4px}.lg-shape{font-size:58px}.lg-shape-target,.lg-shape-choice{height:115px}.lg-sudoku-banner p{font-size:16px}.lg-sudoku-banner>span{font-size:46px}.lg-numberpad .lg-num{height:62px}.lg-memory-card{font-size:35px!important;border-radius:12px}.lg-dpad button{width:62px;height:54px}.lg-spot-area{gap:6px}.lg-spot-area>div{border-width:3px;border-radius:13px}}
+@media(max-width:460px){.lg-screen{margin:-8px -12px -36px;padding:7px 11px 30px}.lg-hero{min-height:163px}.lg-hero h1{font-size:29px}.lg-hero-child{font-size:64px;right:-7px}.lg-hero p{font-size:16px}.lg-hero-stats{font-size:10px}.lg-gallery{gap:9px}.lg-cardart{height:112px}.lg-gamecard{border-radius:20px;min-height:164px}.lg-cardlabel{padding:7px 8px 0}.lg-cardlabel span{width:25px;height:25px;font-size:21px}.lg-gamecard>small{font-size:9px}.lg-gamehead{grid-template-columns:39px minmax(0,1fr) auto;gap:5px}.lg-gamehead h1{font-size:19px;padding:12px 5px;border-radius:16px}.lg-head-pill{font-size:9px;padding:10px 6px}.lg-back{width:39px;height:41px;border-radius:13px;font-size:33px!important}.lg-intro{padding:13px}.lg-instruction{padding:11px 8px}.lg-play-wrap{padding:9px;border-radius:20px}.lg-puzzle-frame{border-width:5px;border-radius:17px}.lg-puzzle-tray{max-height:188px;gap:5px;padding:6px}.lg-puzzle-piece{border-width:2px;border-radius:8px}.lg-tray-head{font-size:12px}.lg-tray-head small{font-size:10px}.lg-action{font-size:11px!important;padding:8px 4px}.lg-shape{font-size:58px}.lg-shape-target,.lg-shape-choice{height:115px}.lg-sudoku-banner p{font-size:16px}.lg-sudoku-banner>span{font-size:46px}.lg-numberpad .lg-num{height:62px}.lg-memory-card{font-size:35px!important;border-radius:12px}.lg-spot-area{gap:6px}.lg-spot-area>div{border-width:3px;border-radius:13px}}
 @media(prefers-reduced-motion:reduce){.lg-screen *{transition:none!important;animation:none!important}}
 
 /* The original six learning tabs remain available; Games is the seventh. */
@@ -174,8 +171,6 @@
 .lg-worm-segment.head{background:#64de49;border-radius:50%;z-index:1;}
 .lg-worm-fruit{z-index:1;}
 .lg-worm-over{z-index:3;}
-.lg-dpad button{touch-action:none;user-select:none;-webkit-user-select:none;}
-.lg-dpad button:active{transform:translateY(3px);box-shadow:0 2px 0 #2864b469;}
 
 /* Original CSS caterpillar character, independent of emoji fonts. */
 .lg-worm-segment{background:radial-gradient(circle at 35% 25%,#b5f784 0%,#74d64e 40%,#36a842 100%);border:2px solid #23843d;box-sizing:border-box;box-shadow:inset 0 -3px 0 #258c3840,0 2px 2px #27692e30;}
