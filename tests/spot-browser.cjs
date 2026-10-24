@@ -3,7 +3,7 @@ const {chromium}=require('playwright');const assert=require('node:assert/strict'
 for(const width of [320,390,1280]){
  const page=await browser.newPage({viewport:{width,height:950}});const errors=[];page.on('pageerror',e=>errors.push(e.message));
  await page.setContent('<style>body{margin:0;font-family:Arial}main{padding:12px;max-width:1100px;margin:auto}</style><main id="app"></main>');
- await page.addStyleTag({path:path.join(__dirname,'../games.css')});await page.addScriptTag({path:path.join(__dirname,'../spot-scenes.js')});await page.addScriptTag({path:path.join(__dirname,'../spot-extra-scenes.js')});await page.addScriptTag({path:path.join(__dirname,'../games.js')});
+ await page.addStyleTag({path:path.join(__dirname,'../games.css')});await page.addScriptTag({path:path.join(__dirname,'../spot-scenes.js')});await page.addScriptTag({path:path.join(__dirname,'../spot-extra-scenes.js')});for(const script of ["cartoon-animals.js","cartoon-vehicles.js","cartoon-fruits.js","cartoon-nature.js","cartoon-fun.js","puzzle-cartoons.js"])await page.addScriptTag({path:path.join(__dirname,'../'+script)});await page.addScriptTag({path:path.join(__dirname,'../games.js')});
  await page.evaluate(()=>{window.state={};window.game=LATIH_GAMES.create({shell:html=>document.querySelector('#app').innerHTML=html,getState:()=>state,save:()=>{},esc:s=>s,beep:()=>{}});game.home();});
  await page.locator('[data-open-game="spot"]').click();assert.equal(await page.locator('.lg-scene-board img').count(),0);
  const scenes=await page.evaluate(()=>LATIH_SPOT.scenes.map(s=>({id:s.id,spots:s.spots})));

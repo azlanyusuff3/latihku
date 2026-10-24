@@ -14,6 +14,7 @@ const path=require('node:path');
     let id=0;window.rafCallbacks=new Map();window.requestAnimationFrame=fn=>{rafCallbacks.set(++id,fn);return id;};window.cancelAnimationFrame=id=>rafCallbacks.delete(id);
     window.tick=time=>{const callbacks=[...rafCallbacks.values()];rafCallbacks.clear();callbacks.forEach(fn=>fn(time));};
    });
+   for(const script of ["cartoon-animals.js","cartoon-vehicles.js","cartoon-fruits.js","cartoon-nature.js","cartoon-fun.js","puzzle-cartoons.js"])await page.addScriptTag({path:path.join(__dirname,'../'+script)});
    // Expose closure state only in this test copy to set precise collision scenarios.
    const source=fs.readFileSync(path.join(__dirname,'../games.js'),'utf8').replace('return {home:hub,dispose,getCatalog:()=>definitions};','return {home:hub,dispose,getCatalog:()=>definitions,startWorm,stepWorm,updateWorm,getWorm:()=>worm};');
    await page.addScriptTag({content:source});
