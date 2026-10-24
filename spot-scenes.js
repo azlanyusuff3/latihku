@@ -11,11 +11,11 @@ const star=(x,y,s,c='#ffd577')=>g(x,y,s,path('M0 -16 5 -5 17 -5 8 3 11 16 0 9 -1
 const cloud=(x,y,s=1)=>g(x,y,s,`<path d="M-40 12 Q-58 -10 -30 -17 Q-24 -46 2 -31 Q30 -40 36 -14 Q62 -12 49 12Z" fill="#fffaf0" opacity=".95"/>`);
 const flower=(x,y,c='#ff9d9c',s=1)=>g(x,y,s,path('M0 0V28')+path('M0 19Q-22 4 -17 19Q-8 29 0 24','#7ab87d')+[-90,-18,54,126,198].map(a=>`<ellipse cx="0" cy="-9" rx="7" ry="11" fill="${c}" stroke="${ink}" stroke-width="2" transform="rotate(${a})"/>`).join('')+circle(0,0,6,'#ffe493'));
 const tree=(x,y,s=1)=>g(x,y,s,rect(-10,0,20,88,'#b77e62')+path('M0 44 -23 23M0 27 25 4')+circle(-27,-7,35,'#8dc58a')+circle(26,-12,38,'#83bd85')+circle(0,-42,39,'#a9d993'));
-const face=(x,y,s=1)=>g(x,y,s,`<circle cx="-12" cy="0" r="3.5" fill="${ink}"/><circle cx="12" cy="0" r="3.5" fill="${ink}"/>`+path('M-7 13Q0 20 7 13')+`<ellipse cx="-22" cy="10" rx="7" ry="4" fill="#f39a91"/><ellipse cx="22" cy="10" rx="7" ry="4" fill="#f39a91"/>`);
+const face=(x,y,s=1)=>g(x,y,s,`<ellipse cx="-12" cy="0" rx="4.5" ry="5.5" fill="${ink}"/><ellipse cx="12" cy="0" rx="4.5" ry="5.5" fill="${ink}"/><circle cx="-13" cy="-2" r="1.5" fill="#fff8e7"/><circle cx="11" cy="-2" r="1.5" fill="#fff8e7"/>`+path('M-17 -11Q-12 -14 -7 -11M7 -11Q12 -14 17 -11','none',1.7)+path('M-7 13Q0 21 7 13','none',2)+`<ellipse cx="-22" cy="10" rx="7" ry="4" fill="#efa7a0"/><ellipse cx="22" cy="10" rx="7" ry="4" fill="#efa7a0"/>`);
 const animal=(x,y,s,type='bear',color='#cf9a71')=>g(x,y,s,
-ellipse(0,38,37,44,color)+ellipse(-26,73,17,10,color)+ellipse(26,73,17,10,color)+
-(type==='rabbit'?ellipse(-20,-45,11,34,color)+ellipse(20,-45,11,34,color):circle(-27,-26,17,color)+circle(27,-26,17,color))+
-ellipse(0,-1,40,34,color)+ellipse(0,12,16,12,'#fff1d4')+face(0,0,.85));
+ellipse(0,38,37,44,color)+ellipse(0,42,24,30,'#f2dfbf')+ellipse(-26,73,17,10,color)+ellipse(26,73,17,10,color)+path('M-32 72V77M-24 73V78M24 73V78M32 72V77','none',1.5)+
+(type==='rabbit'?ellipse(-20,-45,11,34,color)+ellipse(20,-45,11,34,color)+ellipse(-20,-47,5,23,'#e7b5a5')+ellipse(20,-47,5,23,'#e7b5a5'):circle(-27,-26,17,color)+circle(27,-26,17,color)+circle(-27,-26,9,'#e8b6a2')+circle(27,-26,9,'#e8b6a2'))+
+ellipse(0,-1,40,34,color)+path('M-12 -28 -5 -33 1 -27 8 -31','none',1.5)+ellipse(0,12,16,12,'#fff1d4')+face(0,0,.85)+ellipse(0,8,4,3,'#695447')+path('M-32 29Q-22 38 -26 47M32 29Q22 38 26 47','none',2));
 const fish=(x,y,s=1,c='#f9ad74')=>g(x,y,s,path('M-24 0 -46 -21 -46 21Z',c)+ellipse(0,0,30,20,c)+circle(13,-5,3,ink)+path('M23 6Q17 12 13 8')+path('M-3 -19 5 -31 13 -15',c));
 const house=(x,y,s=1,c='#f7c37c')=>g(x,y,s,rect(-62,0,124,102,c)+path('M-77 0 0 -58 77 0Z','#de8576')+rect(-15,43,30,59,'#79a9bc')+rect(-48,22,22,24,'#d9f2ef')+rect(27,22,22,24,'#d9f2ef')+path('M-37 22V46M27 34H49')+circle(7,76,2,'#ffdf8b'));
 const grass=()=>Array.from({length:15},(_,i)=>path(`M${15+i*41} ${360+(i%3)*18}l4 -8 3 8 5 -5`,'none',2)).join('');

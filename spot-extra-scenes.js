@@ -52,7 +52,7 @@ function draw(i,right){
   add(p("M257 277l20 49 21-49Z","#d2a06e")+circle(278,267,19,"#e59ab7")+p("M332 277l22 49 20-49Z","#d2a06e")+circle(353,263,22,"#fff0bf"));
   diff(282,266,21,circle(282,252,6,"#e96e84"),circle(282,252,6,"#8fc8d4"),"Ceri aiskrim");
   diff(351,261,19,circle(351,261,7,"#e99c74"),"","Taburan coklat");
-  diff(200,206,19,p("M190 204h25","#8ab7b6",6),p("M190 204h25","#efa3a8",6),"Corak tingkap");
+  diff(200,206,19,rect(190,201,25,6,"#8ab7b6",2),rect(190,201,25,6,"#efa3a8",2),"Corak tingkap");
   diff(410,211,19,rect(396,197,24,25,"#ffe7a8"),rect(396,197,24,25,"#c7b3de"),"Warna papan menu");
   diff(90,322,18,circle(90,321,9,"#ffebba"),star(90,321,"#ffebba"),"Lambang baju");
   diff(524,352,21,flower(524,347,"#eb8fb1"),flower(524,347,"#a4bce7"),"Bunga depan kedai");
@@ -96,7 +96,7 @@ function draw(i,right){
   for(let x=0;x<600;x+=45)add(rect(x,345,24,50,"#bba287",2));
   add(rect(155,236,226,99,"#ed9c8b")+rect(376,257,119,78,"#a8c8dd")+rect(145,203,77,49,"#ed9c8b")+rect(178,167,30,36,"#e2ba8c")+rect(223,183,26,54,"#ed9c8b")+circle(239,176,9,"#f5e4b9"));
   add(wheel(197,340)+wheel(291,340)+wheel(413,340)+wheel(468,340)+rect(250,255,62,34,"#e9f0df")+rect(396,276,46,31,"#e9f0df")+p("M154 277l-37 38 41 0Z","#ed9c8b"));
-  diff(245,174,16,circle(240,175,9,"#f5e4b9"),star(240,175,"#f5e4b9"),"Lampu lokomotif");
+  diff(240,175,19,circle(240,175,9,"#f5e4b9"),star(240,175,"#f5e4b9"),"Lampu lokomotif");
   diff(286,274,20,rect(265,262,41,25,"#9fd9e9"),rect(265,262,41,25,"#e9bacd"),"Warna tingkap");
   diff(417,288,18,circle(417,288,9,"#9fb5dc"),circle(417,288,9,"#ffdd8b"),"Hiasan gerabak");
   diff(197,340,21,circle(197,340,8,"#eef5f1"),star(197,340,"#eef5f1"),"Corak roda");
@@ -108,7 +108,7 @@ function draw(i,right){
   add(p("M55 360Q100 265 180 341Q257 309 293 357V420H40Z","#f1d9a0")+tree(77,214)+p("M260 324L457 324 433 370H285Z","#a97b63")+p("M351 324V110M354 142L454 284H354Z","#fff5d4")+p("M351 171L292 272H351Z","#ead4b1")+rect(322,305,26,19,"#d6a36c"));
   add(rect(96,345,76,49,"#ac7a59")+rect(96,340,76,12,"#edce89")+rect(128,348,14,20,"#f1dc9e")+el(509,350,44,18,"#b9dec5"));
   diff(408,234,21,star(407,234,"#ed9b9d"),circle(407,234,13,"#ed9b9d"),"Lambang layar");
-  diff(297,265,19,rect(296,244,27,35,"#b8e1e4"),rect(296,244,27,35,"#e9c08c"),"Warna layar");
+  diff(309,262,23,rect(296,244,27,35,"#b8e1e4"),rect(296,244,27,35,"#e9c08c"),"Warna layar");
   diff(136,351,20,circle(135,353,9,"#ffe398"),"","Kunci peti");
   diff(62,200,18,circle(62,201,11,"#ffd68c"),circle(62,201,11,"#f2a18e"),"Kelapa pokok");
   diff(474,328,20,star(474,328,"#f5cc8d"),circle(474,328,12,"#f5cc8d"),"Bintang laut");
@@ -192,4 +192,12 @@ const newScenes=titles.map((name,i)=>{
  return {id:"cartoon-v2-"+(i+9),name,level:i<4?"Teliti":i<9?"Mencabar":"Pakar",a:a.svg,b:b.svg,spots:a.spots};
 });
 window.LATIH_SPOT.scenes.push(...newScenes);
+function shadeArtwork(content,prefix){
+ const colors=[...new Set(content.match(/fill="#[0-9a-fA-F]{6}"/g)||[])].map(s=>s.slice(6,-1));
+ const tint=(hex,amount)=>'#'+[1,3,5].map(i=>{const n=parseInt(hex.slice(i,i+2),16);return Math.round(amount>0?n+(255-n)*amount:n*(1+amount)).toString(16).padStart(2,'0');}).join('');
+ const defs=colors.map(c=>`<linearGradient id="${prefix}-${c.slice(1)}" x1="0" y1="0" x2=".25" y2="1"><stop stop-color="${tint(c,.12)}"/><stop offset=".65" stop-color="${c}"/><stop offset="1" stop-color="${tint(c,-.04)}"/></linearGradient>`).join('');
+ return content.replace(/fill="(#[0-9a-fA-F]{6})"/g,(_,c)=>`fill="url(#${prefix}-${c.slice(1)})"`).replace(/(<svg[^>]*>)/,'$1<defs>'+defs+'</defs>');
+}
+
+window.LATIH_SPOT.scenes.forEach((scene,i)=>{for(const side of ["a","b"])scene[side]=shadeArtwork(scene[side],`art-${i}-${side}`);});
 })();

@@ -46,11 +46,11 @@ for(let i=0;i<80;i++){
 assert(Object.keys(seen).length>=10,'Sudoku variations are randomized');
 const index=read('index.html'),sw=read('sw.js'),app=read('app.js'),css=read('games.css'),version=read('version.js');
 for(const name of ['games.css','phase2-games.css','phase2-data.js','phase2-games.js','games.js','spot-scenes.js','spot-extra-scenes.js','cartoon-animals.js','cartoon-vehicles.js','cartoon-fruits.js','cartoon-nature.js','cartoon-fun.js','puzzle-cartoons.js']){
- assert(index.includes(name+'?v=24.7.0'),name+' linked');
+ assert(index.includes(name+'?v=24.7.1'),name+' linked');
  assert(sw.includes("'"+name+"'"),name+' cached offline');
 }
-assert(version.includes('24.7.0'));
-assert(index.includes('app.js?v=24.7.0'));
+assert(version.includes('24.7.1'));
+assert(index.includes('app.js?v=24.7.1'));
 assert(app.includes("['games','Games']"));
 assert(app.includes("GAMES.home()"));
 assert(css.includes('@media(max-width:460px)'));
