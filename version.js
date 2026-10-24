@@ -1,2 +1,2 @@
 // One release identifier shared by the page and service worker.
-globalThis.LATIH_VERSION = '24.5.3';
+globalThis.LATIH_VERSION = '24.5.4';

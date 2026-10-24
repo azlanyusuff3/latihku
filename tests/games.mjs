@@ -29,11 +29,11 @@ for(let i=0;i<80;i++){
 assert(Object.keys(seen).length>=10,'Sudoku variations are randomized');
 const index=read('index.html'),sw=read('sw.js'),app=read('app.js'),css=read('games.css'),version=read('version.js');
 for(const name of ['games.css','games.js']){
- assert(index.includes(name+'?v=24.5.3'),name+' linked');
+ assert(index.includes(name+'?v=24.5.4'),name+' linked');
  assert(sw.includes("'"+name+"'"),name+' cached offline');
 }
-assert(version.includes('24.5.3'));
-assert(index.includes('app.js?v=24.5.3'));
+assert(version.includes('24.5.4'));
+assert(index.includes('app.js?v=24.5.4'));
 assert(app.includes("['games','Games']"));
 assert(app.includes("GAMES.home()"));
 assert(css.includes('@media(max-width:460px)'));

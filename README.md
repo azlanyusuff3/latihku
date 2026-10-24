@@ -85,3 +85,7 @@ Access it from the home-screen shortcut or from Mathematics > Fahami Soalan Bera
 Eight original SVG scenes in `spot-scenes.js` use identical paired geometry with 5–7 registered differences per scene. Touch either picture to answer; two temporary hints are available per round. Phone layouts stack equal-size scenes. Keyboard players can focus a board, move the crosshair with arrow keys and submit with Enter/Space. No external image downloads are required.
 
 Implementation references reviewed: [DaHaMMeR79/Spot-The-Difference](https://github.com/DaHaMMeR79/Spot-The-Difference) for region detection and found markers, and [widmogrod/js-spot-the-difference](https://github.com/widmogrod/js-spot-the-difference) for per-board difference data and proportional positioning. Artwork and implementation here are original; no reference assets or code were copied. Run `node tests/spot-browser.cjs` with Playwright for scaled input, hint limits, level progression and mobile/desktop regression.
+
+### Worm Game controls (24.5.4)
+
+Tap anywhere on the board to steer the worm toward that spot, measured from its head. A tap straight ahead, straight behind or on the head is ignored, so the worm never reverses by accident. Swipe on the board and the arrow/WASD keys still work; the on-screen d-pad was removed. Space or the pause button pauses.
