@@ -23,7 +23,7 @@ function create({shell,getState,save,esc,beep,onBack}){
  };
  const sound=ok=>{try{beep(ok)}catch{}};
  const clearTip=()=>{if(tipTimer!==null){clearTimeout(tipTimer);tipTimer=null;}};
- const detachMaze=()=>{if(mazeListening){document.removeEventListener('keydown',mazeKey);mazeListening=false;}};
+ const detachMaze=()=>{swipeStart=null;lastSwipe=0;if(mazeListening){document.removeEventListener('keydown',mazeKey);mazeListening=false;}};
  function dispose(){clearTip();detachMaze();swipeStart=null;maze=null;hidden=null;dots=null;pattern=null;view='menu';}
  const header=(name,meta='')=>'<header class="lg-gamehead"><button type="button" class="lg-back" data-pg-back aria-label="Kembali">‹</button><h1>'+safe(name)+'</h1>'+(meta?'<span class="lg-head-pill">'+safe(meta)+'</span>':'')+'</header>';
  function paint(title,meta,html){
@@ -94,10 +94,11 @@ function create({shell,getState,save,esc,beep,onBack}){
  }
  function renderMaze(){
   const board=document.querySelector('#pgMazeBoard');if(!board)return;
-  board.innerHTML=maze.cells.map((_,i)=>mazeCell(i)).join('');
+  if(board.children.length!==maze.cells.length)board.innerHTML=maze.cells.map((_,i)=>mazeCell(i)).join('');
+  else maze.cells.forEach((_,i)=>{const cell=board.children[i],player=i===maze.current;cell.classList.toggle('player',player);cell.classList.toggle('visited',maze.walked.has(i));cell.classList.toggle('is-hint',maze.highlight===i);cell.setAttribute('aria-label',player?'Haiwan di sini':i===maze.cells.length-1?'Destinasi':'Laluan');cell.querySelector('.pg-maze-character')?.remove();if(player)cell.insertAdjacentHTML('beforeend','<span class="pg-maze-character">'+maze.world.emoji+'</span>');});
   const moveInfo=document.querySelector('#pgMazeMoves');if(moveInfo)moveInfo.textContent=maze.steps+' langkah';
   const hintButton=document.querySelector('#pgMazeHint');if(hintButton)hintButton.textContent='💡 Hint ('+maze.hints+')';
-  if(hintButton)hintButton.disabled=maze.hints<1;
+  if(hintButton)hintButton.disabled=maze.hints<1||maze.highlight>=0||maze.won;
  }
  function mazeKey(e){
   if(view!=='maze-play'||!maze||maze.won||e.ctrlKey||e.metaKey||e.altKey||e.target?.closest?.('input,textarea,select'))return;
@@ -106,15 +107,16 @@ function create({shell,getState,save,esc,beep,onBack}){
   e.preventDefault();moveMaze(dir);
  }
  function moveMaze(direction){
-  if(view!=='maze-play'||maze.won)return false;
+  if(view!=='maze-play'||!maze||maze.won)return false;
   const d=DATA.moves.find(x=>x.name===direction);if(!d||(maze.cells[maze.current]&d.bit))return false;
   const x=maze.current%maze.size,y=Math.floor(maze.current/maze.size),nx=x+d.dx,ny=y+d.dy;
   if(nx<0||ny<0||nx>=maze.size||ny>=maze.size)return false;
+  clearTip();
   maze.current=ny*maze.size+nx;maze.steps++;maze.walked.add(maze.current);maze.highlight=-1;
   renderMaze();
   if(maze.current===maze.cells.length-1){
-   maze.won=true;detachMaze();reward('maze:'+maze.level);sound(true);
-   success('Jalan ditemui!','🥕','Hebat! Kamu sampai ke destinasi dalam '+maze.steps+' langkah.',()=>startMaze((maze.level+1)%30));
+   maze.won=true;clearTip();detachMaze();reward('maze:'+maze.level);sound(true);
+   success('Jalan ditemui!',maze.world.target,'Hebat! Kamu sampai ke destinasi dalam '+maze.steps+' langkah.',()=>startMaze((maze.level+1)%30));
   }
   return true;
  }
@@ -132,7 +134,7 @@ function create({shell,getState,save,esc,beep,onBack}){
   document.querySelectorAll('[data-maze-dir]').forEach(b=>b.onclick=()=>moveMaze(b.dataset.mazeDir));
   document.querySelector('#pgMazeReplay').onclick=()=>startMaze(level);
   document.querySelector('#pgMazeHint').onclick=()=>{
-   if(maze.hints<1)return;
+   if(maze.won||maze.hints<1||maze.highlight>=0)return;
    const route=DATA.mazePath(maze,maze.current);
    if(route.length<2)return;
    maze.hints--;maze.highlight=route[1];renderMaze();
@@ -142,19 +144,20 @@ function create({shell,getState,save,esc,beep,onBack}){
   const board=document.querySelector('#pgMazeBoard');
   board.addEventListener('click',e=>{
    if(Date.now()-lastSwipe<260)return;
-   const cell=e.target.closest('[data-maze-cell]');if(!cell)return;
-   const i=Number(cell.dataset.mazeCell),dx=i%maze.size-maze.current%maze.size,dy=Math.floor(i/maze.size)-Math.floor(maze.current/maze.size);
+   const rect=board.getBoundingClientRect(),cx=Math.floor((e.clientX-rect.left)/rect.width*maze.size),cy=Math.floor((e.clientY-rect.top)/rect.height*maze.size);
+   if(cx<0||cy<0||cx>=maze.size||cy>=maze.size)return;
+   const i=cy*maze.size+cx,dx=i%maze.size-maze.current%maze.size,dy=Math.floor(i/maze.size)-Math.floor(maze.current/maze.size);
    if(Math.abs(dx)+Math.abs(dy)!==1)return;
    moveMaze(dx===1?'right':dx===-1?'left':dy===1?'down':'up');
   });
-  board.addEventListener('pointerdown',e=>{swipeStart={x:e.clientX,y:e.clientY};});
+  board.addEventListener('pointerdown',e=>{if(!e.isPrimary||e.button!==0||maze.won)return;swipeStart={x:e.clientX,y:e.clientY,id:e.pointerId};board.setPointerCapture(e.pointerId);});
   board.addEventListener('pointerup',e=>{
-   if(!swipeStart)return;
+   if(!swipeStart||swipeStart.id!==e.pointerId)return;
    const dx=e.clientX-swipeStart.x,dy=e.clientY-swipeStart.y;swipeStart=null;
    if(Math.max(Math.abs(dx),Math.abs(dy))<23)return;
    lastSwipe=Date.now();moveMaze(Math.abs(dx)>Math.abs(dy)?dx>0?'right':'left':dy>0?'down':'up');
   });
-  board.addEventListener('pointercancel',()=>{swipeStart=null;});
+  for(const event of ['pointercancel','lostpointercapture'])board.addEventListener(event,()=>{swipeStart=null;});
   document.addEventListener('keydown',mazeKey);mazeListening=true;
  }
  /* HIDDEN OBJECTS: twelve hand-composed cartoon worlds with precise hit boxes. */

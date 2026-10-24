@@ -87,12 +87,12 @@ for(let i=0;i<60;i++){
   assert(gaps[0]>0);
  }
 }
-const ix=read('index.html'),sw=read('sw.js');
+const ix=read('index.html'),sw=read('sw.js'),release=read('version.js').match(/LATIH_VERSION = '([^']+)'/)[1];
 for(const path of ['phase2-games.css','phase2-data.js','phase2-games.js']){
- assert(ix.includes(path+'?v=24.7.0'),path+' versioned');
+ assert(ix.includes(path+'?v='+release),path+' versioned');
  assert(sw.includes("'"+path+"'"),path+' precached in service worker');
 }
-assert(ix.indexOf('phase2-games.js')<ix.indexOf('games.js?v=24.7.0'));
+assert(ix.indexOf('phase2-games.js')<ix.indexOf('games.js?v='+release));
 assert(ix.indexOf('puzzle-cartoons.js')<ix.indexOf('phase2-games.js'));
 assert(read('games.js').includes('LATIH_PHASE2.create'));
 assert(!read('phase2-games.js').includes('assets/general/'));
