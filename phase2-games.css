@@ -1,5 +1,8 @@
 /* LatihKu Phase 2 — bright kid-friendly cartoon mini games, 100% offline.
    Accessibility: large touch controls, visible focus, clear success/error feedback. */
+/* Keep all Games pages inside the actual viewport: legacy negative horizontal
+   margins caused a four-pixel sideways scroll on narrow mobile screens. */
+.lg-screen{margin-left:0;margin-right:0;max-width:100%;box-sizing:border-box;}
 .pg-screen{--pg-ink:#1b466e;--pg-border:#c7e7f0;--pg-shadow:0 9px 20px rgba(39,90,132,.13);padding-bottom:max(36px,env(safe-area-inset-bottom));}
 .pg-screen button{touch-action:manipulation;}
 .pg-screen button:focus-visible{outline:4px solid #f2c343;outline-offset:3px;}
