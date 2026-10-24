@@ -1,6 +1,6 @@
 (function gameFeature() {
   'use strict';
-  const definitions = [
+  const allDefinitions = [
     {id:'animal', title:'Animal Puzzle', label:'Haiwan', icon:'🦁', cover:'lion', tone:'yellow', items:'lion tiger elephant giraffe zebra horse panda penguin rabbit dolphin frog shark turtle bee butterfly'.split(' ')},
     {id:'vehicle', title:'Vehicle Puzzle', label:'Kenderaan', icon:'🚒', cover:'firetruck', tone:'blue', items:'airplane ambulance bicycle bus car firetruck helicopter motorcycle rocket sailboat ship submarine tractor train tram truck'.split(' ')},
     {id:'shapes', title:'Shape Match', label:'Padan Bentuk', icon:'⭐', tone:'purple'},
@@ -12,7 +12,8 @@
     {id:'nature', title:'Nature Puzzle', label:'Alam Semula Jadi', icon:'🌻', cover:'sunflower', tone:'green', items:'sun moon earth jupiter venus mars rose orchid sunflower lotus tulip hibiscus oak bamboo fern cactus'.split(' ')},
     {id:'fun', title:'Fun Puzzle', label:'Macam-macam', icon:'🎸', cover:'guitar', tone:'purple', items:'guitar piano violin drums football basketball badminton xylophone waffle pizza croissant burger school astronaut tambourine ukulele taco nasilemak'.split(' ')}
   ];
-  const puzzleTypes = definitions.filter(d=>d.items);
+  const definitions = allDefinitions.filter(d=>['worm','spot'].includes(d.id));
+  const puzzleTypes = allDefinitions.filter(d=>d.items);
   const allImages = new Set(puzzleTypes.flatMap(d=>d.items));
   const pieceOptions = [{n:9,cols:3,rows:3,label:'Mudah'},{n:16,cols:4,rows:4,label:'Santai'},{n:20,cols:4,rows:5,label:'Hebat'},{n:30,cols:5,rows:6,label:'Cabaran'}];
   const image = id => `assets/general/${id}.webp`;
@@ -103,7 +104,7 @@
     };
     const hub=()=>{
       screen='hub';closeTimer();const p=getProgress();
-      draw(`<section class="lg-hero"><div class="lg-hero-cloud a"></div><div class="lg-hero-cloud b"></div><span class="lg-hero-sun">☀️</span><div><h1>Puzzle <em>&</em> <span>Games</span></h1><p>Choose a fun game</p><div class="lg-hero-stats">⭐ ${Number(p.stars)||0} bintang &nbsp; · &nbsp; 🧩 ${completedCount()} puzzle siap</div></div><span class="lg-hero-child" aria-hidden="true">🙋🏻‍♂️</span></section>
+      draw(`<section class="lg-hero"><div class="lg-hero-cloud a"></div><div class="lg-hero-cloud b"></div><span class="lg-hero-sun">☀️</span><div><h1><span>Games</span></h1><p>Pilih permainan kamu</p><div class="lg-hero-stats">🐛 Worm &nbsp; · &nbsp; 🔍 Cari Perbezaan</div></div><span class="lg-hero-child" aria-hidden="true">🙋🏻‍♂️</span></section>
       <section class="lg-gallery" aria-label="Pilih permainan">${definitions.map(g=>`<button class="lg-gamecard lg-tone-${g.tone}" data-open-game="${g.id}"><div class="lg-cardart">${cover(g)}</div><div class="lg-cardlabel"><strong>${esc(g.title)}</strong><span aria-hidden="true">›</span></div><small>${g.items?`${g.items.length} gambar · 9–30 keping`:esc(g.label)}</small></button>`).join('')}</section><p class="lg-offline">🌈 Semua permainan boleh dimainkan tanpa internet selepas aset dimuatkan.</p>`);
       document.querySelectorAll('[data-open-game]').forEach(b=>b.addEventListener('click',()=>openGame(b.dataset.openGame)));
     };
@@ -419,9 +420,10 @@
       document.querySelector('#lgSpotNext').onclick=()=>startSpot((spot.index+1)%spotScenes.length);
     }
     function findSpot(i){
-      if(spot.found.has(i))return;
+      if(screen!=='spot'||!spot||!Number.isInteger(i)||i<0||i>=changes.length||spot.found.has(i))return;
       spot.found.add(i);sfx(true);
-      document.querySelector(`[data-spot-mark="${i}"]`)?.classList.add('found');
+      const mark=document.querySelector(`[data-spot-mark="${i}"]`);
+      if(mark){mark.classList.remove('hint');mark.classList.add('found');mark.disabled=true;mark.setAttribute('aria-label',`Perbezaan ${i+1} ditemui`);}
       const count=document.querySelector('#lgSpotFound');if(count)count.textContent=`${spot.found.size} / 3 ditemui`;
       const next=document.querySelector('#lgSpotNext');if(next)next.disabled=spot.found.size!==3;
       if(spot.found.size===3){earned(`spot:${spotScenes[spot.index].picture}`);showWin('Mata tajam!','🔍','Kamu jumpa semua perbezaan.',()=>startSpot((spot.index+1)%spotScenes.length));}

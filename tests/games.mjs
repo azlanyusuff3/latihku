@@ -6,7 +6,7 @@ const sandbox={console,Math,Date,setInterval,clearInterval,setTimeout,clearTimeo
 sandbox.window=sandbox; sandbox.globalThis=sandbox; vm.createContext(sandbox);
 vm.runInContext(read('games.js'),sandbox,{filename:'games.js'});
 const G=sandbox.LATIH_GAMES;
-assert.equal(G.catalog.length,10,'10 actual games');
+assert.deepEqual(Array.from(G.catalog,d=>d.id),['worm','spot'],'Only Worm and Spot the Difference are available');
 assert.equal(G.puzzleTypes.length,5,'5 puzzle picture collections');
 assert.equal(G.allImages.length,76,'76 distinct illustrations');
 assert.deepEqual(Array.from(G.pieceOptions.map(o=>o.n)),[9,16,20,30]);
@@ -28,15 +28,15 @@ for(let i=0;i<80;i++){
 assert(Object.keys(seen).length>=10,'Sudoku variations are randomized');
 const index=read('index.html'),sw=read('sw.js'),app=read('app.js'),css=read('games.css'),version=read('version.js');
 for(const name of ['games.css','games.js']){
- assert(index.includes(name+'?v=24.5.1'),name+' linked');
+ assert(index.includes(name+'?v=24.5.2'),name+' linked');
  assert(sw.includes("'"+name+"'"),name+' cached offline');
 }
-assert(version.includes('24.5.1'));
-assert(index.includes('app.js?v=24.5.1'));
+assert(version.includes('24.5.2'));
+assert(index.includes('app.js?v=24.5.2'));
 assert(app.includes("['games','Games']"));
 assert(app.includes("GAMES.home()"));
 assert(css.includes('@media(max-width:460px)'));
 assert(css.includes('.lg-puzzle-tray'));
 const actualIds=G.catalog.map(x=>x.id);
-for(const id of ['animal','vehicle','fruit','nature','fun','sudoku','worm','shapes','memory','spot'])assert(actualIds.includes(id));
-console.log('Kids Games checks passed: 10 categories, 76 offline images, 9–30 pieces, 80 unique-answer Sudoku puzzles.');
+for(const id of ['worm','spot'])assert(actualIds.includes(id));
+console.log('Kids Games checks passed: 2 active games, 76 retained offline images, 9–30 pieces, 80 unique-answer Sudoku puzzles.');

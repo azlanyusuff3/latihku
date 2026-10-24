@@ -186,3 +186,8 @@
 .lg-worm-smile{position:absolute;left:35%;bottom:16%;width:30%;height:17%;border-bottom:2px solid #24563a;border-radius:0 0 50% 50%;}
 .lg-worm-segment.head:before,.lg-worm-segment.head:after{content:"";position:absolute;top:-16%;width:13%;height:23%;border-radius:50%;background:#387d3c;border-top:3px solid #f3ba53;}
 .lg-worm-segment.head:before{left:20%;transform:rotate(-25deg)}.lg-worm-segment.head:after{right:20%;transform:rotate(25deg)}
+
+/* Matching marker boxes keep both comparison pictures aligned. */
+.lg-spot-normal,.lg-spot-difference{box-sizing:border-box;display:grid;place-items:center;width:44px;height:44px;min-width:44px;min-height:44px;padding:2px;border:2px solid transparent;border-radius:50%;font-family:inherit;font-weight:normal;font-size:clamp(17px,4vw,30px);line-height:1;}
+.lg-spot-difference{touch-action:manipulation;cursor:pointer;}
+.lg-spot-difference:disabled{opacity:1;cursor:default;color:inherit;}
