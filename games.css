@@ -165,3 +165,24 @@
 .bottomnav .navbtn span{font-size:19px;line-height:1.1;}
 .bottomnav .navbtn[data-view="games"].active{background:#ede8ff;color:#6844d8;}
 @media(max-width:460px){.bottomnav{padding:7px 1px calc(7px + env(safe-area-inset-bottom));}.bottomnav .navbtn{gap:3px;min-height:52px;padding:3px 0;}.bottomnav .navbtn b{font-size:8px;letter-spacing:-.2px}.bottomnav .navbtn span{font-size:20px;}}
+
+/* Keep the checkerboard static; only composite the moving worm segments. */
+.lg-worm-board{position:relative;touch-action:none;user-select:none;-webkit-user-select:none;}
+.lg-worm-actors{position:absolute;inset:0;pointer-events:none;z-index:2;}
+.lg-worm-segment,.lg-worm-fruit{position:absolute;top:0;left:0;width:calc(100% / 12);height:calc(100% / 12);display:grid;place-items:center;pointer-events:none;font-size:clamp(13px,4vw,30px);line-height:1;}
+.lg-worm-segment{background:#44c950;border-radius:45%;box-shadow:inset 0 0 0 3px #147d3433;will-change:transform;}
+.lg-worm-segment.head{background:#64de49;border-radius:50%;z-index:1;}
+.lg-worm-fruit{z-index:1;}
+.lg-worm-over{z-index:3;}
+.lg-dpad button{touch-action:none;user-select:none;-webkit-user-select:none;}
+.lg-dpad button:active{transform:translateY(3px);box-shadow:0 2px 0 #2864b469;}
+
+/* Original CSS caterpillar character, independent of emoji fonts. */
+.lg-worm-segment{background:radial-gradient(circle at 35% 25%,#b5f784 0%,#74d64e 40%,#36a842 100%);border:2px solid #23843d;box-sizing:border-box;box-shadow:inset 0 -3px 0 #258c3840,0 2px 2px #27692e30;}
+.lg-worm-segment.head{background:radial-gradient(circle at 35% 25%,#d3ff91,#89dc54 60%,#4caf40);border-color:#28843b;overflow:visible;}
+.lg-worm-eye{position:absolute;top:25%;width:25%;height:31%;background:#fff;border-radius:50%;box-shadow:0 0 0 1px #45873a40;}
+.lg-worm-eye.left{left:18%;}.lg-worm-eye.right{right:18%;}
+.lg-worm-eye:after{content:"";position:absolute;width:52%;height:65%;bottom:10%;left:30%;background:#183a36;border-radius:50%;}
+.lg-worm-smile{position:absolute;left:35%;bottom:16%;width:30%;height:17%;border-bottom:2px solid #24563a;border-radius:0 0 50% 50%;}
+.lg-worm-segment.head:before,.lg-worm-segment.head:after{content:"";position:absolute;top:-16%;width:13%;height:23%;border-radius:50%;background:#387d3c;border-top:3px solid #f3ba53;}
+.lg-worm-segment.head:before{left:20%;transform:rotate(-25deg)}.lg-worm-segment.head:after{right:20%;transform:rotate(25deg)}

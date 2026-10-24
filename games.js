@@ -89,7 +89,7 @@
       const p=getProgress();
       if(!p.completed[key]){p.completed[key]=Date.now();p.stars=(Number(p.stars)||0)+1;persist();}
     };
-    const closeTimer=()=>{if(wormTimer){clearInterval(wormTimer);wormTimer=null;}if(memoryTimer){clearTimeout(memoryTimer);memoryTimer=null;}if(wormListening){document.removeEventListener('keydown',wormKey);wormListening=false;}};
+    const closeTimer=()=>{if(wormTimer!==null){cancelAnimationFrame(wormTimer);wormTimer=null;}if(memoryTimer){clearTimeout(memoryTimer);memoryTimer=null;}if(wormListening){document.removeEventListener('keydown',wormKey);document.removeEventListener('visibilitychange',wormHidden);window.removeEventListener('blur',wormBlur);wormListening=false;}};
     const mkHeader=(title,info='')=>`<header class="lg-gamehead"><button class="lg-back" data-game-back aria-label="Kembali">‹</button><h1>${esc(title)}</h1>${info?`<span class="lg-head-pill">${info}</span>`:''}</header>`;
     const draw=(html)=>{shell(`<div class="lg-screen">${html}</div>`,'games');document.querySelector('[data-game-back]')?.addEventListener('click',back);};
     const cover=(game)=>{
@@ -252,8 +252,9 @@
     }
     function startWorm(){
       closeTimer();screen='worm';
-      worm={snake:[{x:4,y:6},{x:3,y:6},{x:2,y:6}],dir:'right',next:'right',food:null,score:0,over:false,paused:false,fruit:'🍎'};
-      placeFood();renderWorm();wormTimer=setInterval(stepWorm,275);
+      worm={snake:[{x:4,y:6},{x:3,y:6},{x:2,y:6}],dir:'right',queue:[],previous:[],lastTime:null,elapsed:0,food:null,score:0,over:false,paused:false,fruit:'🍎'};
+      worm.previous=worm.snake.map(p=>({...p}));
+      placeFood();renderWorm();updateWorm(1);wormTimer=requestAnimationFrame(animateWorm);
     }
     function placeFood(){
       const taken=new Set(worm.snake.map(p=>`${p.x}:${p.y}`));
@@ -263,59 +264,109 @@
     }
     const directions={up:[0,-1],down:[0,1],left:[-1,0],right:[1,0]};
     const opposite={up:'down',down:'up',left:'right',right:'left'};
-    function changeWormDirection(d){if(worm&&!worm.over&&directions[d]&&d!==opposite[worm.dir])worm.next=d;}
+    const wormStepMs=275;
+    function changeWormDirection(d){
+      if(!worm||worm.over||worm.paused||!directions[d])return;
+      const last=worm.queue.length?worm.queue[worm.queue.length-1]:worm.dir;
+      if(d!==last&&d!==opposite[last]&&worm.queue.length<2)worm.queue.push(d);
+    }
     function wormKey(e){
-      if(screen!=='worm')return;
-      const d={ArrowUp:'up',ArrowDown:'down',ArrowLeft:'left',ArrowRight:'right',w:'up',s:'down',a:'left',d:'right'}[e.key];
-      if(d){e.preventDefault();changeWormDirection(d);}
-      if(e.key===' '){e.preventDefault();toggleWorm();}
+      if(screen!=='worm'||e.target?.closest('input,textarea,select,[contenteditable="true"]'))return;
+      const d={ArrowUp:'up',ArrowDown:'down',ArrowLeft:'left',ArrowRight:'right',w:'up',s:'down',a:'left',d:'right'}[e.key]||{w:'up',s:'down',a:'left',d:'right'}[e.key.toLowerCase()];
+      if(d){e.preventDefault();if(!e.repeat)changeWormDirection(d);}
+      if(e.key===' '){e.preventDefault();if(!e.repeat)toggleWorm();}
+    }
+    function wormHidden(){if(document.hidden)wormBlur();}
+    function wormBlur(){if(screen==='worm'&&worm&&!worm.over&&!worm.paused)toggleWorm();}
+    function animateWorm(time){
+      wormTimer=null;
+      if(screen!=='worm'||!worm||worm.over||worm.paused)return;
+      if(worm.lastTime!==null){
+        const delta=time-worm.lastTime;
+        // A suspended/blocked page must not fast-forward into a wall.
+        if(delta>250){toggleWorm();return;}
+        worm.elapsed+=delta;
+      }
+      worm.lastTime=time;
+      if(worm.elapsed>=wormStepMs){worm.elapsed-=wormStepMs;stepWorm();}
+      if(worm.over)return;
+      updateWorm(worm.elapsed/wormStepMs);
+      wormTimer=requestAnimationFrame(animateWorm);
+    }
+    function finishWorm(won=false){
+      worm.over=true;closeTimer();updateWorm(1);
+      const p=getProgress();if(worm.score>(Number(p.bestWorm)||0)){p.bestWorm=worm.score;persist();}
+      document.querySelector('#lgWormStatus').textContent=`${won?'Hebat! Semua buah dikutip':'Permainan tamat'} · Skor ${worm.score}`;
+      document.querySelector('#lgWormEndScore').textContent=worm.score;
+      document.querySelector('#lgWormOverlay strong').textContent=won?'Hebat! Kamu menang! 🏆':'Cuba lagi! 🐛';
+      document.querySelector('#lgWormOverlay').classList.remove('hidden');
+      document.querySelector('.lg-worm-foot').textContent=`🏆 Rekod tertinggi: ${Number(p.bestWorm)||0}`;
+      sfx(won);
     }
     function stepWorm(){
       if(screen!=='worm'||!worm||worm.paused||worm.over)return;
-      worm.dir=worm.next;
+      worm.dir=worm.queue.shift()||worm.dir;
       const [dx,dy]=directions[worm.dir],head={x:worm.snake[0].x+dx,y:worm.snake[0].y+dy};
       const eating=worm.food&&head.x===worm.food.x&&head.y===worm.food.y;
       const body=eating?worm.snake:worm.snake.slice(0,-1);
       if(head.x<0||head.y<0||head.x>=12||head.y>=12||body.some(p=>p.x===head.x&&p.y===head.y)){
-        worm.over=true;closeTimer();const p=getProgress();if(worm.score>Number(p.bestWorm)||!Number.isFinite(Number(p.bestWorm))){p.bestWorm=worm.score;persist();}
-        const status=document.querySelector('#lgWormStatus');if(status)status.textContent=`Permainan tamat · Skor ${worm.score}`;
-        const finalScore=document.querySelector('#lgWormEndScore');if(finalScore)finalScore.textContent=worm.score;
-        document.querySelector('#lgWormOverlay')?.classList.remove('hidden');sfx(false);return;
+        finishWorm();return;
       }
+      worm.previous=worm.snake.map(p=>({...p}));
       worm.snake.unshift(head);
-      if(eating){worm.score++;sfx(true);placeFood();if(!worm.food){worm.over=true;closeTimer();}}
+      if(eating){worm.score++;sfx(true);placeFood();if(!worm.food){finishWorm(true);return;}}
       else worm.snake.pop();
-      updateWorm();
     }
     function wormCells(){
-      const occupied=new Map(worm.snake.map((p,i)=>[`${p.x}:${p.y}`,i]));
-      return Array.from({length:144},(_,i)=>{const x=i%12,y=Math.floor(i/12),k=`${x}:${y}`,seg=occupied.get(k);
-        return `<div class="lg-worm-tile ${seg!==undefined?(seg===0?'head':'body'):''}">${seg===0?'🐛':seg!==undefined?'':worm.food?.x===x&&worm.food?.y===y?worm.fruit:''}</div>`;
-      }).join('');
+      return Array.from({length:144},()=>'<div class="lg-worm-tile"></div>').join('')+'<div class="lg-worm-actors" id="lgWormActors"></div><div class="lg-worm-fruit" id="lgWormFruit"></div>';
     }
-    function updateWorm(){
-      const board=document.querySelector('#lgWormBoard');if(board)board.innerHTML=wormCells();
-      const score=document.querySelector('#lgWormScore');if(score)score.textContent=worm.score;
+    function updateWorm(alpha=1){
+      const actors=document.querySelector('#lgWormActors');if(!actors)return;
+      while(actors.children.length<worm.snake.length){
+        const segment=document.createElement('div');segment.className='lg-worm-segment';
+        if(!actors.children.length){segment.classList.add('head');segment.innerHTML='<i class="lg-worm-eye left"></i><i class="lg-worm-eye right"></i><i class="lg-worm-smile"></i>';}
+        actors.appendChild(segment);
+      }
+      worm.snake.forEach((p,i)=>{
+        const from=worm.previous[i]||worm.previous[worm.previous.length-1]||p;
+        actors.children[i].style.transform=`translate3d(${(from.x+(p.x-from.x)*alpha)*100}%,${(from.y+(p.y-from.y)*alpha)*100}%,0)`;
+      });
+      const fruit=document.querySelector('#lgWormFruit');
+      const fruitText=worm.food?worm.fruit:'';if(fruit.textContent!==fruitText)fruit.textContent=fruitText;
+      if(worm.food)fruit.style.transform=`translate3d(${worm.food.x*100}%,${worm.food.y*100}%,0)`;
+      const score=document.querySelector('#lgWormScore');if(score.textContent!==String(worm.score))score.textContent=worm.score;
     }
     function toggleWorm(){
       if(!worm||worm.over)return;
-      worm.paused=!worm.paused;
-      const b=document.querySelector('#lgWormPause');if(b)b.textContent=worm.paused?'▶':'Ⅱ';
-      const status=document.querySelector('#lgWormStatus');if(status)status.textContent=worm.paused?'Pause · tekan ▶ untuk sambung':'Collect the fruits!';
+      worm.paused=!worm.paused;worm.lastTime=null;
+      if(worm.paused){if(wormTimer!==null)cancelAnimationFrame(wormTimer);wormTimer=null;worm.queue=[];}
+      else wormTimer=requestAnimationFrame(animateWorm);
+      const b=document.querySelector('#lgWormPause');b.textContent=worm.paused?'▶':'Ⅱ';b.setAttribute('aria-label',worm.paused?'Sambung':'Pause');
+      document.querySelector('#lgWormStatus').textContent=worm.paused?'Pause · tekan ▶ untuk sambung':'Collect the fruits!';
     }
     function renderWorm(){
       draw(`${mkHeader('Worm Game',`⭐ <span id="lgWormScore">0</span>`)}<div class="lg-worm-top"><span id="lgWormStatus">Collect the fruits!</span><button class="lg-pause" id="lgWormPause" aria-label="Pause">Ⅱ</button></div><div class="lg-worm-frame"><div class="lg-worm-board" id="lgWormBoard">${wormCells()}</div><div class="lg-worm-over hidden" id="lgWormOverlay"><strong>Bagus! 🎉</strong><p>Skor kamu: <span id="lgWormEndScore">${worm.score}</span></p><button id="lgWormAgain">Main Lagi ↻</button></div></div><div class="lg-worm-desc">🍎 Kutip buah, jangan langgar badan atau tepi!</div>
       <div class="lg-dpad" aria-label="Kawalan ulat"><button data-worm-dir="up" aria-label="Atas">▲</button><div><button data-worm-dir="left" aria-label="Kiri">◀</button><button data-worm-dir="down" aria-label="Bawah">▼</button><button data-worm-dir="right" aria-label="Kanan">▶</button></div></div><div class="lg-worm-foot">🏆 Rekod tertinggi: ${Number(getProgress().bestWorm)||0}</div>`);
-      document.querySelectorAll('[data-worm-dir]').forEach(b=>b.onclick=()=>changeWormDirection(b.dataset.wormDir));
+      document.querySelectorAll('[data-worm-dir]').forEach(b=>{
+        b.addEventListener('pointerdown',e=>{if(!e.isPrimary||e.button!==0)return;e.preventDefault();changeWormDirection(b.dataset.wormDir);});
+        b.onclick=e=>{if(e.detail===0)changeWormDirection(b.dataset.wormDir);};
+      });
       document.querySelector('#lgWormPause').onclick=toggleWorm;
       document.querySelector('#lgWormAgain').onclick=startWorm;
-      if(!wormListening){document.addEventListener('keydown',wormKey);wormListening=true;}
+      if(!wormListening){document.addEventListener('keydown',wormKey);document.addEventListener('visibilitychange',wormHidden);window.addEventListener('blur',wormBlur);wormListening=true;}
       const board=document.querySelector('#lgWormBoard');let start=null;
-      board.addEventListener('touchstart',e=>{start={x:e.touches[0].clientX,y:e.touches[0].clientY};},{passive:true});
-      board.addEventListener('touchend',e=>{if(!start)return;const dx=e.changedTouches[0].clientX-start.x,dy=e.changedTouches[0].clientY-start.y;start=null;
-        if(Math.max(Math.abs(dx),Math.abs(dy))<20)return;
+      board.addEventListener('pointerdown',e=>{
+        if(!e.isPrimary||e.button!==0)return;
+        e.preventDefault();start={x:e.clientX,y:e.clientY,id:e.pointerId};board.setPointerCapture(e.pointerId);
+      });
+      board.addEventListener('pointermove',e=>{
+        if(!start||start.id!==e.pointerId)return;
+        const dx=e.clientX-start.x,dy=e.clientY-start.y;
+        if(Math.max(Math.abs(dx),Math.abs(dy))<16)return;
         changeWormDirection(Math.abs(dx)>Math.abs(dy)?(dx>0?'right':'left'):(dy>0?'down':'up'));
-      },{passive:true});
+        start={x:e.clientX,y:e.clientY,id:e.pointerId};
+      });
+      for(const event of ['pointerup','pointercancel','lostpointercapture'])board.addEventListener(event,()=>{start=null;});
     }
     function startMemory(pairCount=6){
       closeTimer();screen='memory';
