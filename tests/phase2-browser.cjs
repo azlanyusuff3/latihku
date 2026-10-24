@@ -6,7 +6,7 @@ const path=require('node:path');
 (async()=>{
  const browser=await chromium.launch({headless:true,...(process.env.CHROMIUM_EXECUTABLE?{executablePath:process.env.CHROMIUM_EXECUTABLE}:{})});
  try{
-  for(const width of [375,1024]){
+  for(const width of [320,375,1024]){
    const page=await browser.newPage({viewport:{width,height:920},hasTouch:true});
    const errors=[];
    page.on('pageerror',err=>errors.push(err.message));
