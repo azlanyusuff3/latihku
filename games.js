@@ -324,7 +324,7 @@
       const actors=document.querySelector('#lgWormActors');if(!actors)return;
       while(actors.children.length<worm.snake.length){
         const segment=document.createElement('div');segment.className='lg-worm-segment';
-        if(!actors.children.length){segment.classList.add('head');segment.textContent='🐛';}
+        if(!actors.children.length){segment.classList.add('head');segment.innerHTML='<i class="lg-worm-eye left"></i><i class="lg-worm-eye right"></i><i class="lg-worm-smile"></i>';}
         actors.appendChild(segment);
       }
       worm.snake.forEach((p,i)=>{
