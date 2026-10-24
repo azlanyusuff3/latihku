@@ -6,9 +6,9 @@ const dice=(seed)=>{let a=seed|0;return ()=>{a=(a+0x6D2B79F5)|0;let t=Math.imul(
 const shuffle=(arr,rng)=>{const a=[...arr];for(let i=a.length-1;i>0;i--){const j=Math.floor(rng()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;};
 const moves=[{name:'up',dx:0,dy:-1,bit:1,opp:4},{name:'right',dx:1,dy:0,bit:2,opp:8},{name:'down',dx:0,dy:1,bit:4,opp:1},{name:'left',dx:-1,dy:0,bit:8,opp:2}];
 const mazeWorlds=[
- {name:'Taman Arnab',emoji:'🐰',target:'🥕',colors:['#d8f5db','#72c47d']},
- {name:'Hutan Ajaib',emoji:'🦊',target:'🍎',colors:['#e4efff','#6bc9b7']},
- {name:'Istana Pelangi',emoji:'🐼',target:'🏰',colors:['#f9e5ff','#a4b7ef']}
+ {name:'Taman Arnab',sprite:'rabbit',theme:'garden',item:'carrot',emoji:'🐰',target:'🥕',colors:['#d8f5db','#72c47d']},
+ {name:'Pantai Penyu',sprite:'turtle',theme:'beach',item:'star',emoji:'🐢',target:'⭐',colors:['#e4efff','#6bc9b7']},
+ {name:'Hutan Panda',sprite:'panda',theme:'forest',item:'apple',emoji:'🐼',target:'🍎',colors:['#f9e5ff','#a4b7ef']}
 ];
 function mazePath(maze,start=0){
  const total=maze.size*maze.size,end=total-1;
@@ -43,6 +43,7 @@ function makeMaze(level){
  }
  const maze={level,size,cells,group,world:mazeWorlds[group]};
  maze.path=mazePath(maze);
+ maze.collectibles=[1,2,3].map(k=>maze.path[Math.floor(k*(maze.path.length-1)/4)]);
  if(maze.path.length<2)throw new Error('Maze generation failed at '+level);
  return maze;
 }

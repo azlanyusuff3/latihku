@@ -98,3 +98,5 @@ assert(read('games.js').includes('LATIH_PHASE2.create'));
 assert(!read('phase2-games.js').includes('assets/general/'));
 assert(!read('phase2-data.js').includes('assets/general/'));
 console.log('Phase 2 rules checks passed: 30 perfect mazes, 12 hidden-object cartoon worlds, 20 dot drawings, 60 unambiguous patterns and offline assets.');
+
+for(let level=0;level<30;level++){const maze=D.makeMaze(level);assert.equal(new Set(maze.collectibles).size,3);for(const item of maze.collectibles){assert(item!==0&&item!==maze.cells.length-1);assert(maze.path.includes(item));}}

@@ -63,6 +63,8 @@ const path=require('node:path');
     else await page.locator('[data-maze-dir="'+dir+'"]').click();
     assert.equal(await page.locator('.pg-maze-cell.player').getAttribute('data-maze-cell'),String(route[i]),'exact maze movement');
    }
+   assert.equal(await page.locator('#pgMazeCollected').textContent(),'3 / 3 dikutip');
+   assert.equal(await page.locator('.pg-maze-item').count(),0);
    assert.equal(await page.locator('.lg-win-cover').count(),1,'maze victory');
    assert(await page.evaluate(()=>Boolean(state.games.completed['maze:0'])));
    await page.locator('#pgWinHome').click();

@@ -150,3 +150,17 @@
  .pg-soft-action{min-height:46px;font-size:11px;}
 }
 @media(prefers-reduced-motion:reduce){.pg-screen *{animation:none!important;transition:none!important;}}
+
+/* Three cartoon adventure worlds with stable scenery and a moving character. */
+.maze-adventure{--maze-wall:#4f8d55;--maze-floor:#f5e9bc;background:linear-gradient(#c5e3ab,#82b47c);border:8px solid #e5efd1;padding:12px;border-radius:24px;box-shadow:0 7px 0 #50845633;}
+.maze-adventure.beach{--maze-wall:#aa8d6c;--maze-floor:#ffedbf;background:repeating-linear-gradient(135deg,#a2d8dc 0 12px,#b2e2de 12px 24px);border-color:#d4efeb;}
+.maze-adventure.forest{--maze-wall:#426f60;--maze-floor:#e5e6bb;background:linear-gradient(#7daf91,#4a866f);border-color:#c3d9bc;}
+.pg-maze-stage{position:relative;}.maze-adventure .pg-maze-board{border-radius:8px;overflow:hidden;background:var(--maze-floor);gap:0;}
+.maze-adventure .pg-maze-cell{background:radial-gradient(circle at 20% 70%,#b3a77724 1px,transparent 2px),var(--maze-floor);border-radius:3px;box-shadow:inset 0 1px 2px #665a2210;}
+.maze-adventure .pg-maze-cell.visited{background-color:#f1dfac;}.maze-adventure .pg-maze-cell.player{background-color:var(--maze-floor);}
+.maze-adventure .pg-maze-character{position:absolute;width:calc(100% / var(--pg-maze));height:calc(100% / var(--pg-maze));padding:5px;box-sizing:border-box;pointer-events:none;z-index:3;transition:left 130ms linear,top 130ms linear;filter:drop-shadow(0 3px 1px #345f4933);}
+.pg-maze-character svg,.pg-maze-item svg,.pg-maze-prize svg,.pg-control-face svg{width:100%;height:100%;display:block;}.pg-maze-character[data-facing="left"] svg{transform:scaleX(-1);}.pg-maze-character[data-facing="up"] svg{transform:translateY(-2px);}.pg-maze-character[data-facing="down"] svg{transform:translateY(2px);}
+.pg-maze-item{position:absolute;inset:20%;pointer-events:none;}.pg-maze-prize{position:absolute;inset:8%;opacity:.65;}.pg-maze-prize.ready{opacity:1;filter:drop-shadow(0 0 5px #f3ca56);}.pg-control-face{padding:8px;}.maze-adventure .is-hint{background:#ffdc88!important;}
+@media(prefers-reduced-motion:reduce){.maze-adventure .pg-maze-character{transition:none;}}
+
+.pg-hedge{position:absolute;pointer-events:none;z-index:2;background:radial-gradient(ellipse at 40% 30%,#a5d278 15%,#658f4c 65%,#436b46 90%);background-size:10px 10px;border-radius:8px;box-shadow:0 2px 1px #365d4733;}.pg-hedge.top,.pg-hedge.bottom{left:-4px;right:-4px;height:7px;}.pg-hedge.top{top:-4px;}.pg-hedge.bottom{bottom:-4px;}.pg-hedge.left,.pg-hedge.right{top:-4px;bottom:-4px;width:7px;}.pg-hedge.left{left:-4px;}.pg-hedge.right{right:-4px;}.beach .pg-hedge{background:radial-gradient(ellipse at 40% 30%,#e0cba8 15%,#b49b7c 65%,#8c7a69 90%);background-size:12px 12px;}.forest .pg-hedge{background:radial-gradient(ellipse at 40% 30%,#83b584 15%,#467f62 65%,#335f51 90%);background-size:10px 10px;}

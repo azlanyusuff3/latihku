@@ -83,22 +83,24 @@ function create({shell,getState,save,esc,beep,onBack}){
   document.querySelectorAll('[data-maze-world]').forEach(b=>b.onclick=()=>mazeSelect(Number(b.dataset.mazeWorld)));
   document.querySelectorAll('[data-maze-level]').forEach(b=>b.onclick=()=>startMaze(Number(b.dataset.mazeLevel)));
  }
+ const mazeArt=(type)=>{
+  const inner=type==='home'?'<path d="M3 16L18 3l15 13v17H3Z" fill="#f4ce91" stroke="#755c43" stroke-width="2"/><path d="M13 33V20h10v13" fill="#769cb0"/>':type==='carrot'?'<path d="M12 10L17 33 26 13Z" fill="#ed9c52" stroke="#805b39" stroke-width="2"/><path d="M17 11L12 2M20 12L24 2M18 11V2" stroke="#5e995e" stroke-width="3"/>':type==='star'?'<path d="M18 3l5 10 11 2-8 8 2 11-10-6-10 6 2-11-8-8 11-2Z" fill="#f2ce70" stroke="#a27b44" stroke-width="2"/>':sprites[type]||sprites.rabbit;
+  return '<svg viewBox="0 0 36 36" aria-hidden="true">'+inner+'</svg>';
+ };
  function mazeCell(index){
-  const w=maze.cells[index],n=maze.size;
-  const sty='border-top:'+(w&1?'3px solid #367a8b':'3px solid transparent')+
-   ';border-right:'+(w&2?'3px solid #367a8b':'3px solid transparent')+
-   ';border-bottom:'+(w&4?'3px solid #367a8b':'3px solid transparent')+
-   ';border-left:'+(w&8?'3px solid #367a8b':'3px solid transparent');
-  const player=index===maze.current,goal=index===n*n-1,covered=maze.walked.has(index);
-  return '<div data-maze-cell="'+index+'" role="gridcell" class="pg-maze-cell '+(covered?'visited ':'')+(player?'player ':'')+(goal?'goal ':'')+(maze.highlight===index?'is-hint':'')+'" style="'+sty+'" aria-label="'+(player?'Haiwan di sini':goal?'Destinasi':'Laluan')+'">'+(goal?'<span class="pg-maze-prize">'+maze.world.target+'</span>':'')+(player?'<span class="pg-maze-character">'+maze.world.emoji+'</span>':'')+'</div>';
+  const w=maze.cells[index],goal=index===maze.cells.length-1;
+  const sty=['top','right','bottom','left'].map((side,i)=>'border-'+side+':4px solid '+(w&(1<<i)?'var(--maze-wall)':'transparent')).join(';');
+  return '<div data-maze-cell="'+index+'" role="gridcell" class="pg-maze-cell" style="'+sty+'">'+['top','right','bottom','left'].map((side,i)=>w&(1<<i)?'<i class="pg-hedge '+side+'"></i>':'').join('')+(goal?'<span class="pg-maze-prize">'+mazeArt('home')+'</span>':'')+(maze.collectibles.includes(index)?'<span class="pg-maze-item" data-maze-item="'+index+'">'+mazeArt(maze.world.item)+'</span>':'')+'</div>';
  }
  function renderMaze(){
   const board=document.querySelector('#pgMazeBoard');if(!board)return;
   if(board.children.length!==maze.cells.length)board.innerHTML=maze.cells.map((_,i)=>mazeCell(i)).join('');
-  else maze.cells.forEach((_,i)=>{const cell=board.children[i],player=i===maze.current;cell.classList.toggle('player',player);cell.classList.toggle('visited',maze.walked.has(i));cell.classList.toggle('is-hint',maze.highlight===i);cell.setAttribute('aria-label',player?'Haiwan di sini':i===maze.cells.length-1?'Destinasi':'Laluan');cell.querySelector('.pg-maze-character')?.remove();if(player)cell.insertAdjacentHTML('beforeend','<span class="pg-maze-character">'+maze.world.emoji+'</span>');});
-  const moveInfo=document.querySelector('#pgMazeMoves');if(moveInfo)moveInfo.textContent=maze.steps+' langkah';
-  const hintButton=document.querySelector('#pgMazeHint');if(hintButton)hintButton.textContent='💡 Hint ('+maze.hints+')';
-  if(hintButton)hintButton.disabled=maze.hints<1||maze.highlight>=0||maze.won;
+  maze.cells.forEach((_,i)=>{const cell=board.children[i],player=i===maze.current;cell.classList.toggle('player',player);cell.classList.toggle('visited',maze.walked.has(i));cell.classList.toggle('is-hint',maze.highlight===i);cell.setAttribute('aria-label',player?'Haiwan di sini':i===maze.cells.length-1?'Rumah destinasi':'Laluan');if(maze.collected.has(i))cell.querySelector('.pg-maze-item')?.remove();});
+  const hero=document.querySelector('#pgMazeHero');hero.style.left=(maze.current%maze.size)*100/maze.size+'%';hero.style.top=Math.floor(maze.current/maze.size)*100/maze.size+'%';hero.dataset.facing=maze.facing;
+  document.querySelector('#pgMazeMoves').textContent=maze.steps+' langkah';
+  document.querySelector('#pgMazeCollected').textContent=maze.collected.size+' / 3 dikutip';
+  document.querySelector('.pg-maze-prize').classList.toggle('ready',maze.collected.size===3);
+  const hintButton=document.querySelector('#pgMazeHint');hintButton.textContent='💡 Hint ('+maze.hints+')';hintButton.disabled=maze.hints<1||maze.highlight>=0||maze.won;
  }
  function mazeKey(e){
   if(view!=='maze-play'||!maze||maze.won||e.ctrlKey||e.metaKey||e.altKey||e.target?.closest?.('input,textarea,select'))return;
@@ -112,9 +114,11 @@ function create({shell,getState,save,esc,beep,onBack}){
   const x=maze.current%maze.size,y=Math.floor(maze.current/maze.size),nx=x+d.dx,ny=y+d.dy;
   if(nx<0||ny<0||nx>=maze.size||ny>=maze.size)return false;
   clearTip();
+  maze.facing=direction;
   maze.current=ny*maze.size+nx;maze.steps++;maze.walked.add(maze.current);maze.highlight=-1;
+  if(maze.collectibles.includes(maze.current)&&!maze.collected.has(maze.current)){maze.collected.add(maze.current);sound(true);feedback('Bagus! '+maze.collected.size+' daripada 3 item dikutip.',true);}
   renderMaze();
-  if(maze.current===maze.cells.length-1){
+  if(maze.current===maze.cells.length-1&&maze.collected.size===3){
    maze.won=true;clearTip();detachMaze();reward('maze:'+maze.level);sound(true);
    success('Jalan ditemui!',maze.world.target,'Hebat! Kamu sampai ke destinasi dalam '+maze.steps+' langkah.',()=>startMaze((maze.level+1)%30));
   }
@@ -123,12 +127,12 @@ function create({shell,getState,save,esc,beep,onBack}){
  function startMaze(level){
   detachMaze();clearTip();view='maze-play';
   const base=DATA.makeMaze(level);
-  maze={...base,current:0,steps:0,hints:2,highlight:-1,walked:new Set([0]),won:false};
+  maze={...base,current:0,steps:0,hints:2,highlight:-1,walked:new Set([0]),collected:new Set(),facing:'right',won:false};
   paint('Maze Adventure','Level '+(level+1)+'/30',
-   '<p class="pg-instruction">🐰 Bantu '+safe(maze.world.emoji)+' sampai ke '+safe(maze.world.target)+'! Gunakan butang, swipe atau keyboard.</p>'+
-   '<div class="pg-game-stats"><span id="pgMazeMoves">0 langkah</span><span>'+maze.size+' × '+maze.size+' laluan</span></div>'+
-   '<div class="pg-maze-frame"><div id="pgMazeBoard" class="pg-maze-board" role="grid" aria-label="Peta maze" style="--pg-maze:'+maze.size+'"></div></div>'+
-   '<div class="pg-maze-controls" aria-label="Kawal pergerakan"><button type="button" class="pg-direction up" data-maze-dir="up" aria-label="Atas">↑</button><button type="button" class="pg-direction left" data-maze-dir="left" aria-label="Kiri">←</button><div class="pg-control-face">🐰</div><button type="button" class="pg-direction right" data-maze-dir="right" aria-label="Kanan">→</button><button type="button" class="pg-direction down" data-maze-dir="down" aria-label="Bawah">↓</button></div>'+
+   '<p class="pg-instruction">'+safe(maze.world.name)+' · Kutip 3 '+safe(maze.world.target)+' kemudian pulang ke rumah!</p>'+
+   '<div class="pg-game-stats"><span id="pgMazeMoves">0 langkah</span><span id="pgMazeCollected">0 / 3 dikutip</span></div>'+
+   '<div class="pg-maze-frame maze-adventure '+maze.world.theme+'"><div class="pg-maze-stage" style="--pg-maze:'+maze.size+'"><div id="pgMazeBoard" class="pg-maze-board" role="grid" aria-label="Peta maze" style="--pg-maze:'+maze.size+'"></div><span id="pgMazeHero" class="pg-maze-character">'+mazeArt(maze.world.sprite)+'</span></div></div>'+
+   '<div class="pg-maze-controls" aria-label="Kawal pergerakan"><button type="button" class="pg-direction up" data-maze-dir="up" aria-label="Atas">↑</button><button type="button" class="pg-direction left" data-maze-dir="left" aria-label="Kiri">←</button><div class="pg-control-face">'+mazeArt(maze.world.sprite)+'</div><button type="button" class="pg-direction right" data-maze-dir="right" aria-label="Kanan">→</button><button type="button" class="pg-direction down" data-maze-dir="down" aria-label="Bawah">↓</button></div>'+
    '<div class="pg-actions"><button type="button" id="pgMazeHint" class="pg-soft-action">💡 Hint (2)</button><button type="button" id="pgMazeReplay" class="pg-soft-action">↻ Ulang</button></div><p id="pgFeedback" class="pg-feedback" aria-live="polite">Mulakan dari penjuru kiri atas!</p>');
   renderMaze();
   document.querySelectorAll('[data-maze-dir]').forEach(b=>b.onclick=()=>moveMaze(b.dataset.mazeDir));
