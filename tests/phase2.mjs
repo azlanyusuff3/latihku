@@ -44,12 +44,12 @@ for(let level=0;level<30;level++){
 const observedHidden=new Set();
 for(let i=0;i<12;i++){
  const s=D.makeHidden(i),copy=D.makeHidden(i);
- assert.equal(s.spots.length,9);
+ assert.equal(s.spots.length,18);
  assert.equal(s.targets.length,i<4?5:i<8?6:7);
  assert.equal(new Set(Array.from(s.targets)).size,s.targets.length,'no duplicated targets');
  assert.equal(JSON.stringify(s.spots),JSON.stringify(copy.spots),'reproducible hidden world');
  const contents=s.spots.map(o=>o.id);
- assert.equal(new Set(contents).size,9);
+ assert.equal(new Set(contents).size,18);
  for(const target of s.targets)assert(contents.includes(target),'target must occur in scene');
  for(const obj of s.spots){
   assert(obj.x>=35&&obj.x<=565&&obj.y>=35&&obj.y<=385,'hidden touch hitbox is in scene');
@@ -59,7 +59,7 @@ for(let i=0;i<12;i++){
  const svg=D.hiddenSvg(s,context.LATIH_CARTOON_SPRITES);
  assert(svg.startsWith('<svg')&&svg.endsWith('</svg>')&&svg.includes('viewBox="0 0 600 420"'));
  assert(!svg.includes('<image')&&!svg.includes('xlink:href')&&!svg.includes('<foreignObject'),'hidden world must not fetch external images');
- assert.equal((svg.match(/viewBox="0 0 36 36"/g)||[]).length,9,'all icons rendered as inline SVG');
+ assert.equal((svg.match(/viewBox="0 0 36 36"/g)||[]).length,18,'all icons rendered as inline SVG');
 }
 assert(observedHidden.size>=28,'variety of hidden objects');
 const names=new Set();

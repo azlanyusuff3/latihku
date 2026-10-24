@@ -72,15 +72,17 @@ const hiddenThemes={
 function makeHidden(index){
  if(!Number.isInteger(index)||index<0||index>=hiddenSpecs.length)throw new RangeError('Hidden level out of range');
  const [name,emoji,theme,ids]=hiddenSpecs[index],rng=dice(index*109+820);
- const items=shuffle(ids.split(' '),rng),positions=shuffle(slots,rng);
+ const original=ids.split(' '),pool=[...new Set(hiddenSpecs.filter(s=>s[2]===theme||['garden','forest','farm'].includes(theme)&&['garden','forest','farm'].includes(s[2])).flatMap(s=>s[3].split(' ')).concat('rose butterfly bee apple guitar football orange kiwi waffle lion turtle bus coconut piano oak frog train'.split(' ')))];
+ const items=shuffle(original.concat(shuffle(pool.filter(id=>!original.includes(id)),rng).slice(0,9)),rng);
+ const positions=shuffle(Array.from({length:18},(_,i)=>[55+(i%6)*97,95+Math.floor(i/6)*132+(i%2)*12]),rng);
  const spots=items.map((id,i)=>({
   id,label:window.LATIH_CARTOONS?.label(id)||id,
   x:positions[i][0]+Math.round((rng()-.5)*12),
   y:positions[i][1]+Math.round((rng()-.5)*12),
-  r:35
+  r:28+Math.floor(rng()*4)
  }));
  const required=index<4?5:index<8?6:7;
- const targets=shuffle(items,rng).slice(0,required);
+ const targets=shuffle(original,rng).slice(0,required);
  return {index,name,emoji,theme,spots,targets,palette:hiddenThemes[theme]};
 }
 const shape=(d,color,stroke='#546c77',width=4)=>'<path d="'+d+'" fill="'+color+'" stroke="'+stroke+'" stroke-width="'+width+'" stroke-linejoin="round" stroke-linecap="round"/>';
@@ -127,8 +129,8 @@ function hiddenSvg(scene,sprites){
  s+=hiddenBackdrop(scene);
  for(const spot of scene.spots){
   if(!ids[spot.id])throw new Error('Missing hidden object cartoon '+spot.id);
-  s+=ellipse(spot.x,spot.y+34,35,9,'#43656e24');
-  s+='<svg x="'+(spot.x-35)+'" y="'+(spot.y-35)+'" width="70" height="70" viewBox="0 0 36 36" aria-hidden="true">'+ids[spot.id]+'</svg>';
+  s+=ellipse(spot.x,spot.y+spot.r,spot.r,6,'#43656e24');
+  s+='<svg data-hidden-art-id="'+spot.id+'" x="'+(spot.x-spot.r)+'" y="'+(spot.y-spot.r)+'" width="'+(spot.r*2)+'" height="'+(spot.r*2)+'" viewBox="0 0 36 36" aria-hidden="true">'+ids[spot.id]+'</svg>';
  }
  return s+'</svg>';
 }

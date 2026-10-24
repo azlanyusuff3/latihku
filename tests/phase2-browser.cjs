@@ -74,11 +74,12 @@ const path=require('node:path');
    assert.equal(await page.locator('[data-hidden-level]').count(),12);
    await page.locator('[data-hidden-level="0"]').click();
    assert.equal(await page.locator('.pg-hidden-art').count(),1);
-   assert.equal(await page.locator('.pg-hidden-art svg').count(),9);
+   assert.equal(await page.locator('.pg-hidden-art svg').count(),18);
    assert.equal(await page.locator('.pg-hidden-art image').count(),0,'no photos');
    assert.equal(await page.locator('.pg-target-chip').count(),5);
    await page.locator('#pgHiddenHint').click();
    assert.equal(await page.locator('.pg-found-ring.hint').count(),1);
+   assert(await page.locator('#pgHiddenHint').isDisabled());
    const sc=await page.evaluate(()=>LATIH_PHASE2_DATA.makeHidden(0));
    const board=page.locator('#pgHiddenBoard');
    for(const id of sc.targets){

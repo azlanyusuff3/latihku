@@ -32,6 +32,7 @@ jobs:
           node tests/spot-browser.cjs
           node tests/phase1-browser.cjs
           node tests/phase2-browser.cjs
+          node tests/hidden-browser.cjs
       - uses: actions/upload-artifact@v4
         if: always()
         with:

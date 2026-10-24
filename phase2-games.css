@@ -164,3 +164,5 @@
 @media(prefers-reduced-motion:reduce){.maze-adventure .pg-maze-character{transition:none;}}
 
 .pg-hedge{position:absolute;pointer-events:none;z-index:2;background:radial-gradient(ellipse at 40% 30%,#a5d278 15%,#658f4c 65%,#436b46 90%);background-size:10px 10px;border-radius:8px;box-shadow:0 2px 1px #365d4733;}.pg-hedge.top,.pg-hedge.bottom{left:-4px;right:-4px;height:7px;}.pg-hedge.top{top:-4px;}.pg-hedge.bottom{bottom:-4px;}.pg-hedge.left,.pg-hedge.right{top:-4px;bottom:-4px;width:7px;}.pg-hedge.left{left:-4px;}.pg-hedge.right{right:-4px;}.beach .pg-hedge{background:radial-gradient(ellipse at 40% 30%,#e0cba8 15%,#b49b7c 65%,#8c7a69 90%);background-size:12px 12px;}.forest .pg-hedge{background:radial-gradient(ellipse at 40% 30%,#83b584 15%,#467f62 65%,#335f51 90%);background-size:10px 10px;}
+
+.pg-hidden-frame{overflow:auto;max-height:65vh;overscroll-behavior:contain;}.pg-hidden-board.zoomed{width:170%;max-width:none;}.pg-hidden-board{cursor:crosshair;}.pg-hidden-board .pg-hidden-art{pointer-events:none;}#pgHiddenZoom{display:block;margin:10px auto;min-height:42px;}.pg-target-chip.found{opacity:.65;}.pg-found-marks{pointer-events:none;}

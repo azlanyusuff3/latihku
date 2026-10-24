@@ -186,15 +186,15 @@ function create({shell,getState,save,esc,beep,onBack}){
   const counter=document.querySelector('#pgHiddenCount');if(counter)counter.textContent=hidden.found.size+' / '+hidden.scene.targets.length+' ditemui';
   const marker=document.querySelector('#pgFoundMarks');if(marker)marker.innerHTML=hidden.scene.spots.filter(s=>hidden.found.has(s.id)||hidden.hint===s.id)
    .map(s=>'<span class="pg-found-ring '+(hidden.found.has(s.id)?'found':'hint')+'" style="left:'+(s.x/6)+'%;top:'+(s.y/4.2)+'%;width:'+(s.r*2/6)+'%;height:'+(s.r*2/4.2)+'%">'+(hidden.found.has(s.id)?'✓':'')+'</span>').join('');
-  const hint=document.querySelector('#pgHiddenHint');if(hint){hint.textContent='💡 Hint ('+hidden.hints+')';hint.disabled=hidden.hints<1;}
+  const hint=document.querySelector('#pgHiddenHint');if(hint){hint.textContent='💡 Hint ('+hidden.hints+')';hint.disabled=hidden.hints<1||hidden.hint!==null||hidden.won;}
  }
  function startHidden(index){
   clearTip();view='hidden-play';hidden={scene:DATA.makeHidden(index),found:new Set(),hints:2,hint:null,won:false};
   paint('Hidden Objects','Level '+(index+1)+'/12',
    '<p class="pg-instruction">🔎 Cari objek dalam gambar kartun. Boleh sentuh mana-mana objek yang diminta!</p>'+
-   '<div class="pg-game-stats"><b>'+safe(hidden.scene.emoji)+' '+safe(hidden.scene.name)+'</b><span id="pgHiddenCount">0 / '+hidden.scene.targets.length+' ditemui</span></div>'+
+   '<div class="pg-game-stats"><b>'+safe(hidden.scene.emoji)+' '+safe(hidden.scene.name)+'</b><span id="pgHiddenCount" role="status" aria-live="polite">0 / '+hidden.scene.targets.length+' ditemui</span></div>'+
    '<div class="pg-hidden-frame"><div id="pgHiddenBoard" class="pg-hidden-board" role="img" aria-label="Peta objek tersembunyi">'+DATA.hiddenSvg(hidden.scene,sprites)+'<div id="pgFoundMarks" class="pg-found-marks"></div></div></div>'+
-   '<div class="pg-tray-label">🎯 Cari objek ini:</div><div id="pgHiddenTargets" class="pg-target-grid"></div>'+
+   '<button type="button" id="pgHiddenZoom" class="pg-soft-action" aria-pressed="false">＋ Besarkan gambar</button><div class="pg-tray-label">🎯 Cari objek ini:</div><div id="pgHiddenTargets" class="pg-target-grid"></div>'+
    '<div class="pg-actions"><button type="button" id="pgHiddenHint" class="pg-soft-action">💡 Hint (2)</button><button type="button" class="pg-soft-action" id="pgHiddenRestart">↻ Cuba semula</button></div>'+
    '<p id="pgFeedback" class="pg-feedback" aria-live="polite">Perhatikan gambar, kemudian sentuh objeknya.</p>');
   updateHidden();
@@ -204,7 +204,7 @@ function create({shell,getState,save,esc,beep,onBack}){
    const box=board.getBoundingClientRect();
    const x=(e.clientX-box.left)/box.width*600,y=(e.clientY-box.top)/box.height*420;
    if(!Number.isFinite(x)||!Number.isFinite(y))return;
-   const candidate=hidden.scene.spots.find(s=>Math.hypot(s.x-x,s.y-y)<=s.r);
+   const candidate=hidden.scene.spots.find(s=>Math.hypot(s.x-x,s.y-y)<=s.r+7);
    if(!candidate){feedback('Belum tepat. Cuba perhatikan objek lain.');sound(false);return;}
    if(!hidden.scene.targets.includes(candidate.id)){feedback('Bagus cuba! Objek itu bukan dalam senarai carian.');return;}
    if(hidden.found.has(candidate.id))return;
@@ -212,17 +212,18 @@ function create({shell,getState,save,esc,beep,onBack}){
    if(hidden.hint===candidate.id){clearTip();hidden.hint=null;}
    sound(true);updateHidden();feedback('Betul! '+candidate.label+' dijumpai.',true);
    if(hidden.found.size===hidden.scene.targets.length){
-    hidden.won=true;reward('hidden:'+index);
+    hidden.won=true;clearTip();hidden.hint=null;updateHidden();reward('hidden:'+index);
     success('Mata helang!','🔎','Semua '+hidden.scene.targets.length+' objek kartun berjaya dijumpai.',()=>startHidden((index+1)%total.hidden));
    }
   });
   document.querySelector('#pgHiddenHint').onclick=()=>{
-   if(hidden.hints<=0||hidden.won)return;
+   if(hidden.hints<=0||hidden.won||hidden.hint!==null)return;
    const next=hidden.scene.targets.find(id=>!hidden.found.has(id));
    if(!next)return;
    hidden.hints--;hidden.hint=next;updateHidden();feedback('Cari bulatan berkilau pada gambar.',true);
    clearTip();tipTimer=setTimeout(()=>{hidden.hint=null;updateHidden();tipTimer=null;},2400);
   };
+  document.querySelector('#pgHiddenZoom').onclick=e=>{const enlarged=board.classList.toggle('zoomed');e.currentTarget.setAttribute('aria-pressed',String(enlarged));e.currentTarget.textContent=enlarged?'− Saiz asal':'＋ Besarkan gambar';};
   document.querySelector('#pgHiddenRestart').onclick=()=>startHidden(index);
  }
  /* CONNECT THE DOTS: numbered, large tappable points and a colour reveal. */
