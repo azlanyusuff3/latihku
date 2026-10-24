@@ -4,6 +4,7 @@ import vm from 'node:vm';
 const read=p=>fs.readFileSync(new URL('../'+p,import.meta.url),'utf8');
 const sandbox={console,Math,Date,setInterval,clearInterval,setTimeout,clearTimeout};
 sandbox.window=sandbox; sandbox.globalThis=sandbox; vm.createContext(sandbox);
+vm.runInContext(read('spot-scenes.js'),sandbox,{filename:'spot-scenes.js'});
 vm.runInContext(read('games.js'),sandbox,{filename:'games.js'});
 const G=sandbox.LATIH_GAMES;
 assert.deepEqual(Array.from(G.catalog,d=>d.id),['worm','spot'],'Only Worm and Spot the Difference are available');
@@ -28,11 +29,11 @@ for(let i=0;i<80;i++){
 assert(Object.keys(seen).length>=10,'Sudoku variations are randomized');
 const index=read('index.html'),sw=read('sw.js'),app=read('app.js'),css=read('games.css'),version=read('version.js');
 for(const name of ['games.css','games.js']){
- assert(index.includes(name+'?v=24.5.2'),name+' linked');
+ assert(index.includes(name+'?v=24.5.3'),name+' linked');
  assert(sw.includes("'"+name+"'"),name+' cached offline');
 }
-assert(version.includes('24.5.2'));
-assert(index.includes('app.js?v=24.5.2'));
+assert(version.includes('24.5.3'));
+assert(index.includes('app.js?v=24.5.3'));
 assert(app.includes("['games','Games']"));
 assert(app.includes("GAMES.home()"));
 assert(css.includes('@media(max-width:460px)'));

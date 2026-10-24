@@ -28,6 +28,7 @@ jobs:
           node tests/general-browser.cjs
           node tests/word-browser.cjs
           node tests/worm-browser.cjs
+          node tests/spot-browser.cjs
       - uses: actions/upload-artifact@v4
         if: always()
         with:

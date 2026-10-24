@@ -29,16 +29,7 @@
     {id:'moon',symbol:'☾',name:'Bulan',color:'#ecb82a'},
     {id:'sun',symbol:'☀',name:'Matahari',color:'#f59b24'}
   ];
-  const spotScenes = [
-    {name:'Singa di Taman',picture:'lion'}, {name:'Kereta Bomba',picture:'firetruck'},
-    {name:'Panda Comel',picture:'panda'}, {name:'Buah Epal',picture:'apple'},
-    {name:'Arnab Putih',picture:'rabbit'}, {name:'Kapal Terbang',picture:'airplane'},
-    {name:'Harimau',picture:'tiger'}, {name:'Bunga Matahari',picture:'sunflower'}
-  ];
-  const changes = [
-    {x:19,y:20,from:'☁️',to:'☀️'}, {x:78,y:26,from:'🌿',to:'🦋'},
-    {x:76,y:76,from:'🍀',to:'🌸'}
-  ];
+  const spotScenes = window.LATIH_SPOT?.scenes||[];
   function countSudokuSolutions(cells,limit=2) {
     const cellsCopy=cells.slice(); let solutions=0;
     function valid(i,n) {
@@ -76,7 +67,7 @@
   function create({shell,getState,save,esc,beep}) {
     let screen='hub',category='animal',puzzleIndex=0,pieceCount=20,puzzle=null;
     let shapes=null,sudoku=null,worm=null,memory=null,spot=null;
-    let wormTimer=null,memoryTimer=null,wormListening=false,lastCompletion=null;
+    let wormTimer=null,memoryTimer=null,spotTimer=null,wormListening=false,lastCompletion=null;
     const sfx=ok=>{try{beep(ok);}catch{}};
     const getProgress=()=>{
       const state=getState();
@@ -90,7 +81,7 @@
       const p=getProgress();
       if(!p.completed[key]){p.completed[key]=Date.now();p.stars=(Number(p.stars)||0)+1;persist();}
     };
-    const closeTimer=()=>{if(wormTimer!==null){cancelAnimationFrame(wormTimer);wormTimer=null;}if(memoryTimer){clearTimeout(memoryTimer);memoryTimer=null;}if(wormListening){document.removeEventListener('keydown',wormKey);document.removeEventListener('visibilitychange',wormHidden);window.removeEventListener('blur',wormBlur);wormListening=false;}};
+    const closeTimer=()=>{if(spotTimer!==null){clearTimeout(spotTimer);spotTimer=null;}if(wormTimer!==null){cancelAnimationFrame(wormTimer);wormTimer=null;}if(memoryTimer){clearTimeout(memoryTimer);memoryTimer=null;}if(wormListening){document.removeEventListener('keydown',wormKey);document.removeEventListener('visibilitychange',wormHidden);window.removeEventListener('blur',wormBlur);wormListening=false;}};
     const mkHeader=(title,info='')=>`<header class="lg-gamehead"><button class="lg-back" data-game-back aria-label="Kembali">‹</button><h1>${esc(title)}</h1>${info?`<span class="lg-head-pill">${info}</span>`:''}</header>`;
     const draw=(html)=>{shell(`<div class="lg-screen">${html}</div>`,'games');document.querySelector('[data-game-back]')?.addEventListener('click',back);};
     const cover=(game)=>{
@@ -98,7 +89,7 @@
       if(game.id==='sudoku')return '<div class="lg-art-sudoku"><i>1</i><i>2</i><i>3</i><i>4</i><i>1</i><i>2</i><i>3</i><i>4</i><i>1</i></div>';
       if(game.id==='worm')return '<div class="lg-art-worm"><span>🍎</span><b>🐛</b><span>🟡</span></div>';
       if(game.id==='memory')return '<div class="lg-art-memory"><i>🐻</i><i>?</i></div>';
-      if(game.id==='spot')return `<div class="lg-art-spot"><img src="${image('tiger')}" alt=""><img src="${image('tiger')}" alt=""><span>🔍</span></div>`;
+      if(game.id==='spot')return `<div class="lg-art-spot lg-cartoon-cover">${spotScenes[0]?.a||''}<span>🔍</span></div>`;
       if(game.id==='fruit')return `<div class="lg-art-fruits"><img src="${image('apple')}" alt=""><img src="${image('banana')}" alt=""><img src="${image('grape')}" alt=""></div>`;
       return `<img class="lg-art-picture" src="${image(game.cover)}" alt="" loading="lazy">`;
     };
@@ -405,28 +396,62 @@
     }
     function startSpot(index=0){
       closeTimer();screen='spot';
-      const ix=index%spotScenes.length;spot={index:ix,found:new Set()};
+      if(!spotScenes.length)return hub();
+      const ix=((index%spotScenes.length)+spotScenes.length)%spotScenes.length;
+      spot={index:ix,found:new Set(),hints:2,hint:null,cursor:{x:300,y:210}};
       renderSpot();
     }
-    function spotImage(isRight){
+    function spotImage(side){
       const scene=spotScenes[spot.index];
-      return `<div class="lg-spot-image"><img src="${image(scene.picture)}" alt="${esc(scene.name)}">${changes.map((m,i)=>isRight?`<button class="lg-spot-difference ${spot.found.has(i)?'found':''}" data-spot-mark="${i}" style="left:${m.x}%;top:${m.y}%" aria-label="Cari perbezaan ${i+1}">${m.to}</button>`:`<span class="lg-spot-normal" style="left:${m.x}%;top:${m.y}%">${m.from}</span>`).join('')}</div>`;
+      return `<div class="lg-scene-board" data-spot-board="${side}" role="button" tabindex="0" aria-label="Gambar ${side==='a'?'A':'B'}: ${esc(scene.name)}. Tekan kawasan yang berbeza. Keyboard: anak panah dan Enter.">${scene[side]}<div class="lg-scene-marks" aria-hidden="true"></div><span class="lg-spot-cursor" hidden></span></div>`;
     }
     function renderSpot(){
       const scene=spotScenes[spot.index];
-      draw(`${mkHeader('Spot the Difference',`⭐ Level ${spot.index+1}`)}<p class="lg-instruction">🔍 Cari 3 perbezaan pada gambar kanan!</p><div class="lg-spot-area"><div><b>Gambar A</b>${spotImage(false)}</div><div><b>Gambar B</b>${spotImage(true)}</div></div><p class="lg-spot-found" id="lgSpotFound">${spot.found.size} / 3 ditemui</p><div class="lg-actionrow"><button class="lg-action lg-action-light" id="lgSpotHint">💡 Hint</button><button class="lg-action lg-action-green" id="lgSpotNext" ${spot.found.size<3?'disabled':''}>Next ❯</button></div>`);
-      document.querySelectorAll('[data-spot-mark]').forEach(b=>b.onclick=()=>findSpot(Number(b.dataset.spotMark)));
-      document.querySelector('#lgSpotHint').onclick=()=>{const i=[0,1,2].find(n=>!spot.found.has(n));if(i===undefined)return;document.querySelector(`[data-spot-mark="${i}"]`)?.classList.add('hint');};
-      document.querySelector('#lgSpotNext').onclick=()=>startSpot((spot.index+1)%spotScenes.length);
+      draw(`${mkHeader('Cari Perbezaan',`${spot.index+1} / ${spotScenes.length}`)}<div class="lg-spot-intro"><div><small>${scene.level.toUpperCase()} · ${scene.spots.length} PERBEZAAN</small><h2>${esc(scene.name)}</h2><p>Bandingkan dua gambar. Tekan perbezaan pada A atau B.</p></div><label>Pilih scene<select id="lgSpotLevel">${spotScenes.map((s,i)=>`<option value="${i}" ${i===spot.index?'selected':''}>${i+1}. ${esc(s.name)}</option>`).join('')}</select></label></div><div class="lg-spot-area lg-cartoon-area"><section><b>GAMBAR A <small>Lihat dengan teliti</small></b>${spotImage('a')}</section><section><b>GAMBAR B <small>Apa yang berubah?</small></b>${spotImage('b')}</section></div><div class="lg-spot-tools"><p id="lgSpotFound" role="status" aria-live="polite">0 / ${scene.spots.length} ditemui</p><button class="lg-action lg-action-light" id="lgSpotHint">Hint · 2</button><button class="lg-action lg-action-green" id="lgSpotNext" disabled>Seterusnya ❯</button></div><p class="lg-spot-feedback" id="lgSpotFeedback" role="status">Cari warna, bentuk, corak atau objek yang hilang.</p>`);
+      document.querySelector('#lgSpotLevel').onchange=e=>startSpot(Number(e.target.value));
+      document.querySelectorAll('[data-spot-board]').forEach(board=>{
+        board.onclick=e=>{
+          if(e.detail===0)return;
+          const r=board.getBoundingClientRect();checkSpot((e.clientX-r.left)/r.width*600,(e.clientY-r.top)/r.height*420);
+        };
+        board.onkeydown=e=>{
+          const move={ArrowLeft:[-12,0],ArrowRight:[12,0],ArrowUp:[0,-12],ArrowDown:[0,12]}[e.key];
+          if(move){e.preventDefault();spot.cursor.x=Math.max(0,Math.min(600,spot.cursor.x+move[0]));spot.cursor.y=Math.max(0,Math.min(420,spot.cursor.y+move[1]));
+            const c=board.querySelector('.lg-spot-cursor');c.hidden=false;c.style.left=spot.cursor.x/6+'%';c.style.top=spot.cursor.y/4.2+'%';
+          }else if(e.key==='Enter'||e.key===' '){e.preventDefault();checkSpot(spot.cursor.x,spot.cursor.y);}
+        };
+      });
+      document.querySelector('#lgSpotHint').onclick=()=>{
+        if(spot.hints<=0||spot.found.size===scene.spots.length||spot.hint!==null)return;
+        spot.hints--;spot.hint=scene.spots.findIndex((_,i)=>!spot.found.has(i));updateSpotMarks();
+        document.querySelector('#lgSpotHint').textContent=`Hint · ${spot.hints}`;document.querySelector('#lgSpotHint').disabled=true;
+        spotTimer=setTimeout(()=>{spotTimer=null;if(screen!=='spot')return;spot.hint=null;updateSpotMarks();document.querySelector('#lgSpotHint').disabled=spot.hints<=0;},2400);
+      };
+      document.querySelector('#lgSpotNext').onclick=()=>startSpot(spot.index+1);
+    }
+    function updateSpotMarks(){
+      const scene=spotScenes[spot.index];
+      document.querySelectorAll('.lg-scene-marks').forEach(layer=>{
+        layer.innerHTML=scene.spots.map((m,i)=>spot.found.has(i)||spot.hint===i?`<span class="lg-scene-ring ${spot.found.has(i)?'found':'hint'}" style="left:${m.x/6}%;top:${m.y/4.2}%;width:${(spot.found.has(i)?m.r+7:m.r+24)/3}%;height:${(spot.found.has(i)?m.r+7:m.r+24)/2.1}%">${spot.found.has(i)?'✓':''}</span>`:'').join('');
+      });
+    }
+    function checkSpot(x,y){
+      if(screen!=='spot'||!spot)return;
+      const scene=spotScenes[spot.index];
+      const i=scene.spots.findIndex(m=>Math.hypot(m.x-x,m.y-y)<=m.r+7);
+      if(i<0){document.querySelector('#lgSpotFeedback').textContent='Belum tepat. Cuba bandingkan bahagian lain.';return;}
+      findSpot(i);
     }
     function findSpot(i){
-      if(screen!=='spot'||!spot||!Number.isInteger(i)||i<0||i>=changes.length||spot.found.has(i))return;
+      const scene=spotScenes[spot.index];
+      if(screen!=='spot'||!Number.isInteger(i)||i<0||i>=scene.spots.length||spot.found.has(i))return;
       spot.found.add(i);sfx(true);
-      const mark=document.querySelector(`[data-spot-mark="${i}"]`);
-      if(mark){mark.classList.remove('hint');mark.classList.add('found');mark.disabled=true;mark.setAttribute('aria-label',`Perbezaan ${i+1} ditemui`);}
-      const count=document.querySelector('#lgSpotFound');if(count)count.textContent=`${spot.found.size} / 3 ditemui`;
-      const next=document.querySelector('#lgSpotNext');if(next)next.disabled=spot.found.size!==3;
-      if(spot.found.size===3){earned(`spot:${spotScenes[spot.index].picture}`);showWin('Mata tajam!','🔍','Kamu jumpa semua perbezaan.',()=>startSpot((spot.index+1)%spotScenes.length));}
+      if(spot.hint===i){spot.hint=null;if(spotTimer!==null)clearTimeout(spotTimer);spotTimer=null;document.querySelector('#lgSpotHint').disabled=spot.hints<=0;}
+      updateSpotMarks();
+      document.querySelector('#lgSpotFound').textContent=`${spot.found.size} / ${scene.spots.length} ditemui`;
+      document.querySelector('#lgSpotFeedback').textContent='Betul! Teruskan mencari.';
+      const done=spot.found.size===scene.spots.length;document.querySelector('#lgSpotNext').disabled=!done;
+      if(done){closeTimer();earned(`spot:${scene.id}`);showWin('Mata tajam!','🔍',`Semua ${scene.spots.length} perbezaan berjaya ditemui.`,()=>startSpot(spot.index+1));}
     }
     function back(){
       closeTimer();

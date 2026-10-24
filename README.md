@@ -79,3 +79,9 @@ Tahun 2 Matematik mempunyai pilihan khas **Tambah**, **Tolak**, **Darab**, **Bah
 The offline guided learning mode covers four operations with grade-appropriate numbers and 5, 10, 20, 30 or 50 questions per set. Each question guides pupils through identifying what changes in the story, selecting the corresponding mathematical sentence, and calculating a final answer. Mistakes receive immediate reasoning and a retry, rather than relying solely on memorised keywords. No timer is used.
 
 Access it from the home-screen shortcut or from Mathematics > Fahami Soalan Berayat. A guided session can be saved and resumed; recent guided sessions and current progress are stored in the existing local profile under wordProblems. Results also contribute to standard Maths progress, with independent success counted only when all three stages are correct on the first try. Original LatihKu-generated questions work offline without APIs or third-party packages.
+
+### Cartoon Spot the Difference (24.5.3)
+
+Eight original SVG scenes in `spot-scenes.js` use identical paired geometry with 5–7 registered differences per scene. Touch either picture to answer; two temporary hints are available per round. Phone layouts stack equal-size scenes. Keyboard players can focus a board, move the crosshair with arrow keys and submit with Enter/Space. No external image downloads are required.
+
+Implementation references reviewed: [DaHaMMeR79/Spot-The-Difference](https://github.com/DaHaMMeR79/Spot-The-Difference) for region detection and found markers, and [widmogrod/js-spot-the-difference](https://github.com/widmogrod/js-spot-the-difference) for per-board difference data and proportional positioning. Artwork and implementation here are original; no reference assets or code were copied. Run `node tests/spot-browser.cjs` with Playwright for scaled input, hint limits, level progression and mobile/desktop regression.
