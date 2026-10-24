@@ -210,3 +210,33 @@
 .lg-spot-cursor{position:absolute;transform:translate(-50%,-50%);width:20px;height:20px;border:2px solid #254c62;border-radius:50%;box-shadow:0 0 0 2px white;pointer-events:none;}
 @media(max-width:600px){.lg-cartoon-area{grid-template-columns:1fr;gap:12px;}.lg-spot-intro{display:block;margin:12px 0;}.lg-spot-intro h2{font-size:22px;}.lg-spot-intro label{display:flex;align-items:center;margin-top:10px;gap:10px;}.lg-spot-intro select{flex:1;min-width:0;padding:7px;}.lg-spot-tools{gap:6px;padding:10px 8px;}.lg-spot-tools p{font-size:12px;}.lg-spot-tools button{padding:10px;font-size:11px;}}
 @media(prefers-reduced-motion:reduce){.lg-scene-ring.hint{animation:none;}}
+
+/* 24.6.0 — cartoon-only kids games, responsive offline puzzle galleries */
+.lg-gamecard{touch-action:manipulation;}
+.lg-gallery .lg-art-picture{object-fit:contain;width:100%;height:100%;padding:6px 12px;box-sizing:border-box;}
+.lg-level-thumb{background:linear-gradient(145deg,#daf5ff,#f6f5d7);}
+.lg-level-thumb img{width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 4px 5px #264a6b24);}
+.lg-puzzle-frame{background:#d2eafd;}
+.lg-puzzle-board:before{opacity:.18;}
+.lg-puzzle-piece{touch-action:manipulation;}
+.lg-memory-grid{width:100%;max-width:510px;}
+.lg-memory-card{overflow:hidden;display:grid;place-items:center;padding:3px;min-width:0;font-size:clamp(30px,7vw,44px)!important;}
+.lg-memory-card img{display:block;width:100%;height:100%;object-fit:contain;border-radius:12px;}
+.lg-memory-card:not(.revealed){background:radial-gradient(circle at 29% 18%,#97e6ff 0 8%,transparent 9%),linear-gradient(145deg,#40bcf7,#5869d7);}
+.lg-memory-card:not(.revealed) span{display:grid;place-items:center;width:70%;aspect-ratio:1;border:3px solid #ffffffa1;border-radius:50%;color:#fff9cf;}
+.lg-memory-card.revealed{background:#fffdf5;border-color:#fff9d4;}
+.lg-memory-card.matched{border-color:#67cda3;background:#dbffe9;box-shadow:0 4px 0 #469d73;}
+.lg-sudoku-level{display:flex;justify-content:center;gap:8px;margin:0 auto 12px;max-width:520px;}
+.lg-sudoku-level button{flex:1;min-height:46px;border:2px solid #cee2fa;background:#fff;color:#386192;border-radius:14px;padding:8px 3px;font-size:12px;font-weight:900;}
+.lg-sudoku-level button.chosen{background:#428ee9;border-color:#236bbd;color:#fff;}
+.lg-cartoon-area>section{min-width:0;background:#fff;border:5px solid #fff;border-radius:21px;overflow:hidden;box-shadow:var(--lg-shadow);}
+.lg-cartoon-area .lg-scene-board svg{width:100%;height:100%;display:block;}
+.lg-cartoon-area .lg-scene-board{background:#dff5f6;}
+@media(max-width:460px){
+ .lg-memory-grid{gap:6px;}
+ .lg-memory-card{border-width:2px;border-radius:11px;}
+ .lg-memory-card img{border-radius:9px;}
+ .lg-sudoku-level button{font-size:11px;min-height:43px;}
+ .lg-level-thumb{height:122px;}
+ .lg-cartoon-area>section{border-width:3px;border-radius:15px;}
+}

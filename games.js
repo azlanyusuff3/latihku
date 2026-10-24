@@ -12,12 +12,12 @@
     {id:'nature', title:'Nature Puzzle', label:'Alam Semula Jadi', icon:'🌻', cover:'sunflower', tone:'green', items:'sun moon earth jupiter venus mars rose orchid sunflower lotus tulip hibiscus oak bamboo fern cactus'.split(' ')},
     {id:'fun', title:'Fun Puzzle', label:'Macam-macam', icon:'🎸', cover:'guitar', tone:'purple', items:'guitar piano violin drums football basketball badminton xylophone waffle pizza croissant burger school astronaut tambourine ukulele taco nasilemak'.split(' ')}
   ];
-  const definitions = allDefinitions.filter(d=>['worm','spot'].includes(d.id));
+  const definitions = allDefinitions;
   const puzzleTypes = allDefinitions.filter(d=>d.items);
   const allImages = new Set(puzzleTypes.flatMap(d=>d.items));
   const pieceOptions = [{n:9,cols:3,rows:3,label:'Mudah'},{n:16,cols:4,rows:4,label:'Santai'},{n:20,cols:4,rows:5,label:'Hebat'},{n:30,cols:5,rows:6,label:'Cabaran'}];
-  const image = id => `assets/general/${id}.webp`;
-  const pretty = id => id.replace(/(^|-)\w/g,s=>s.toUpperCase()).replace(/([a-z])([A-Z])/g,'$1 $2');
+  const image = id => window.LATIH_CARTOONS.image(id);
+  const pretty = id => window.LATIH_CARTOONS.label(id);
   const shuffle = (items,rng=Math.random) => {const a=[...items];for(let i=a.length-1;i>0;i--){const j=Math.floor(rng()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;};
   const shapeNames = [
     {id:'star',symbol:'★',name:'Bintang',color:'#ffc52e'},
@@ -47,7 +47,7 @@
     }
     solve();return solutions;
   }
-  function makeSudoku(rng=Math.random) {
+  function makeSudoku(rng=Math.random,difficulty='sederhana') {
     const swapPairs=()=>shuffle([0,1],rng);
     const groupOrder=shuffle([0,1],rng);
     const rowOrder=groupOrder.flatMap(b=>swapPairs().map(i=>b*2+i));
@@ -55,7 +55,8 @@
     const digits=shuffle([1,2,3,4],rng);
     const solution=rowOrder.flatMap(r=>colOrder.map(c=>digits[(r*2+Math.floor(r/2)+c)%4]));
     const cells=solution.slice();
-    const target=7+Math.floor(rng()*4);
+    const gap=difficulty==='mudah'?[4,7]:difficulty==='mencabar'?[10,13]:[7,11];
+    const target=gap[0]+Math.floor(rng()*(gap[1]-gap[0]));
     let removed=0;
     for(const i of shuffle(Array.from({length:16},(_,j)=>j),rng)){
       const value=cells[i];cells[i]=0;
@@ -66,7 +67,7 @@
   }
   function create({shell,getState,save,esc,beep}) {
     let screen='hub',category='animal',puzzleIndex=0,pieceCount=20,puzzle=null;
-    let shapes=null,sudoku=null,worm=null,memory=null,spot=null;
+    let shapes=null,sudoku=null,worm=null,memory=null,spot=null,sudokuLevel='mudah';
     let wormTimer=null,memoryTimer=null,spotTimer=null,wormListening=false,lastCompletion=null;
     const sfx=ok=>{try{beep(ok);}catch{}};
     const getProgress=()=>{
@@ -95,7 +96,7 @@
     };
     const hub=()=>{
       screen='hub';closeTimer();const p=getProgress();
-      draw(`<section class="lg-hero"><div class="lg-hero-cloud a"></div><div class="lg-hero-cloud b"></div><span class="lg-hero-sun">☀️</span><div><h1><span>Games</span></h1><p>Pilih permainan kamu</p><div class="lg-hero-stats">🐛 Worm &nbsp; · &nbsp; 🔍 Cari Perbezaan</div></div><span class="lg-hero-child" aria-hidden="true">🙋🏻‍♂️</span></section>
+      draw(`<section class="lg-hero"><div class="lg-hero-cloud a"></div><div class="lg-hero-cloud b"></div><span class="lg-hero-sun">☀️</span><div><h1><span>Games</span></h1><p>Pilih permainan kamu</p><div class="lg-hero-stats">🧩 76 kartun &nbsp; · &nbsp; 🎮 10 permainan &nbsp; · &nbsp; 🔍 20 scene</div></div><span class="lg-hero-child" aria-hidden="true">🙋🏻‍♂️</span></section>
       <section class="lg-gallery" aria-label="Pilih permainan">${definitions.map(g=>`<button class="lg-gamecard lg-tone-${g.tone}" data-open-game="${g.id}"><div class="lg-cardart">${cover(g)}</div><div class="lg-cardlabel"><strong>${esc(g.title)}</strong><span aria-hidden="true">›</span></div><small>${g.items?`${g.items.length} gambar · 9–30 keping`:esc(g.label)}</small></button>`).join('')}</section><p class="lg-offline">🌈 Semua permainan boleh dimainkan tanpa internet selepas aset dimuatkan.</p>`);
       document.querySelectorAll('[data-open-game]').forEach(b=>b.addEventListener('click',()=>openGame(b.dataset.openGame)));
     };
@@ -190,17 +191,18 @@
     };
     function startShapes(){
       closeTimer();screen='shapes';
-      shapes={round:0,chosen:null,done:[],targets:[]};
+      shapes={round:0,chosen:null,done:[],targets:[],choices:[]};
       nextShapes();
     }
     function nextShapes(){
       shapes.targets=shuffle(shapeNames).slice(0,4);
+      shapes.choices=shuffle(shapes.targets);
       shapes.done=[];shapes.chosen=null;renderShapes();
     }
     function shapeSvg(s,outline=false){return `<span class="lg-shape ${outline?'lg-shape-outline':''}" style="--shape-color:${s.color}" aria-hidden="true">${s.symbol}</span>`;}
     function renderShapes(){
       draw(`${mkHeader('Shape Match',`⭐ ${shapes.round+1} / 5`)}<p class="lg-instruction">🌟 Padan bentuk dengan bayang-bayang!</p>
-      <div class="lg-shape-stage"><div class="lg-shape-targets">${shapes.targets.map((s,i)=>`<button class="lg-shape-target ${shapes.done.includes(s.id)?'finished':''}" data-target-shape="${s.id}" aria-label="Ruang ${esc(s.name)}">${shapeSvg(s,!shapes.done.includes(s.id))}<small>${shapes.done.includes(s.id)?'✓':esc(s.name)}</small></button>`).join('')}</div><p class="lg-tray-head"><b>Pilih bentuk</b><small>${shapes.done.length} / 4 betul</small></p><div class="lg-shape-picks">${shuffle(shapes.targets).map(s=>`<button class="lg-shape-choice ${shapes.chosen===s.id?'is-selected':''} ${shapes.done.includes(s.id)?'finished':''}" ${shapes.done.includes(s.id)?'disabled':''} data-choose-shape="${s.id}">${shapeSvg(s)}<small>${esc(s.name)}</small></button>`).join('')}</div><div class="lg-actionrow"><button class="lg-action lg-action-light" id="lgShapeHint">💡 Hint</button><button class="lg-action lg-action-green" id="lgShapesNext" ${shapes.done.length!==4?'disabled':''}>Next ❯</button></div></div>`);
+      <div class="lg-shape-stage"><div class="lg-shape-targets">${shapes.targets.map((s,i)=>`<button class="lg-shape-target ${shapes.done.includes(s.id)?'finished':''}" data-target-shape="${s.id}" aria-label="Ruang ${esc(s.name)}">${shapeSvg(s,!shapes.done.includes(s.id))}<small>${shapes.done.includes(s.id)?'✓':esc(s.name)}</small></button>`).join('')}</div><p class="lg-tray-head"><b>Pilih bentuk</b><small>${shapes.done.length} / 4 betul</small></p><div class="lg-shape-picks">${shapes.choices.map(s=>`<button class="lg-shape-choice ${shapes.chosen===s.id?'is-selected':''} ${shapes.done.includes(s.id)?'finished':''}" ${shapes.done.includes(s.id)?'disabled':''} data-choose-shape="${s.id}">${shapeSvg(s)}<small>${esc(s.name)}</small></button>`).join('')}</div><div class="lg-actionrow"><button class="lg-action lg-action-light" id="lgShapeHint">💡 Hint</button><button class="lg-action lg-action-green" id="lgShapesNext" ${shapes.done.length!==4?'disabled':''}>Next ❯</button></div></div>`);
       document.querySelectorAll('[data-choose-shape]').forEach(b=>b.onclick=()=>{shapes.chosen=b.dataset.chooseShape;renderShapes()});
       document.querySelectorAll('[data-target-shape]').forEach(b=>b.onclick=()=>{
         if(!shapes.chosen||shapes.done.includes(b.dataset.targetShape))return;
@@ -211,8 +213,8 @@
       document.querySelector('#lgShapeHint').onclick=()=>{shapes.chosen=shapes.targets.find(s=>!shapes.done.includes(s.id))?.id||null;renderShapes();};
       document.querySelector('#lgShapesNext').onclick=()=>{if(shapes.done.length!==4)return;shapes.round++;nextShapes();};
     }
-    function startSudoku(){
-      closeTimer();screen='sudoku';const generated=makeSudoku();
+    function startSudoku(level=sudokuLevel){
+      closeTimer();screen='sudoku';sudokuLevel=['mudah','sederhana','mencabar'].includes(level)?level:'mudah';const generated=makeSudoku(Math.random,sudokuLevel);
       sudoku={...generated,entry:generated.cells.slice(),selected:generated.cells.findIndex(x=>x===0),wrong:new Set(),round:(Number(getProgress().sudoku)||0)+1};
       renderSudoku();
     }
@@ -225,10 +227,11 @@
     }
     function renderSudoku(){
       draw(`${mkHeader('Easy Sudoku',`⭐ Level ${sudoku.round}`)}<div class="lg-sudoku-banner"><span>🦁</span><p>Fill the missing numbers!<small>Nombor 1 hingga 4, setiap baris, lajur dan kotak 2×2.</small></p></div>
-      <div class="lg-sudoku-frame"><div class="lg-sudoku-board" id="lgSudokuBoard">${sudokuBoard()}</div></div>
+      <div class="lg-sudoku-level" role="group" aria-label="Tahap Sudoku">${[['mudah','Mudah'],['sederhana','Sederhana'],['mencabar','Mencabar']].map(([id,label])=>`<button data-sudoku-level="${id}" class="${sudokuLevel===id?'chosen':''}" aria-pressed="${sudokuLevel===id}">${label}</button>`).join('')}</div><div class="lg-sudoku-frame"><div class="lg-sudoku-board" id="lgSudokuBoard">${sudokuBoard()}</div></div>
       <div class="lg-numberpad" role="group" aria-label="Pilih nombor">${[1,2,3,4].map(n=>`<button class="lg-num lg-num-${n}" data-sudoku-number="${n}">${n}</button>`).join('')}</div>
       <div class="lg-actionrow"><button class="lg-action lg-action-light" id="lgSudokuErase">⌫ Padam</button><button class="lg-action lg-action-light" id="lgSudokuHint">💡 Hint</button><button class="lg-action lg-action-green" id="lgSudokuCheck">✓ Check</button></div>`);
       updateSudoku();
+      document.querySelectorAll('[data-sudoku-level]').forEach(b=>b.onclick=()=>startSudoku(b.dataset.sudokuLevel));
       document.querySelectorAll('[data-sudoku-number]').forEach(b=>b.onclick=()=>{
         if(sudoku.selected<0||sudoku.cells[sudoku.selected])return;
         sudoku.entry[sudoku.selected]=Number(b.dataset.sudokuNumber);sudoku.wrong.delete(sudoku.selected);updateSudoku();
@@ -239,7 +242,7 @@
         sudoku.wrong=new Set(sudoku.entry.flatMap((v,i)=>v&&v!==sudoku.solution[i]?[i]:[]));updateSudoku();
         if(sudoku.wrong.size){sfx(false);document.querySelector('#lgSudokuCheck').textContent='Cuba Lagi 💪';return;}
         if(sudoku.entry.some(v=>!v)){document.querySelector('#lgSudokuCheck').textContent='Isi semua petak 😊';return;}
-        const p=getProgress();p.sudoku=(Number(p.sudoku)||0)+1;earned(`sudoku:${p.sudoku}`);sfx(true);showWin('Sudoku berjaya!','🏆','Semua nombor di tempat yang betul.',startSudoku);
+        const p=getProgress();p.sudoku=(Number(p.sudoku)||0)+1;earned(`sudoku:${p.sudoku}`);sfx(true);showWin('Sudoku berjaya!','🏆','Semua nombor di tempat yang betul.',()=>startSudoku(sudokuLevel));
       };
     }
     function startWorm(){
@@ -387,12 +390,12 @@
     }
     function startMemory(pairCount=6){
       closeTimer();screen='memory';
-      const icons=shuffle(['🦁','🐼','🐸','🦋','🐶','🐱','🐢','🐰','🐯','🐙']);
+      const icons=shuffle(['lion','panda','frog','butterfly','rabbit','apple','car','bee','dolphin','elephant','strawberry','rocket']);
       memory={pairs:pairCount,cards:shuffle(icons.slice(0,pairCount).flatMap(icon=>[icon,icon])),open:[],matched:new Set(),moves:0,locked:false};
       renderMemory();
     }
     function memoryGrid(){
-      return memory.cards.map((icon,i)=>`<button class="lg-memory-card ${memory.open.includes(i)||memory.matched.has(i)?'revealed':''} ${memory.matched.has(i)?'matched':''}" data-memory-card="${i}" aria-label="Kad ${i+1}" aria-pressed="${memory.open.includes(i)||memory.matched.has(i)}">${memory.open.includes(i)||memory.matched.has(i)?icon:'?'}</button>`).join('');
+      return memory.cards.map((icon,i)=>`<button class="lg-memory-card ${memory.open.includes(i)||memory.matched.has(i)?'revealed':''} ${memory.matched.has(i)?'matched':''}" data-memory-card="${i}" aria-label="Kad ${i+1}" aria-pressed="${memory.open.includes(i)||memory.matched.has(i)}">${memory.open.includes(i)||memory.matched.has(i)?`<img src="${image(icon)}" alt="${esc(pretty(icon))}" draggable="false">`:'<span aria-hidden="true">?</span>'}</button>`).join('');
     }
     function updateMemory(){
       const grid=document.querySelector('#lgMemoryGrid');if(grid)grid.innerHTML=memoryGrid();
@@ -400,7 +403,7 @@
       document.querySelectorAll('[data-memory-card]').forEach(b=>b.onclick=()=>pickMemory(Number(b.dataset.memoryCard)));
     }
     function renderMemory(){
-      draw(`${mkHeader('Memory Match',`⭐ ${memory.pairs} pasangan`)}<p class="lg-instruction">🐻 Cari dua kad dengan gambar yang sama!</p>
+      draw(`${mkHeader('Memory Match',`⭐ ${memory.pairs} pasangan`)}<p class="lg-instruction">🐻 Cari dua kad kartun dengan gambar yang sama!</p>
       <div class="lg-memory-level">Bilangan pasangan: ${[4,6,8].map(n=>`<button data-memory-pairs="${n}" class="${memory.pairs===n?'chosen':''}">${n}</button>`).join('')}</div>
       <div class="lg-memory-status" id="lgMemoryStatus"></div><div class="lg-memory-grid" id="lgMemoryGrid"></div><button class="lg-action lg-action-light lg-memory-reset" id="lgMemoryReset">↻ Main Lagi</button>`);
       updateMemory();

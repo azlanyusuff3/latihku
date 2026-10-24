@@ -1,4 +1,4 @@
-# LatihKu v24.4.0
+# LatihKu v24.6.0
 
 LatihKu is a local-first and offline-first learning and practice PWA for Malaysian **Sekolah Kebangsaan** pupils from Pra to Tahun 6. It uses vanilla HTML, CSS and JavaScript, with no account, backend, cloud database, remote AI API or build step. Host the static repository over HTTPS, such as GitHub Pages, or run it on localhost for development.
 
@@ -80,12 +80,20 @@ The offline guided learning mode covers four operations with grade-appropriate n
 
 Access it from the home-screen shortcut or from Mathematics > Fahami Soalan Berayat. A guided session can be saved and resumed; recent guided sessions and current progress are stored in the existing local profile under wordProblems. Results also contribute to standard Maths progress, with independent success counted only when all three stages are correct on the first try. Original LatihKu-generated questions work offline without APIs or third-party packages.
 
-### Cartoon Spot the Difference (24.5.3)
+### Cartoon Spot the Difference (24.6.0)
 
-Eight original SVG scenes in `spot-scenes.js` use identical paired geometry with 5–7 registered differences per scene. Touch either picture to answer; two temporary hints are available per round. Phone layouts stack equal-size scenes. Keyboard players can focus a board, move the crosshair with arrow keys and submit with Enter/Space. No external image downloads are required.
+Twenty original SVG scenes in `spot-scenes.js` (8) and `spot-extra-scenes.js` (12) use identical paired geometry with 5–9 registered differences per scene. Later scenes introduce increasingly subtle details and theme-specific drawings (dinosaurs, ice cream shop, party, zoo, robot city, train, pirate island, fruit market, sports, circus, playground and magic castle). Touch either picture to answer; two temporary hints are available per round. Phone layouts stack equal-size scenes. Keyboard players can focus a board, move the crosshair with arrow keys and submit with Enter/Space. No external image downloads are required.
 
 Implementation references reviewed: [DaHaMMeR79/Spot-The-Difference](https://github.com/DaHaMMeR79/Spot-The-Difference) for region detection and found markers, and [widmogrod/js-spot-the-difference](https://github.com/widmogrod/js-spot-the-difference) for per-board difference data and proportional positioning. Artwork and implementation here are original; no reference assets or code were copied. Run `node tests/spot-browser.cjs` with Playwright for scaled input, hint limits, level progression and mobile/desktop regression.
 
 ### Worm Game controls (24.5.4)
 
 Tap anywhere on the board to steer the worm toward that spot, measured from its head. A tap straight ahead, straight behind or on the head is ignored, so the worm never reverses by accident. Swipe on the board and the arrow/WASD keys still work; the on-screen d-pad was removed. Space or the pause button pauses.
+
+## Kids Games Phase 1 — Cartoon Only (v24.6.0)
+
+The Games hub now shows **10 playable tiles**: five jigsaw puzzle collections (animals, vehicles, fruit, nature, mixed), Shape Match, Easy Sudoku, Worm, Memory Match and Spot the Difference. The original Worm controls remain unchanged. Each jigsaw offers 9, 16, 20 or 30 pieces, with 76 original cartoon scene compositions. All images shown in Games are **cartoon vector SVGs, never photographic WEBP images from General**. Memory Match also uses the same cartoon art. Shape Match preserves each round's choices rather than reshuffling mid-play. Sudoku offers Mudah / Sederhana / Mencabar, with uniquely solvable 4×4 puzzles. Spot the Difference includes 20 scenes.
+
+The original icons in 67 cartoon compositions come from Twemoji under CC BY 4.0, with attribution and changes documented in [assets/game-cartoons/ATTRIBUTION.md](assets/game-cartoons/ATTRIBUTION.md). Nine additional game illustrations and all Spot scenes are original LatihKu drawings. Game assets are bundled as JS/SVG and precached by the service worker; no third-party URLs are loaded during gameplay. Existing progress and prior stars are preserved.
+
+Test with `node tests/games.mjs`, `node tests/spot-browser.cjs`, `node tests/worm-browser.cjs` and `node tests/phase1-browser.cjs` (browser checks require Playwright/Chromium). GitHub Actions runs all of these checks on every push.
