@@ -1,4 +1,4 @@
-importScripts('./version.js?v=24.6.0','./general-assets.js?v=24.6.0');
+importScripts('./version.js?v=24.6.1','./general-assets.js?v=24.6.1');
 const RELEASE=globalThis.LATIH_VERSION;
 const SHELL_CACHE=`latihku-shell-v${RELEASE}`;
 const DATA_CACHE=`latihku-data-v${RELEASE}`;

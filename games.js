@@ -12,8 +12,13 @@
     {id:'nature', title:'Nature Puzzle', label:'Alam Semula Jadi', icon:'🌻', cover:'sunflower', tone:'green', items:'sun moon earth jupiter venus mars rose orchid sunflower lotus tulip hibiscus oak bamboo fern cactus'.split(' ')},
     {id:'fun', title:'Fun Puzzle', label:'Macam-macam', icon:'🎸', cover:'guitar', tone:'purple', items:'guitar piano violin drums football basketball badminton xylophone waffle pizza croissant burger school astronaut tambourine ukulele taco nasilemak'.split(' ')}
   ];
-  const definitions = allDefinitions;
+  // Keep the five original puzzle categories (and progress keys), but expose
+  // only one Jigsaw Puzzle card in the Games home screen.
   const puzzleTypes = allDefinitions.filter(d=>d.items);
+  const definitions = [
+    {id:'puzzle',title:'Jigsaw Puzzle',label:'5 kategori · 76 gambar kartun',icon:'🧩',tone:'yellow'},
+    ...allDefinitions.filter(d=>!d.items)
+  ];
   const allImages = new Set(puzzleTypes.flatMap(d=>d.items));
   const pieceOptions = [{n:9,cols:3,rows:3,label:'Mudah'},{n:16,cols:4,rows:4,label:'Santai'},{n:20,cols:4,rows:5,label:'Hebat'},{n:30,cols:5,rows:6,label:'Cabaran'}];
   const image = id => window.LATIH_CARTOONS.image(id);
@@ -86,6 +91,7 @@
     const mkHeader=(title,info='')=>`<header class="lg-gamehead"><button class="lg-back" data-game-back aria-label="Kembali">‹</button><h1>${esc(title)}</h1>${info?`<span class="lg-head-pill">${info}</span>`:''}</header>`;
     const draw=(html)=>{shell(`<div class="lg-screen">${html}</div>`,'games');document.querySelector('[data-game-back]')?.addEventListener('click',back);};
     const cover=(game)=>{
+      if(game.id==='puzzle')return `<div class="lg-art-jigsaw" aria-hidden="true"><img src="${image('lion')}" alt=""><img src="${image('car')}" alt=""><img src="${image('apple')}" alt=""><span>🧩</span></div>`;
       if(game.id==='shapes')return '<div class="lg-art-shapes"><i>★</i><i>●</i><i>▲</i><i>■</i></div>';
       if(game.id==='sudoku')return '<div class="lg-art-sudoku"><i>1</i><i>2</i><i>3</i><i>4</i><i>1</i><i>2</i><i>3</i><i>4</i><i>1</i></div>';
       if(game.id==='worm')return '<div class="lg-art-worm"><span>🍎</span><b>🐛</b><span>🟡</span></div>';
@@ -96,26 +102,56 @@
     };
     const hub=()=>{
       screen='hub';closeTimer();const p=getProgress();
-      draw(`<section class="lg-hero"><div class="lg-hero-cloud a"></div><div class="lg-hero-cloud b"></div><span class="lg-hero-sun">☀️</span><div><h1><span>Games</span></h1><p>Pilih permainan kamu</p><div class="lg-hero-stats">🧩 76 kartun &nbsp; · &nbsp; 🎮 10 permainan &nbsp; · &nbsp; 🔍 20 scene</div></div><span class="lg-hero-child" aria-hidden="true">🙋🏻‍♂️</span></section>
+      draw(`<section class="lg-hero"><div class="lg-hero-cloud a"></div><div class="lg-hero-cloud b"></div><span class="lg-hero-sun">☀️</span><div><h1><span>Games</span></h1><p>Pilih permainan kamu</p><div class="lg-hero-stats">🧩 76 kartun &nbsp; · &nbsp; 🎮 6 permainan &nbsp; · &nbsp; 🔍 20 scene</div></div><span class="lg-hero-child" aria-hidden="true">🙋🏻‍♂️</span></section>
       <section class="lg-gallery" aria-label="Pilih permainan">${definitions.map(g=>`<button class="lg-gamecard lg-tone-${g.tone}" data-open-game="${g.id}"><div class="lg-cardart">${cover(g)}</div><div class="lg-cardlabel"><strong>${esc(g.title)}</strong><span aria-hidden="true">›</span></div><small>${g.items?`${g.items.length} gambar · 9–30 keping`:esc(g.label)}</small></button>`).join('')}</section><p class="lg-offline">🌈 Semua permainan boleh dimainkan tanpa internet selepas aset dimuatkan.</p>`);
       document.querySelectorAll('[data-open-game]').forEach(b=>b.addEventListener('click',()=>openGame(b.dataset.openGame)));
     };
     function openGame(id){
       closeTimer();
       const kind=definitions.find(g=>g.id===id);if(!kind)return hub();
-      if(kind.items){category=id;return library();}
+      if(id==='puzzle')return puzzleCategories();
       if(id==='shapes')return startShapes();
       if(id==='sudoku')return startSudoku();
       if(id==='worm')return startWorm();
       if(id==='memory')return startMemory();
       if(id==='spot')return startSpot();
     }
-    const selectedCategory=()=>definitions.find(g=>g.id===category)||definitions[0];
+    const selectedCategory=()=>puzzleTypes.find(g=>g.id===category)||puzzleTypes[0];
+    function puzzleCategories(){
+      screen='categories';closeTimer();
+      const p=getProgress();
+      const doneCount=puzzleTypes.reduce((sum,g)=>sum+g.items.filter(name=>p.completed[`puzzle:${g.id}:${name}`]).length,0);
+      draw(`${mkHeader('Jigsaw Puzzle','76 kartun')}
+        <div class="lg-intro lg-puzzle-intro">
+          <h2>Pilih kategori puzzle 🧩</h2>
+          <p>Semua gambar kartun. Pilih kategori untuk mula bermain, kemudian pilih bilangan kepingan.</p>
+          <span class="lg-category-total">⭐ ${doneCount} / ${allImages.size} puzzle siap</span>
+        </div>
+        <section class="lg-category-grid" aria-label="Kategori Jigsaw Puzzle">
+          ${puzzleTypes.map(g=>{
+            const done=g.items.filter(name=>p.completed[`puzzle:${g.id}:${name}`]).length;
+            return `<button type="button" class="lg-category-card" data-puzzle-category="${g.id}">
+              <span class="lg-category-art lg-tone-${g.tone}" aria-hidden="true">
+                ${g.items.slice(0,3).map(name=>`<img src="${image(name)}" alt="" loading="lazy">`).join('')}
+                <span class="lg-category-emoji">${g.icon}</span>
+              </span>
+              <span class="lg-category-info"><strong>${esc(g.label)}</strong><small>${g.items.length} gambar kartun</small></span>
+              <span class="lg-category-progress">${done ? '⭐ ' : ''}${done} / ${g.items.length} siap <b aria-hidden="true">›</b></span>
+            </button>`;
+          }).join('')}
+        </section>`);
+      document.querySelectorAll('[data-puzzle-category]').forEach(button=>button.addEventListener('click',()=>{
+        const selected=puzzleTypes.find(g=>g.id===button.dataset.puzzleCategory);
+        if(!selected)return;
+        category=selected.id;
+        library();
+      }));
+    }
     const counts=()=>`<div class="lg-counts" role="group" aria-label="Bilangan kepingan">${pieceOptions.map(o=>`<button data-pieces="${o.n}" class="${pieceCount===o.n?'chosen':''}" aria-pressed="${pieceCount===o.n}"><strong>${o.n}</strong><small>${o.label}</small></button>`).join('')}</div>`;
     const bindCounts=(onSelect)=>document.querySelectorAll('[data-pieces]').forEach(b=>b.addEventListener('click',()=>{pieceCount=Number(b.dataset.pieces);onSelect();}));
     function library(){
       screen='library';closeTimer();const g=selectedCategory(),p=getProgress();
-      draw(`${mkHeader(g.title,`${g.items.length} gambar`)}<div class="lg-intro"><h2>Pilih puzzle kamu 🧩</h2><p>Puluhan gambar untuk diteroka. Pilih tahap kepingan dahulu.</p></div>${counts()}
+      draw(`${mkHeader(g.label,`${g.items.length} gambar`)}<div class="lg-intro"><h2>${esc(g.label)} · Puzzle 🧩</h2><p>Pilih bilangan kepingan dan gambar kartun yang kamu suka.</p></div>${counts()}
       <div class="lg-level-grid">${g.items.map((name,i)=>`<button class="lg-level-card" data-level="${i}"><span class="lg-level-thumb"><img src="${image(name)}" alt="" loading="lazy"></span><span class="lg-level-name"><b>${esc(pretty(name))}</b><small>Level ${i+1}</small></span><span class="lg-level-done">${p.completed[`puzzle:${g.id}:${name}`]?'⭐':'›'}</span></button>`).join('')}</div>`);
       bindCounts(library);
       document.querySelectorAll('[data-level]').forEach(b=>b.addEventListener('click',()=>startPuzzle(Number(b.dataset.level))));
@@ -484,7 +520,8 @@
     function back(){
       closeTimer();
       if(screen==='puzzle'){puzzle=null;return library();}
-      if(screen==='library')return hub();
+      if(screen==='library')return puzzleCategories();
+      if(screen==='categories')return hub();
       return hub();
     }
     function dispose(){closeTimer();screen='hub';}

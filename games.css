@@ -240,3 +240,29 @@
  .lg-level-thumb{height:122px;}
  .lg-cartoon-area>section{border-width:3px;border-radius:15px;}
 }
+
+/* 24.6.1 — nested Jigsaw categories: one Games tile, five illustrated collections */
+.lg-art-jigsaw{position:relative;display:block;width:100%;height:100%;z-index:1;}
+.lg-art-jigsaw img{position:absolute;width:46%;height:74%;object-fit:contain;border:4px solid #fff;border-radius:16px;background:#fff8f0;box-shadow:0 6px 10px #354c6b40;top:11%;box-sizing:border-box;}
+.lg-art-jigsaw img:nth-child(1){left:7%;transform:rotate(-13deg);}
+.lg-art-jigsaw img:nth-child(2){left:28%;top:8%;transform:rotate(7deg);}
+.lg-art-jigsaw img:nth-child(3){left:52%;top:16%;transform:rotate(14deg);}
+.lg-art-jigsaw>span{position:absolute;bottom:0;right:9%;font-size:30px;filter:drop-shadow(0 2px 1px #fff);z-index:2;}
+.lg-puzzle-intro{display:grid;gap:7px;}
+.lg-category-total{justify-self:start;display:inline-flex;align-items:center;min-height:32px;padding:5px 12px;background:#e5f7e7;color:#2d7653;border-radius:16px;font-size:12px;font-weight:900;}
+.lg-category-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:0 auto 16px;max-width:710px;}
+.lg-category-card{display:flex;flex-direction:column;align-items:stretch;text-align:left;overflow:hidden;min-width:0;padding:0 0 10px;border:3px solid #fff;border-radius:23px;background:#fff;color:#16335c;box-shadow:var(--lg-shadow);touch-action:manipulation;transition:transform .16s ease,box-shadow .16s ease;}
+.lg-category-card:hover{transform:translateY(-2px);box-shadow:0 13px 23px #244a8029;}
+.lg-category-art{display:block;position:relative;height:126px;width:100%;overflow:hidden;background:linear-gradient(145deg,var(--lg-from),var(--lg-to));isolation:isolate;}
+.lg-category-art img{display:block;position:absolute;box-sizing:border-box;width:44%;height:74%;top:13%;object-fit:contain;border:3px solid #fff;border-radius:14px;background:#fff9ef;box-shadow:0 5px 8px #28517a40;}
+.lg-category-art img:nth-child(1){left:4%;transform:rotate(-11deg);z-index:1;}
+.lg-category-art img:nth-child(2){left:28%;top:8%;transform:rotate(5deg);z-index:2;}
+.lg-category-art img:nth-child(3){right:3%;top:15%;transform:rotate(12deg);z-index:3;}
+.lg-category-emoji{position:absolute;bottom:3px;right:7px;z-index:4;font-size:29px;filter:drop-shadow(0 2px 2px #fff);}
+.lg-category-info{display:grid;gap:3px;min-width:0;padding:10px 12px 3px;}
+.lg-category-info strong{font-size:clamp(13px,3.8vw,17px);line-height:1.2;font-weight:1000;overflow-wrap:anywhere;}
+.lg-category-info small{font-size:11px;color:#617993;font-weight:750;}
+.lg-category-progress{display:flex;align-items:center;justify-content:space-between;gap:4px;margin:auto 12px 0;padding-top:6px;color:#3d7c88;font-size:11px;font-weight:850;}
+.lg-category-progress b{display:grid;place-items:center;border-radius:50%;width:25px;height:25px;font-size:22px;line-height:1;background:#e0f1fc;color:#2d86c0;}
+@media(min-width:700px){.lg-category-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;}.lg-category-art{height:150px;}}
+@media(max-width:460px){.lg-category-grid{gap:9px;}.lg-category-card{border-radius:18px;padding-bottom:7px;}.lg-category-art{height:108px;}.lg-category-art img{border-width:2px;border-radius:11px;}.lg-category-info{padding:8px 8px 3px;}.lg-category-info strong{font-size:13px;}.lg-category-info small,.lg-category-progress{font-size:10px;}.lg-category-progress{margin:0 8px;}.lg-category-emoji{font-size:23px;}.lg-art-jigsaw img{border-width:3px;border-radius:11px;}}

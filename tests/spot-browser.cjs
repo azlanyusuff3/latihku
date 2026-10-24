@@ -25,7 +25,7 @@ for(const width of [320,390,1280]){
  assert.equal(await page.evaluate(()=>state.games.stars),20);
  await page.locator('#lgSpotHint').click();await page.waitForTimeout(2500);await page.locator('#lgSpotHint').click();await page.waitForTimeout(2500);assert(await page.locator('#lgSpotHint').isDisabled());
  await page.locator('#lgSpotLevel').selectOption('6');assert.match(await page.locator('#lgSpotFound').textContent(),/0 \/ 7/);assert.equal(await page.locator('.lg-scene-ring').count(),0);
- await page.locator('#lgSpotHint').click();await page.locator('[data-game-back]').click();await page.waitForTimeout(2500);assert.equal(await page.locator('[data-open-game]').count(),10);
+ await page.locator('#lgSpotHint').click();await page.locator('[data-game-back]').click();await page.waitForTimeout(2500);assert.equal(await page.locator('[data-open-game]').count(),6);assert.equal(await page.locator('[data-open-game="puzzle"]').count(),1);
  assert.deepEqual(errors,[]);await page.close();
 }
 console.log('Spot cartoon browser checks passed: 20 scenes, both pictures, scaled hits, mistakes, duplicate taps, hint limits/cleanup, level switch, progression and mobile/desktop layouts.');

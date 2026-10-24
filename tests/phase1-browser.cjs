@@ -19,10 +19,19 @@ const path=require('node:path');
     window.game=LATIH_GAMES.create({shell:html=>document.querySelector('#app').innerHTML=html,getState:()=>state,save:()=>{},esc:s=>s,beep:()=>{}});
     game.home();
    });
-   const home=async()=>assert.equal(await page.locator('[data-open-game]').count(),10,'ten playable game tiles');
+   const home=async()=>{
+    assert.equal(await page.locator('[data-open-game]').count(),6,'six game tiles with one Jigsaw Puzzle');
+    assert.equal(await page.locator('[data-open-game="puzzle"]').count(),1,'puzzle combines five categories');
+    assert.equal(await page.locator('[data-open-game="animal"]').count(),0,'no scattered category tiles');
+   };
    await home();
+   await page.evaluate(()=>{state.games.completed['puzzle:animal:lion']=12345;});
+   await page.locator('[data-open-game="puzzle"]').click();
+   assert.equal(await page.locator('[data-puzzle-category]').count(),5,'five puzzle categories in one menu');
+   assert.equal(await page.locator('.lg-category-art img[src^="data:image/svg+xml"]').count(),15,'all category previews are local cartoon vectors');
+   assert.match(await page.locator('[data-puzzle-category="animal"]').textContent(),/1 \/ 15 siap/,'old progress key is preserved');
    for(const [category,count] of [['animal',15],['vehicle',16],['fruit',11],['nature',16],['fun',18]]){
-    await page.locator('[data-open-game="'+category+'"]').click();
+    await page.locator('[data-puzzle-category="'+category+'"]').click();
     assert.equal(await page.locator('.lg-level-card').count(),count,category+' cartoon collection');
     assert.equal(await page.locator('.lg-level-thumb img[src^="data:image/svg+xml"]').count(),count,'all illustrated, no photos');
     await page.locator('[data-pieces="9"]').click();
@@ -34,9 +43,12 @@ const path=require('node:path');
     await page.locator('[data-slot="'+tile+'"]').click();
     assert((await page.locator('#lgPiecesProgress').textContent()).includes('2 / 9'),'a correctly placed piece advances progress');
     await page.locator('[data-game-back]').click();
+    assert.equal(await page.locator('.lg-level-card').count(),count,'back from image puzzle returns to image selection');
     await page.locator('[data-game-back]').click();
-    await home();
+    assert.equal(await page.locator('[data-puzzle-category]').count(),5,'back from image selection returns to category menu');
    }
+   await page.locator('[data-game-back]').click();
+   await home();
    await page.locator('[data-open-game="shapes"]').click();
    const shape=await page.locator('[data-choose-shape]').first().getAttribute('data-choose-shape');
    await page.locator('[data-choose-shape="'+shape+'"]').click();
@@ -71,6 +83,6 @@ const path=require('node:path');
    assert.deepEqual(errors,[],'No JS runtime errors');
    await page.close();
   }
-  console.log('Phase 1 browser checks passed: 10 playable games, 76 unique cartoon-only SVG puzzles, 3 Sudoku levels and 20 Spot scenes.');
+  console.log('Phase 1 browser checks passed: 6 Games tiles, 5 grouped Jigsaw categories, 76 cartoon SVG puzzles, 3 Sudoku levels and 20 Spot scenes.');
  }finally{await browser.close()}
 })().catch(e=>{console.error(e);process.exit(1)});
