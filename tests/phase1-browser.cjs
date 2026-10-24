@@ -20,7 +20,7 @@ const path=require('node:path');
     game.home();
    });
    const home=async()=>{
-    assert.equal(await page.locator('[data-open-game]').count(),6,'six game tiles with one Jigsaw Puzzle');
+    assert.equal(await page.locator('[data-open-game]').count(),10,'ten tiles with one Jigsaw Puzzle and four new games');
     assert.equal(await page.locator('[data-open-game="puzzle"]').count(),1,'puzzle combines five categories');
     assert.equal(await page.locator('[data-open-game="animal"]').count(),0,'no scattered category tiles');
    };
@@ -83,6 +83,6 @@ const path=require('node:path');
    assert.deepEqual(errors,[],'No JS runtime errors');
    await page.close();
   }
-  console.log('Phase 1 browser checks passed: 6 Games tiles, 5 grouped Jigsaw categories, 76 cartoon SVG puzzles, 3 Sudoku levels and 20 Spot scenes.');
+  console.log('Phase 1 browser checks passed: 10 Games tiles, 5 grouped Jigsaw categories, 76 cartoon SVG puzzles, 3 Sudoku levels and 20 Spot scenes.');
  }finally{await browser.close()}
 })().catch(e=>{console.error(e);process.exit(1)});

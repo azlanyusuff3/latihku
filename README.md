@@ -1,4 +1,4 @@
-# LatihKu v24.6.1
+# LatihKu v24.7.0
 
 LatihKu is a local-first and offline-first learning and practice PWA for Malaysian **Sekolah Kebangsaan** pupils from Pra to Tahun 6. It uses vanilla HTML, CSS and JavaScript, with no account, backend, cloud database, remote AI API or build step. Host the static repository over HTTPS, such as GitHub Pages, or run it on localhost for development.
 
@@ -80,7 +80,7 @@ The offline guided learning mode covers four operations with grade-appropriate n
 
 Access it from the home-screen shortcut or from Mathematics > Fahami Soalan Berayat. A guided session can be saved and resumed; recent guided sessions and current progress are stored in the existing local profile under wordProblems. Results also contribute to standard Maths progress, with independent success counted only when all three stages are correct on the first try. Original LatihKu-generated questions work offline without APIs or third-party packages.
 
-### Cartoon Spot the Difference (24.6.1)
+### Cartoon Spot the Difference (24.7.0)
 
 Twenty original SVG scenes in `spot-scenes.js` (8) and `spot-extra-scenes.js` (12) use identical paired geometry with 5–9 registered differences per scene. Later scenes introduce increasingly subtle details and theme-specific drawings (dinosaurs, ice cream shop, party, zoo, robot city, train, pirate island, fruit market, sports, circus, playground and magic castle). Touch either picture to answer; two temporary hints are available per round. Phone layouts stack equal-size scenes. Keyboard players can focus a board, move the crosshair with arrow keys and submit with Enter/Space. No external image downloads are required.
 
@@ -90,7 +90,7 @@ Implementation references reviewed: [DaHaMMeR79/Spot-The-Difference](https://git
 
 Tap anywhere on the board to steer the worm toward that spot, measured from its head. A tap straight ahead, straight behind or on the head is ignored, so the worm never reverses by accident. Swipe on the board and the arrow/WASD keys still work; the on-screen d-pad was removed. Space or the pause button pauses.
 
-## Kids Games Phase 1 — Cartoon Only (v24.6.1)
+## Kids Games Phase 1 — Cartoon Only (v24.7.0)
 
 The Games hub now shows **6 playable tiles**: a single **Jigsaw Puzzle** card which opens five dedicated cartoon categories (animals, vehicles, fruit, nature and mixed), plus Shape Match, Easy Sudoku, Worm, Memory Match and Spot the Difference. The original Worm controls remain unchanged. Each jigsaw offers 9, 16, 20 or 30 pieces, with 76 original cartoon scene compositions. All images shown in Games are **cartoon vector SVGs, never photographic WEBP images from General**. Memory Match also uses the same cartoon art. Shape Match preserves each round's choices rather than reshuffling mid-play. Sudoku offers Mudah / Sederhana / Mencabar, with uniquely solvable 4×4 puzzles. Spot the Difference includes 20 scenes.
 
@@ -98,6 +98,23 @@ The original icons in 67 cartoon compositions come from Twemoji under CC BY 4.0,
 
 Test with `node tests/games.mjs`, `node tests/spot-browser.cjs`, `node tests/worm-browser.cjs` and `node tests/phase1-browser.cjs` (browser checks require Playwright/Chromium). GitHub Actions runs all of these checks on every push.
 
-## Jigsaw category grouping (v24.6.1)
+## Jigsaw category grouping (v24.7.0)
 
 The five jigsaw collections have been combined under one **Jigsaw Puzzle** tile in the Games menu. Tap it to see the illustrated **Haiwan**, **Kenderaan**, **Buah-buahan**, **Alam Semula Jadi**, or **Macam-macam** categories, then choose the desired puzzle image and 9/16/20/30-piece difficulty. The Back button moves from an active puzzle to that category's image gallery, then to the five-category picker, then back to Games. The original category-specific completion keys (`puzzle:<category>:<image>`) are unchanged; children's prior completed puzzles and stars remain available. The same 76 cartoon SVG artworks and offline-first loading are preserved.
+
+## Kids Games Phase 2 (v24.7.0) — 4 new cartoon mini games
+
+Four new games have joined the same Games menu without moving the existing **Jigsaw Puzzle** category picker or changing existing saved progress:
+
+| Game | Content | Controls | What it practices |
+| --- | --- | --- | --- |
+| **Maze Adventure** 🐰 | 30 seeded levels, in three worlds (5×5, 7×7, 9×9), each with a provably connected route | arrow controls, directional keys/WASD, swipe or adjacent tile tap; 2 hints per level | navigation and planning |
+| **Hidden Objects** 🔎 | 12 original illustrated cartoon scenes with 9 drawable objects each, and 5–7 requested finds | tap an object; 2 temporary hint highlights per scene | concentration and visual search |
+| **Connect the Dots** ✏️ | 20 numbered drawings, including a star, house, animal, rocket and castle | tap points in numeric sequence; 2 visual hints, colourful reveal | number ordering and hand-eye coordination |
+| **Pattern Detective** 🧠 | 60 seeded icon and number-sequence levels across three difficulties | choose one of three options; gentle feedback and pattern highlight hint | recognising repetitions and sequences |
+
+All new gameplay is implemented in **`phase2-data.js`**, **`phase2-games.js`** and **`phase2-games.css`**. Artwork is composed from original inline SVG paths and the locally bundled licensed Twemoji illustrations credited in [assets/game-cartoons/ATTRIBUTION.md](assets/game-cartoons/ATTRIBUTION.md). No photographic images, third-party scripts, online APIs or additional dependencies are used. These three files are versioned in `index.html` and precached by `sw.js` so they work offline after installation. The game engine and existing school, colouring, General, Jigsaw, Worm and Spot features are preserved.
+
+Progress is saved under the existing `games.completed` map with new unique keys `maze:0..29`, `hidden:0..11`, `dots:0..19` and `pattern:0..59`; each cleared level awards one star only once. No save migration is needed. All game pages use the existing phone-friendly Games hub, offer Back and replay, and do not require log-in.
+
+Phase 2 tests: `node tests/phase2.mjs` covers data generation, perfect-maze connectivity, cartoon assets, dots and pattern correctness. `node tests/phase2-browser.cjs` covers actual interaction on phone/desktop viewports, game completion, hints, wrong-answer behavior, levels and progress. GitHub Actions executes both on every push.

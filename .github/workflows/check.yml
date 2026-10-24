@@ -10,6 +10,7 @@ jobs:
           node-version: '22'
       - run: node tests/check.mjs
       - run: node tests/games.mjs
+      - run: node tests/phase2.mjs
       - run: node tests/word-problems.mjs
       - run: node tests/general.mjs
       - run: node tests/general-worker.mjs
@@ -30,6 +31,7 @@ jobs:
           node tests/worm-browser.cjs
           node tests/spot-browser.cjs
           node tests/phase1-browser.cjs
+          node tests/phase2-browser.cjs
       - uses: actions/upload-artifact@v4
         if: always()
         with:

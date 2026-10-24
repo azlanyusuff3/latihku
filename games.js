@@ -17,7 +17,11 @@
   const puzzleTypes = allDefinitions.filter(d=>d.items);
   const definitions = [
     {id:'puzzle',title:'Jigsaw Puzzle',label:'5 kategori · 76 gambar kartun',icon:'🧩',tone:'yellow'},
-    ...allDefinitions.filter(d=>!d.items)
+    ...allDefinitions.filter(d=>!d.items),
+    {id:'maze',title:'Maze Adventure',label:'Cari Jalan · 30 level',icon:'🐰',tone:'green'},
+    {id:'hidden',title:'Hidden Objects',label:'Cari Objek · 12 dunia',icon:'🔎',tone:'mint'},
+    {id:'dots',title:'Connect the Dots',label:'Sambung Titik · 20 gambar',icon:'✏️',tone:'pink'},
+    {id:'pattern',title:'Pattern Detective',label:'Teka Corak · 60 level',icon:'🧠',tone:'purple'}
   ];
   const allImages = new Set(puzzleTypes.flatMap(d=>d.items));
   const pieceOptions = [{n:9,cols:3,rows:3,label:'Mudah'},{n:16,cols:4,rows:4,label:'Santai'},{n:20,cols:4,rows:5,label:'Hebat'},{n:30,cols:5,rows:6,label:'Cabaran'}];
@@ -73,7 +77,7 @@
   function create({shell,getState,save,esc,beep}) {
     let screen='hub',category='animal',puzzleIndex=0,pieceCount=20,puzzle=null;
     let shapes=null,sudoku=null,worm=null,memory=null,spot=null,sudokuLevel='mudah';
-    let wormTimer=null,memoryTimer=null,spotTimer=null,wormListening=false,lastCompletion=null;
+    let wormTimer=null,memoryTimer=null,spotTimer=null,wormListening=false,lastCompletion=null,phase2Game=null;
     const sfx=ok=>{try{beep(ok);}catch{}};
     const getProgress=()=>{
       const state=getState();
@@ -92,6 +96,8 @@
     const draw=(html)=>{shell(`<div class="lg-screen">${html}</div>`,'games');document.querySelector('[data-game-back]')?.addEventListener('click',back);};
     const cover=(game)=>{
       if(game.id==='puzzle')return `<div class="lg-art-jigsaw" aria-hidden="true"><img src="${image('lion')}" alt=""><img src="${image('car')}" alt=""><img src="${image('apple')}" alt=""><span>🧩</span></div>`;
+      const art={maze:['🌳','🐰','🥕'],hidden:['🌻','🔎','🦋'],dots:['✏️','🌟','🔢'],pattern:['🐻','🧠','🍎']};
+      if(art[game.id])return `<div class="lg-art-phase2" aria-hidden="true">${art[game.id].map(icon=>`<span>${icon}</span>`).join('')}</div>`;
       if(game.id==='shapes')return '<div class="lg-art-shapes"><i>★</i><i>●</i><i>▲</i><i>■</i></div>';
       if(game.id==='sudoku')return '<div class="lg-art-sudoku"><i>1</i><i>2</i><i>3</i><i>4</i><i>1</i><i>2</i><i>3</i><i>4</i><i>1</i></div>';
       if(game.id==='worm')return '<div class="lg-art-worm"><span>🍎</span><b>🐛</b><span>🟡</span></div>';
@@ -101,8 +107,9 @@
       return `<img class="lg-art-picture" src="${image(game.cover)}" alt="" loading="lazy">`;
     };
     const hub=()=>{
+      phase2Game?.dispose();phase2Game=null;
       screen='hub';closeTimer();const p=getProgress();
-      draw(`<section class="lg-hero"><div class="lg-hero-cloud a"></div><div class="lg-hero-cloud b"></div><span class="lg-hero-sun">☀️</span><div><h1><span>Games</span></h1><p>Pilih permainan kamu</p><div class="lg-hero-stats">🧩 76 kartun &nbsp; · &nbsp; 🎮 6 permainan &nbsp; · &nbsp; 🔍 20 scene</div></div><span class="lg-hero-child" aria-hidden="true">🙋🏻‍♂️</span></section>
+      draw(`<section class="lg-hero"><div class="lg-hero-cloud a"></div><div class="lg-hero-cloud b"></div><span class="lg-hero-sun">☀️</span><div><h1><span>Games</span></h1><p>Pilih permainan kamu</p><div class="lg-hero-stats">🧩 76 kartun &nbsp; · &nbsp; 🎮 10 permainan &nbsp; · &nbsp; 🔍 20 scene</div></div><span class="lg-hero-child" aria-hidden="true">🙋🏻‍♂️</span></section>
       <section class="lg-gallery" aria-label="Pilih permainan">${definitions.map(g=>`<button class="lg-gamecard lg-tone-${g.tone}" data-open-game="${g.id}"><div class="lg-cardart">${cover(g)}</div><div class="lg-cardlabel"><strong>${esc(g.title)}</strong><span aria-hidden="true">›</span></div><small>${g.items?`${g.items.length} gambar · 9–30 keping`:esc(g.label)}</small></button>`).join('')}</section><p class="lg-offline">🌈 Semua permainan boleh dimainkan tanpa internet selepas aset dimuatkan.</p>`);
       document.querySelectorAll('[data-open-game]').forEach(b=>b.addEventListener('click',()=>openGame(b.dataset.openGame)));
     };
@@ -115,6 +122,13 @@
       if(id==='worm')return startWorm();
       if(id==='memory')return startMemory();
       if(id==='spot')return startSpot();
+      if(['maze','hidden','dots','pattern'].includes(id)){
+        if(!window.LATIH_PHASE2)return hub();
+        phase2Game?.dispose();
+        screen='phase2';
+        phase2Game=window.LATIH_PHASE2.create({shell,getState,save,esc,beep,onBack:hub});
+        return phase2Game.open(id);
+      }
     }
     const selectedCategory=()=>puzzleTypes.find(g=>g.id===category)||puzzleTypes[0];
     function puzzleCategories(){
@@ -522,9 +536,10 @@
       if(screen==='puzzle'){puzzle=null;return library();}
       if(screen==='library')return puzzleCategories();
       if(screen==='categories')return hub();
+      if(screen==='phase2')return hub();
       return hub();
     }
-    function dispose(){closeTimer();screen='hub';}
+    function dispose(){closeTimer();phase2Game?.dispose();phase2Game=null;screen='hub';}
     return {home:hub,dispose,getCatalog:()=>definitions};
   }
   window.LATIH_GAMES={catalog:definitions,puzzleTypes,allImages:[...allImages],pieceOptions,countSudokuSolutions,makeSudoku,create};
