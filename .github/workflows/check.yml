@@ -27,6 +27,7 @@ jobs:
           export CHROMIUM_EXECUTABLE="$(command -v google-chrome || command -v chromium)"
           node tests/general-browser.cjs
           node tests/word-browser.cjs
+          node tests/worm-browser.cjs
       - uses: actions/upload-artifact@v4
         if: always()
         with:
