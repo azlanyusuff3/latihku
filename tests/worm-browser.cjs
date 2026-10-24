@@ -58,7 +58,28 @@ const path=require('node:path');
    assert(await run(()=>game.getWorm().over),'body collision ends game');
    await run(()=>{game.startWorm();const w=game.getWorm();w.snake=[{x:10,y:0},...Array.from({length:144},(_,i)=>({x:i%12,y:Math.floor(i/12)})).filter(p=>!(p.y===0&&(p.x===10||p.x===11)))];w.previous=w.snake;w.food={x:11,y:0};w.score=140;game.stepWorm();});
    assert(await page.locator('#lgWormOverlay').isVisible());assert.match(await page.locator('#lgWormOverlay strong').textContent(),/menang/);assert.equal(await run(()=>state.games.bestWorm),141);
-   await run(()=>{game.startWorm();tick(0);tick(1000);});assert(await run(()=>game.getWorm().paused),'long frame safely pauses');
+   // Keyboard: browser shortcuts stay untouched, plain keys still steer, odd events never throw.
+   await run(()=>game.startWorm());
+   assert.equal(await run(()=>{const e=new KeyboardEvent('keydown',{key:'s',ctrlKey:true,cancelable:true,bubbles:true});document.dispatchEvent(e);return e.defaultPrevented;}),false,'Ctrl+S is left to the browser');
+   assert.equal(await run(()=>{const e=new KeyboardEvent('keydown',{key:'d',metaKey:true,cancelable:true,bubbles:true});document.dispatchEvent(e);return e.defaultPrevented;}),false,'Cmd+D is left to the browser');
+   assert.deepEqual(await run(()=>game.getWorm().queue),[],'modified keys do not steer');
+   assert.equal(await run(()=>{const e=new KeyboardEvent('keydown',{key:'W',cancelable:true,bubbles:true});document.dispatchEvent(e);return e.defaultPrevented;}),true,'plain W is handled');
+   assert.deepEqual(await run(()=>game.getWorm().queue),['up'],'plain W steers');
+   await run(()=>document.body.dispatchEvent(new Event('keydown',{bubbles:true})));
+   // Space on a focused button must toggle pause exactly once (its own click), not twice.
+   await run(()=>game.startWorm());
+   assert.equal(await run(()=>{const e=new KeyboardEvent('keydown',{key:' ',bubbles:true,cancelable:true});document.querySelector('#lgWormPause').dispatchEvent(e);return e.defaultPrevented;}),false,'Space on a button is left to the button');
+   assert.equal(await run(()=>game.getWorm().paused),false);
+   await page.locator('#lgWormPause').focus();await page.keyboard.press('Space');
+   assert.equal(await run(()=>game.getWorm().paused),true,'Space on the focused pause button toggles once');
+   await run(()=>game.startWorm());await page.keyboard.press('Space');
+   assert.equal(await run(()=>game.getWorm().paused),true,'Space with no button focused pauses');
+   // A stalled frame drops its time instead of pausing the game or fast-forwarding it.
+   await run(()=>{game.startWorm();tick(0);tick(1000);});
+   assert.equal(await run(()=>game.getWorm().paused),false,'long frame does not pause by itself');
+   assert.equal(await run(()=>game.getWorm().elapsed),0,'long frame time is dropped');
+   assert.equal(await run(()=>rafCallbacks.size),1,'loop keeps running after a long frame');
+   await run(()=>tick(1100));assert.equal(await run(()=>game.getWorm().elapsed),100,'normal timing resumes after a long frame');
    await run(()=>game.startWorm());await page.locator('[data-game-back]').click();assert.equal(await run(()=>rafCallbacks.size),0);
    await page.locator('[data-open-game="worm"]').click();await run(()=>game.dispose());assert.equal(await run(()=>rafCallbacks.size),0);await page.keyboard.press('ArrowUp');assert.deepEqual(await run(()=>game.getWorm().queue),[]);
    assert.deepEqual(errors,[]);await page.close();

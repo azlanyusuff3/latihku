@@ -263,10 +263,13 @@
       if(d!==last&&d!==opposite[last]&&worm.queue.length<2)worm.queue.push(d);
     }
     function wormKey(e){
-      if(screen!=='worm'||e.target?.closest('input,textarea,select,[contenteditable="true"]'))return;
-      const d={ArrowUp:'up',ArrowDown:'down',ArrowLeft:'left',ArrowRight:'right',w:'up',s:'down',a:'left',d:'right'}[e.key]||{w:'up',s:'down',a:'left',d:'right'}[e.key.toLowerCase()];
+      // Leave browser shortcuts (Ctrl/Cmd+S, +D, +A ...) alone.
+      if(screen!=='worm'||e.ctrlKey||e.metaKey||e.altKey||e.target?.closest?.('input,textarea,select,[contenteditable="true"]'))return;
+      const key=typeof e.key==='string'?e.key:'';
+      const d={ArrowUp:'up',ArrowDown:'down',ArrowLeft:'left',ArrowRight:'right',w:'up',s:'down',a:'left',d:'right'}[key]||{w:'up',s:'down',a:'left',d:'right'}[key.toLowerCase()];
       if(d){e.preventDefault();if(!e.repeat)changeWormDirection(d);}
-      if(e.key===' '){e.preventDefault();if(!e.repeat)toggleWorm();}
+      // Space on a focused button already fires that button's own click; toggling here too would cancel it out.
+      if(key===' '&&!e.target?.closest?.('button')){e.preventDefault();if(!e.repeat)toggleWorm();}
     }
     function wormHidden(){if(document.hidden)wormBlur();}
     function wormBlur(){if(screen==='worm'&&worm&&!worm.over&&!worm.paused)toggleWorm();}
@@ -275,8 +278,9 @@
       if(screen!=='worm'||!worm||worm.over||worm.paused)return;
       if(worm.lastTime!==null){
         const delta=time-worm.lastTime;
-        // A suspended/blocked page must not fast-forward into a wall.
-        if(delta>250){toggleWorm();return;}
+        // A stalled frame must not fast-forward into a wall. Drop that frame's time instead of
+        // pausing, so a slow phone never pauses the game by itself (hidden tabs are paused by wormHidden).
+        if(delta>250){worm.lastTime=time;wormTimer=requestAnimationFrame(animateWorm);return;}
         worm.elapsed+=delta;
       }
       worm.lastTime=time;
