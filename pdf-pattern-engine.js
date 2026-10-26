@@ -20,7 +20,7 @@ window.LATIH_PDF_ENGINE = (() => {
       if(mode===1)shown=`Pilih jawapan paling tepat. ${question}`;else if(mode===2)shown=`${student} membuat ulang kaji ${context}. ${question}`;else if(mode===3)shown=`Kad ulang kaji untuk ${student}: ${question}`;else if(mode===4)shown=`Baca dengan teliti dan jawab. ${question}`;else if(mode===5)shown=`${student} sedang membuat latihan kendiri ${context}. ${question}`;
     }
     const sig=norm(`${subject}|${topic}|${question}|${c}`);
-    return {id:`PDFGEN-${subject.toUpperCase()}-${Date.now()}-${Math.random().toString(36).slice(2,9)}`,topic,question:shown,correct:c,answers,explanation,difficulty,concept:`pdf-${subject}-${key||sig.slice(0,70)}`,smart:true,pdfPattern:true,smartSignature:sig,source:'LatihKu AI Question Engine',alignment:'PDF-pattern inspired · KPM/JAIS aligned practice',itemType:'mcq',...meta};
+    return {id:`PDFGEN-${subject.toUpperCase()}-${Date.now()}-${Math.random().toString(36).slice(2,9)}`,topic,question:shown,correct:c,answers,explanation,difficulty,concept:`pdf-${subject}-${key||sig.slice(0,70)}`,smart:true,pdfPattern:true,smartSignature:sig,source:'LatihKu Template Question Engine',alignment:'PDF-pattern inspired · KPM/JAIS aligned practice',itemType:'mcq',...meta};
   }
   function chooseTopic(subject,topic,weak={}){ if(topic&&topic!=='Campur Semua')return topic; const ts=C.subjects[subject]?.topics||[]; if(!ts.length)return ''; const w=[]; for(const t of ts){const n=Math.max(1,Math.min(5,1+(Number(weak[t])||0)));for(let i=0;i<n;i++)w.push(t);} return pick(w); }
   function diffFor(level,d){if(d&&d!=='auto'&&d!=='uasa')return d; const y=+level||1; return y<=2?pick(['mudah','mudah','sederhana']):y<=4?pick(['mudah','sederhana','sederhana']):pick(['sederhana','sederhana','sukar']);}
@@ -138,3 +138,4 @@ window.LATIH_PDF_ENGINE = (() => {
   function supports(level,subject){return ['1','2'].includes(String(level))&&!!GENS[subject];}
   return {makeSet,generateOne,supports};
 })();
+

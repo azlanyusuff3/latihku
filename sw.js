@@ -1,4 +1,4 @@
-importScripts('./version.js?v=24.8.2','./general-assets.js?v=24.8.2');
+importScripts('./version.js?v=24.8.3','./general-assets.js?v=24.8.3');
 const RELEASE=globalThis.LATIH_VERSION;
 const SHELL_CACHE=`latihku-shell-v${RELEASE}`;
 const DATA_CACHE=`latihku-data-v${RELEASE}`;
@@ -39,3 +39,4 @@ self.addEventListener('fetch',e=>{
     catch{return new Response('Offline asset unavailable',{status:503})}
   })());
 });
+

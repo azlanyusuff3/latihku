@@ -133,3 +133,8 @@
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; scroll-behavior: auto !important; }
 }
+
+
+/* Tutor examples keep quantities legible on narrow screens. */
+.ai-combine .move-left,.ai-combine .move-right{display:flex;flex-wrap:wrap;gap:5px;justify-content:center;max-width:145px}
+.tutor-steps{width:100%;text-align:left;line-height:1.6;overflow-wrap:anywhere}.tutor-steps ol{padding-left:24px}.tutor-steps li{margin:10px 0}.tutor-steps .picture-card{margin:auto}

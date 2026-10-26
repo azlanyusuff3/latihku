@@ -1,4 +1,4 @@
-/* LatihKu engine: curated-first rotation + AI/PDF-pattern generator + procedural Math. */
+/* LatihKu engine: curated-first rotation + template/PDF-pattern generator + procedural Math. */
 window.LATIH_ENGINE = (() => {
   const C=window.LATIH_CONFIG;
   const memory=new Map();
@@ -11,11 +11,23 @@ window.LATIH_ENGINE = (() => {
     const num=Number(String(correct).replace(/,/g,''));
     if(Number.isFinite(num)){for(const x of [num+2,Math.max(0,num-2),num+5,Math.max(0,num-5)]){if(dist.length>=3)break;const s=String(x);if(s!==c&&!dist.includes(s))dist.push(s)}}
     for(const x of ['Tidak berkaitan','Pilihan lain','Tiada perubahan']){if(dist.length>=3)break;if(x!==c&&!dist.includes(x))dist.push(x)}
-    return {id:`MATH-${Date.now()}-${Math.random().toString(36).slice(2,8)}`,topic,question,correct:c,answers:shuffle([c,...dist.slice(0,3)]),explanation,difficulty,concept,qa:'procedural',source:'LatihKu AI Math Generator',alignment:'KPM/PDF-pattern aligned practice',itemType:'mcq',smart:true,smartSignature:`math|${topic}|${concept}`,...meta}
+    return {id:`MATH-${Date.now()}-${Math.random().toString(36).slice(2,8)}`,topic,question,correct:c,answers:shuffle([c,...dist.slice(0,3)]),explanation,difficulty,concept,qa:'procedural',source:'LatihKu Math Generator',alignment:'KPM/PDF-pattern aligned practice',itemType:'mcq',smart:true,smartSignature:`math|${topic}|${concept}`,...meta}
   };
-  const qs=(topic,question,correct,explanation,difficulty='sederhana',concept='math-short',meta={})=>({id:`MATH-${Date.now()}-${Math.random().toString(36).slice(2,8)}`,topic,question,correct:String(correct),answers:[],explanation,difficulty,concept,qa:'procedural',source:'LatihKu AI Math Generator',alignment:'KPM UASA pattern',itemType:'short',smart:true,smartSignature:`math|${topic}|${concept}`,...meta});
+  const qs=(topic,question,correct,explanation,difficulty='sederhana',concept='math-short',meta={})=>({id:`MATH-${Date.now()}-${Math.random().toString(36).slice(2,8)}`,topic,question,correct:String(correct),answers:[],explanation,difficulty,concept,qa:'procedural',source:'LatihKu Math Generator',alignment:'KPM UASA pattern',itemType:'short',smart:true,smartSignature:`math|${topic}|${concept}`,...meta});
   const fmt=n=>Number(n).toLocaleString('ms-MY',{maximumFractionDigits:2});
 
+  async function tutorItems(level,subject,topic){
+    const all=packInfo(level,subject)?await loadPack(level,subject):await makeSet(level,subject,topic,20,'auto');
+    const generated=await makeSet(level,subject,topic,20,'auto',{seenIds:all.map(x=>String(x.id))});
+    const seen=new Set(),items=[];
+    for(const item of [...shuffle(all),...generated]){
+      const key=JSON.stringify([String(item.question).trim().toLowerCase(),String(item.correct)]);
+      if(item.topic!==topic||item.itemType==='short'||!validateItem(item)||seen.has(key))continue;
+      seen.add(key);items.push(cloneQuestion(item));
+    }
+    if(items.length<4)throw new Error('Topik ini belum mempunyai cukup contoh tutor. Sila gunakan latihan topik ini dahulu.');
+    return items;
+  }
   function subjectMeta(id){return C.subjects[id]}
   function availableSubjects(level){return Object.entries(C.subjects).filter(([,s])=>s.years.includes(level)).map(([id,s])=>({id,...s}))}
   function packInfo(level,subject){return C.packs[`${level}:${subject}`]||null}
@@ -120,7 +132,7 @@ window.LATIH_ENGINE = (() => {
   function mathShape(level,diff){const facts=[['Bentuk 2D yang mempunyai 3 sisi ialah…','Segi tiga',['Segi empat sama','Bulatan','Segi lima'],'Segi tiga mempunyai tiga sisi.'],['Bentuk 3D yang mempunyai 6 permukaan segi empat sama ialah…','Kubus',['Kon','Sfera','Silinder'],'Kubus mempunyai enam permukaan segi empat sama.'],['Bentuk yang tiada sisi lurus ialah…','Bulatan',['Segi tiga','Segi empat tepat','Segi lima'],'Bulatan mempunyai garisan melengkung tanpa sisi lurus.']];if(+level>=4&&Math.random()>.45){const l=ri(2,15),w=ri(2,12),ans=l*w;return q('Bentuk & Ruang',`Sebuah segi empat tepat mempunyai panjang ${l} cm dan lebar ${w} cm. Berapakah luasnya?`,`${ans} cm²`,[`${2*(l+w)} cm²`,`${l+w} cm²`,`${ans+2} cm²`],`Luas segi empat tepat = panjang × lebar = ${l} × ${w} = ${ans} cm².`,diff,`area-${l}-${w}`)}const f=pick(facts);return q('Bentuk & Ruang',f[0],f[1],f[2],f[3],diff,`shape-${f[1]}`)}
   function mathData(level,diff){const vals=Array.from({length:diff==='sukar'?6:4},()=>ri(2,20));if(+level>=5&&diff!=='mudah'){const sum=vals.reduce((a,b)=>a+b,0);const adjusted=[...vals];const rem=sum%vals.length;if(rem)adjusted[adjusted.length-1]+=vals.length-rem;const s=adjusted.reduce((a,b)=>a+b,0),mean=s/adjusted.length;return q('Data',`Data: ${adjusted.join(', ')}. Apakah min (purata) data tersebut?`,mean,[mean+1,Math.max(0,mean-1),Math.max(...adjusted)],`Jumlah ${s} dibahagi ${adjusted.length} = ${mean}.`,diff,`mean-${adjusted.join('-')}`)}const max=Math.max(...vals);return q('Data',`Data: ${vals.join(', ')}. Nilai tertinggi ialah…`,max,[Math.min(...vals),max+1,Math.max(0,max-1)],`Cari nombor paling besar dalam set data.`,diff,`max-${vals.join('-')}`)}
   function normalizeAnswer(v){return String(v??'').toLowerCase().trim().replace(/\s+/g,' ').replace(/,/g,'').replace(/^rm\s*/,'rm')}
-  function toShort(item){return qs(item.topic,item.question,item.correct,item.explanation,item.difficulty,item.concept+'-short',{source:item.source||'LatihKu Original',alignment:'KPM UASA pattern',visual:item.visual||undefined});}
+  function toShort(item){if(!/^(next-|before-|place-|add-|sub-|mul-|div-|fracadd-|moneyadd-|change-|clock-|cm-|kg-|area-|mean-|max-)/.test(item.concept||''))return item;return qs(item.topic,item.question,item.correct,item.explanation,item.difficulty,item.concept+'-short',{source:item.source||'LatihKu Original',alignment:'KPM UASA pattern',visual:item.visual||undefined});}
   function validateItem(item){
     if(!item||typeof item.question!=='string'||!item.question.trim()||item.correct===undefined||!String(item.correct).trim()||!item.topic||!['mudah','sederhana','sukar','uasa'].includes(item.difficulty)||!String(item.explanation||'').trim())return false;
     if(item.itemType==='short')return true;
@@ -177,5 +189,6 @@ window.LATIH_ENGINE = (() => {
   function clearMemory(){memory.clear()}
   function totalStatic(){return Object.values(C.packs).reduce((a,p)=>a+p.count,0)}
   function totalBytes(){return Object.values(C.packs).reduce((a,p)=>a+(p.bytes||0),0)}
-  return {availableSubjects,subjectMeta,packInfo,makeSet,downloadAll,clearMemory,totalStatic,totalBytes,normalizeAnswer,validateItem};
+  return {tutorItems,availableSubjects,subjectMeta,packInfo,makeSet,downloadAll,clearMemory,totalStatic,totalBytes,normalizeAnswer,validateItem};
 })();
+

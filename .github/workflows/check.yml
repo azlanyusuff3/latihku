@@ -9,6 +9,7 @@ jobs:
         with:
           node-version: '22'
       - run: node tests/check.mjs
+      - run: node tests/tutor-regression.mjs
       - run: node tests/games.mjs
       - run: node tests/phase2.mjs
       - run: node tests/word-problems.mjs
@@ -26,6 +27,7 @@ jobs:
       - name: General browser and offline regression
         run: |
           export CHROMIUM_EXECUTABLE="$(command -v google-chrome || command -v chromium)"
+          node tests/tutor-browser.cjs
           node tests/general-browser.cjs
           node tests/word-browser.cjs
           node tests/worm-browser.cjs
@@ -39,3 +41,4 @@ jobs:
           name: general-browser-screenshots
           path: .general-build-cache/latihku-general-*.png
           if-no-files-found: ignore
+
