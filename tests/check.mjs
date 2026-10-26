@@ -128,4 +128,10 @@ assert(generatedA.every(q=>q.smartSignature && !generatedB.some(x=>x.smartSignat
 const first=await E.makeSet('1','bm','Campur Semua',5,'auto',{});
 const second=await E.makeSet('1','bm','Campur Semua',5,'auto',{seenIds:first.map(q=>q.id)});
 assert.equal(first.filter(q=>second.some(x=>x.id===q.id)).length,0,'curated rotation before exhaustion');
+// Tolerant typed-answer marking.
+for(const [input,correct,ok] of [['5','RM5',true],['RM 5.00','RM5',true],['3.00','3:00',true],['pukul 3','3:00',true],['3:30','3:00',false],['1/2','2/4',true],['1/3','2/4',false],['5 cm','5 m',false],['24837','24,837',true],['fotosintisis','fotosintesis',true],['jantung','paru-paru',false]])
+  assert.equal(E.checkShort(input,{correct}),ok,`checkShort ${input} vs ${correct}`);
+// Curated items only appear in the years they are tagged for; no filler options anywhere.
+for(const [key,p] of Object.entries(C.packs)){if(key.startsWith('pra'))continue;const y=+key.split(':')[0];for(const q of JSON.parse(fs.readFileSync(new URL(p.url,root))).questions){if(q.years)assert(y>=q.years[0]&&y<=q.years[1],`${key} ${q.id} outside its year band`)}}
+for(const year of ['1','4','6'])for(const subject of ['bm','sci','moral']){const items=await E.makeSet(year,subject,'Campur Semua',30,'auto',{});assert(!items.some(q=>(q.answers||[]).some(a=>/^(Pilihan lain|Tidak berkaitan|Tiada jawapan di atas|Tiada perubahan)$/.test(a))),`${year}:${subject} filler option`);assert(!items.some(q=>/^(Cuba soalan ini|Soalan ulang kaji untuk)/.test(q.question)),`${year}:${subject} noisy prefix`)}
 console.log(`Checks passed: ${Object.keys(C.packs).length} packs, ${coloring.assets.length} coloring assets, ${generated} quiz items, state/timer/backup`);

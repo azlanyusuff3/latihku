@@ -282,198 +282,198 @@ window.LATIH_CONFIG = {
     },
     "1:bm": {
       "url": "data/1/bm.json",
-      "count": 51,
-      "bytes": 19413
+      "count": 32,
+      "bytes": 12114
     },
     "1:en": {
       "url": "data/1/en.json",
-      "count": 32,
-      "bytes": 11832
+      "count": 17,
+      "bytes": 6178
     },
     "1:sci": {
       "url": "data/1/sci.json",
-      "count": 32,
-      "bytes": 13274
+      "count": 15,
+      "bytes": 6293
     },
     "1:islam": {
       "url": "data/1/islam.json",
-      "count": 15,
-      "bytes": 5999
+      "count": 11,
+      "bytes": 4372
     },
     "1:moral": {
       "url": "data/1/moral.json",
-      "count": 12,
-      "bytes": 5370
+      "count": 5,
+      "bytes": 2341
     },
     "1:pjpk": {
       "url": "data/1/pjpk.json",
-      "count": 13,
-      "bytes": 6093
+      "count": 7,
+      "bytes": 3355
     },
     "2:bm": {
       "url": "data/2/bm.json",
-      "count": 51,
-      "bytes": 19470
+      "count": 49,
+      "bytes": 19076
     },
     "2:en": {
       "url": "data/2/en.json",
-      "count": 32,
-      "bytes": 11834
+      "count": 28,
+      "bytes": 10106
     },
     "2:sci": {
       "url": "data/2/sci.json",
-      "count": 32,
-      "bytes": 13274
+      "count": 22,
+      "bytes": 9450
     },
     "2:islam": {
       "url": "data/2/islam.json",
-      "count": 15,
-      "bytes": 5999
+      "count": 14,
+      "bytes": 5670
     },
     "2:moral": {
       "url": "data/2/moral.json",
-      "count": 12,
-      "bytes": 5370
+      "count": 6,
+      "bytes": 2815
     },
     "2:pjpk": {
       "url": "data/2/pjpk.json",
-      "count": 13,
-      "bytes": 6093
+      "count": 10,
+      "bytes": 4836
     },
     "3:bm": {
       "url": "data/3/bm.json",
-      "count": 83,
-      "bytes": 31243
+      "count": 58,
+      "bytes": 22774
     },
     "3:en": {
       "url": "data/3/en.json",
-      "count": 40,
-      "bytes": 14567
+      "count": 31,
+      "bytes": 11917
     },
     "3:sci": {
       "url": "data/3/sci.json",
-      "count": 40,
-      "bytes": 16814
+      "count": 25,
+      "bytes": 11066
     },
     "3:islam": {
       "url": "data/3/islam.json",
-      "count": 19,
-      "bytes": 7612
+      "count": 14,
+      "bytes": 5685
     },
     "3:moral": {
       "url": "data/3/moral.json",
-      "count": 12,
-      "bytes": 5370
+      "count": 8,
+      "bytes": 3724
     },
     "3:pjpk": {
       "url": "data/3/pjpk.json",
-      "count": 13,
-      "bytes": 6093
+      "count": 9,
+      "bytes": 4396
     },
     "4:bm": {
       "url": "data/4/bm.json",
-      "count": 83,
-      "bytes": 31340
+      "count": 53,
+      "bytes": 21397
     },
     "4:en": {
       "url": "data/4/en.json",
-      "count": 40,
-      "bytes": 14560
+      "count": 23,
+      "bytes": 9031
     },
     "4:sci": {
       "url": "data/4/sci.json",
-      "count": 40,
-      "bytes": 16814
+      "count": 20,
+      "bytes": 9050
     },
     "4:hist": {
       "url": "data/4/hist.json",
-      "count": 19,
-      "bytes": 8538
+      "count": 12,
+      "bytes": 5820
     },
     "4:islam": {
       "url": "data/4/islam.json",
-      "count": 19,
-      "bytes": 7688
+      "count": 7,
+      "bytes": 3031
     },
     "4:moral": {
       "url": "data/4/moral.json",
-      "count": 12,
-      "bytes": 5418
+      "count": 7,
+      "bytes": 3271
     },
     "4:pjpk": {
       "url": "data/4/pjpk.json",
-      "count": 13,
-      "bytes": 6145
+      "count": 6,
+      "bytes": 3095
     },
     "5:bm": {
       "url": "data/5/bm.json",
-      "count": 87,
-      "bytes": 33210
+      "count": 40,
+      "bytes": 16349
     },
     "5:en": {
       "url": "data/5/en.json",
-      "count": 40,
-      "bytes": 14563
+      "count": 12,
+      "bytes": 5099
     },
     "5:sci": {
       "url": "data/5/sci.json",
-      "count": 40,
-      "bytes": 16750
+      "count": 19,
+      "bytes": 8670
     },
     "5:hist": {
       "url": "data/5/hist.json",
-      "count": 19,
-      "bytes": 8614
+      "count": 9,
+      "bytes": 4172
     },
     "5:islam": {
       "url": "data/5/islam.json",
-      "count": 19,
-      "bytes": 7688
+      "count": 6,
+      "bytes": 2587
     },
     "5:moral": {
       "url": "data/5/moral.json",
-      "count": 12,
-      "bytes": 5418
+      "count": 6,
+      "bytes": 2813
     },
     "5:pjpk": {
       "url": "data/5/pjpk.json",
-      "count": 13,
-      "bytes": 6145
+      "count": 3,
+      "bytes": 1626
     },
     "6:bm": {
       "url": "data/6/bm.json",
-      "count": 87,
-      "bytes": 33303
+      "count": 23,
+      "bytes": 9460
     },
     "6:en": {
       "url": "data/6/en.json",
-      "count": 40,
-      "bytes": 14569
+      "count": 1,
+      "bytes": 488
     },
     "6:sci": {
       "url": "data/6/sci.json",
-      "count": 40,
-      "bytes": 16750
+      "count": 13,
+      "bytes": 5861
     },
     "6:hist": {
       "url": "data/6/hist.json",
-      "count": 19,
-      "bytes": 8614
+      "count": 7,
+      "bytes": 3130
     },
     "6:islam": {
       "url": "data/6/islam.json",
-      "count": 19,
-      "bytes": 7688
+      "count": 4,
+      "bytes": 1788
     },
     "6:moral": {
       "url": "data/6/moral.json",
-      "count": 12,
-      "bytes": 5418
+      "count": 3,
+      "bytes": 1417
     },
     "6:pjpk": {
       "url": "data/6/pjpk.json",
-      "count": 13,
-      "bytes": 6145
+      "count": 1,
+      "bytes": 603
     }
   },
   "counts": {

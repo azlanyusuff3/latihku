@@ -1,10 +1,14 @@
-# LatihKu v24.7.0
+# LatihKu v24.9.0
 
 LatihKu is a local-first and offline-first learning and practice PWA for Malaysian **Sekolah Kebangsaan** pupils from Pra to Tahun 6. It uses vanilla HTML, CSS and JavaScript, with no account, backend, cloud database, remote AI API or build step. Host the static repository over HTTPS, such as GitHub Pages, or run it on localhost for development.
 
 ## Navigation and learning
 
 The six tabs are **Utama**, **Latihan**, **General**, **Pra**, **Prestasi** and **Tetapan**. Choose a year and a supported SK subject, then a topic and a practice mode. For Tahun 1–6, the practice screen now offers **5, 10, 20, 30 or 50 questions** per set across SK subjects. Latihan Biasa gives feedback while answering; Mode Ujian reviews at the end; Format UASA is available for supported years and subjects and is practice rather than an official paper. Difficulty and question count are under Pilihan lanjut. Pra includes early activities and Buku Mewarna with 236 worksheets. The adaptive learning flow, visual explanations, mastery, response timing and Smart Practice run entirely on the device. Curated JSON questions take priority; procedural Smart and PDF pattern generators provide further items. No generated content is sent to a server.
+
+## Soalan ikut tahun (v24.9.0)
+
+Setiap soalan dalam bank JSON kini ditag dengan julat tahun (`years`), dan setiap pek tahun hanya mengandungi soalan yang sesuai untuk tahun itu. Smart Generator juga ditag ikut tahun (contoh: gigi kacip/taring pada Tahun 3, litar bersiri/selari pada Tahun 5, gerhana pada Tahun 6) dan setiap soalan membawa pilihan salah daripada konsep yang sama, jadi murid tidak boleh meneka dengan menyingkir pilihan yang tidak masuk akal. Matematik mengikut julat DSKP (contoh: Tahun 1 hingga 100, sifir 2/5/10/3/4 pada Tahun 2, isi padu pada Tahun 6). Jawapan bertaip dalam Format UASA disemak dengan toleran: `5` untuk RM5, `3.00` atau `pukul 3` untuk 3:00, pecahan setara dan salah ejaan kecil diterima. Jika sesuatu topik kecil tidak cukup soalan unik untuk set besar, set itu ditambah dengan topik lain bagi tahun yang sama; soalan tidak diulang dalam satu set.
 
 ## Progress and upgrades
 
