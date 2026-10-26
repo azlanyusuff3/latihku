@@ -45,12 +45,13 @@ for(let i=0;i<80;i++){
 }
 assert(Object.keys(seen).length>=10,'Sudoku variations are randomized');
 const index=read('index.html'),sw=read('sw.js'),app=read('app.js'),css=read('games.css'),version=read('version.js');
+vm.runInContext(version,sandbox);const release=sandbox.LATIH_VERSION;assert.match(release,/^\d+\.\d+\.\d+$/);
 for(const name of ['games.css','phase2-games.css','phase2-data.js','phase2-games.js','games.js','spot-scenes.js','spot-extra-scenes.js','cartoon-animals.js','cartoon-vehicles.js','cartoon-fruits.js','cartoon-nature.js','cartoon-fun.js','puzzle-cartoons.js']){
- assert(index.includes(name+'?v=24.8.1'),name+' linked');
+ assert(index.includes(name+'?v='+release),name+' linked');
  assert(sw.includes("'"+name+"'"),name+' cached offline');
 }
-assert(version.includes('24.8.1'));
-assert(index.includes('app.js?v=24.8.1'));
+assert(JSON.parse(read('manifest.json')).start_url.includes(release));
+assert(index.includes('app.js?v='+release));
 assert(app.includes("['games','Games']"));
 assert(app.includes("GAMES.home()"));
 assert(css.includes('@media(max-width:460px)'));
@@ -65,3 +66,4 @@ assert(read('games.js').includes('LATIH_CARTOONS.image'));
 assert(read('games.js').includes('data-sudoku-level'));
 assert(read('games.js').includes('lg-memory-card'));
 console.log('Kids Games checks passed: 10 Games menu cards, 5 nested puzzle categories, 76 cartoon SVGs, 20 Spot scenes, 4 Phase 2 games.');
+
